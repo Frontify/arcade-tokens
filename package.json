@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/Frontify/arcade-tokens/issues"
   },
-  "homepage": "https://github.com/Frontify/arcade-tokens#readme"
+  "homepage": "https://github.com/Frontify/arcade-tokens#readme",
+  "devDependencies": {
+    "style-dictionary": "^3.0.3"
+  }
 }
