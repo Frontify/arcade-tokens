@@ -1,3 +1,11 @@
-const StyleDictionary = require("style-dictionary").extend("config.json");
+const styleDictionary = require("style-dictionary");
+const config = require("./config.json");
+const colorThemes = ["light", "light-alternative", "dark", "dark-alternative"];
 
-StyleDictionary.buildAllPlatforms();
+colorThemes.map((theme) => {
+  for (platform in config.platforms) {
+    const themeConfig = JSON.parse(JSON.stringify(config));
+    themeConfig.platforms[platform].buildPath += theme + "/";
+    styleDictionary.extend(themeConfig).buildAllPlatforms();
+  }
+});
