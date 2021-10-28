@@ -1,0 +1,25 @@
+{
+  "name": "arcade-tokens",
+  "version": "0.1.0",
+  "description": "Single source of truth for Arcade Design Tokens",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Frontify/arcade-tokens.git"
+  },
+  "keywords": [
+    "arcade",
+    "design",
+    "tokens",
+    "variables"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Frontify/arcade-tokens/issues"
+  },
+  "homepage": "https://github.com/Frontify/arcade-tokens#readme"
+}
