@@ -5,7 +5,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "build": "style-dictionary build"
+    "build": "node build.js"
   },
   "repository": {
     "type": "git",
