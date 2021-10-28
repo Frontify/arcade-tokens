@@ -4,7 +4,9 @@
   "description": "Single source of truth for Arcade Design Tokens",
   "private": true,
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "build": "style-dictionary build"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Frontify/arcade-tokens.git"
