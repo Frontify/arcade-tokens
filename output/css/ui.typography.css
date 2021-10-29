@@ -1,0 +1,24 @@
+/**
+ * Do not edit directly
+ * Generated on Fri, 29 Oct 2021 09:52:41 GMT
+ */
+
+:root {
+  --body-font-family: SpaceGroteskFrontify;
+  --body-01-size: 14rem;
+  --body-01-font-weight: 400;
+  --body-02-size: 16rem;
+  --body-02-font-weight: 400;
+  --heading-font-family: SpaceGroteskFrontify;
+  --heading-01-size: 14rem;
+  --heading-01-font-weight: 600;
+  --heading-02-size: 16rem;
+  --heading-02-font-weight: 600;
+  --heading-03-size: 24rem;
+  --heading-03-font-weight: 600;
+  --code-font-family: Menlo;
+  --code-01-size: 14rem;
+  --code-01-font-weight: 400;
+  --code-02-size: 16rem;
+  --code-02-font-weight: 400;
+}

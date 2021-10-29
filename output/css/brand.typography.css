@@ -1,0 +1,21 @@
+/**
+ * Do not edit directly
+ * Generated on Fri, 29 Oct 2021 09:52:41 GMT
+ */
+
+:root {
+  --brand-font-space-grotesk-family: SpaceGroteskFrontify;
+  --brand-font-space-grotesk-regular-name: SpaceGroteskFrontifyRegular;
+  --brand-font-space-grotesk-regular-weight: 400;
+  --brand-font-space-grotesk-medium-name: SpaceGroteskFrontifyMedium;
+  --brand-font-space-grotesk-medium-weight: 500;
+  --brand-font-space-grotesk-semi-bold-name: SpaceGroteskFrontifySemiBold;
+  --brand-font-space-grotesk-semi-bold-weight: 600;
+  --brand-font-space-grotesk-bold-name: SpaceGroteskFrontifySemiBold;
+  --brand-font-space-grotesk-bold-weight: 700;
+  --brand-font-menlo-family: Menlo;
+  --brand-font-menlo-regular-name: MenloRegular;
+  --brand-font-menlo-regular-weight: 400;
+  --brand-font-menlo-bold-name: MenloBold;
+  --brand-font-menlo-bold-weight: 700;
+}
