@@ -1,21 +1,42 @@
 module.exports = {
-  source: ["tokens/**/*.json"],
+  source: ["tokens/**/*.js"],
   platforms: {
     css: {
       transformGroup: "css",
       buildPath: "build/css/",
       files: [
         {
-          destination: "variables.css",
+          destination: "brand.css",
           format: "css/variables",
+          filter: (token) => {
+            return token.filePath.indexOf(`brand.`) > -1;
+          },
+        },
+        {
+          destination: "ui.css",
+          format: "css/variables",
+          filter: (token) => {
+            return token.filePath.indexOf(`ui.`) > -1;
+          },
         },
       ],
       options: {
-        // this will keep token references intact so that we don't need
-        // to generate *all* color resources for dark mode, only
-        // the specific ones that change
-        outputReferences: true,
+        outputReferences: false, // Uses variables as values rather than interpolating them
       },
+    },
+    android: {
+      transformGroup: "android",
+      buildPath: "build/android/",
+      files: [
+        {
+          destination: "font_dimens.xml",
+          format: "android/fontDimens",
+        },
+        {
+          destination: "colors.xml",
+          format: "android/colors",
+        },
+      ],
     },
   },
 };
