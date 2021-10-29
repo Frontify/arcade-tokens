@@ -2,7 +2,7 @@
 
 <!--
   Do not edit directly
-  Generated on Fri, 29 Oct 2021 09:52:41 GMT
+  Generated on Fri, 29 Oct 2021 11:01:44 GMT
 -->
 <resources>
   <color name="brand_color_off_white">#ffff0000</color>
@@ -20,20 +20,35 @@
   <color name="brand_color_red_bright">#ff00ff00</color>
   <color name="brand_color_red_mid">#ff00ff00</color>
   <color name="brand_color_red_pastel">#ff00ff00</color>
-  <color name="color_off_white">#ffff0000</color>
-  <color name="color_charcoal">#ffff0000</color>
-  <color name="color_warm_grey">#ff00ff00</color>
-  <color name="color_violet_bright">#ff00ff00</color>
-  <color name="color_violet_mid">#ff00ff00</color>
-  <color name="color_violet_pastel">#ff00ff00</color>
-  <color name="color_green_bright">#ff00ff00</color>
-  <color name="color_green_mid">#ff00ff00</color>
-  <color name="color_green_pastel">#ff00ff00</color>
-  <color name="color_yellow_bright">#ff00ff00</color>
-  <color name="color_yellow_mid">#ff00ff00</color>
-  <color name="color_yellow_pastel">#ff00ff00</color>
-  <color name="color_red_bright">#ff00ff00</color>
-  <color name="color_red_mid">#ff00ff00</color>
-  <color name="color_red_pastel">#ff00ff00</color>
+  <color name="color_neutral_1">#ff00ff00</color>
+  <color name="color_neutral_2">#ff00ff00</color>
+  <color name="color_neutral_3">#ff00ff00</color>
+  <color name="color_neutral_4">#ff00ff00</color>
+  <color name="color_neutral_5">#ff00ff00</color>
+  <color name="color_neutral_6">#ff00ff00</color>
+  <color name="color_neutral_7">#ff00ff00</color>
+  <color name="color_neutral_8">#ff00ff00</color>
+  <color name="color_neutral_9">#ff00ff00</color>
+  <color name="color_neutral_10">#ff00ff00</color>
+  <color name="color_selected_1">#ff00ff00</color>
+  <color name="color_selected_2">#ff00ff00</color>
+  <color name="color_selected_3">#ff00ff00</color>
+  <color name="color_selected_4">#ff00ff00</color>
+  <color name="color_negative_1">#ff00ff00</color>
+  <color name="color_negative_2">#ff00ff00</color>
+  <color name="color_negative_3">#ff00ff00</color>
+  <color name="color_negative_4">#ff00ff00</color>
+  <color name="color_warning_1">#ff00ff00</color>
+  <color name="color_warning_2">#ff00ff00</color>
+  <color name="color_warning_3">#ff00ff00</color>
+  <color name="color_warning_4">#ff00ff00</color>
+  <color name="color_positive_1">#ff00ff00</color>
+  <color name="color_positive_2">#ff00ff00</color>
+  <color name="color_positive_3">#ff00ff00</color>
+  <color name="color_positive_4">#ff00ff00</color>
+  <color name="color_beta_1">#ff00ff00</color>
+  <color name="color_beta_2">#ff00ff00</color>
+  <color name="color_beta_3">#ff00ff00</color>
+  <color name="color_beta_4">#ff00ff00</color>
   
 </resources>

@@ -4,39 +4,39 @@ module.exports = {
       value: "{brand.font.spaceGrotesk.family.value}",
       attributes: { category: "font" },
     },
-    "01": {
-      size: {
-        value: "14",
-        attributes: { category: "size", type: "font" },
-      },
+    01: {
       fontWeight: {
         value: "{brand.font.spaceGrotesk.regular.weight.value}",
         attributes: { category: "font", type: "weight" },
       },
+      size: {
+        value: 14,
+        attributes: { category: "size", type: "font" },
+      },
       lineHeight: {
-        value: "18",
+        value: 18,
         attributes: { category: "size", type: "line-height" },
       },
       lineHeightLong: {
-        value: "22",
+        value: 22,
         attributes: { category: "size", type: "line-height" },
       },
     },
-    "02": {
-      size: {
-        value: "16",
-        attributes: { category: "size", type: "font" },
-      },
+    02: {
       fontWeight: {
         value: "{brand.font.spaceGrotesk.regular.weight.value}",
         attributes: { category: "font", type: "weight" },
       },
+      size: {
+        value: 16,
+        attributes: { category: "size", type: "font" },
+      },
       lineHeight: {
-        value: "22",
+        value: 22,
         attributes: { category: "size", type: "line-height" },
       },
       longLineHeight: {
-        value: "24",
+        value: 24,
         attributes: { category: "size", type: "line-height" },
       },
     },
@@ -46,45 +46,45 @@ module.exports = {
       value: "{brand.font.spaceGrotesk.family.value}",
       attributes: { category: "font" },
     },
-    "01": {
-      size: {
-        value: "14",
-        attributes: { category: "size", type: "font" },
-      },
+    01: {
       fontWeight: {
         value: "{brand.font.spaceGrotesk.semiBold.weight.value}",
         attributes: { category: "font", type: "weight" },
       },
+      size: {
+        value: 14,
+        attributes: { category: "size", type: "font" },
+      },
       lineHeight: {
-        value: "18",
+        value: 18,
         attributes: { category: "size", type: "line-height" },
       },
     },
-    "02": {
-      size: {
-        value: "16",
-        attributes: { category: "size", type: "font" },
-      },
+    02: {
       fontWeight: {
         value: "{brand.font.spaceGrotesk.semiBold.weight.value}",
         attributes: { category: "font", type: "weight" },
       },
+      size: {
+        value: 16,
+        attributes: { category: "size", type: "font" },
+      },
       lineHeight: {
-        value: "22",
+        value: 22,
         attributes: { category: "size", type: "line-height" },
       },
     },
-    "03": {
-      size: {
-        value: "24",
-        attributes: { category: "size", type: "font" },
-      },
+    03: {
       fontWeight: {
         value: "{brand.font.spaceGrotesk.semiBold.weight.value}",
         attributes: { category: "font", type: "weight" },
       },
+      size: {
+        value: 24,
+        attributes: { category: "size", type: "font" },
+      },
       lineHeight: {
-        value: "28",
+        value: 28,
         attributes: { category: "size", type: "line-height" },
       },
     },
@@ -94,31 +94,31 @@ module.exports = {
       value: "{brand.font.menlo.family.value}",
       attributes: { category: "font" },
     },
-    "01": {
-      size: {
-        value: "14",
-        attributes: { category: "size", type: "font" },
-      },
+    01: {
       fontWeight: {
         value: "{brand.font.menlo.regular.weight.value}",
         attributes: { category: "font", type: "weight" },
       },
+      size: {
+        value: 14,
+        attributes: { category: "size", type: "font" },
+      },
       lineHeight: {
-        value: "18",
+        value: 18,
         attributes: { category: "size", type: "line-height" },
       },
     },
-    "02": {
-      size: {
-        value: "16",
-        attributes: { category: "size", type: "font" },
-      },
+    02: {
       fontWeight: {
         value: "{brand.font.menlo.regular.weight.value}",
         attributes: { category: "font", type: "weight" },
       },
+      size: {
+        value: 16,
+        attributes: { category: "size", type: "font" },
+      },
       lineHeight: {
-        value: "22",
+        value: 22,
         attributes: { category: "size", type: "line-height" },
       },
     },

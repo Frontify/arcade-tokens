@@ -1,24 +1,24 @@
 /**
  * Do not edit directly
- * Generated on Fri, 29 Oct 2021 09:52:41 GMT
+ * Generated on Fri, 29 Oct 2021 11:01:44 GMT
  */
 
 :root {
+  --body-1-font-weight: 400;
+  --body-1-size: 14rem;
+  --body-2-font-weight: 400;
+  --body-2-size: 16rem;
   --body-font-family: SpaceGroteskFrontify;
-  --body-01-size: 14rem;
-  --body-01-font-weight: 400;
-  --body-02-size: 16rem;
-  --body-02-font-weight: 400;
+  --heading-1-font-weight: 600;
+  --heading-1-size: 14rem;
+  --heading-2-font-weight: 600;
+  --heading-2-size: 16rem;
+  --heading-3-font-weight: 600;
+  --heading-3-size: 24rem;
   --heading-font-family: SpaceGroteskFrontify;
-  --heading-01-size: 14rem;
-  --heading-01-font-weight: 600;
-  --heading-02-size: 16rem;
-  --heading-02-font-weight: 600;
-  --heading-03-size: 24rem;
-  --heading-03-font-weight: 600;
+  --code-1-font-weight: 400;
+  --code-1-size: 14rem;
+  --code-2-font-weight: 400;
+  --code-2-size: 16rem;
   --code-font-family: Menlo;
-  --code-01-size: 14rem;
-  --code-01-font-weight: 400;
-  --code-02-size: 16rem;
-  --code-02-font-weight: 400;
 }

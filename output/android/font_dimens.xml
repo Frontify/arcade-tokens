@@ -2,15 +2,15 @@
 
 <!--
   Do not edit directly
-  Generated on Fri, 29 Oct 2021 09:52:41 GMT
+  Generated on Fri, 29 Oct 2021 11:01:44 GMT
 -->
 <resources>
-  <dimen name="body_01_size">224.00sp</dimen>
-  <dimen name="body_02_size">256.00sp</dimen>
-  <dimen name="heading_01_size">224.00sp</dimen>
-  <dimen name="heading_02_size">256.00sp</dimen>
-  <dimen name="heading_03_size">384.00sp</dimen>
-  <dimen name="code_01_size">224.00sp</dimen>
-  <dimen name="code_02_size">256.00sp</dimen>
+  <dimen name="body_1_size">224.00sp</dimen>
+  <dimen name="body_2_size">256.00sp</dimen>
+  <dimen name="heading_1_size">224.00sp</dimen>
+  <dimen name="heading_2_size">256.00sp</dimen>
+  <dimen name="heading_3_size">384.00sp</dimen>
+  <dimen name="code_1_size">224.00sp</dimen>
+  <dimen name="code_2_size">256.00sp</dimen>
   
 </resources>
