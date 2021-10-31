@@ -1,12 +1,12 @@
 module.exports = {
   body: {
     fontFamily: {
-      value: "{brand.font.spaceGrotesk.family.value}",
+      value: "{palette.brand.font.spaceGrotesk.family.value}",
       attributes: { category: "font" },
     },
     01: {
       fontWeight: {
-        value: "{brand.font.spaceGrotesk.regular.weight.value}",
+        value: "{palette.brand.font.spaceGrotesk.regular.weight.value}",
         attributes: { category: "font", type: "weight" },
       },
       size: {
@@ -24,7 +24,7 @@ module.exports = {
     },
     02: {
       fontWeight: {
-        value: "{brand.font.spaceGrotesk.regular.weight.value}",
+        value: "{palette.brand.font.spaceGrotesk.regular.weight.value}",
         attributes: { category: "font", type: "weight" },
       },
       size: {
@@ -43,12 +43,12 @@ module.exports = {
   },
   heading: {
     fontFamily: {
-      value: "{brand.font.spaceGrotesk.family.value}",
+      value: "{palette.brand.font.spaceGrotesk.family.value}",
       attributes: { category: "font" },
     },
     01: {
       fontWeight: {
-        value: "{brand.font.spaceGrotesk.semiBold.weight.value}",
+        value: "{palette.brand.font.spaceGrotesk.semiBold.weight.value}",
         attributes: { category: "font", type: "weight" },
       },
       size: {
@@ -62,7 +62,7 @@ module.exports = {
     },
     02: {
       fontWeight: {
-        value: "{brand.font.spaceGrotesk.semiBold.weight.value}",
+        value: "{palette.brand.font.spaceGrotesk.semiBold.weight.value}",
         attributes: { category: "font", type: "weight" },
       },
       size: {
@@ -76,7 +76,7 @@ module.exports = {
     },
     03: {
       fontWeight: {
-        value: "{brand.font.spaceGrotesk.semiBold.weight.value}",
+        value: "{palette.brand.font.spaceGrotesk.semiBold.weight.value}",
         attributes: { category: "font", type: "weight" },
       },
       size: {
@@ -91,12 +91,12 @@ module.exports = {
   },
   code: {
     fontFamily: {
-      value: "{brand.font.menlo.family.value}",
+      value: "{palette.brand.font.menlo.family.value}",
       attributes: { category: "font" },
     },
     01: {
       fontWeight: {
-        value: "{brand.font.menlo.regular.weight.value}",
+        value: "{palette.brand.font.menlo.regular.weight.value}",
         attributes: { category: "font", type: "weight" },
       },
       size: {
@@ -110,7 +110,7 @@ module.exports = {
     },
     02: {
       fontWeight: {
-        value: "{brand.font.menlo.regular.weight.value}",
+        value: "{palette.brand.font.menlo.regular.weight.value}",
         attributes: { category: "font", type: "weight" },
       },
       size: {
