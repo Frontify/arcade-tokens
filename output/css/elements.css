@@ -1,0 +1,16 @@
+/**
+ * Do not edit directly
+ * Generated on Tue, 02 Nov 2021 12:52:24 GMT
+ */
+
+:root {
+  --button-font-weight: 500;
+  --checkbox-border-width: var(--thickness-medium);
+  --input-disabled-border-color: var(--color-border-02);
+  --input-hovered-border-color: var(--color-border-04);
+  --input-label-color: var(--color-text-04);
+  --input-border-color: var(--color-border-03);
+  --input-focused-border-color: var(--color-border-05);
+  --tooltip-background-color: var(--color-inverse-01);
+  --nook-color: var(--color-text-01);
+}

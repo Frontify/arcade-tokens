@@ -1,24 +1,44 @@
 /**
  * Do not edit directly
- * Generated on Sun, 31 Oct 2021 16:56:28 GMT
+ * Generated on Tue, 02 Nov 2021 12:52:24 GMT
  */
 
 :root {
-  --color-interactive-1: #ffffff;
-  --color-interactive-2: #ffffff;
-  --color-interactive-3: #ffffff;
-  --color-interactive-4: #ffffff;
-  --color-ui-1: #ffffff;
-  --color-ui-2: #ffffff;
-  --color-ui-3: #ffffff;
-  --color-ui-4: #ffffff;
-  --color-ui-5: #ffffff;
-  --color-text-1: #ffffff;
-  --color-text-2: #ffffff;
-  --color-text-3: #ffffff;
-  --color-text-4: #ffffff;
-  --color-link-1: #ffffff;
-  --color-link-2: #ffffff;
-  --color-focus-1: #ffffff;
-  --color-focus-2: #ffffff;
+  --color-base: #ffffff;
+  --color-lightest: #ffffff;
+  --color-darkest: #1a1d1d;
+  --color-inverse-01: #2d3232;
+  --color-inverse-02: #1a1d1d;
+  --color-box-01: #fafafa;
+  --color-box-01-hover: #f7f7f7;
+  --color-box-01-pressed: #eaebeb;
+  --color-box-02: #f7f7f7;
+  --color-box-02-hover: #eaebeb;
+  --color-box-02-pressed: #d5d6d6;
+  --color-box-03: #424747;
+  --color-box-03-hover: #2d3232;
+  --color-box-03-pressed: #1a1d1d;
+  --color-box-disabled: #fafafa;
+  --color-line-01: #eaebeb;
+  --color-line-02: #d5d6d6;
+  --color-border-01: #eaebeb;
+  --color-border-02: #d5d6d6;
+  --color-border-03: #c0c2c2;
+  --color-border-04: #b3b5b5;
+  --color-border-05: #2d3232;
+  --color-text-01: #2d3232;
+  --color-text-02: #424747;
+  --color-text-03: #575b5b;
+  --color-text-04: #5f6363;
+  --color-text-disabled: #abadad;
+  --color-link-01: #7c57ff;
+  --color-link-02: #6449c4;
+  --color-focus-01: #7c57ff;
+  --color-focus-02: #6449c4;
+  --color-positive: #00c8a5;
+  --color-positive-content: #ffffff;
+  --color-positive-border: #00a084;
+  --color-positive-hover: #00a084;
+  --color-positive-hover-content: #ffffff;
+  --color-positive-hover-border: #006452;
 }

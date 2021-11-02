@@ -1,24 +1,8 @@
 /**
  * Do not edit directly
- * Generated on Sun, 31 Oct 2021 16:56:28 GMT
+ * Generated on Tue, 02 Nov 2021 12:52:24 GMT
  */
 
 :root {
-  --color-interactive-1: #000000;
-  --color-interactive-2: #000000;
-  --color-interactive-3: #000000;
-  --color-interactive-4: #000000;
-  --color-ui-1: #000000;
-  --color-ui-2: #000000;
-  --color-ui-3: #000000;
-  --color-ui-4: #000000;
-  --color-ui-5: #000000;
-  --color-text-1: #000000;
-  --color-text-2: #000000;
-  --color-text-3: #000000;
-  --color-text-4: #000000;
-  --color-link-1: #000000;
-  --color-link-2: #000000;
-  --color-focus-1: #000000;
-  --color-focus-2: #000000;
+  --color-base: #fafafa;
 }

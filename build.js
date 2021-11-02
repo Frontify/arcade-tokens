@@ -41,12 +41,45 @@ const isTypography = (token) => {
   const isFontCategory = token.attributes.category === "font";
   const isSizeCategory = token.attributes.category === "size";
   const isFontType = token.attributes.type === "font";
-  return isToken(token) && (isFontCategory || (isSizeCategory && isFontType));
+  const isFontSize = isSizeCategory && isFontType;
+  return isToken(token) && (isFontCategory || isFontSize);
 };
-const isSpacing = (token) => {
-  return isToken(token) && token.filePath.indexOf(".spacing.") > -1;
+const isSize = (token) => {
+  return isToken(token) && token.filePath.indexOf(".sizes.") > -1;
+};
+const isElement = (token) => {
+  return isToken(token) && token.filePath.indexOf(".elements.") > -1;
+};
+const isThickness = (token) => {
+  return isToken(token) && token.attributes.type === "thickness";
 };
 
+/**
+ * CUSTOM TRANSFORMS
+ * -
+ */
+StyleDictionary.registerTransform({
+  type: `value`,
+  name: `revertRemToPX`,
+  matcher: (token) => {
+    return isThickness(token);
+  },
+  transformer: (token) => {
+    token.value === "0";
+  },
+});
+StyleDictionary.registerTransformGroup({
+  name: "css",
+  transforms: [
+    "attribute/cti",
+    "name/cti/kebab",
+    "time/seconds",
+    "content/icon",
+    "size/rem",
+    "revertRemToPX",
+    "color/css",
+  ],
+});
 /**
  * MAIN RUN
  * - Style dictionary does a deep merge of everything in input (except for theme files).
@@ -79,10 +112,20 @@ StyleDictionary.extend({
           },
         },
         {
-          destination: "spacing.css",
+          destination: "sizes.css",
           format: "css/variables",
           filter: (token) => {
-            return isSpacing(token);
+            return isSize(token);
+          },
+        },
+        {
+          destination: "elements.css",
+          format: "css/variables",
+          filter: (token) => {
+            return isElement(token);
+          },
+          options: {
+            outputReferences: true,
           },
         },
       ],
