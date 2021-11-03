@@ -1,5 +1,8 @@
 module.exports = {
-  body: {
+  font: {
+    _: {
+      family: { value: "{font.spaceGrotesk._.value}" },
+    },
     fontFamily: {
       value: "{font.spaceGrotesk._.value}",
       attributes: { category: "font" },
