@@ -6,7 +6,7 @@
 
 module.exports = {
   color: {
-    offWhite: { value: "#FAFAFA" },
+    offWhite: { value: "#FAFAFA", comment: "deprecating" },
     charcoal: { value: "#2D3232" },
     warmGrey: { value: "#E6DCDC" },
     violet: {
