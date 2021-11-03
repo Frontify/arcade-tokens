@@ -37,11 +37,7 @@ const isColor = (token) => {
   return isToken(token) && token.attributes.category === "color";
 };
 const isTypography = (token) => {
-  const isFontCategory = token.attributes.category === "font";
-  const isSizeCategory = token.attributes.category === "size";
-  const isFontType = token.attributes.type === "font";
-  const isFontSize = isSizeCategory && isFontType;
-  return isToken(token) && (isFontCategory || isFontSize);
+  return isToken(token) && token.filePath.indexOf(".typography.") > -1;
 };
 const isSize = (token) => {
   return isToken(token) && token.filePath.indexOf(".sizing.") > -1;
@@ -97,9 +93,9 @@ StyleDictionary.extend({
           filter: (token) => {
             return isElement(token);
           },
-          options: {
-            outputReferences: true,
-          }
+          // options: {
+          //   outputReferences: true,
+          // }
         },
       ],
     },

@@ -1,43 +1,34 @@
 /**
  * Do not edit directly
- * Generated on Wed, 03 Nov 2021 09:25:09 GMT
+ * Generated on Wed, 03 Nov 2021 11:21:47 GMT
  */
 
 :root {
-  --border-radius-3: 8px;
-  --border-radius-2: 4px;
-  --border-radius-1: 2px;
-  --line-width-3: 4px;
-  --line-width-2: 2px;
+  --text-color-1: #ffffff;
+  --text-color-2: #5f6363;
+  --text-color-3: #575b5b;
+  --text-color-4: #424747;
+  --text-color-5: #2d3232;
+  --text-color: #2d3232;
   --line-width-1: 1px;
-  --border-radius: var(--border-radius-1);
-  --border-width-3: var(--line-width-3);
-  --border-width-2: var(--line-width-2);
-  --border-width-1: var(--line-width-1);
-  --line-width: var(--line-width-1);
-  --text-weight-3: var(--font-space-grotesk-bold);
-  --text-weight-2: var(--font-space-grotesk-medium);
-  --text-weight-1: var(--font-space-grotesk-regular);
-  --text-font-bold: var(--font-space-grotesk-bold);
-  --text-font-medium: var(--font-space-grotesk-medium);
-  --text-font-regular: var(--font-space-grotesk-regular);
-  --text-font-family: var(--font-space-grotesk);
-  --button-font-weight: var(--text-weight-1);
-  --checkbox-border-width: var(--border-width-2);
-  --border-width: var(--border-width-1);
-  --border-color-4: var(--color-neutral-8);
-  --border-color-3: var(--color-neutral-6);
-  --border-color-2: var(--color-neutral-4);
-  --text-weight: var(--text-weight-1);
-  --text-font: var(--text-font-family);
-  --text-color-4: var(--color-neutral-14);
-  --text-color-3: var(--color-neutral-13);
-  --text-color-2: var(--color-neutral-12);
-  --text-color-1: var(--color-neutral-1);
-  --border-color: var(--border-color-3);
-  --border-color-1: var(--color-neutral-2);
-  --text-color-5: var(--color-neutral-15);
-  --input-border-color: var(--border-color);
-  --tooltip-background-color: var(--color-inverse);
-  --text-color: var(--text-color-5);
+  --line-width-2: 2px;
+  --line-width-3: 4px;
+  --line-width: 1px;
+  --border-color-1: #fafafa;
+  --border-color-2: #eaebeb;
+  --border-color-3: #c0c2c2;
+  --border-color-4: #abadad;
+  --border-color: #c0c2c2;
+  --border-width-1: 1px;
+  --border-width-2: 2px;
+  --border-width-3: 4px;
+  --border-width: 1px;
+  --border-radius-1: 2px;
+  --border-radius-2: 4px;
+  --border-radius-3: 8px;
+  --border-radius: 2px;
+  --tooltip-background-color: #2d3232;
+  --checkbox-border-width: 2px;
+  --button-font-weight: 400;
+  --input-border-color: #c0c2c2;
 }
