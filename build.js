@@ -2,7 +2,9 @@
  * MODULES
  */
 const StyleDictionary = require("style-dictionary");
+const { fileHeader } = StyleDictionary.formatHelpers;
 const fs = require("fs");
+const getTailwindTree = require("./scripts/getTailwindConfig");
 
 /**
  * FILE SYSTEM
@@ -50,6 +52,20 @@ const isThickness = (token) => {
 };
 
 /**
+ * FORMATS
+ * - These are used in each file's configuration options to determine which tokens should
+ * - be included in that file.
+ */
+
+StyleDictionary.registerFormat({
+  name: "tailwind",
+  formatter: ({ dictionary, file }) => {
+    const tree = getTailwindTree(dictionary.tokens);
+    return fileHeader({ file }) + "module.exports = " + tree + ";";
+  },
+});
+
+/**
  * MAIN RUN
  * - Style dictionary does a deep merge of everything in input (except for theme files).
  * - This ensures that there are no naming collisions, and that references are respected.
@@ -62,6 +78,19 @@ StyleDictionary.extend({
     `${inputDirectory}**/!(*.${colorThemes.join(`|*.`)}).${inputExtension}`,
   ],
   platforms: {
+    tailwind: {
+      transformGroup: "js",
+      buildPath: outputDirectory + "tailwind/",
+      files: [
+        {
+          destination: "tailwind.config.js",
+          format: "tailwind",
+          filter: (token) => {
+            return isToken(token);
+          },
+        },
+      ],
+    },
     css: {
       transformGroup: "css",
       buildPath: outputDirectory + "css/",

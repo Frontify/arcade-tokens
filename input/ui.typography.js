@@ -9,13 +9,18 @@ module.exports = {
       4 : { value: "{font.spaceGrotesk.bold.weight.value}" },
     },
     size: {
-      _ : { value: "{body.size.1._.value}" },
-      1: {
+      _ : { value: "{body.size.medium._.value}" },
+      small: {
         _              : { value: 1 },
         lineHeight     : { value: 1 },
         lineHeightLong : { value: 1 }
       },
-      2: {
+      medium: {
+        _              : { value: 2 },
+        lineHeight     : { value: 2 },
+        lineHeightLong : { value: 2 }
+      },
+      large: {
         _              : { value: 2 },
         lineHeight     : { value: 2 },
         lineHeightLong : { value: 2 }
@@ -32,13 +37,18 @@ module.exports = {
       4 : { value: "{font.spaceGrotesk.bold.weight.value}" },
     },
     size: {
-      _ : { value: "{heading.size.1._.value}" },
-      1: {
+      _ : { value: "{heading.size.medium._.value}" },
+      small: {
         _              : { value: 1 },
         lineHeight     : { value: 1 },
         lineHeightLong : { value: 1 }
       },
-      2: {
+      medium: {
+        _              : { value: 2 },
+        lineHeight     : { value: 2 },
+        lineHeightLong : { value: 2 }
+      },
+      large: {
         _              : { value: 2 },
         lineHeight     : { value: 2 },
         lineHeightLong : { value: 2 }
@@ -53,13 +63,18 @@ module.exports = {
       2 : { value: "{font.spaceGrotesk.bold.weight.value}" },
     },
     size: {
-      _ : { value: "{code.size.1._.value}" },
-      1: {
+      _ : { value: "{code.size.medium._.value}" },
+      small: {
         _              : { value: 1 },
         lineHeight     : { value: 1 },
         lineHeightLong : { value: 1 }
       },
-      2: {
+      medium: {
+        _              : { value: 2 },
+        lineHeight     : { value: 2 },
+        lineHeightLong : { value: 2 }
+      },
+      large: {
         _              : { value: 2 },
         lineHeight     : { value: 2 },
         lineHeightLong : { value: 2 }
