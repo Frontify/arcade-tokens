@@ -8,9 +8,4 @@ module.exports = {
     xLarge: { value: 2, attributes: { category: "size", type: "spacing" } },
     xxLarge: { value: 2.5, attributes: { category: "size", type: "spacing" } },
   },
-  thickness: {
-    small: { value: "1px" },
-    medium: { value: "2px" },
-    large: { value: "4px" },
-  },
 };

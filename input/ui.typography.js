@@ -1,7 +1,7 @@
 module.exports = {
   body: {
     fontFamily: {
-      value: "{font.spaceGrotesk.family.value}",
+      value: "{font.spaceGrotesk._.value}",
       attributes: { category: "font" },
     },
     01: {
@@ -43,7 +43,7 @@ module.exports = {
   },
   heading: {
     fontFamily: {
-      value: "{font.spaceGrotesk.family.value}",
+      value: "{font.spaceGrotesk._.value}",
       attributes: { category: "font" },
     },
     01: {
@@ -91,7 +91,7 @@ module.exports = {
   },
   code: {
     fontFamily: {
-      value: "{font.menlo.family.value}",
+      value: "{font.menlo._.value}",
       attributes: { category: "font" },
     },
     01: {

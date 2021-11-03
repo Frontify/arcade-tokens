@@ -1,16 +1,43 @@
 /**
  * Do not edit directly
- * Generated on Tue, 02 Nov 2021 12:52:24 GMT
+ * Generated on Tue, 02 Nov 2021 22:21:26 GMT
  */
 
 :root {
-  --button-font-weight: 500;
-  --checkbox-border-width: var(--thickness-medium);
-  --input-disabled-border-color: var(--color-border-02);
-  --input-hovered-border-color: var(--color-border-04);
-  --input-label-color: var(--color-text-04);
-  --input-border-color: var(--color-border-03);
-  --input-focused-border-color: var(--color-border-05);
-  --tooltip-background-color: var(--color-inverse-01);
-  --nook-color: var(--color-text-01);
+  --text-color-1: #ffffff;
+  --text-color-2: #5f6363;
+  --text-color-3: #575b5b;
+  --text-color-4: #424747;
+  --text-color-5: #2d3232;
+  --text-color: #2d3232;
+  --text-font: SpaceGroteskFrontify;
+  --text-font-family: SpaceGroteskFrontify;
+  --text-font-regular: SpaceGroteskFrontifyRegular;
+  --text-font-medium: SpaceGroteskFrontifyMedium;
+  --text-font-bold: SpaceGroteskFrontifyBold;
+  --text-weight-1: SpaceGroteskFrontifyRegular;
+  --text-weight-2: SpaceGroteskFrontifyMedium;
+  --text-weight-3: SpaceGroteskFrontifyBold;
+  --text-weight: SpaceGroteskFrontifyRegular;
+  --line-width-1: 1px;
+  --line-width-2: 2px;
+  --line-width-3: 4px;
+  --line-width: 1px;
+  --border-color-1: #fafafa;
+  --border-color-2: #eaebeb;
+  --border-color-3: #c0c2c2;
+  --border-color-4: #abadad;
+  --border-color: #c0c2c2;
+  --border-width-1: 1px;
+  --border-width-2: 2px;
+  --border-width-3: 4px;
+  --border-width: 1px;
+  --border-radius-1: 2px;
+  --border-radius-2: 4px;
+  --border-radius-3: 8px;
+  --border-radius: 2px;
+  --tooltip-background-color: #2d3232;
+  --checkbox-border-width: 2px;
+  --button-font-weight: SpaceGroteskFrontifyRegular;
+  --input-border-color: #c0c2c2;
 }

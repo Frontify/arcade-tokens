@@ -1,44 +1,59 @@
 /**
  * Do not edit directly
- * Generated on Tue, 02 Nov 2021 12:52:24 GMT
+ * Generated on Tue, 02 Nov 2021 22:21:26 GMT
  */
 
 :root {
   --color-base: #ffffff;
   --color-lightest: #ffffff;
-  --color-darkest: #1a1d1d;
-  --color-inverse-01: #2d3232;
-  --color-inverse-02: #1a1d1d;
-  --color-box-01: #fafafa;
-  --color-box-01-hover: #f7f7f7;
-  --color-box-01-pressed: #eaebeb;
-  --color-box-02: #f7f7f7;
-  --color-box-02-hover: #eaebeb;
-  --color-box-02-pressed: #d5d6d6;
-  --color-box-03: #424747;
-  --color-box-03-hover: #2d3232;
-  --color-box-03-pressed: #1a1d1d;
-  --color-box-disabled: #fafafa;
-  --color-line-01: #eaebeb;
-  --color-line-02: #d5d6d6;
-  --color-border-01: #eaebeb;
-  --color-border-02: #d5d6d6;
-  --color-border-03: #c0c2c2;
-  --color-border-04: #b3b5b5;
-  --color-border-05: #2d3232;
-  --color-text-01: #2d3232;
-  --color-text-02: #424747;
-  --color-text-03: #575b5b;
-  --color-text-04: #5f6363;
-  --color-text-disabled: #abadad;
-  --color-link-01: #7c57ff;
-  --color-link-02: #6449c4;
-  --color-focus-01: #7c57ff;
-  --color-focus-02: #6449c4;
-  --color-positive: #00c8a5;
-  --color-positive-content: #ffffff;
-  --color-positive-border: #00a084;
-  --color-positive-hover: #00a084;
-  --color-positive-hover-content: #ffffff;
-  --color-positive-hover-border: #006452;
+  --color-darkest: #2d3232;
+  --color-inverse-1: #2d3232;
+  --color-inverse-2: #424747;
+  --color-inverse-3: #575b5b;
+  --color-inverse: #2d3232;
+  --color-neutral-1: #ffffff;
+  --color-neutral-2: #fafafa;
+  --color-neutral-3: #f7f7f7;
+  --color-neutral-4: #eaebeb;
+  --color-neutral-5: #d5d6d6;
+  --color-neutral-6: #c0c2c2;
+  --color-neutral-7: #b3b5b5;
+  --color-neutral-8: #abadad;
+  --color-neutral-9: #969898;
+  --color-neutral-10: #818484;
+  --color-neutral-11: #6c7070;
+  --color-neutral-12: #5f6363;
+  --color-neutral-13: #575b5b;
+  --color-neutral-14: #424747;
+  --color-neutral-15: #2d3232;
+  --color-neutral-16: #2d3232;
+  --color-neutral: #f7f7f7;
+  --color-interactive-1: #e3e8f6;
+  --color-interactive-2: #c8d1ed;
+  --color-interactive-3: #9088ff;
+  --color-interactive-4: #7c57ff;
+  --color-interactive-5: #6449c4;
+  --color-interactive-6: #443185;
+  --color-interactive: #7c57ff;
+  --color-positive-1: #e3e8f6;
+  --color-positive-2: #bee1d4;
+  --color-positive-3: #80dbb7;
+  --color-positive-4: #825fff;
+  --color-positive-5: #6449c4;
+  --color-positive-6: #443185;
+  --color-positive: #825fff;
+  --color-warning-1: #e3e8f6;
+  --color-warning-2: #e1d4be;
+  --color-warning-3: #eec779;
+  --color-warning-4: #825fff;
+  --color-warning-5: #6449c4;
+  --color-warning-6: #443185;
+  --color-warning: #825fff;
+  --color-negative-1: #e3e8f6;
+  --color-negative-2: #e1c4be;
+  --color-negative-3: #ff8066;
+  --color-negative-4: #825fff;
+  --color-negative-5: #6449c4;
+  --color-negative-6: #443185;
+  --color-negative: #825fff;
 }

@@ -10,8 +10,7 @@ const fs = require("fs");
 const inputDirectory = "input/";
 const inputExtension = "js";
 const outputDirectory = "output/";
-const tokensDirectory = inputDirectory + "tokens/";
-const tokenFiles = fs.readdirSync(tokensDirectory);
+const tokenFiles = fs.readdirSync(inputDirectory);
 
 /**
  * THEMES
@@ -19,11 +18,11 @@ const tokenFiles = fs.readdirSync(tokensDirectory);
  */
 const colorThemeFiles = tokenFiles.filter(
   (file) =>
-    file.indexOf(".colors.") > -1 &&
-    file.indexOf(`.colors.${inputExtension}`) === -1
+    file.indexOf(".theme.") > -1 &&
+    file.indexOf(`.theme.${inputExtension}`) === -1
 );
 const colorThemes = colorThemeFiles.map((file) => {
-  return file.replace("ui.colors.", "").replace(`.${inputExtension}`, "");
+  return file.replace("ui.theme.", "").replace(`.${inputExtension}`, "");
 });
 
 /**
@@ -32,7 +31,7 @@ const colorThemes = colorThemeFiles.map((file) => {
  * - be included in that file.
  */
 const isToken = (token) => {
-  return token.filePath.indexOf(tokensDirectory) > -1;
+  return token.filePath.indexOf("brand.") === -1;
 };
 const isColor = (token) => {
   return isToken(token) && token.attributes.category === "color";
@@ -45,7 +44,7 @@ const isTypography = (token) => {
   return isToken(token) && (isFontCategory || isFontSize);
 };
 const isSize = (token) => {
-  return isToken(token) && token.filePath.indexOf(".sizes.") > -1;
+  return isToken(token) && token.filePath.indexOf(".sizing.") > -1;
 };
 const isElement = (token) => {
   return isToken(token) && token.filePath.indexOf(".elements.") > -1;
@@ -54,32 +53,6 @@ const isThickness = (token) => {
   return isToken(token) && token.attributes.type === "thickness";
 };
 
-/**
- * CUSTOM TRANSFORMS
- * -
- */
-StyleDictionary.registerTransform({
-  type: `value`,
-  name: `revertRemToPX`,
-  matcher: (token) => {
-    return isThickness(token);
-  },
-  transformer: (token) => {
-    token.value === "0";
-  },
-});
-StyleDictionary.registerTransformGroup({
-  name: "css",
-  transforms: [
-    "attribute/cti",
-    "name/cti/kebab",
-    "time/seconds",
-    "content/icon",
-    "size/rem",
-    "revertRemToPX",
-    "color/css",
-  ],
-});
 /**
  * MAIN RUN
  * - Style dictionary does a deep merge of everything in input (except for theme files).
@@ -124,9 +97,6 @@ StyleDictionary.extend({
           filter: (token) => {
             return isElement(token);
           },
-          options: {
-            outputReferences: true,
-          },
         },
       ],
     },
@@ -149,14 +119,14 @@ colorThemes.forEach((theme) => {
       `${inputDirectory}**/!(*.${colorThemes.join(`|*.`)}).${inputExtension}`,
     ],
     // Only output from the appropriate color theme file
-    source: [`${tokensDirectory}ui.colors.${theme}.${inputExtension}`],
+    source: [`${inputDirectory}ui.theme.${theme}.${inputExtension}`],
     platforms: {
       css: {
         transformGroup: "css",
         buildPath: outputDirectory + "css/",
         files: [
           {
-            destination: `colors.${theme}.css`,
+            destination: `theme.${theme}.css`,
             format: "css/variables",
             filter: (token) => {
               const isCurrentTheme = token.filePath.indexOf(theme) > -1;
