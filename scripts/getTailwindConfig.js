@@ -1,16 +1,3 @@
-let config = {
-  mode: "jit",
-  purge: ["./src/**/*.{js,ts,tsx}"],
-  darkMode: "class",
-  variants: {
-    extend: {
-      backgroundColor: ["active"],
-      textColor: ["active"],
-    },
-  },
-  prefix: "tw-",
-};
-
 const getJsTree = (node) => {
   const isToken = node.hasOwnProperty("value");
   let tree = {};
@@ -53,9 +40,22 @@ const getTree = (tokens) => {
   return tree;
 };
 
+let defaultConfig = {
+  mode: "jit",
+  purge: ["./src/**/*.{js,ts,tsx}"],
+  darkMode: "class",
+  variants: {
+    extend: {
+      backgroundColor: ["active"],
+      textColor: ["active"],
+    },
+  },
+  prefix: "tw-",
+};
+
 module.exports = (tokens) => {
-  const tree = { ...config, ...getTree(tokens) };
+  const tree = { ...defaultConfig, ...getTree(tokens) };
   const jsonTree = JSON.stringify(tree, null, 2);
-  const unQuotedTree = jsonTree.replace(/"([^"]+)":/g, "$1:") + ";";
+  const unQuotedTree = jsonTree.replace(/"([^"]+)":/g, "$1:");
   return unQuotedTree;
 };

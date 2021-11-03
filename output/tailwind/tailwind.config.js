@@ -1,23 +1,17 @@
 /**
  * Do not edit directly
- * Generated on Wed, 03 Nov 2021 15:59:15 GMT
+ * Generated on Wed, 03 Nov 2021 16:00:17 GMT
  */
 
 module.exports = {
   mode: "jit",
-  purge: [
-    "./src/**/*.{js,ts,tsx}"
-  ],
+  purge: ["./src/**/*.{js,ts,tsx}"],
   darkMode: "class",
   variants: {
     extend: {
-      backgroundColor: [
-        "active"
-      ],
-      textColor: [
-        "active"
-      ]
-    }
+      backgroundColor: ["active"],
+      textColor: ["active"],
+    },
   },
   prefix: "tw-",
   colors: {
@@ -28,7 +22,7 @@ module.exports = {
       1: "#2d3232",
       2: "#424747",
       3: "#575b5b",
-      DEFAULT: "#2d3232"
+      DEFAULT: "#2d3232",
     },
     neutral: {
       1: "#ffffff",
@@ -47,7 +41,7 @@ module.exports = {
       14: "#424747",
       15: "#2d3232",
       16: "#2d3232",
-      DEFAULT: "#f7f7f7"
+      DEFAULT: "#f7f7f7",
     },
     interactive: {
       1: "#e3e8f6",
@@ -56,7 +50,7 @@ module.exports = {
       4: "#7c57ff",
       5: "#6449c4",
       6: "#443185",
-      DEFAULT: "#7c57ff"
+      DEFAULT: "#7c57ff",
     },
     positive: {
       1: "#e3e8f6",
@@ -65,7 +59,7 @@ module.exports = {
       4: "#825fff",
       5: "#6449c4",
       6: "#443185",
-      DEFAULT: "#825fff"
+      DEFAULT: "#825fff",
     },
     warning: {
       1: "#e3e8f6",
@@ -74,7 +68,7 @@ module.exports = {
       4: "#825fff",
       5: "#6449c4",
       6: "#443185",
-      DEFAULT: "#825fff"
+      DEFAULT: "#825fff",
     },
     negative: {
       1: "#e3e8f6",
@@ -83,13 +77,13 @@ module.exports = {
       4: "#825fff",
       5: "#6449c4",
       6: "#443185",
-      DEFAULT: "#825fff"
-    }
+      DEFAULT: "#825fff",
+    },
   },
   fontFamily: {
     body: "SpaceGroteskFrontify",
     heading: "SpaceGroteskFrontify",
-    code: "SpaceGroteskFrontify"
+    code: "SpaceGroteskFrontify",
   },
   fontSize: {
     body: {
@@ -97,54 +91,54 @@ module.exports = {
       small: {
         DEFAULT: 1,
         lineHeight: 1,
-        lineHeightLong: 1
+        lineHeightLong: 1,
       },
       medium: {
         DEFAULT: 2,
         lineHeight: 2,
-        lineHeightLong: 2
+        lineHeightLong: 2,
       },
       large: {
         DEFAULT: 2,
         lineHeight: 2,
-        lineHeightLong: 2
-      }
+        lineHeightLong: 2,
+      },
     },
     heading: {
       DEFAULT: 2,
       small: {
         DEFAULT: 1,
         lineHeight: 1,
-        lineHeightLong: 1
+        lineHeightLong: 1,
       },
       medium: {
         DEFAULT: 2,
         lineHeight: 2,
-        lineHeightLong: 2
+        lineHeightLong: 2,
       },
       large: {
         DEFAULT: 2,
         lineHeight: 2,
-        lineHeightLong: 2
-      }
+        lineHeightLong: 2,
+      },
     },
     code: {
       DEFAULT: 2,
       small: {
         DEFAULT: 1,
         lineHeight: 1,
-        lineHeightLong: 1
+        lineHeightLong: 1,
       },
       medium: {
         DEFAULT: 2,
         lineHeight: 2,
-        lineHeightLong: 2
+        lineHeightLong: 2,
       },
       large: {
         DEFAULT: 2,
         lineHeight: 2,
-        lineHeightLong: 2
-      }
-    }
-  }
-};;
+        lineHeightLong: 2,
+      },
+    },
+  },
+};
