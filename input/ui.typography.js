@@ -15,6 +15,11 @@ module.exports = {
         lineHeight     : { value: 1 },
         lineHeightLong : { value: 1 }
       },
+      2: {
+        _              : { value: 2 },
+        lineHeight     : { value: 2 },
+        lineHeightLong : { value: 2 }
+      },
     }
   },
   heading: {
@@ -33,6 +38,11 @@ module.exports = {
         lineHeight     : { value: 1 },
         lineHeightLong : { value: 1 }
       },
+      2: {
+        _              : { value: 2 },
+        lineHeight     : { value: 2 },
+        lineHeightLong : { value: 2 }
+      },
     }
   },
   code: {
@@ -48,6 +58,11 @@ module.exports = {
         _              : { value: 1 },
         lineHeight     : { value: 1 },
         lineHeightLong : { value: 1 }
+      },
+      2: {
+        _              : { value: 2 },
+        lineHeight     : { value: 2 },
+        lineHeightLong : { value: 2 }
       },
     }
   },
