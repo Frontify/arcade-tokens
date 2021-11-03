@@ -97,6 +97,9 @@ StyleDictionary.extend({
           filter: (token) => {
             return isElement(token);
           },
+          options: {
+            outputReferences: true,
+          }
         },
       ],
     },
