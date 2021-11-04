@@ -1,29 +1,19 @@
 /**
  * Do not edit directly
- * Generated on Wed, 03 Nov 2021 16:00:17 GMT
+ * Generated on Thu, 04 Nov 2021 08:00:43 GMT
  */
 
 module.exports = {
   mode: "jit",
   purge: ["./src/**/*.{js,ts,tsx}"],
   darkMode: "class",
-  variants: {
-    extend: {
-      backgroundColor: ["active"],
-      textColor: ["active"],
-    },
-  },
+  variants: { extend: { backgroundColor: ["active"], textColor: ["active"] } },
   prefix: "tw-",
   colors: {
     base: "#ffffff",
     lightest: "#ffffff",
     darkest: "#2d3232",
-    inverse: {
-      1: "#2d3232",
-      2: "#424747",
-      3: "#575b5b",
-      DEFAULT: "#2d3232",
-    },
+    inverse: { 1: "#2d3232", 2: "#424747", 3: "#575b5b", DEFAULT: "#2d3232" },
     neutral: {
       1: "#ffffff",
       2: "#fafafa",
@@ -81,64 +71,28 @@ module.exports = {
     },
   },
   fontFamily: {
-    body: "SpaceGroteskFrontify",
-    heading: "SpaceGroteskFrontify",
-    code: "SpaceGroteskFrontify",
+    body: ["SpaceGroteskFrontify"],
+    heading: ["SpaceGroteskFrontify"],
+    code: ["SpaceGroteskFrontify"],
   },
   fontSize: {
     body: {
-      DEFAULT: 2,
-      small: {
-        DEFAULT: 1,
-        lineHeight: 1,
-        lineHeightLong: 1,
-      },
-      medium: {
-        DEFAULT: 2,
-        lineHeight: 2,
-        lineHeightLong: 2,
-      },
-      large: {
-        DEFAULT: 2,
-        lineHeight: 2,
-        lineHeightLong: 2,
-      },
+      DEFAULT: [2],
+      small: [1, { lineHeight: 1 }],
+      medium: [2, { lineHeight: 2 }],
+      large: [2, { lineHeight: 2 }],
     },
     heading: {
-      DEFAULT: 2,
-      small: {
-        DEFAULT: 1,
-        lineHeight: 1,
-        lineHeightLong: 1,
-      },
-      medium: {
-        DEFAULT: 2,
-        lineHeight: 2,
-        lineHeightLong: 2,
-      },
-      large: {
-        DEFAULT: 2,
-        lineHeight: 2,
-        lineHeightLong: 2,
-      },
+      DEFAULT: [2],
+      small: [1, { lineHeight: 1 }],
+      medium: [2, { lineHeight: 2 }],
+      large: [2, { lineHeight: 2 }],
     },
     code: {
-      DEFAULT: 2,
-      small: {
-        DEFAULT: 1,
-        lineHeight: 1,
-        lineHeightLong: 1,
-      },
-      medium: {
-        DEFAULT: 2,
-        lineHeight: 2,
-        lineHeightLong: 2,
-      },
-      large: {
-        DEFAULT: 2,
-        lineHeight: 2,
-        lineHeightLong: 2,
-      },
+      DEFAULT: [2],
+      small: [1, { lineHeight: 1 }],
+      medium: [2, { lineHeight: 2 }],
+      large: [2, { lineHeight: 2 }],
     },
   },
 };
