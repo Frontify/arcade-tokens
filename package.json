@@ -4,6 +4,9 @@
   "description": "Single source of truth for Arcade Design Tokens",
   "private": true,
   "main": "index.js",
+  "files": [
+    "output"
+  ],
   "scripts": {
     "build": "node build.js"
   },
@@ -24,6 +27,8 @@
   },
   "homepage": "https://github.com/Frontify/arcade-tokens#readme",
   "devDependencies": {
+    "prettier": "^2.4.1",
+    "semantic-release": "^18.0.0",
     "style-dictionary": "^3.0.3"
   }
 }
