@@ -11,8 +11,7 @@
     "build": "node build.js"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Frontify/arcade-tokens.git"
+    "url": "https://github.com/frontify/arcade-tokens"
   },
   "keywords": [
     "arcade",
