@@ -2,9 +2,10 @@
  * MODULES
  */
 const StyleDictionary = require("style-dictionary");
-const { fileHeader } = StyleDictionary.formatHelpers;
+const { fileHeader, formattedVariables } = StyleDictionary.formatHelpers;
 const fs = require("fs");
-const getTailwindTree = require("./scripts/getTailwindConfig");
+const getTailwindPlugin = require("./scripts/getTailwindPlugin");
+const getTailwindTheme = require("./scripts/getTailwindTheme");
 
 /**
  * FILE SYSTEM
@@ -52,20 +53,6 @@ const isThickness = (token) => {
 };
 
 /**
- * FORMATS
- * - These are used in each file's configuration options to determine which tokens should
- * - be included in that file.
- */
-
-StyleDictionary.registerFormat({
-  name: "tailwind",
-  formatter: ({ dictionary, file }) => {
-    const tree = getTailwindTree(dictionary.tokens);
-    return fileHeader({ file }) + "module.exports = " + tree + ";";
-  },
-});
-
-/**
  * MAIN RUN
  * - Style dictionary does a deep merge of everything in input (except for theme files).
  * - This ensures that there are no naming collisions, and that references are respected.
@@ -77,16 +64,38 @@ StyleDictionary.extend({
   source: [
     `${inputDirectory}**/!(*.${colorThemes.join(`|*.`)}).${inputExtension}`,
   ],
+  transformGroup: {
+    tailwind: ["attribute/cti", "name/cti/kebab", "size/px", "color/css"],
+  },
+  format: {
+    tailwind: ({ dictionary, options, file }) => {
+      const { outputReferences, format } = options;
+      const tailwindPlugin = getTailwindPlugin({
+        dictionary,
+        outputReferences,
+      });
+      const tailwindTheme = getTailwindTheme({
+        tokens: dictionary.tokens.theme,
+        dictionary,
+      });
+      const combined = {
+        theme: tailwindTheme,
+        plugin: tailwindPlugin,
+      };
+      const string = JSON.stringify(combined, null, 0);
+      return fileHeader({ file }) + "module.exports = " + string + ";";
+    },
+  },
   platforms: {
     tailwind: {
-      transformGroup: "js",
+      transformGroup: "tailwind",
       buildPath: outputDirectory + "tailwind/",
       files: [
         {
           destination: "tailwind.config.js",
           format: "tailwind",
           filter: (token) => {
-            return isToken(token);
+            return token.filePath.indexOf("ui.tailwind.js") > -1;
           },
         },
       ],
@@ -122,9 +131,9 @@ StyleDictionary.extend({
           filter: (token) => {
             return isElement(token);
           },
-          // options: {
-          //   outputReferences: true,
-          // }
+          options: {
+            outputReferences: true,
+          },
         },
       ],
     },
