@@ -1,12 +1,9 @@
 {
-  "name": "arcade-tokens",
+  "name": "@frontify/arcade-tokens",
   "version": "0.1.0",
   "description": "Single source of truth for Arcade Design Tokens",
-  "private": true,
   "main": "index.js",
-  "files": [
-    "output"
-  ],
+  "files": ["output/**/*"],
   "scripts": {
     "build": "node build.js"
   },
