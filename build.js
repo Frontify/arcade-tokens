@@ -54,13 +54,11 @@ StyleDictionary.extend({
   source: mainSourceGlobs,
   transformGroup: {
     tailwind: ["attribute/cti", "name/cti/kebab", "size/px", "color/css"],
-    xx: [`attribute/cti`, `name/cti/kebab`, `colorTransform`, `color/css`],
+    css: [`attribute/cti`, `name/cti/kebab`, `colorTransform`, `color/css`],
   },
   transform: {
     colorTransform: {
       type: `value`,
-      // only transforms that have transitive: true will be applied to tokens
-      // that alias/reference other tokens
       transitive: true,
       matcher: (token) => token.attributes.category === "color" && token.modify,
       transformer: transformColor,
@@ -86,7 +84,7 @@ StyleDictionary.extend({
       ],
     },
     css: {
-      transformGroup: "xx",
+      transformGroup: "css",
       buildPath: outputDirectory + "css/",
       files: [
         {
