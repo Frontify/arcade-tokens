@@ -15,6 +15,14 @@ const inputExtension = "js";
 const outputDirectory = "output/";
 const tokenFiles = fs.readdirSync(inputDirectory);
 
+const brandColorsGlob = inputDirectory + "brand.colors.js";
+const brandTypographyGlob = inputDirectory + "brand.typography.js";
+const uiColorsGlob = inputDirectory + "ui.colors.js";
+const uiElementsGlob = inputDirectory + "ui.elements.js";
+const uiSizingGlob = inputDirectory + "ui.sizing.js";
+const uiTypographyGlob = inputDirectory + "ui.typograhy.js";
+const uiThemesGlob = inputDirectory + "ui.theme.*.js";
+
 /**
  * THEMES
  * - Gets the names of the color themes from the filesystem
