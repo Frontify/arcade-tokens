@@ -55,12 +55,27 @@ const getFontSizes = ({ dictionary }) => {
   return tree;
 };
 
+const getFontFamily = ({ dictionary }) => {
+  let tree = {};
+  const fonts = {
+    body: dictionary.tokens.body,
+    heading: dictionary.tokens.heading,
+    code: dictionary.tokens.code,
+  };
+  for (key in fonts) {
+    tree[key] = [fonts[key].family.value].concat(
+      fonts[key].fallbackFamilies.value
+    );
+  }
+  return tree;
+};
+
 module.exports = ({ tokens, dictionary }) => {
   const config = {
     fontSize: getFontSizes({ dictionary }),
-    colors: getColors({ dictionary }),
-    fontFamily: {},
+    fontFamily: getFontFamily({ dictionary }),
     boxShadow: {},
+    colors: getColors({ dictionary }),
     ringColor: {},
     ringColor: {},
     extend: {},
