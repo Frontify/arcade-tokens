@@ -2,7 +2,7 @@ const getTailwindPlugin = require("./getTailwindPlugin");
 const getTailwindTheme = require("./getTailwindTheme");
 
 module.exports = ({ dictionary, file, options }) => {
-  const { outputReferences, format } = options;
+  const { outputReferences } = options;
   const tailwindPlugin = getTailwindPlugin({
     dictionary,
     outputReferences,
@@ -15,6 +15,5 @@ module.exports = ({ dictionary, file, options }) => {
     theme: tailwindTheme,
     plugin: tailwindPlugin,
   };
-  const string = JSON.stringify(combined, null, 0);
-  return fileHeader({ file }) + "module.exports = " + string + ";";
+  return JSON.stringify(combined, null, 0);
 };

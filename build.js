@@ -4,7 +4,7 @@
 const StyleDictionary = require("style-dictionary");
 const { fileHeader } = StyleDictionary.formatHelpers;
 const fs = require("fs");
-const getTailwindFormat = require("./scripts/getTailwindPlugin");
+const getTailwindConfig = require("./scripts/getTailwindConfig");
 
 /**
  * FILE SYSTEM
@@ -29,7 +29,7 @@ const mainSourceGlobs = [
   uiElementsPath,
   uiSizingPath,
   uiTypographyPath,
-  uiThemesGlob,
+  uiTailwindPath,
 ];
 
 /**
@@ -57,7 +57,8 @@ StyleDictionary.extend({
   },
   format: {
     tailwind: ({ dictionary, options, file }) => {
-      return getTailwindFormat({ dictionary, options, file });
+      const tailwindConfig = getTailwindConfig({ dictionary, options, file });
+      return fileHeader({ file }) + "module.exports = " + tailwindConfig + ";";
     },
   },
   platforms: {
@@ -69,6 +70,7 @@ StyleDictionary.extend({
           destination: "tailwind.config.js",
           format: "tailwind",
           filter: (token) => {
+            console.log(token.filePath);
             return token.filePath === uiTailwindPath;
           },
         },
@@ -104,9 +106,6 @@ StyleDictionary.extend({
           format: "css/variables",
           filter: (token) => {
             return token.filePath === uiElementsPath;
-          },
-          options: {
-            outputReferences: true,
           },
         },
       ],
