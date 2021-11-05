@@ -9,19 +9,19 @@ module.exports = {
       4 : { value: "{font.spaceGrotesk.bold.weight.value}" },
     },
     size: {
-      _ : { value: "{body.size.medium._.value}" },
+      _ : { value: "{body.size.medium._.value}", attributes: {category: "font", type: "size"} },
       small: {
-        _              : { value: 1 },
+        _              : { value: 1, attributes: {category: "font", type: "size"} },
         lineHeight     : { value: 1 },
         lineHeightLong : { value: 1 }
       },
       medium: {
-        _              : { value: 2 },
+        _              : { value: 2, attributes: {category: "font", type: "size"} },
         lineHeight     : { value: 2 },
         lineHeightLong : { value: 2 }
       },
       large: {
-        _              : { value: 2 },
+        _              : { value: 2, attributes: {category: "font", type: "size"} },
         lineHeight     : { value: 2 },
         lineHeightLong : { value: 2 }
       },
@@ -37,19 +37,19 @@ module.exports = {
       4 : { value: "{font.spaceGrotesk.bold.weight.value}" },
     },
     size: {
-      _ : { value: "{heading.size.medium._.value}" },
+      _ : { value: "{heading.size.medium._.value}", attributes: {category: "font", type: "size"} },
       small: {
-        _              : { value: 1 },
+        _              : { value: 1, attributes: {category: "font", type: "size"} },
         lineHeight     : { value: 1 },
         lineHeightLong : { value: 1 }
       },
       medium: {
-        _              : { value: 2 },
+        _              : { value: 2, attributes: {category: "font", type: "size"} },
         lineHeight     : { value: 2 },
         lineHeightLong : { value: 2 }
       },
       large: {
-        _              : { value: 2 },
+        _              : { value: 2, attributes: {category: "font", type: "size"} },
         lineHeight     : { value: 2 },
         lineHeightLong : { value: 2 }
       },
@@ -63,19 +63,19 @@ module.exports = {
       2 : { value: "{font.spaceGrotesk.bold.weight.value}" },
     },
     size: {
-      _ : { value: "{code.size.medium._.value}" },
+      _ : { value: "{code.size.medium._.value}", attributes: {category: "font", type: "size"} },
       small: {
-        _              : { value: 1 },
+        _              : { value: 1, attributes: {category: "font", type: "size"} },
         lineHeight     : { value: 1 },
         lineHeightLong : { value: 1 }
       },
       medium: {
-        _              : { value: 2 },
+        _              : { value: 2, attributes: {category: "font", type: "size"} },
         lineHeight     : { value: 2 },
         lineHeightLong : { value: 2 }
       },
       large: {
-        _              : { value: 2 },
+        _              : { value: 2, attributes: {category: "font", type: "size"} },
         lineHeight     : { value: 2 },
         lineHeightLong : { value: 2 }
       },

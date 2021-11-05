@@ -28,7 +28,6 @@ const mainSourceGlobs = [
   uiElementsPath,
   uiSizingPath,
   uiTypographyPath,
-  uiTailwindPath,
 ];
 
 /**
@@ -67,9 +66,6 @@ StyleDictionary.extend({
         {
           destination: "tailwind.config.js",
           format: "tailwind",
-          filter: (token) => {
-            return token.filePath === uiTailwindPath;
-          },
         },
       ],
     },
