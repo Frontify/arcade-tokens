@@ -4,6 +4,7 @@
 const StyleDictionary = require("style-dictionary");
 const { fileHeader } = StyleDictionary.formatHelpers;
 const fs = require("fs");
+const getTailwindFormat = require("./scripts/getTailwindPlugin");
 const getTailwindPlugin = require("./scripts/getTailwindPlugin");
 const getTailwindTheme = require("./scripts/getTailwindTheme");
 
@@ -81,21 +82,7 @@ StyleDictionary.extend({
   },
   format: {
     tailwind: ({ dictionary, options, file }) => {
-      const { outputReferences, format } = options;
-      const tailwindPlugin = getTailwindPlugin({
-        dictionary,
-        outputReferences,
-      });
-      const tailwindTheme = getTailwindTheme({
-        tokens: dictionary.tokens.theme,
-        dictionary,
-      });
-      const combined = {
-        theme: tailwindTheme,
-        plugin: tailwindPlugin,
-      };
-      const string = JSON.stringify(combined, null, 0);
-      return fileHeader({ file }) + "module.exports = " + string + ";";
+      return getTailwindFormat({ dictionary, options, file });
     },
   },
   platforms: {
