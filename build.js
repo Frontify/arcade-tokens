@@ -11,7 +11,6 @@ const getTailwindTheme = require("./scripts/getTailwindTheme");
  * FILE SYSTEM
  */
 const inputDirectory = "input/";
-const inputExtension = "js";
 const outputDirectory = "output/";
 const tokenFiles = fs.readdirSync(inputDirectory);
 
