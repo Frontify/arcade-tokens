@@ -70,12 +70,18 @@ const getFontFamily = ({ dictionary }) => {
   return tree;
 };
 
+const getBoxShadow = ({ dictionary }) => {
+  let tree = {};
+
+  return tree;
+};
+
 module.exports = ({ tokens, dictionary }) => {
   const config = {
     fontSize: getFontSizes({ dictionary }),
     fontFamily: getFontFamily({ dictionary }),
-    boxShadow: {},
     colors: getColors({ dictionary }),
+    boxShadow: getBoxShadow({ dictionary }),
     ringColor: {},
     ringColor: {},
     extend: {},

@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "description": "Single source of truth for Arcade Design Tokens",
   "main": "index.js",
-  "files": ["output/**/*"],
+  "files": [
+    "output/**/*"
+  ],
   "scripts": {
     "build": "node build.js"
   },
@@ -23,6 +25,7 @@
   },
   "homepage": "https://github.com/Frontify/arcade-tokens#readme",
   "devDependencies": {
+    "chroma-js": "^2.1.2",
     "prettier": "^2.4.1",
     "semantic-release": "^18.0.0",
     "style-dictionary": "^3.0.3"

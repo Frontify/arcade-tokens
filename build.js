@@ -4,6 +4,7 @@
 const StyleDictionary = require("style-dictionary");
 const fs = require("fs");
 const getTailwindConfig = require("./scripts/getTailwindConfig");
+const transformColor = require("./scripts/transformColor");
 
 /**
  * FILE SYSTEM
@@ -18,7 +19,7 @@ const uiColorsPath = inputDirectory + "ui.colors.js";
 const uiElementsPath = inputDirectory + "ui.elements.js";
 const uiSizingPath = inputDirectory + "ui.sizing.js";
 const uiTypographyPath = inputDirectory + "ui.typography.js";
-const uiTailwindPath = inputDirectory + "ui.tailwind.js";
+const uiShadowPath = inputDirectory + "ui.shadow.js";
 const uiThemesGlob = inputDirectory + "ui.theme.*.js";
 
 const mainSourceGlobs = [
@@ -28,6 +29,7 @@ const mainSourceGlobs = [
   uiElementsPath,
   uiSizingPath,
   uiTypographyPath,
+  uiShadowPath,
 ];
 
 /**
@@ -52,6 +54,20 @@ StyleDictionary.extend({
   source: mainSourceGlobs,
   transformGroup: {
     tailwind: ["attribute/cti", "name/cti/kebab", "size/px", "color/css"],
+    xx: [`attribute/cti`, `name/cti/kebab`, `colorTransform`, `color/css`],
+  },
+  transform: {
+    colorTransform: {
+      type: `value`,
+      // only transforms that have transitive: true will be applied to tokens
+      // that alias/reference other tokens
+      transitive: true,
+      matcher: (token) => token.attributes.category === "color" && token.modify,
+      transformer: transformColor,
+    },
+    "color/css": Object.assign({}, StyleDictionary.transform[`color/css`], {
+      transitive: true,
+    }),
   },
   format: {
     tailwind: ({ dictionary, options, file }) => {
@@ -70,7 +86,7 @@ StyleDictionary.extend({
       ],
     },
     css: {
-      transformGroup: "css",
+      transformGroup: "xx",
       buildPath: outputDirectory + "css/",
       files: [
         {
@@ -78,6 +94,13 @@ StyleDictionary.extend({
           format: "css/variables",
           filter: (token) => {
             return token.filePath === uiColorsPath;
+          },
+        },
+        {
+          destination: "shadows.css",
+          format: "css/variables",
+          filter: (token) => {
+            return token.filePath === uiShadowPath;
           },
         },
         {
