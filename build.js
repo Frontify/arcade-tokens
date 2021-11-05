@@ -2,7 +2,7 @@
  * MODULES
  */
 const StyleDictionary = require("style-dictionary");
-const { fileHeader, formattedVariables } = StyleDictionary.formatHelpers;
+const { fileHeader } = StyleDictionary.formatHelpers;
 const fs = require("fs");
 const getTailwindPlugin = require("./scripts/getTailwindPlugin");
 const getTailwindTheme = require("./scripts/getTailwindTheme");
