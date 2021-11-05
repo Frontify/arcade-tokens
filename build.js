@@ -2,55 +2,43 @@
  * MODULES
  */
 const StyleDictionary = require("style-dictionary");
-const { fileHeader, formattedVariables } = StyleDictionary.formatHelpers;
 const fs = require("fs");
-const getTailwindPlugin = require("./scripts/getTailwindPlugin");
-const getTailwindTheme = require("./scripts/getTailwindTheme");
+const getTailwindConfig = require("./scripts/getTailwindConfig");
+const transformColor = require("./scripts/transformColor");
 
 /**
  * FILE SYSTEM
  */
 const inputDirectory = "input/";
-const inputExtension = "js";
 const outputDirectory = "output/";
 const tokenFiles = fs.readdirSync(inputDirectory);
+
+const brandColorsPath = inputDirectory + "brand.colors.js";
+const brandTypographyPath = inputDirectory + "brand.typography.js";
+const uiColorsPath = inputDirectory + "ui.colors.js";
+const uiElementsPath = inputDirectory + "ui.elements.js";
+const uiSizingPath = inputDirectory + "ui.sizing.js";
+const uiTypographyPath = inputDirectory + "ui.typography.js";
+const uiThemesGlob = inputDirectory + "ui.theme.*.js";
+
+const brandFilePaths = [brandColorsPath, brandTypographyPath];
+
+const uiFilePaths = [
+  uiColorsPath,
+  uiElementsPath,
+  uiSizingPath,
+  uiTypographyPath,
+];
 
 /**
  * THEMES
  * - Gets the names of the color themes from the filesystem
  */
-const colorThemeFiles = tokenFiles.filter(
-  (file) =>
-    file.indexOf(".theme.") > -1 &&
-    file.indexOf(`.theme.${inputExtension}`) === -1
-);
-const colorThemes = colorThemeFiles.map((file) => {
-  return file.replace("ui.theme.", "").replace(`.${inputExtension}`, "");
-});
-
-/**
- * FILTERS
- * - These are used in each file's configuration options to determine which tokens should
- * - be included in that file.
- */
-const isToken = (token) => {
-  return token.filePath.indexOf("brand.") === -1;
-};
-const isColor = (token) => {
-  return isToken(token) && token.attributes.category === "color";
-};
-const isTypography = (token) => {
-  return isToken(token) && token.filePath.indexOf(".typography.") > -1;
-};
-const isSize = (token) => {
-  return isToken(token) && token.filePath.indexOf(".sizing.") > -1;
-};
-const isElement = (token) => {
-  return isToken(token) && token.filePath.indexOf(".elements.") > -1;
-};
-const isThickness = (token) => {
-  return isToken(token) && token.attributes.type === "thickness";
-};
+const colorThemes = tokenFiles
+  .filter((file) => file.indexOf(".theme.") > -1)
+  .map((file) => {
+    return file.replace("ui.theme.", "").replace(".js", "");
+  });
 
 /**
  * MAIN RUN
@@ -61,29 +49,33 @@ const isThickness = (token) => {
  * - This ensures that each file only contains the final, consumable tokens.
  */
 StyleDictionary.extend({
-  source: [
-    `${inputDirectory}**/!(*.${colorThemes.join(`|*.`)}).${inputExtension}`,
-  ],
+  source: [...brandFilePaths, ...uiFilePaths],
   transformGroup: {
-    tailwind: ["attribute/cti", "name/cti/kebab", "size/px", "color/css"],
+    tailwind: [
+      "attribute/cti",
+      "name/cti/kebab",
+      "size/px",
+      "colorTransform",
+      "color/css",
+    ],
+    css: ["attribute/cti", "name/cti/kebab", "colorTransform", "color/css"],
+  },
+  transform: {
+    // Standard color value transformation
+    colorTransform: {
+      type: "value",
+      transitive: true,
+      matcher: (token) => token.attributes.category === "color" && token.modify,
+      transformer: transformColor,
+    },
+    // Make the standard color/css transitive
+    "color/css": Object.assign({}, StyleDictionary.transform[`color/css`], {
+      transitive: true,
+    }),
   },
   format: {
     tailwind: ({ dictionary, options, file }) => {
-      const { outputReferences, format } = options;
-      const tailwindPlugin = getTailwindPlugin({
-        dictionary,
-        outputReferences,
-      });
-      const tailwindTheme = getTailwindTheme({
-        tokens: dictionary.tokens.theme,
-        dictionary,
-      });
-      const combined = {
-        theme: tailwindTheme,
-        plugin: tailwindPlugin,
-      };
-      const string = JSON.stringify(combined, null, 0);
-      return fileHeader({ file }) + "module.exports = " + string + ";";
+      return getTailwindConfig({ dictionary, options, file });
     },
   },
   platforms: {
@@ -95,7 +87,7 @@ StyleDictionary.extend({
           destination: "tailwind.config.js",
           format: "tailwind",
           filter: (token) => {
-            return token.filePath.indexOf("ui.tailwind.js") > -1;
+            return uiFilePaths.includes(token.filePath);
           },
         },
       ],
@@ -108,31 +100,28 @@ StyleDictionary.extend({
           destination: "colors.css",
           format: "css/variables",
           filter: (token) => {
-            return isColor(token);
+            return token.filePath === uiColorsPath;
           },
         },
         {
           destination: "typography.css",
           format: "css/variables",
           filter: (token) => {
-            return isTypography(token);
+            return token.filePath === uiTypographyPath;
           },
         },
         {
           destination: "sizes.css",
           format: "css/variables",
           filter: (token) => {
-            return isSize(token);
+            return token.filePath === uiSizingPath;
           },
         },
         {
           destination: "elements.css",
           format: "css/variables",
           filter: (token) => {
-            return isElement(token);
-          },
-          options: {
-            outputReferences: true,
+            return token.filePath === uiElementsPath;
           },
         },
       ],
@@ -152,11 +141,9 @@ StyleDictionary.extend({
 colorThemes.forEach((theme) => {
   StyleDictionary.extend({
     // Include references from all files
-    include: [
-      `${inputDirectory}**/!(*.${colorThemes.join(`|*.`)}).${inputExtension}`,
-    ],
+    include: [...brandFilePaths, ...uiFilePaths],
     // Only output from the appropriate color theme file
-    source: [`${inputDirectory}ui.theme.${theme}.${inputExtension}`],
+    source: [uiThemesGlob],
     platforms: {
       css: {
         transformGroup: "css",
@@ -166,8 +153,7 @@ colorThemes.forEach((theme) => {
             destination: `theme.${theme}.css`,
             format: "css/variables",
             filter: (token) => {
-              const isCurrentTheme = token.filePath.indexOf(theme) > -1;
-              return isCurrentTheme;
+              return token.filePath.indexOf(theme) > -1;
             },
           },
         ],
