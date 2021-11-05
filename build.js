@@ -164,8 +164,7 @@ colorThemes.forEach((theme) => {
             destination: `theme.${theme}.css`,
             format: "css/variables",
             filter: (token) => {
-              const isCurrentTheme = token.filePath.indexOf(theme) > -1;
-              return isCurrentTheme;
+              return token.filePath.indexOf(theme) > -1;
             },
           },
         ],
