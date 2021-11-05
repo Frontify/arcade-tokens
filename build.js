@@ -41,7 +41,7 @@ const mainSourceGlobs = [
 const colorThemes = tokenFiles
   .filter((file) => file.indexOf(".theme.") > -1)
   .map((file) => {
-    return file.replace('ui.theme., "').replace(".js", "");
+    return file.replace("ui.theme.", "").replace(".js", "");
   });
 
 /**
