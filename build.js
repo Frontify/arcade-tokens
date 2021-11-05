@@ -19,17 +19,15 @@ const uiColorsPath = inputDirectory + "ui.colors.js";
 const uiElementsPath = inputDirectory + "ui.elements.js";
 const uiSizingPath = inputDirectory + "ui.sizing.js";
 const uiTypographyPath = inputDirectory + "ui.typography.js";
-const uiShadowPath = inputDirectory + "ui.shadow.js";
 const uiThemesGlob = inputDirectory + "ui.theme.*.js";
 
-const mainSourceGlobs = [
-  brandColorsPath,
-  brandTypographyPath,
+const brandFilePaths = [brandColorsPath, brandTypographyPath];
+
+const uiFilePaths = [
   uiColorsPath,
   uiElementsPath,
   uiSizingPath,
   uiTypographyPath,
-  uiShadowPath,
 ];
 
 /**
@@ -51,7 +49,7 @@ const colorThemes = tokenFiles
  * - This ensures that each file only contains the final, consumable tokens.
  */
 StyleDictionary.extend({
-  source: mainSourceGlobs,
+  source: [...brandFilePaths, ...uiFilePaths],
   transformGroup: {
     tailwind: [
       "attribute/cti",
@@ -88,6 +86,9 @@ StyleDictionary.extend({
         {
           destination: "tailwind.config.js",
           format: "tailwind",
+          filter: (token) => {
+            return uiFilePaths.includes(token.filePath);
+          },
         },
       ],
     },
@@ -100,13 +101,6 @@ StyleDictionary.extend({
           format: "css/variables",
           filter: (token) => {
             return token.filePath === uiColorsPath;
-          },
-        },
-        {
-          destination: "shadows.css",
-          format: "css/variables",
-          filter: (token) => {
-            return token.filePath === uiShadowPath;
           },
         },
         {
@@ -147,7 +141,7 @@ StyleDictionary.extend({
 colorThemes.forEach((theme) => {
   StyleDictionary.extend({
     // Include references from all files
-    include: mainSourceGlobs,
+    include: [...brandFilePaths, ...uiFilePaths],
     // Only output from the appropriate color theme file
     source: [uiThemesGlob],
     platforms: {
