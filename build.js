@@ -2,7 +2,6 @@
  * MODULES
  */
 const StyleDictionary = require("style-dictionary");
-const { fileHeader } = StyleDictionary.formatHelpers;
 const fs = require("fs");
 const getTailwindConfig = require("./scripts/getTailwindConfig");
 
@@ -57,8 +56,7 @@ StyleDictionary.extend({
   },
   format: {
     tailwind: ({ dictionary, options, file }) => {
-      const tailwindConfig = getTailwindConfig({ dictionary, options, file });
-      return fileHeader({ file }) + "module.exports = " + tailwindConfig + ";";
+      return getTailwindConfig({ dictionary, options, file });
     },
   },
   platforms: {
