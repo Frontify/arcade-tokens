@@ -15,21 +15,22 @@ const inputDirectory = "input/";
 const outputDirectory = "output/";
 const tokenFiles = fs.readdirSync(inputDirectory);
 
-const brandColorsGlob = inputDirectory + "brand.colors.js";
-const brandTypographyGlob = inputDirectory + "brand.typography.js";
-const uiColorsGlob = inputDirectory + "ui.colors.js";
-const uiElementsGlob = inputDirectory + "ui.elements.js";
-const uiSizingGlob = inputDirectory + "ui.sizing.js";
-const uiTypographyGlob = inputDirectory + "ui.typography.js";
+const brandColorsPath = inputDirectory + "brand.colors.js";
+const brandTypographyPath = inputDirectory + "brand.typography.js";
+const uiColorsPath = inputDirectory + "ui.colors.js";
+const uiElementsPath = inputDirectory + "ui.elements.js";
+const uiSizingPath = inputDirectory + "ui.sizing.js";
+const uiTypographyPath = inputDirectory + "ui.typography.js";
+const uiTailwindPath = inputDirectory + "ui.tailwind.js";
 const uiThemesGlob = inputDirectory + "ui.theme.*.js";
 
 const mainSourceGlobs = [
-  brandColorsGlob,
-  brandTypographyGlob,
-  uiColorsGlob,
-  uiElementsGlob,
-  uiSizingGlob,
-  uiTypographyGlob,
+  brandColorsPath,
+  brandTypographyPath,
+  uiColorsPath,
+  uiElementsPath,
+  uiSizingPath,
+  uiTypographyPath,
   uiThemesGlob,
 ];
 
@@ -94,7 +95,7 @@ StyleDictionary.extend({
           destination: "tailwind.config.js",
           format: "tailwind",
           filter: (token) => {
-            return token.filePath.indexOf("ui.tailwind.js") > -1;
+            return token.filePath === uiTailwindPath;
           },
         },
       ],
@@ -107,28 +108,28 @@ StyleDictionary.extend({
           destination: "colors.css",
           format: "css/variables",
           filter: (token) => {
-            return isColor(token);
+            return token.filePath === uiColorsPath;
           },
         },
         {
           destination: "typography.css",
           format: "css/variables",
           filter: (token) => {
-            return isTypography(token);
+            return token.filePath === uiTypographyPath;
           },
         },
         {
           destination: "sizes.css",
           format: "css/variables",
           filter: (token) => {
-            return isSize(token);
+            return token.filePath === uiSizingPath;
           },
         },
         {
           destination: "elements.css",
           format: "css/variables",
           filter: (token) => {
-            return isElement(token);
+            return token.filePath === uiElementsPath;
           },
           options: {
             outputReferences: true,
