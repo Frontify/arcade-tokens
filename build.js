@@ -20,21 +20,28 @@ const brandTypographyGlob = inputDirectory + "brand.typography.js";
 const uiColorsGlob = inputDirectory + "ui.colors.js";
 const uiElementsGlob = inputDirectory + "ui.elements.js";
 const uiSizingGlob = inputDirectory + "ui.sizing.js";
-const uiTypographyGlob = inputDirectory + "ui.typograhy.js";
+const uiTypographyGlob = inputDirectory + "ui.typography.js";
 const uiThemesGlob = inputDirectory + "ui.theme.*.js";
+
+const mainSourceGlobs = [
+  brandColorsGlob,
+  brandTypographyGlob,
+  uiColorsGlob,
+  uiElementsGlob,
+  uiSizingGlob,
+  uiTypographyGlob,
+  uiThemesGlob,
+];
 
 /**
  * THEMES
  * - Gets the names of the color themes from the filesystem
  */
-const colorThemeFiles = tokenFiles.filter(
-  (file) =>
-    file.indexOf(".theme.") > -1 &&
-    file.indexOf(`.theme.${inputExtension}`) === -1
-);
-const colorThemes = colorThemeFiles.map((file) => {
-  return file.replace("ui.theme.", "").replace(`.${inputExtension}`, "");
-});
+const colorThemes = tokenFiles
+  .filter((file) => file.indexOf(".theme.") > -1)
+  .map((file) => {
+    return file.replace('ui.theme., "').replace(".js", "");
+  });
 
 /**
  * FILTERS
@@ -69,9 +76,7 @@ const isThickness = (token) => {
  * - This ensures that each file only contains the final, consumable tokens.
  */
 StyleDictionary.extend({
-  source: [
-    `${inputDirectory}**/!(*.${colorThemes.join(`|*.`)}).${inputExtension}`,
-  ],
+  source: mainSourceGlobs,
   transformGroup: {
     tailwind: ["attribute/cti", "name/cti/kebab", "size/px", "color/css"],
   },
@@ -160,11 +165,9 @@ StyleDictionary.extend({
 colorThemes.forEach((theme) => {
   StyleDictionary.extend({
     // Include references from all files
-    include: [
-      `${inputDirectory}**/!(*.${colorThemes.join(`|*.`)}).${inputExtension}`,
-    ],
+    include: mainSourceGlobs,
     // Only output from the appropriate color theme file
-    source: [`${inputDirectory}ui.theme.${theme}.${inputExtension}`],
+    source: [uiThemesGlob],
     platforms: {
       css: {
         transformGroup: "css",
