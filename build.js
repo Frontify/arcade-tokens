@@ -45,30 +45,6 @@ const colorThemes = tokenFiles
   });
 
 /**
- * FILTERS
- * - These are used in each file's configuration options to determine which tokens should
- * - be included in that file.
- */
-const isToken = (token) => {
-  return token.filePath.indexOf("brand.") === -1;
-};
-const isColor = (token) => {
-  return isToken(token) && token.attributes.category === "color";
-};
-const isTypography = (token) => {
-  return isToken(token) && token.filePath.indexOf(".typography.") > -1;
-};
-const isSize = (token) => {
-  return isToken(token) && token.filePath.indexOf(".sizing.") > -1;
-};
-const isElement = (token) => {
-  return isToken(token) && token.filePath.indexOf(".elements.") > -1;
-};
-const isThickness = (token) => {
-  return isToken(token) && token.attributes.type === "thickness";
-};
-
-/**
  * MAIN RUN
  * - Style dictionary does a deep merge of everything in input (except for theme files).
  * - This ensures that there are no naming collisions, and that references are respected.
