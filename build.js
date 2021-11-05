@@ -53,16 +53,24 @@ const colorThemes = tokenFiles
 StyleDictionary.extend({
   source: mainSourceGlobs,
   transformGroup: {
-    tailwind: ["attribute/cti", "name/cti/kebab", "size/px", "color/css"],
-    css: [`attribute/cti`, `name/cti/kebab`, `colorTransform`, `color/css`],
+    tailwind: [
+      "attribute/cti",
+      "name/cti/kebab",
+      "size/px",
+      "colorTransform",
+      "color/css",
+    ],
+    css: ["attribute/cti", "name/cti/kebab", "colorTransform", "color/css"],
   },
   transform: {
+    // Standard color value transformation
     colorTransform: {
-      type: `value`,
+      type: "value",
       transitive: true,
       matcher: (token) => token.attributes.category === "color" && token.modify,
       transformer: transformColor,
     },
+    // Make the standard color/css transitive
     "color/css": Object.assign({}, StyleDictionary.transform[`color/css`], {
       transitive: true,
     }),

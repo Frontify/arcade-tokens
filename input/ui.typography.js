@@ -1,7 +1,7 @@
 module.exports = {
   body: {
     family : { value: "{font.spaceGrotesk._.value}" },
-    fallbackFamilies: { value: ['Arial', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'] },
+    familyStack: { value: ["{body.family.value}", 'Arial', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'] },
     weight: {
       _ : { value: "{body.weight.1.value}" },
       1 : { value: "{font.spaceGrotesk.regular.weight.value}" },
@@ -30,7 +30,7 @@ module.exports = {
   },
   heading: {
     family : { value: "{font.spaceGrotesk._.value}" },
-    fallbackFamilies : { value: ['Arial', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji','Segoe UI Symbol'] },
+    familyStack : { value: ["{heading.family.value}", 'Arial', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji','Segoe UI Symbol'] },
     weight: {
       _ : { value: "{heading.weight.1.value}" },
       1 : { value: "{font.spaceGrotesk.regular.weight.value}" },
@@ -59,7 +59,7 @@ module.exports = {
   },
   code: {
     family : { value: "{font.menlo._.value}" },
-    fallbackFamilies : { value: ['Arial', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji','Segoe UI Symbol'] },
+    familyStack : { value: ["{code.family.value}", 'Arial', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji','Segoe UI Symbol'] },
     weight: {
       _ : { value: "{code.weight.1.value}" },
       1 : { value: "{font.menlo.regular.weight.value}" },

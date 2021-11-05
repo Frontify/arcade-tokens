@@ -17,75 +17,89 @@ const getColors = ({ dictionary }) => {
   return tree;
 };
 
-const getFontSize = (token) => {
-  let value = token._.value;
+const getFontSizeArray = (token) => {
+  let name = token._.name;
   let letterSpacing = token.letterSpacing;
   let lineHeight = token.lineHeight;
-  let array = [value];
+  let array = [`--var(${name})`];
 
   if (letterSpacing || lineHeight) {
     array[1] = {};
 
     if (letterSpacing) {
-      array[1].letterSpacing = letterSpacing.value;
+      array[1].letterSpacing = `--var(${letterSpacing.name})`;
     }
     if (lineHeight) {
-      array[1].lineHeight = lineHeight.value;
+      array[1].lineHeight = `--var(${lineHeight.name})`;
     }
   }
 
   return array;
 };
 
-const getFontSizes = ({ dictionary }) => {
-  let tree = {};
+const getFontSize = ({ dictionary }) => {
+  let fontSize = {};
   const fonts = {
     body: dictionary.tokens.body,
     heading: dictionary.tokens.heading,
     code: dictionary.tokens.code,
   };
   for (key in fonts) {
-    tree[key] = {
-      DEFAULT: getFontSize(fonts[key].size),
-      small: getFontSize(fonts[key].size.small),
-      medium: getFontSize(fonts[key].size.medium),
-      large: getFontSize(fonts[key].size.large),
-    };
+    fontSize[`"${key}"`] = getFontSizeArray(fonts[key].size);
+    fontSize[`"${key}-small"`] = getFontSizeArray(fonts[key].size.small);
+    fontSize[`"${key}-medium"`] = getFontSizeArray(fonts[key].size.medium);
+    fontSize[`"${key}-large"`] = getFontSizeArray(fonts[key].size.large);
   }
-  return tree;
+  return fontSize;
 };
 
 const getFontFamily = ({ dictionary }) => {
-  let tree = {};
+  let fontFamily = {};
   const fonts = {
     body: dictionary.tokens.body,
     heading: dictionary.tokens.heading,
     code: dictionary.tokens.code,
   };
   for (key in fonts) {
-    tree[key] = [fonts[key].family.value].concat(
-      fonts[key].fallbackFamilies.value
-    );
+    fontFamily[key] = [`var(--${fonts[key].familyStack.name})`];
   }
-  return tree;
+  return fontFamily;
 };
 
 const getBoxShadow = ({ dictionary }) => {
-  let tree = {};
-
-  return tree;
+  const shadows = dictionary.tokens.shadow;
+  return {
+    DEFAULT: shadows._.value,
+    large: shadows.large._.value,
+    medium: {
+      DEFAULT: shadows.medium._.value,
+      medium: shadows.medium.top.value,
+      bottom: shadows.medium.bottom.value,
+    },
+  };
 };
 
-module.exports = ({ tokens, dictionary }) => {
-  const config = {
-    fontSize: getFontSizes({ dictionary }),
-    fontFamily: getFontFamily({ dictionary }),
-    colors: getColors({ dictionary }),
-    boxShadow: getBoxShadow({ dictionary }),
-    ringColor: {},
-    ringColor: {},
-    extend: {},
+const getRingColor = ({ dictionary }) => {
+  return `var(--${dictionary.tokens.color.interactive._.name})`;
+};
+
+const getExtend = ({ dictionary }) => {
+  return {
+    outline: {
+      violet: `1px solid var(--${dictionary.tokens.color.interactive._.name})`,
+    },
   };
-  // console.log(config);
-  return config;
+};
+
+module.exports = ({ dictionary }) => {
+  const theme = {
+    fontSize: getFontSize({ dictionary }),
+    fontFamily: getFontFamily({ dictionary }),
+    ringColor: getRingColor({ dictionary }),
+    boxShadow: getBoxShadow({ dictionary }),
+    colors: getColors({ dictionary }),
+    extend: getExtend({ dictionary }),
+  };
+
+  return theme;
 };
