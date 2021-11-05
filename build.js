@@ -68,7 +68,6 @@ StyleDictionary.extend({
           destination: "tailwind.config.js",
           format: "tailwind",
           filter: (token) => {
-            console.log(token.filePath);
             return token.filePath === uiTailwindPath;
           },
         },

@@ -35,7 +35,6 @@ const flattenElements = ({ dictionary }) => {
       return getDeclaration({ token, dictionary });
     })
     .reduce((obj, item) => {
-      console.log(item[Object.keys(item)[0]]);
       obj[Object.keys(item)[0]] = item[Object.keys(item)[0]];
       return obj;
     }, {});
