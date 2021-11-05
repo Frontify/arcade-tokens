@@ -2,26 +2,14 @@ const getDeclaration = ({ token, dictionary }) => {
   let declaration = {};
 
   const reference = dictionary.getReferences(token.original.value)[0];
-  const name = token.path
-    .filter((item) => item !== "DEFAULT")
-    .slice(1)
-    .join("-");
+  const name = token.name;
 
-  // Text colors
-  if (token.path[1] === "text") {
-    if (token.path[2] === "color") {
-      declaration[name] = { color: `var(--${reference.name})}` };
-    }
-  }
-  if (token.path[1] === "border") {
-    if (token.path[2] === "width") {
-      declaration[name] = { borderWidth: `var(--${reference.name})}` };
-    }
-    if (token.path[2] === "color") {
-      declaration[name] = { borderColor: `var(--${reference.name})}` };
-    }
-    if (token.path[2] === "radius") {
-      declaration[name] = { borderRadius: `var(--${reference.name})}` };
+  // Text
+  if (token.path[0] === "text") {
+    if (token.path[1] === "color") {
+      declaration[name] = reference
+        ? { color: `var(--${reference.name})}` }
+        : { color: token.value };
     }
   }
 
@@ -30,7 +18,7 @@ const getDeclaration = ({ token, dictionary }) => {
 
 const flattenElements = ({ dictionary }) => {
   return dictionary.allTokens
-    .filter((token) => token.path[0] === "elements")
+    .filter((token) => token.filePath.indexOf(".elements.") > -1)
     .map((token) => {
       return getDeclaration({ token, dictionary });
     })

@@ -19,6 +19,7 @@ const getColors = ({ dictionary }) => {
 
 const getFontSizeArray = (token) => {
   let name = token._.name;
+  console.log(token);
   let letterSpacing = token.letterSpacing;
   let lineHeight = token.lineHeight;
   let array = [`--var(${name})`];
@@ -37,6 +38,12 @@ const getFontSizeArray = (token) => {
   return array;
 };
 
+const kebabize = (str) =>
+  str.replace(
+    /[A-Z]+(?![a-z])|[A-Z]/g,
+    ($, ofs) => (ofs ? "-" : "") + $.toLowerCase()
+  );
+
 const getFontSize = ({ dictionary }) => {
   let fontSize = {};
   const fonts = {
@@ -44,11 +51,16 @@ const getFontSize = ({ dictionary }) => {
     heading: dictionary.tokens.heading,
     code: dictionary.tokens.code,
   };
-  for (key in fonts) {
-    fontSize[`"${key}"`] = getFontSizeArray(fonts[key].size);
-    fontSize[`"${key}-small"`] = getFontSizeArray(fonts[key].size.small);
-    fontSize[`"${key}-medium"`] = getFontSizeArray(fonts[key].size.medium);
-    fontSize[`"${key}-large"`] = getFontSizeArray(fonts[key].size.large);
+  for (fontKey in fonts) {
+    for (sizeKey in fonts[fontKey].size) {
+      if (sizeKey === "_") {
+        fontSize[`${fontKey}`] = getFontSizeArray(fonts[fontKey].size);
+      } else {
+        fontSize[`${fontKey}-${kebabize(sizeKey)}`] = getFontSizeArray(
+          fonts[fontKey].size[sizeKey]
+        );
+      }
+    }
   }
   return fontSize;
 };
@@ -69,18 +81,40 @@ const getFontFamily = ({ dictionary }) => {
 const getBoxShadow = ({ dictionary }) => {
   const shadows = dictionary.tokens.shadow;
   return {
-    DEFAULT: shadows._.value,
-    large: shadows.large._.value,
+    DEFAULT: `var(--${shadows._.name})`,
+    large: `var(--${shadows.large._.name})`,
     medium: {
-      DEFAULT: shadows.medium._.value,
-      medium: shadows.medium.top.value,
-      bottom: shadows.medium.bottom.value,
+      DEFAULT: `var(--${shadows.medium._.name})`,
+      medium: `var(--${shadows.medium.top.name})`,
+      bottom: `var(--${shadows.medium.bottom.name})`,
     },
   };
 };
 
 const getRingColor = ({ dictionary }) => {
   return `var(--${dictionary.tokens.color.interactive._.name})`;
+};
+
+const getBorderWidth = ({ dictionary }) => {
+  const borderWidths = dictionary.tokens.border.width;
+  let borderWidth = {};
+  for (key in borderWidths) {
+    borderWidth[
+      key.replace("_", "DEFAULT")
+    ] = `var(--${borderWidths[key].name})`;
+  }
+  return borderWidth;
+};
+
+const getBorderRadius = ({ dictionary }) => {
+  const borderRadii = dictionary.tokens.border.radius;
+  let borderRadius = {};
+  for (key in borderRadii) {
+    borderRadius[
+      key.replace("_", "DEFAULT")
+    ] = `var(--${borderRadii[key].name})`;
+  }
+  return borderRadius;
 };
 
 const getExtend = ({ dictionary }) => {
@@ -97,6 +131,8 @@ module.exports = ({ dictionary }) => {
     fontFamily: getFontFamily({ dictionary }),
     ringColor: getRingColor({ dictionary }),
     boxShadow: getBoxShadow({ dictionary }),
+    borderWidth: getBorderWidth({ dictionary }),
+    borderRadius: getBorderRadius({ dictionary }),
     colors: getColors({ dictionary }),
     extend: getExtend({ dictionary }),
   };
