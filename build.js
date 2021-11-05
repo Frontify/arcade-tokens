@@ -5,8 +5,6 @@ const StyleDictionary = require("style-dictionary");
 const { fileHeader } = StyleDictionary.formatHelpers;
 const fs = require("fs");
 const getTailwindFormat = require("./scripts/getTailwindPlugin");
-const getTailwindPlugin = require("./scripts/getTailwindPlugin");
-const getTailwindTheme = require("./scripts/getTailwindTheme");
 
 /**
  * FILE SYSTEM
