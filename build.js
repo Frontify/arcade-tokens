@@ -9,8 +9,8 @@ const transformColor = require("./scripts/transformColor");
 /**
  * FILE SYSTEM
  */
-const inputDirectory = "input/";
-const outputDirectory = "output/";
+const inputDirectory = "tokens/";
+const outputDirectory = "dist/";
 const tokenFiles = fs.readdirSync(inputDirectory);
 
 const brandColorsPath = inputDirectory + "brand.colors.js";
