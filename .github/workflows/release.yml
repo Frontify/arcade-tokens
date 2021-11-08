@@ -20,8 +20,8 @@ jobs:
       contents: write
 
     steps:
-      # - name: Checkout default branch
-      #   uses: actions/checkout@v2
+      - name: Checkout default branch
+        uses: actions/checkout@v2
 
       - name: Use Node.js 16 (npm repository)
         uses: actions/setup-node@v2
