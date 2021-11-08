@@ -26,22 +26,24 @@ jobs:
           node-version: "16"
           registry-url: "https://registry.npmjs.org"
 
-      # - name: Cache dependencies
-      #   id: npm_cache
-      #   uses: actions/cache@v2
-      #   with:
-      #     path: "**/node_modules"
-      #     key: node16-${{ hashFiles('package-lock.json') }}
+      - name: Cache dependencies
+        id: npm_cache
+        uses: actions/cache@v2
+        with:
+          path: "**/node_modules"
+          key: node16-${{ hashFiles('package-lock.json') }}
 
       - name: Install dependencies
-        # if: steps.npm_cache.outputs.cache-hit != 'true'
+        if: steps.npm_cache.outputs.cache-hit != 'true'
         run: npm ci
 
       - name: Build Arcade
         run: npm run build
 
       - name: Release
-        run: npx semantic-release
+        run: |
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+          npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
