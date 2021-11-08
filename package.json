@@ -12,7 +12,9 @@
   "repository": {
     "url": "https://github.com/frontify/arcade-tokens"
   },
-  "access": "public",
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "arcade",
     "design",
