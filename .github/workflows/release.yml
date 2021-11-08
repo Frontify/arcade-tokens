@@ -45,6 +45,7 @@ jobs:
 
       - name: Release
         run: |
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN"
           echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
           npx semantic-release
         env:
