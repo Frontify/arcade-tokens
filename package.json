@@ -4,7 +4,7 @@
   "description": "Single source of truth for Arcade Design Tokens",
   "main": "index.js",
   "files": [
-    "output/**/*"
+    "dist*"
   ],
   "scripts": {
     "build": "node build.js"
