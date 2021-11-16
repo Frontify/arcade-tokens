@@ -7,7 +7,7 @@ const getDeclaration = ({ token, dictionary }) => {
   // Text
   if (token.path[0] === "text") {
     if (token.path[1] === "color") {
-      declaration[name] = reference
+      declaration[`.${name}`] = reference
         ? { color: `var(--${reference.name})}` }
         : { color: token.value };
     }
