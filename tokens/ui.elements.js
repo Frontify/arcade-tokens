@@ -6,12 +6,12 @@ module.exports = {
   // General
   text: {
     color: {
-      _: { value: "{text.color.5.value}" },
-      1: { value: "{color.neutral.1.value}" },
-      2: { value: "{color.neutral.12.value}" },
-      3: { value: "{color.neutral.13.value}" },
-      4: { value: "{color.neutral.14.value}" },
-      5: { value: "{color.neutral.15.value}" },
+      _: { value: "{text.color.50.value}" },
+      10: { value: "{color.neutral.10.value}" },
+      20: { value: "{color.neutral.120.value}" },
+      30: { value: "{color.neutral.130.value}" },
+      40: { value: "{color.neutral.140.value}" },
+      50: { value: "{color.neutral.150.value}" },
     },
   },
   line: {
@@ -24,11 +24,11 @@ module.exports = {
   },
   border: {
     color: {
-      _: { value: "{border.color.3.value}" },
-      1: { value: "{color.neutral.2.value}" },
-      2: { value: "{color.neutral.4.value}" },
-      3: { value: "{color.neutral.6.value}" },
-      4: { value: "{color.neutral.8.value}" },
+      _: { value: "{border.color.30.value}" },
+      10: { value: "{color.neutral.20.value}" },
+      20: { value: "{color.neutral.40.value}" },
+      30: { value: "{color.neutral.60.value}" },
+      40: { value: "{color.neutral.80.value}" },
     },
     width: {
       _: { value: "{border.width.1.value}" },
@@ -48,7 +48,7 @@ module.exports = {
     large: {
       _: { value: "0 25px 80px 0 {shadow.large.color.value}" },
       color: {
-        value: "{color.neutral.15.value}",
+        value: "{color.neutral.150.value}",
         attributes: { category: 'color' },
         modify: [{ type: "alpha", amount: 0.4 }]
       },
@@ -58,7 +58,7 @@ module.exports = {
       top: { value: "0 -10px 10px -5px {shadow.medium.color.value}" },
       bottom: { value: "0 10px 10px -5px {shadow.medium.color.value}" },
       color: {
-        value: "{color.neutral.15.value}",
+        value: "{color.neutral.150.value}",
         attributes: { category: 'color' },
         modify: [{ type: "alpha", amount: 0.1}]
       },
