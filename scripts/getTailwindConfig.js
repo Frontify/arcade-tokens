@@ -9,14 +9,24 @@ module.exports = ({ dictionary, file, options }) => {
     dictionary,
     outputReferences,
   });
+
   const tailwindTheme = getTailwindTheme({
     tokens: dictionary.tokens.theme,
     dictionary,
   });
-  const combined = {
-    theme: tailwindTheme,
-    plugin: tailwindPlugin,
-  };
-  const string = JSON.stringify(combined, null, 0);
-  return fileHeader({ file }) + "module.exports = " + string + ";";
+
+  return (
+    fileHeader({ file }) +
+    `const plugin = require('tailwindcss/plugin')
+
+module.exports = {
+    theme: ${JSON.stringify(tailwindTheme)},
+    plugins: [
+     plugin(function({ addComponents}) { 
+       const components = ${JSON.stringify(tailwindPlugin)}; 
+       addComponents(components); 
+      })
+    ]
+}`
+  );
 };
