@@ -10,7 +10,7 @@
   "exports": {
     ".": "./index.js",
     "./tailwind": "./dist/tailwind/tailwind.config.js",
-    "./styles": "./dist/css"
+    "./styles/": "./dist/css/"
   },
   "scripts": {
     "build": "node build.js"
