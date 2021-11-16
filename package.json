@@ -7,8 +7,8 @@
     "dist"
   ],
   "exports": {
-    "tailwind": "./dist/tailwind/tailwind.config.js",
-    "styles": "./dist/css"
+    "./tailwind": "./dist/tailwind/tailwind.config.js",
+    "./styles": "./dist/css"
   },
   "scripts": {
     "build": "node build.js"
