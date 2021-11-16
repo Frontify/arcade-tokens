@@ -6,6 +6,9 @@
   "files": [
     "dist"
   ],
+  "exports": {
+    "tailwind": "./dist/tailwind/tailwind.config.js"
+  },
   "scripts": {
     "build": "node build.js"
   },
