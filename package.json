@@ -4,9 +4,11 @@
   "description": "Single source of truth for Arcade Design Tokens",
   "main": "index.js",
   "files": [
-    "dist"
+    "dist",
+    "index.js"
   ],
   "exports": {
+    ".": "./index.js",
     "./tailwind": "./dist/tailwind/tailwind.config.js",
     "./styles": "./dist/css"
   },
