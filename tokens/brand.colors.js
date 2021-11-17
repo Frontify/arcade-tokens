@@ -117,12 +117,12 @@ module.exports = {
       },
       mid: {
         _ : { value: "#FF8066" },
-        // 1 : { value: "#E3E8F6" },
-        // 2 : { value: "#E1C4BE" },
-        // 3 : { value: "{color.violet.mid._.value}" },
-        // 4 : { value: "#FF375A" },
-        // 5 : { value: "#6449C4" },
-        // 6 : { value: "#443185" },
+        1 : { value: "#F0E1DE" },
+        2 : { value: "#E1C4BE" },
+        3 : { value: "#FF8066" },
+        4 : { value: "{color.red.bright._.value}" },
+        5 : { value: "#CC2C48" },
+        6 : { value: "#992136" },
       },
       pastel: {
         _ : { value: "#E1C4BE" },
