@@ -5,11 +5,13 @@ const StyleDictionary = require("style-dictionary");
 const fs = require("fs");
 const getTailwindConfig = require("./scripts/getTailwindConfig");
 const transformColor = require("./scripts/transformColor");
+const getFigmaJson = require("./scripts/getFigmaJson");
 
 /**
  * FILE SYSTEM
  */
 const inputDirectory = "tokens/";
+const tempDirectory = "temp/";
 const outputDirectory = "dist/";
 const tokenFiles = fs.readdirSync(inputDirectory);
 
@@ -39,7 +41,6 @@ const colorThemes = tokenFiles
   .map((file) => {
     return file.replace("ui.theme.", "").replace(".js", "");
   });
-
 /**
  * MAIN RUN
  * - Style dictionary does a deep merge of everything in input (except for theme files).
@@ -59,6 +60,13 @@ StyleDictionary.extend({
       "color/css",
     ],
     css: ["attribute/cti", "name/cti/kebab", "colorTransform", "color/css"],
+    figmaJson: [
+      "attribute/cti",
+      "name/cti/kebab",
+      "size/remToPx",
+      "colorTransform",
+      "color/css",
+    ],
   },
   transform: {
     // Standard color value transformation
@@ -77,8 +85,24 @@ StyleDictionary.extend({
     tailwind: ({ dictionary, options, file }) => {
       return getTailwindConfig({ dictionary, options, file });
     },
+    figmaJson: ({ dictionary }) => {
+      return getFigmaJson({ dictionary });
+    },
   },
   platforms: {
+    figma: {
+      transformGroup: "figmaJson",
+      buildPath: tempDirectory + "figma/",
+      files: [
+        {
+          destination: "default.json",
+          format: "figmaJson",
+          filter: (token) => {
+            return uiFilePaths.includes(token.filePath);
+          },
+        },
+      ],
+    },
     tailwind: {
       transformGroup: "tailwind",
       buildPath: outputDirectory + "tailwind/",
@@ -140,11 +164,52 @@ StyleDictionary.extend({
  */
 colorThemes.forEach((theme) => {
   StyleDictionary.extend({
+    transformGroup: {
+      figmaJson: [
+        "attribute/cti",
+        "name/cti/kebab",
+        "size/remToPx",
+        "colorTransform",
+        "color/css",
+      ],
+    },
+    transform: {
+      // Standard color value transformation
+      colorTransform: {
+        type: "value",
+        transitive: true,
+        matcher: (token) =>
+          token.attributes.category === "color" && token.modify,
+        transformer: transformColor,
+      },
+      // Make the standard color/css transitive
+      "color/css": Object.assign({}, StyleDictionary.transform[`color/css`], {
+        transitive: true,
+      }),
+    },
+    format: {
+      figmaJson: ({ dictionary }) => {
+        return getFigmaJson({ dictionary, options: { theme: theme } });
+      },
+    },
     // Include references from all files
     include: [...brandFilePaths, ...uiFilePaths],
     // Only output from the appropriate color theme file
-    source: [uiThemesGlob],
+    source: [inputDirectory + "ui.theme." + theme + ".js"],
     platforms: {
+      figma: {
+        transformGroup: "figmaJson",
+        buildPath: tempDirectory + "figma/",
+        files: [
+          {
+            destination: `${theme}.json`,
+            format: "figmaJson",
+            filter: (token) => {
+              return token.filePath.indexOf(theme) > -1;
+            },
+          },
+        ],
+      },
       css: {
         transformGroup: "css",
         buildPath: outputDirectory + "css/",
@@ -160,4 +225,29 @@ colorThemes.forEach((theme) => {
       },
     },
   }).buildAllPlatforms();
+});
+
+const figmaTempDirectory = `${tempDirectory}figma/`;
+const figmaOutputDirectory = `${outputDirectory}figma/`;
+
+fs.readdir(figmaTempDirectory, (error, files) => {
+  return new Promise((resolve, reject) => {
+    if (error) reject(error);
+
+    let combinedJson = {};
+    files.reverse().forEach((file) => {
+      const content = fs.readFileSync(figmaTempDirectory + file, "utf8");
+      combinedJson = { ...combinedJson, ...JSON.parse(content) };
+    });
+
+    resolve(combinedJson);
+  }).then((data) => {
+    if (!fs.existsSync(figmaOutputDirectory)) {
+      fs.mkdirSync(figmaOutputDirectory);
+    }
+    fs.writeFileSync(
+      `${figmaOutputDirectory}combined.json`,
+      JSON.stringify(data)
+    );
+  });
 });
