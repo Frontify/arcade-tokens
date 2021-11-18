@@ -4,8 +4,14 @@
   "description": "Single source of truth for Arcade Design Tokens",
   "main": "index.js",
   "files": [
-    "dist"
+    "dist",
+    "index.js"
   ],
+  "exports": {
+    ".": "./index.js",
+    "./tailwind": "./dist/tailwind/tailwind.config.js",
+    "./styles/": "./dist/css/"
+  },
   "scripts": {
     "build": "node build.js"
   },
@@ -27,6 +33,9 @@
     "url": "https://github.com/Frontify/arcade-tokens/issues"
   },
   "homepage": "https://github.com/Frontify/arcade-tokens#readme",
+  "dependencies": {
+    "tailwindcss": "^2.2.19"
+  },
   "devDependencies": {
     "chroma-js": "^2.1.2",
     "prettier": "^2.4.1",
