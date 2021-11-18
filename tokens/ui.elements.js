@@ -66,6 +66,9 @@ module.exports = {
     },
   },
   input: {
+    placeholder: {
+      color: { value: "{color.neutral.50.value}", attributes: { category: "color" }}
+    },
     border: {
       color: { value: "{border.color._.value}", attributes: { category: "color" } },
     },
