@@ -71,7 +71,7 @@ module.exports = {
     },
     grey: {
       0   : { value: "#FFFFFF" },
-      5  : { value: "{color.offWhite.value}"},
+      5   : { value: "{color.offWhite.value}"},
       10  : { value: "#f4f4f4"},
       20  : { value: "#e8e9e9"},
       30  : { value: "#c0c1c1"},
