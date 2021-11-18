@@ -45,12 +45,12 @@ const getTokenDefinition = (token) => {
       outputType = "spacing";
     } else if (tokenType === "font") {
       outputType = "fontSizes";
-    } else if (tokenType === "border" || tokenType === "lineWidth") {
+    } else if (tokenType === "lineWidth") {
       outputType = "borderWidth";
     } else if (tokenType === "borderRadius") {
       outputType = "borderRadius";
     } else if (tokenType === "letterSpacing") {
-      outputType = "borderRadius";
+      outputType = "letterSpacing";
     } else if (tokenType === "lineHeight") {
       outputType = "lineHeights";
     }
