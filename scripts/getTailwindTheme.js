@@ -84,9 +84,9 @@ const getBoxShadow = ({ dictionary }) => {
     DEFAULT: `var(--${shadows._.name})`,
     large: `var(--${shadows.large._.name})`,
     medium: {
-      DEFAULT: `var(--${shadows.medium._.name})`,
-      medium: `var(--${shadows.medium.top.name})`,
-      bottom: `var(--${shadows.medium.bottom.name})`,
+      DEFAULT: `var(--${shadows._.name})`,
+      medium: `var(--${shadows.top.name})`,
+      bottom: `var(--${shadows.bottom.name})`,
     },
   };
 };

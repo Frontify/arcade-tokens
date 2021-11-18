@@ -1,7 +1,7 @@
 module.exports = {
   color: {
     base: {
-      value : "{color.neutral.3.value}",
+      value : "{color.neutral.80.value}",
     },
   },
 };
