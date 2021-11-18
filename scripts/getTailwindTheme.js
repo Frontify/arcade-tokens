@@ -19,7 +19,6 @@ const getColors = ({ dictionary }) => {
 
 const getFontSizeArray = (token) => {
   let name = token._.name;
-  console.log(token);
   let letterSpacing = token.letterSpacing;
   let lineHeight = token.lineHeight;
   let array = [`--var(${name})`];
