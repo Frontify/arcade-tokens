@@ -15,20 +15,20 @@ module.exports = {
       10     : { value: "#e1e5f2" },
       20     : { value: "{color.violet.pastel.value}" },
       30     : { value: "#bac2eb" },
-      40     : { value: "{color.violet.mid.value}" },
-      50     : { value: "{color.violet.bright.value}" },
-      60     : { value: "#6f57d0" },
-      70     : { value: "#5a4ca1" },
-      80     : { value: "#5a4ca1" },
-      90     : { value: "#4d4383" },
-      100    : { value: "#3c3661" }
+      40     : { value: "9ea0f2" },
+      50     : { value: "{color.violet.mid.value}" },
+      60     : { value: "{color.violet.bright.value}" },
+      70     : { value: "#7159d7" },
+      80     : { value: "#6352b4" },
+      90     : { value: "#564996" },
+      100    : { value: "#463f75" }
     },
     
     yellow: {
       bright : { value: "#FFB400" },
       mid    : { value: "#EEC779" },
       pastel : { value: "#E1D4BE" },
-      10     : { value: "#ebe5d9" },
+      10     : { value: "#faf3e2" }, // Overridden (not based on leonardo output)
       20     : { value: "{color.yellow.pastel.value}" },
       30     : { value: "#e9cb92" },
       40     : { value: "{color.yellow.pastel.value}" },
@@ -36,14 +36,14 @@ module.exports = {
       60     : { value: "{color.yellow.bright.value}" },
       70     : { value: "#e6a518" },
       80     : { value: "#c28d25" },
-      90     : { value: "#a17829" },
-      100    : { value: "#7b5e29" }
+      90     : { value: "#7b5e29" },
+      100    : { value: "#594624" }
     },
     red: {
       bright : { value: "#FF375A" },
       mid    : { value: "#FF8066" },
       pastel : { value: "#E1C4BE" },
-      10     : { value: "#eadad7" },
+      10     : { value: "#f3edec" },
       20     : { value: "{color.red.pastel.value}" },
       30     : { value: "#f0a594" },
       40     : { value: "{color.red.mid.value}" },
@@ -58,16 +58,16 @@ module.exports = {
       bright : { value: "#00C8A5" },
       mid    : { value: "#80DBB7" },
       pastel : { value: "#BEE1D4" },
-      10     : { value: "#d5eae2" },
+      10     : { value: "#ecf5f2" },
       20     : { value: "{color.green.pastel.value}" },
       30     : { value: "#a7dec8" },
       40     : { value: "{color.green.mid.value}" },
       50     : { value: "#67d4b0" },
       60     : { value: "{color.green.bright.value}" },
-      70     : { value: "#339b82" },
-      80     : { value: "#356d5e" },
-      90     : { value: "#30584c" },
-      100    : { value: "#28413a" }
+      70     : { value: "#2cab8e" },
+      80     : { value: "#368d78" },
+      90     : { value: "#356d5e" },
+      100    : { value: "#2e4f46" }
     },
     grey: {
       0   : { value: "#FFFFFF" },
