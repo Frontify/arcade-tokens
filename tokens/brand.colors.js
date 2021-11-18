@@ -31,7 +31,7 @@ module.exports = {
       10     : { value: "#faf3e2" }, // Overridden (not based on leonardo output)
       20     : { value: "{color.yellow.pastel.value}" },
       30     : { value: "#e9cb92" },
-      40     : { value: "{color.yellow.pastel.value}" },
+      40     : { value: "{color.yellow.mid.value}" },
       50     : { value: "#f8bb40" },
       60     : { value: "{color.yellow.bright.value}" },
       70     : { value: "#e6a518" },
