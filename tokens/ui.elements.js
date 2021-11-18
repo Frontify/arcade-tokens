@@ -4,6 +4,9 @@
 
 module.exports = {
   // General
+  base: {
+    color: { value: "{color.grey.0.value}" },
+  },
   text: {
     color: {
       _    : { value: "{color.neutral.80.value}" },

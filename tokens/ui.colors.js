@@ -6,7 +6,6 @@
 
 module.exports = {
   color: {
-    base     : { value: "{color.grey.0.value}" },
     lightest : { value: "{color.grey.0.value}" },
     darkest  : { value: "{color.grey.100.value}" },
     neutral: {
