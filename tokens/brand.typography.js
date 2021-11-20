@@ -7,50 +7,50 @@
 module.exports = {
   font: {
     spaceGrotesk: {
-      _: { value: "SpaceGroteskFrontify" },
+      _: { value: "Space Grotesk Frontify" },
       regular: {
-        _: { value: "SpaceGroteskFrontifyRegular" },
+        _: { value: "Space Grotesk Frontify Regular" },
         weight: {
-          value: 400,
-          attributes: { type: "weight" },
+          number: { value: 400, attributes: { type: "weight" } },
+          name: { value: "Regular", attributes: { type: "name" } }
         },
       },
       medium: {
-        _: { value: "SpaceGroteskFrontifyMedium" },
+        _: { value: "Space Grotesk Frontify Medium" },
         weight: {
-          value: 500,
-          attributes: { type: "weight" },
+          number: { value: 500, attributes: { type: "weight" } },
+          name: { value: "Medium", attributes: { type: "name" } }
         },
       },
       semiBold: {
-        _: { value: "SpaceGroteskFrontifySemiBold" },
+        _: { value: "Space Grotesk Frontify SemiBold" },
         weight: {
-          value: 600,
-          attributes: { type: "weight" },
+          number: { value: 600, attributes: { type: "weight" } },
+          name: { value: "SemiBold", attributes: { type: "name" } }
         },
       },
       bold: {
-        _: { value: "SpaceGroteskFrontifyBold" },
+        _: { value: "Space Grotesk Frontify Bold" },
         weight: {
-          value: 700,
-          attributes: { type: "weight" },
+          number: { value: 700, attributes: { type: "weight" } },
+          name: { value: "Bold", attributes: { type: "name" } }
         },
       },
     },
     menlo: {
       _: { value: "Menlo" },
       regular: {
-        _: { value: "MenloRegular" },
+        _: { value: "Menlo Regular" },
         weight: {
-          value: 400,
-          attributes: { type: "weight" },
+          number: { value: 400, attributes: { type: "weight" } },
+          name: { value: "Regular", attributes: { type: "name" } }
         },
       },
       bold: {
-        _: { value: "MenloBold" },
+        _: { value: "Menlo Bold" },
         weight: {
-          value: 700,
-          attributes: { type: "weight" },
+          number: { value: 700, attributes: { type: "weight" } },
+          name: { value: "Bold", attributes: { type: "name" } }
         },
       },
     },

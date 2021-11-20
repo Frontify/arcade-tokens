@@ -17,32 +17,21 @@ module.exports = {
       ],
     },
     weight: {
-      _: { value: "{body.weight.1.value}", attributes: { category: 'font', type: 'weight' } },
-      1: { value: "{font.spaceGrotesk.regular.weight.value}", attributes: { category: 'font', type: 'weight' } },
-      2: { value: "{font.spaceGrotesk.medium.weight.value}", attributes: { category: 'font', type: 'weight' } },
-      3: { value: "{font.spaceGrotesk.semiBold.weight.value}", attributes: { category: 'font', type: 'weight' } },
-      4: { value: "{font.spaceGrotesk.bold.weight.value}", attributes: { category: 'font', type: 'weight' } },
+      _: { 
+        number: { value: "{font.spaceGrotesk.regular.weight.name.value}", attributes: { category: 'font', type: 'weight' } },
+        name: { value: "{font.spaceGrotesk.regular.weight.name.value}", attributes: { category: 'font', type: 'name' } },
+      },
+      strong: { 
+        number: { value: "{font.spaceGrotesk.medium.weight.number.value}", attributes: { category: 'font', type: 'weight' } },
+        name: { value: "{font.spaceGrotesk.medium.weight.name.value}", attributes: { category: 'font', type: 'name' } },
+      },
+      xStrong: { 
+        number: { value: "{font.spaceGrotesk.bold.weight.number.value}", attributes: { category: 'font', type: 'weight' } },
+        name: { value: "{font.spaceGrotesk.bold.weight.name.value}", attributes: { category: 'font', type: 'name' } },
+      },
     },
     size: {
-      _: {
-        value: "{body.size.medium._.value}",
-        attributes: { category: "size", type: "font" },
-      },
-      small: {
-        _: { value: 0.875, attributes: { category: "size", type: "font" } },
-        lineHeight: { value: 1, attributes: { category: "size", type: "lineHeight" } },
-        lineHeightLong: { value: 1, attributes: { category: "size", type: "lineHeight" } },
-      },
-      medium: {
-        _: { value: 1, attributes: { category: "size", type: "font" } },
-        lineHeight: { value: 1.25, attributes: { category: "size", type: "lineHeight" } },
-        lineHeightLong: { value: 2, attributes: { category: "size", type: "lineHeight" } },
-      },
-      large: {
-        _: { value: 1.125, attributes: { category: "size", type: "font" } },
-        lineHeight: { value: 1.5, attributes: { category: "size", type: "lineHeight" } },
-        lineHeightLong: { value: 2, attributes: { category: "size", type: "lineHeight" } },
-      },
+      
     },
   },
   heading: {
@@ -63,17 +52,16 @@ module.exports = {
       ],
     },
     weight: {
-      _: { value: "{heading.weight.1.value}", attributes: { category: 'font', type: 'weight' } },
-      1: { value: "{font.spaceGrotesk.regular.weight.value}", attributes: { category: 'font', type: 'weight' } },
-      2: { value: "{font.spaceGrotesk.medium.weight.value}", attributes: { category: 'font', type: 'weight' } },
-      3: { value: "{font.spaceGrotesk.semiBold.weight.value}", attributes: { category: 'font', type: 'weight' } },
-      4: { value: "{font.spaceGrotesk.bold.weight.value}", attributes: { category: 'font', type: 'weight' } },
+      _: { 
+        number: { value: "{font.spaceGrotesk.medium.weight.name.value}", attributes: { category: 'font', type: 'weight' } },
+        name: { value: "{font.spaceGrotesk.medium.weight.name.value}", attributes: { category: 'font', type: 'name' } },
+      },
+      strong: { 
+        number: { value: "{font.spaceGrotesk.bold.weight.number.value}", attributes: { category: 'font', type: 'weight' } },
+        name: { value: "{font.spaceGrotesk.bold.weight.name.value}", attributes: { category: 'font', type: 'name' } },
+      },
     },
     size: {
-      _: {
-        value: "{heading.size.small._.value}",
-        attributes: { category: "size", type: "font" },
-      },
       small: {
         _: {
           value: "{body.size.small._.value}",
@@ -121,15 +109,16 @@ module.exports = {
       value: ["{code.family.value}", "Courier", "monospace"],
     },
     weight: {
-      _: { value: "{code.weight.1.value}", attributes: { category: 'font', type: 'weight' }  },
-      1: { value: "{font.menlo.regular.weight.value}", attributes: { category: 'font', type: 'weight' }  },
-      2: { value: "{font.menlo.bold.weight.value}", attributes: { category: 'font', type: 'weight' }  },
+      _: { 
+        number: { value: "{font.menlo.regular.weight.name.value}", attributes: { category: 'font', type: 'weight' } },
+        name: { value: "{font.menlo.regular.weight.name.value}", attributes: { category: 'font', type: 'name' } },
+      },
+      strong: { 
+        number: { value: "{font.menlo.regular.weight.number.value}", attributes: { category: 'font', type: 'weight' } },
+        name: { value: "{font.menlo.regular.weight.name.value}", attributes: { category: 'font', type: 'name' } },
+      },
     },
     size: {
-      _: {
-        value: "{code.size.medium._.value}",
-        attributes: { category: "size", type: "font" },
-      },
       small: {
         _: { value: 1, attributes: { category: "size", type: "font" } },
         lineHeight: { value: 1, attributes: { category: "size", type: "lineHeight" } },

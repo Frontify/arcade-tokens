@@ -8,13 +8,20 @@ const themeToTitleCase = (string) => {
     .join(" ");
 };
 
-const createTree = ({ node, options }) => {
+const pascalToTitleCase = (string) => {
+  let splitUp = string.replace(/([A-Z])/g, " $1");
+  let titleCase = splitUp.charAt(0).toUpperCase() + splitUp.slice(1);
+  return titleCase;
+};
+
+const getTree = ({ node, options }) => {
   let tree = {};
   if (node.hasOwnProperty("value")) {
     return getTokenDefinition(node);
   }
   for (key in node) {
-    tree[key.replace("_", "DEFAULT")] = createTree({
+    const name = pascalToTitleCase(key).replace("_", "DEFAULT");
+    tree[name] = getTree({
       node: node[key],
     });
   }
@@ -77,5 +84,7 @@ module.exports = ({ dictionary, options }) => {
       [themeToTitleCase(options.theme)]: dictionary.tokens,
     };
   }
-  return JSON.stringify(createTree({ node, options }));
+  const tokens = JSON.stringify(getTree({ node, options }));
+  // const response = { ...tokens, ...getTypography(tokens) };
+  return JSON.stringify(getTree({ node, options }));
 };

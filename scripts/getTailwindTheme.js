@@ -81,12 +81,12 @@ const getFontFamily = ({ dictionary }) => {
 const getBoxShadow = ({ dictionary }) => {
   const shadows = dictionary.tokens.shadow;
   return {
-    DEFAULT: `var(--${shadows._.name})`,
-    large: `var(--${shadows.large._.name})`,
+    DEFAULT: `var(--${shadows._._._.name})`,
+    large: `var(--${shadows.large._._.name})`,
     medium: {
-      DEFAULT: `var(--${shadows._.name})`,
-      medium: `var(--${shadows.top.name})`,
-      bottom: `var(--${shadows.bottom.name})`,
+      DEFAULT: `var(--${shadows._._._.name})`,
+      medium: `var(--${shadows._.top._.name})`,
+      bottom: `var(--${shadows._.bottom._.name})`,
     },
   };
 };

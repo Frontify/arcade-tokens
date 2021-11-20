@@ -5,7 +5,7 @@ const StyleDictionary = require("style-dictionary");
 const fs = require("fs");
 const getTailwindConfig = require("./scripts/getTailwindConfig");
 const transformColor = require("./scripts/transformColor");
-const getFigmaJson = require("./scripts/getFigmaJson");
+const getFigma = require("./scripts/getFigma");
 
 /**
  * FILE SYSTEM
@@ -86,7 +86,7 @@ StyleDictionary.extend({
       return getTailwindConfig({ dictionary, options, file });
     },
     figmaJson: ({ dictionary }) => {
-      return getFigmaJson({ dictionary });
+      return getFigma({ dictionary });
     },
   },
   platforms: {
@@ -189,7 +189,7 @@ colorThemes.forEach((theme) => {
     },
     format: {
       figmaJson: ({ dictionary }) => {
-        return getFigmaJson({ dictionary, options: { theme: theme } });
+        return getFigma({ dictionary, options: { theme: theme } });
       },
     },
     // Include references from all files
