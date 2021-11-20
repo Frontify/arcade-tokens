@@ -1,13 +1,8 @@
 const TYPE = "color";
 
-/**
- * =============
- * BODY
- * =============
- */
-
-const colors = (tokens) => {
+const colors = ({ tokens }) => {
   let colors = {};
+
   const mainColorTokens = tokens.filter((token) => {
     return token.path[0] === "color";
   });
@@ -41,6 +36,14 @@ const colors = (tokens) => {
   return colors;
 };
 
-module.exports = (tokens) => {
-  return colors(tokens);
+module.exports = ({ dictionary, options }) => {
+  const tokens = dictionary.allTokens;
+
+  // if (options && options.theme) {
+  //   const tokens = tokens.filter((token) => {
+  //     return token.filePath.includes("theme." + options.theme);
+  //   });
+  // }
+
+  return colors({ tokens });
 };

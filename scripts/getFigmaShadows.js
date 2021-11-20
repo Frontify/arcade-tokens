@@ -6,7 +6,9 @@ const TYPE = "boxShadow";
  * =============
  */
 
-const shadows = (tokens) => {
+const shadows = ({ tokens }) => {
+  if (!tokens.shadow) return null;
+
   const shadowDefault = {
     x: tokens.shadow["offset-x"].value,
     y: tokens.shadow["offset-y"].value,
@@ -53,6 +55,7 @@ const shadows = (tokens) => {
   };
 };
 
-module.exports = (tokens) => {
-  return shadows(tokens);
+module.exports = ({ dictionary }) => {
+  const tokens = dictionary.tokens;
+  return shadows({ tokens });
 };

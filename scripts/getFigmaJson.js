@@ -2,29 +2,23 @@ const getFigmaTypography = require("./getFigmaTypography");
 const getFigmaShadows = require("./getFigmaShadows");
 const getFigmaColors = require("./getFigmaColors");
 
-const themeToTitleCase = (string) => {
-  return string
-    .toLowerCase()
-    .split(".")
-    .map((word) => {
-      return word.charAt(0).toUpperCase() + word.slice(1);
-    })
-    .join(" ");
+const formatThemeName = (string) => {
+  return string.toLowerCase().split(".").join("-");
 };
 
-const getTheme = ({ dictionary }) => {
+const getTheme = ({ dictionary, options }) => {
   return {
-    ...getFigmaTypography(dictionary.tokens),
-    ...getFigmaShadows(dictionary.tokens),
-    ...getFigmaColors(dictionary.allTokens),
+    ...getFigmaTypography({ dictionary, options }),
+    ...getFigmaShadows({ dictionary, options }),
+    ...getFigmaColors({ dictionary, options }),
   };
 };
 
 module.exports = ({ dictionary, options }) => {
-  const theme = getTheme({ dictionary });
+  const theme = getTheme({ dictionary, options });
 
   if (options && options.theme) {
-    return JSON.stringify({ [themeToTitleCase(options.theme)]: theme });
+    return JSON.stringify({ [formatThemeName(options.theme)]: theme });
   }
 
   return JSON.stringify(theme);

@@ -21,7 +21,7 @@ const getExtend = ({ dictionary }) => {
 
 const getObject = ({ tokens, filter }) => {
   const matchingTokens = tokens.filter(filter);
-  // console.log(matchingTokens);
+
   let object = {};
   matchingTokens.forEach((token) => {
     object[token.name] = `var(--${token.name})`;

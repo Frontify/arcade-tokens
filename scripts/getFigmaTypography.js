@@ -6,6 +6,8 @@ const TYPE = "typography";
  * =============
  */
 const code = (tokens) => {
+  if (!tokens.code) return null;
+
   const codeDefault = {
     fontFamily: tokens.code["family"].value,
     fontSize: tokens.code["size-small"].value,
@@ -69,6 +71,8 @@ const code = (tokens) => {
  * =============
  */
 const heading = (tokens) => {
+  if (!tokens.heading) return null;
+
   const headingDefault = {
     fontFamily: tokens.heading["family"].value,
     fontSize: tokens.heading["size-small"].value,
@@ -133,6 +137,8 @@ const heading = (tokens) => {
  */
 
 const body = (tokens) => {
+  if (!tokens.body) return null;
+
   const bodyDefault = {
     fontFamily: tokens.body["family"].value,
     fontSize: tokens.body["size-small"].value,
@@ -213,6 +219,7 @@ const body = (tokens) => {
   };
 };
 
-module.exports = (tokens) => {
+module.exports = ({ dictionary }) => {
+  const tokens = dictionary.tokens;
   return { ...body(tokens), ...heading(tokens), ...code(tokens) };
 };
