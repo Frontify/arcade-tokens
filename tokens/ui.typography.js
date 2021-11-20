@@ -1,153 +1,70 @@
 module.exports = {
   body: {
-    family: { value: "{font.spaceGrotesk._.value}", attributes: { category: "font", type: 'family' } },
-    familyStack: {
-      value: [
-        "{body.family.value}",
-        "Arial",
-        "-apple-system",
-        "BlinkMacSystemFont",
-        "Segoe UI",
-        "Roboto",
-        "Helvetica",
-        "sans-serif",
-        "Apple Color Emoji",
-        "Segoe UI Emoji",
-        "Segoe UI Symbol",
-      ],
-    },
-    weight: {
-      _: { 
-        number: { value: "{font.spaceGrotesk.regular.weight.name.value}", attributes: { category: 'font', type: 'weight' } },
-        name: { value: "{font.spaceGrotesk.regular.weight.name.value}", attributes: { category: 'font', type: 'name' } },
-      },
-      strong: { 
-        number: { value: "{font.spaceGrotesk.medium.weight.number.value}", attributes: { category: 'font', type: 'weight' } },
-        name: { value: "{font.spaceGrotesk.medium.weight.name.value}", attributes: { category: 'font', type: 'name' } },
-      },
-      xStrong: { 
-        number: { value: "{font.spaceGrotesk.bold.weight.number.value}", attributes: { category: 'font', type: 'weight' } },
-        name: { value: "{font.spaceGrotesk.bold.weight.name.value}", attributes: { category: 'font', type: 'name' } },
-      },
-    },
-    size: {
-      small: {
-        _: { value: 0.875, attributes: { category: "size", type: "font" } },
-        lineHeight: { value: 1, attributes: { category: "size", type: "lineHeight" } },
-        lineHeightLong: { value: 1, attributes: { category: "size", type: "lineHeight" } },
-      },
-      medium: {
-        _: { value: 1, attributes: { category: "size", type: "font" } },
-        lineHeight: { value: 1.25, attributes: { category: "size", type: "lineHeight" } },
-        lineHeightLong: { value: 2, attributes: { category: "size", type: "lineHeight" } },
-      },
-      large: {
-        _: { value: 1.125, attributes: { category: "size", type: "font" } },
-        lineHeight: { value: 1.5, attributes: { category: "size", type: "lineHeight" } },
-        lineHeightLong: { value: 2, attributes: { category: "size", type: "lineHeight" } },
-      },
-    },
+    // FAMILY
+    "family"                       : { value: "{font.space-grotesk.value}", attributes: { category: "font", type: 'family' } },
+    "family-stack"                 : { value: [ "{body.family.value}", "Arial", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" ] },
+    // WEIGHTS
+    "weight-number"                : { value: "{font.space-grotesk-regular-weight-name.value}", attributes: { category: 'font', type: 'weight' } },
+    "weight-name-strong"           : { value: "{font.space-grotesk-regular-weight-name.value}", attributes: { category: 'font', type: 'name' } },
+    "weight-number-strong"         : { value: "{font.space-grotesk-medium-weight-number.value}", attributes: { category: 'font', type: 'weight' } },
+    "weight-name-strong"           : { value: "{font.space-grotesk-medium-weight-name.value}", attributes: { category: 'font', type: 'name' } },
+    "weight-numberXStrong"         : { value: "{font.space-grotesk-bold-weight-number.value}", attributes: { category: 'font', type: 'weight' } },
+    "weight-nameXStrong"           : { value: "{font.space-grotesk-bold-weight-name.value}", attributes: { category: 'font', type: 'name' } },
+    // SMALL
+    "size-small"                   : { value: 0.875, attributes: { category: "size", type: "font" } },
+    "size-small-line-height"       : { value: 1, attributes: { category: "size", type: "lineHeight" } },
+    "size-small-line-height-long"  : { value: 1, attributes: { category: "size", type: "lineHeight" } },
+    // MEDIUM
+    "size-medium"                  : { value: 1, attributes: { category: "size", type: "font" } },
+    "size-medium-line-height"      : { value: 1.25, attributes: { category: "size", type: "lineHeight" } },
+    "size-medium-line-height-long" : { value: 2, attributes: { category: "size", type: "lineHeight" } },
+    // LARGE
+    "size-large"                    : { value: 1.125, attributes: { category: "size", type: "font" } },
+    "size-large-line-height"        : { value: 1.5, attributes: { category: "size", type: "lineHeight" } },
+    "size-large-line-height-long"   : { value: 2, attributes: { category: "size", type: "lineHeight" } },
   },
   heading: {
-    family: { value: "{font.spaceGrotesk._.value}", attributes: { category: "font", type: 'family' } },
-    familyStack: {
-      value: [
-        "{heading.family.value}",
-        "Arial",
-        "-apple-system",
-        "BlinkMacSystemFont",
-        "Segoe UI",
-        "Roboto",
-        "Helvetica",
-        "sans-serif",
-        "Apple Color Emoji",
-        "Segoe UI Emoji",
-        "Segoe UI Symbol",
-      ],
-    },
-    weight: {
-      _: { 
-        number: { value: "{font.spaceGrotesk.medium.weight.name.value}", attributes: { category: 'font', type: 'weight' } },
-        name: { value: "{font.spaceGrotesk.medium.weight.name.value}", attributes: { category: 'font', type: 'name' } },
-      },
-      strong: { 
-        number: { value: "{font.spaceGrotesk.bold.weight.number.value}", attributes: { category: 'font', type: 'weight' } },
-        name: { value: "{font.spaceGrotesk.bold.weight.name.value}", attributes: { category: 'font', type: 'name' } },
-      },
-    },
-    size: {
-      small: {
-        _: {
-          value: "{body.size.small._.value}",
-          attributes: { category: "size", type: "font" },
-        },
-        lineHeight: { value: "{body.size.small.lineHeight.value}", attributes: { category: "size", type: "lineHeight" } },
-        lineHeightLong: { value: 1, attributes: { category: "size", type: "lineHeight" } },
-      },
-      medium: {
-        _: {
-          value: "{body.size.medium._.value}",
-          attributes: { category: "size", type: "font" },
-        },
-        lineHeight: { value: "{body.size.medium.lineHeight.value}", attributes: { category: "size", type: "lineHeight" } },
-        lineHeightLong: { value: 1, attributes: { category: "size", type: "lineHeight" } },
-      },
-      large: {
-        _: {
-          value: "{body.size.large._.value}",
-          attributes: { category: "size", type: "font" },
-        },
-        lineHeight: { value: "{body.size.large.lineHeight.value}", attributes: { category: "size", type: "lineHeight" } },
-        lineHeightLong: { value: 1, attributes: { category: "size", type: "lineHeight" } },
-      },
-      xLarge: {
-        _: { value: 1.5, attributes: { category: "size", type: "font" } },
-        lineHeight: { value: 2, attributes: { category: "size", type: "lineHeight" } },
-        lineHeightLong: { value: 1, attributes: { category: "size", type: "lineHeight" } },
-      },
-      xxLarge: {
-        _: { value: 2, attributes: { category: "size", type: "font" } },
-        lineHeight: { value: 2.5, attributes: { category: "size", type: "lineHeight" } },
-        lineHeightLong: { value: 1, attributes: { category: "size", type: "lineHeight" } },
-      },
-      xxxLarge: {
-        _: { value: 4, attributes: { category: "size", type: "font" } },
-        lineHeight: { value: 3.5, attributes: { category: "size", type: "lineHeight" } },
-        lineHeightLong: { value: 1, attributes: { category: "size", type: "lineHeight" } },
-      },
-    },
+    // FAMILY
+    "family"                       : { value: "{body.family}", attributes: { category: "font", type: 'family' } },
+    "family-stack"                 : { value: "{body.family-stack}" },
+    // WEIGHTS
+    "weight-number"                : { value: "{font.space-grotesk-medium-weight-name.value}", attributes: { category: 'font', type: 'weight' } },
+    "weight-name"                  : { value: "{font.space-grotesk-medium-weight-name.value}", attributes: { category: 'font', type: 'name' } },
+    "weight-strong-number"         : { value: "{font.space-grotesk-bold-weight-number.value}", attributes: { category: 'font', type: 'weight' } },
+    "weight-strong-name"           : { value: "{font.space-grotesk-bold-weight-name.value}", attributes: { category: 'font', type: 'name' } },
+    // SMALL
+    "size-small"                   : { value: "{body.size-small.value}", attributes: { category: "size", type: "font" } },
+    "size-small-line-height"       : { value: "{body.size-small-line-height.value}", attributes: { category: "size", type: "lineHeight" } },
+    "size-small-line-height-long"  : { value: 1, attributes: { category: "size", type: "lineHeight" } },
+    // MEDIUM
+    "size-medium"                  : { value: "{body.size-medium.value}", attributes: { category: "size", type: "font" } },
+    "size-medium-line-height"      : { value: "{body.size-medium-line-height.value}", attributes: { category: "size", type: "lineHeight" } },
+    "size-medium-line-height-long" : { value: 1, attributes: { category: "size", type: "lineHeight" } },
+    // LARGE
+    "size-large"                   : { value: "{body.size-large.value}", attributes: { category: "size", type: "font" } },
+    "size-large-line-height"       : { value: "{body.size-large-line-height.value}", attributes: { category: "size", type: "lineHeight" } },
+    "size-large-line-height-long"  : { value: 1, attributes: { category: "size", type: "lineHeight" } },
   },
   code: {
-    family: { value: "{font.menlo._.value}", attributes: { category: "font", type: 'family' } },
-    familyStack: {
-      value: ["{code.family.value}", "Courier", "monospace"],
-    },
-    weight: {
-      _: { 
-        number: { value: "{font.menlo.regular.weight.name.value}", attributes: { category: 'font', type: 'weight' } },
-        name: { value: "{font.menlo.regular.weight.name.value}", attributes: { category: 'font', type: 'name' } },
-      },
-      strong: { 
-        number: { value: "{font.menlo.regular.weight.number.value}", attributes: { category: 'font', type: 'weight' } },
-        name: { value: "{font.menlo.regular.weight.name.value}", attributes: { category: 'font', type: 'name' } },
-      },
-    },
-    size: {
-      small: {
-        _: { value: 1, attributes: { category: "size", type: "font" } },
-        lineHeight: { value: 1, attributes: { category: "size", type: "lineHeight" } },
-        lineHeightLong: { value: 1, attributes: { category: "size", type: "lineHeight" } },
-      },
-      medium: {
-        _: { value: 2, attributes: { category: "size", type: "font" } },
-        lineHeight: { value: 2, attributes: { category: "size", type: "lineHeight" } },
-        lineHeightLong: { value: 2, attributes: { category: "size", type: "lineHeight" } },
-      },
-      large: {
-        _: { value: 2, attributes: { category: "size", type: "font" } },
-        lineHeight: { value: 2, attributes: { category: "size", type: "lineHeight" } },
-        lineHeightLong: { value: 2, attributes: { category: "size", type: "lineHeight" } },
-      },
-    },
-  },
+    // FAMILY
+    "family"                       : { value: "{font.menlo.value}", attributes: { category: "font", type: 'family' } },
+    "family-stack"                 : { value: ["{code.family.value}", "Courier", "monospace"] },
+    // WEIGHTS
+    "weight-number"                : { value: "{font.menlo-regular-weight-name.value}", attributes: { category: 'font', type: 'weight' } },
+    "weight-name"                  : { value: "{font.menlo-regular-weight-name.value}", attributes: { category: 'font', type: 'name' } },
+    "weight-number-strong"         : { value: "{font.menlo-regular-weight-number.value}", attributes: { category: 'font', type: 'weight' } },
+    "weight-name-strong"           : { value: "{font.menlo-regular-weight-name.value}", attributes: { category: 'font', type: 'name' } },
+    // SMALL
+    "size-small"                   : { value: 1, attributes: { category: "size", type: "font" } },
+    "size-small-line-height"       : { value: 1, attributes: { category: "size", type: "lineHeight" } },
+    "size-small-line-height-long"  : { value: 1, attributes: { category: "size", type: "lineHeight" } },
+    // MEDIUM
+    "size-medium"                  : { value: 2, attributes: { category: "size", type: "font" } },
+    "size-medium-line-height"      : { value: 2, attributes: { category: "size", type: "lineHeight" } },
+    "size-medium-line-height-long" : { value: 2, attributes: { category: "size", type: "lineHeight" } },
+    // LARGE
+    "size-large"                    : { value: 2, attributes: { category: "size", type: "font" } },
+    "size-large-line-height"        : { value: 2, attributes: { category: "size", type: "lineHeight" } },
+    "size-large-line-height-long"   : { value: 2, attributes: { category: "size", type: "lineHeight" } },
+  }
 };

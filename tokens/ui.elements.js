@@ -3,231 +3,76 @@
  */
 
 module.exports = {
-  // General
-  base: {
-    color: {
-      value: "{color.neutral.0.value}",
-      attributes: { category: "color" },
-    },
+  base : {
+    "color" : { value: "{color.neutral-0.value}", attributes: { category: "color" } }
   },
+
   text: {
-    color: {
-      _: {
-        value: "{color.neutral.80.value}",
-        attributes: { category: "color" },
-      },
-      weak: {
-        value: "{color.neutral.60.value}",
-        attributes: { category: "color" },
-      },
-    },
+    "color"      : { value: "{color.neutral-80.value}", attributes: { category: "color" } },
+    "color-weak" : { value: "{color.neutral-60.value}", attributes: { category: "color" } },
   },
+
   line: {
-    width: {
-      _: { value: "1px", attributes: { category: "size", type: "lineWidth" } },
-      strong: {
-        value: "2px",
-        attributes: { category: "size", type: "lineWidth" },
-      },
-    },
+    "width"        : { value: "1px", attributes: { category: "size", type: "lineWidth" } },
+    "width-strong" : { value: "2px", attributes: { category: "size", type: "lineWidth" } }
   },
+
   border: {
-    color: {
-      _: {
-        value: "{color.neutral.20.value}",
-        attributes: { category: "color" },
-      },
-      strong: {
-        value: "{color.neutral.30.value}",
-        attributes: { category: "color" },
-      },
-      xStrong: {
-        value: "{color.neutral.80.value}",
-        attributes: { category: "color" },
-      },
-    },
-    width: {
-      _: {
-        value: "{line.width._.value}",
-        attributes: { category: "size", type: "lineWidth" },
-      },
-      strong: {
-        value: "{line.width.strong.value}",
-        attributes: { category: "size", type: "lineWidth" },
-      },
-    },
-    radius: {
-      _: {
-        value: "4px",
-        attributes: { category: "size", type: "borderRadius" },
-      },
-      small: {
-        value: "2px",
-        attributes: { category: "size", type: "borderRadius" },
-      },
-      large: {
-        value: "8px",
-        attributes: { category: "size", type: "borderRadius" },
-      },
-      xLarge: {
-        value: "12px",
-        attributes: { category: "size", type: "borderRadius" },
-      },
-    },
+    "color"          : { value: "{color.neutral-20.value}", attributes: { category: "color" } },
+    "color-strong"   : { value: "{color.neutral-30.value}", attributes: { category: "color" } },
+    "color-x-strong" : { value: "{color.neutral-80.value}", attributes: { category: "color" } },
+    "width"          : { value: "{line.width.value}", attributes: { category: "size", type: "lineWidth" } },
+    "width-strong"   : { value: "{line.width-strong.value}", attributes: { category: "size", type: "lineWidth" } },
+    "radius"         : { value: "4px", attributes: { category: "size", type: "borderRadius" } },
+    "radius-small"   : { value: "2px", attributes: { category: "size", type: "borderRadius" } },
+    "radius-large"   : { value: "8px", attributes: { category: "size", type: "borderRadius" } },
+    "radius-x-large" : { value: "12px", attributes: { category: "size", type: "borderRadius" } },
   },
 
   shadow: {
-    // Size
-    _: {
-      // Position
-      _: {
-        _: {
-          value: "{shadow._._.offset.x.value} {shadow._._.offset.y.value} {shadow._.blur.value} {shadow._._.spread.value} {shadow._.color.value}",
-          attributes: { type: "matrix" },
-        },
-        offset: {
-          x: {
-            value: 0,
-            attributes: { category: "size", type: "shadowOffset", item: "x" },
-          },
-          y: {
-            value: 0.1875,
-            attributes: { category: "size", type: "shadowOffset", item: "y" },
-          },
-        },
-        spread: {
-          value: 0,
-          attributes: { category: "size", type: "shadowSpread" },
-        },
-      },
-      top: {
-        _: {
-          value: "{shadow._.top.offset.x.value} {shadow._.bottom.offset.y.value} {shadow._.blur.value} {shadow._.top.spread.value} {shadow._.color.value}",
-          attributes: { type: "matrix" },
-        },
-        offset: {
-          x: {
-            value: "{shadow._._.offset.x.value}",
-            attributes: { category: "size", type: "shadowOffset", item: "x", },
-            
-          },
-          y: {
-            value: -0.625,
-            attributes: { category: "size", type: "shadowOffset", item: "y" },
-          },
-        },
-        spread: {
-          value: -0.3125,
-          attributes: { category: "size", type: "shadowSpread" },
-        },
-      },
-      bottom: {
-        _: {
-          value: "{shadow._.bottom.offset.x.value} {shadow._.bottom.offset.y.value} {shadow._.blur.value} {shadow._.bottom.spread.value} {shadow._.color.value}",
-          attributes: { type: "matrix" },
-        },
-        offset: {
-          x: {
-            value: "{shadow._._.offset.x.value}",
-            attributes: { category: "size", type: "shadowOffset", item: "x" },
-          },
-          y: {
-            value: 0.625,
-            attributes: { category: "size", type: "shadowOffset", item: "y" },
-          },
-        },
-        spread: {
-          value: -0.3125,
-          attributes: { category: "size", type: "shadowSpread" },
-        },
-      },
-      blur: {
-        value: 0.625,
-        attributes: { category: "size", type: "shadowBlur" },
-      },
-      color: {
-        value: "{color.darkest.value}",
-        attributes: { category: "color", type: "shadow" },
-        modify: [{ type: "alpha", amount: 0.1 }],
-      },
-    },
-    // Size
-    large: {
-      // Position (currently no alternative positions for large)
-      _: {
-        _: {
-          value:
-            "{shadow.large._.offset.x.value} {shadow.large._.offset.y.value} {shadow.large.blur.value} {shadow.large._.spread.value} {shadow.large.color.value}",
-          attributes: { type: "matrix" },
-        },
-        offset: {
-          x: {
-            value: 0,
-            attributes: { category: "size", type: "shadowOffset", item: "x" },
-          },
-          y: {
-            value: 1.5625,
-            attributes: { category: "size", type: "shadowOffset", item: "y" },
-          },
-        },
-        spread: {
-          value: 0,
-          attributes: { category: "size", type: "shadowSpread" },
-        },
-      },
-      blur: {
-        value: 5,
-        attributes: { category: "size", type: "shadowBlur" },
-      },
-      color: {
-        value: "{color.darkest.value}",
-        attributes: { category: "color", type: "shadow" },
-        modify: [{ type: "alpha", amount: 0.4 }],
-      },
-    },
+    // DEFAULTS
+    "matrix"          : { value: "{shadow.offset-y.value} {shadow.offset-x.value} {shadow.blur.value} {shadow.spread.value} {shadow.color.value}", attributes: { type: "matrix" } },
+    "offset-x"        : { value: 0, attributes: { category: "size", type: "shadowOffset", item: "x" } },
+    "offset-y"        : { value: 0.1875, attributes: { category: "size", type: "shadowOffset", item: "y" } },
+    "spread"          : { value: 0, attributes: { category: "size", type: "shadowSpread" } },
+    "blur"            : { value: 0.625, attributes: { category: "size", type: "shadowBlur" } },
+    "color"           : { value: "{color.darkest.value}", attributes: { category: "color", type: "shadow" }, modify: [{ type: "alpha", amount: 0.1 }] },
+    // Top shadow
+    "top-matrix"      : { value: "{shadow.top-offset-y.value} {shadow.top-offset-x.value} {shadow.blur.value} {shadow.top-spread.value} {shadow.color.value}", attributes: { type: "matrix" } },
+    "top-offset-x"    : { value: "{shadow.offset-y.value}", attributes: { category: "size", type: "shadowOffset", item: "x", } },
+    "top-offset-y"    : { value: -0.625, attributes: { category: "size", type: "shadowOffset", item: "y" } },
+    "top-spread"      : { value: -0.3125, attributes: { category: "size", type: "shadowSpread" } },
+    // Bottom- shadow
+    "bottom-matrix"   : { value: "{shadow.bottom-offset-y.value} {shadow.bottom-offset-x.value} {shadow.blur.value} {shadow.bottom-spread.value} {shadow.color.value}", attributes: { type: "matrix" } },
+    "bottom-offset-y" : { value: "{shadow.offset-y.value}", attributes: { category: "size", type: "shadowOffset", item: "x" } },
+    "bottom-offset-x" : { value: 0.625, attributes: { category: "size", type: "shadowOffset", item: "y" } },
+    "bottom-spread"   : { value: -0.3125, attributes: { category: "size", type: "shadowSpread" } },
+    // Large size
+    "large-matrix"    : { value: "{shadow.large-offset-y.value} {shadow.large-offset-x.value} {shadow.large-blur.value} {shadow.large-spread.value} {shadow.large-color.value}", attributes: { type: "matrix" } },
+    "large-offset-y"  : { value: 0, attributes: { category: "size", type: "shadowOffset", item: "x" } },
+    "large-offset-x"  : { value: 1.5625, attributes: { category: "size", type: "shadowOffset", item: "y" } },
+    "large-spread"    : { value: 0, attributes: { category: "size", type: "shadowSpread" } },
+    "large-blur"      : { value: 5, attributes: { category: "size", type: "shadowBlur" } },
+    "large-color"     : { value: "{color.darkest.value}", attributes: { category: "color", type: "shadow" }, modify: [{ type: "alpha", amount: 0.4 }] },
   },
 
-  // Components
   checkbox: {
-    border: {
-      width: {
-        value: "{border.width.strong.value}",
-        attributes: { category: "size", type: "lineWidth" },
-      },
-    },
+    "border-width" : { value: "{border.width-strong.value}", attributes: { category: "size", type: "lineWidth" } },
   },
+
   button: {
-    background: {
-      color: {
-        value: "{color.neutral.50.value}",
-        attributes: { category: "color" },
-      },
-    },
-    border: {
-      color: {
-        value: "{color.neutral.50.value}",
-        attributes: { category: "color" },
-      }
-    }
+    "background-color"   : { value: "{color.neutral-50.value}", attributes: { category: "color" } },
+    "border-color"       : { value: "{color.neutral-50.value}", attributes: { category: "color" } },
+    "font-family"        : { value: '{body.family.value}', attributes: { category: "color" } },
+    "small-font-size"    : { value: '{body.size-small.value}', attributes: { category: "color" } },
+    "small-line-height"  : { value: '{body.size-small-line-height.value}', attributes: { category: "color" } },
+    "medium-font-size"   : { value: '{body.size-medium.value}', attributes: { category: "color" } },
+    "medium-line-height" : { value: '{body.size-medium-line-height.value}', attributes: { category: "color" } },
   },
+
   input: {
-    placeholder: {
-      color: {
-        value: "{color.neutral.50.value}",
-        attributes: { category: "color" },
-      },
-    },
-    border: {
-      color: {
-        value: "{border.color._.value}",
-        attributes: { category: "color" },
-      },
-    },
-    label: {
-      color: {
-        value: "{text.color._.value}",
-        attributes: { category: "color" },
-      },
-    },
-  },
+    "placeholder-color" : { value: "{color.neutral-50.value}", attributes: { category: "color" } },
+    "border-color"      : { value: "{border.color.value}", attributes: { category: "color" } },
+    "label-color"       : { value: "{text.color.value}", attributes: { category: "color" } },
+  }
 };
