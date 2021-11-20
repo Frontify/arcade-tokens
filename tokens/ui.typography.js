@@ -31,7 +31,21 @@ module.exports = {
       },
     },
     size: {
-      
+      small: {
+        _: { value: 0.875, attributes: { category: "size", type: "font" } },
+        lineHeight: { value: 1, attributes: { category: "size", type: "lineHeight" } },
+        lineHeightLong: { value: 1, attributes: { category: "size", type: "lineHeight" } },
+      },
+      medium: {
+        _: { value: 1, attributes: { category: "size", type: "font" } },
+        lineHeight: { value: 1.25, attributes: { category: "size", type: "lineHeight" } },
+        lineHeightLong: { value: 2, attributes: { category: "size", type: "lineHeight" } },
+      },
+      large: {
+        _: { value: 1.125, attributes: { category: "size", type: "font" } },
+        lineHeight: { value: 1.5, attributes: { category: "size", type: "lineHeight" } },
+        lineHeightLong: { value: 2, attributes: { category: "size", type: "lineHeight" } },
+      },
     },
   },
   heading: {
