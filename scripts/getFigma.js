@@ -2,45 +2,10 @@ const themeToTitleCase = (string) => {
   return string
     .toLowerCase()
     .split(".")
-    .map(function (word) {
+    .map((word) => {
       return word.charAt(0).toUpperCase() + word.slice(1);
     })
     .join(" ");
-};
-
-const toKebabCase = (string) => {
-  if (string && string.length > 1) {
-    return string
-      .match(
-        /[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g
-      )
-      .map((x) => x.toLowerCase())
-      .join("-");
-  } else if (string) {
-    return string;
-  }
-};
-
-const toTitleCase = (string) => {
-  return string.replace(/\w\S*/g, (text) => {
-    return text.charAt(0).toUpperCase() + text.substr(1).toLowerCase();
-  });
-};
-
-const pascalToTitleCase = (string) => {
-  let splitUp = string.replace(/([A-Z])/g, " $1");
-  let titleCase = splitUp.charAt(0).toUpperCase() + splitUp.slice(1);
-  return titleCase;
-};
-
-const pascalToKebabCase = (string) => {
-  return string.replace(/([A-Z])/g, "-$1").toLowerCase();
-};
-
-const getName = (token) => {
-  const category = pascalToTitleCase(token.path[0]);
-  const name = pascalToKebabCase(token.path.join("-")).replace("_", "DEFAULT");
-  return category + "/" + name;
 };
 
 const standardTransform = ({ tokens, filter, type }) => {
@@ -123,7 +88,6 @@ const shadowTransform = ({ tokens, type }) => {
         : yOffsetToken.path[1] + " " + yOffsetToken.path[2];
     object[styleKey] = style;
   });
-  // console.log(JSON.stringify(object, null, 4));
 
   return object;
 };
@@ -174,16 +138,8 @@ const typographyTransform = ({ tokens, type }) => {
           lineHeight: lineHeightToken.value,
         },
       };
-      const categoryKey = toTitleCase(
-        toKebabCase(
-          `${sizeToken.path[0]} ${sizeToken.attributes.item}`
-        ).replace("_", "DEFAULT")
-      );
-
-      const styleKey = toKebabCase(`${weightToken.attributes.item}`).replace(
-        "_",
-        "DEFAULT"
-      );
+      const categoryKey = `${sizeToken.path[0]} ${sizeToken.attributes.item}`;
+      const styleKey = `${weightToken.attributes.item}`;
 
       if (!object[categoryKey]) {
         object[categoryKey] = { [styleKey]: style };
@@ -196,9 +152,8 @@ const typographyTransform = ({ tokens, type }) => {
   return object;
 };
 
-module.exports = ({ dictionary, options }) => {
-  const tokens = dictionary.allTokens;
-  const theme = {
+const getTheme = (tokens) => {
+  return {
     ...standardTransform({
       tokens,
       type: "spacing",
@@ -234,6 +189,11 @@ module.exports = ({ dictionary, options }) => {
       type: "typography",
     }),
   };
+};
+
+module.exports = ({ dictionary, options }) => {
+  const tokens = dictionary.allTokens;
+  const theme = getTheme(tokens);
 
   if (options && options.theme) {
     return JSON.stringify({ [themeToTitleCase(options.theme)]: theme });

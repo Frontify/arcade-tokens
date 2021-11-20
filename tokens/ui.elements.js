@@ -49,8 +49,8 @@ module.exports = {
     "bottom-spread"   : { value: -0.3125, attributes: { category: "size", type: "shadowSpread" } },
     // Large size
     "large-matrix"    : { value: "{shadow.large-offset-y.value} {shadow.large-offset-x.value} {shadow.large-blur.value} {shadow.large-spread.value} {shadow.large-color.value}", attributes: { type: "matrix" } },
-    "large-offset-y"  : { value: 0, attributes: { category: "size", type: "shadowOffset", item: "x" } },
-    "large-offset-x"  : { value: 1.5625, attributes: { category: "size", type: "shadowOffset", item: "y" } },
+    "large-offset-y"  : { value: 1.5625, attributes: { category: "size", type: "shadowOffset", item: "x" } },
+    "large-offset-x"  : { value: 0, attributes: { category: "size", type: "shadowOffset", item: "y" } },
     "large-spread"    : { value: 0, attributes: { category: "size", type: "shadowSpread" } },
     "large-blur"      : { value: 5, attributes: { category: "size", type: "shadowBlur" } },
     "large-color"     : { value: "{color.darkest.value}", attributes: { category: "color", type: "shadow" }, modify: [{ type: "alpha", amount: 0.4 }] },
@@ -63,11 +63,11 @@ module.exports = {
   button: {
     "background-color"   : { value: "{color.neutral-50.value}", attributes: { category: "color" } },
     "border-color"       : { value: "{color.neutral-50.value}", attributes: { category: "color" } },
-    "font-family"        : { value: '{body.family.value}', attributes: { category: "color" } },
-    "small-font-size"    : { value: '{body.size-small.value}', attributes: { category: "color" } },
-    "small-line-height"  : { value: '{body.size-small-line-height.value}', attributes: { category: "color" } },
-    "medium-font-size"   : { value: '{body.size-medium.value}', attributes: { category: "color" } },
-    "medium-line-height" : { value: '{body.size-medium-line-height.value}', attributes: { category: "color" } },
+    "font-family"        : { value: '{body.family.value}', attributes: { category: "font", type: 'family' } },
+    "small-font-size"    : { value: '{body.size-small.value}', attributes: { category: "size", type: 'font' } },
+    "small-line-height"  : { value: '{body.size-small-line-height.value}', attributes: { category: "size", type: 'lineHeight' } },
+    "medium-font-size"   : { value: '{body.size-small.value}', attributes: { category: "size", type: 'font' } },
+    "medium-line-height" : { value: '{body.size-small-line-height.value}', attributes: { category: "size", type: 'lineHeight' } },
   },
 
   input: {

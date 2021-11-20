@@ -19,14 +19,14 @@ module.exports = ({ dictionary, file, options }) => {
     fileHeader({ file }) +
     `const plugin = require('tailwindcss/plugin')
 
-module.exports = {
-    theme: ${JSON.stringify(tailwindTheme)},
-    plugins: [
-     plugin(function({ addComponents}) { 
-       const components = ${JSON.stringify(tailwindPlugin)}; 
-       addComponents(components); 
-      })
-    ]
-}`
+      module.exports = {
+          theme: ${JSON.stringify(tailwindTheme)},
+          plugins: [
+          plugin(function({ addComponents}) { 
+            const components = ${JSON.stringify(tailwindPlugin)}; 
+            addComponents(components); 
+            })
+          ]
+      }`
   );
 };
