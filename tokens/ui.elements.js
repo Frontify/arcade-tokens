@@ -64,10 +64,11 @@ module.exports = {
     "background-color"   : { value: "{color.neutral-50.value}", attributes: { category: "color" } },
     "border-color"       : { value: "{color.neutral-50.value}", attributes: { category: "color" } },
     "font-family"        : { value: '{body.family.value}', attributes: { category: "font", type: 'family' } },
+    "font-weight-name"   : { value: '{body.weight-name.value}', attributes: { category: "font", type: 'name' } },
     "small-font-size"    : { value: '{body.size-small.value}', attributes: { category: "size", type: 'font' } },
     "small-line-height"  : { value: '{body.size-small-line-height.value}', attributes: { category: "size", type: 'lineHeight' } },
-    "medium-font-size"   : { value: '{body.size-small.value}', attributes: { category: "size", type: 'font' } },
-    "medium-line-height" : { value: '{body.size-small-line-height.value}', attributes: { category: "size", type: 'lineHeight' } },
+    "medium-font-size"   : { value: '{body.size-medium.value}', attributes: { category: "size", type: 'font' } },
+    "medium-line-height" : { value: '{body.size-medium-line-height.value}', attributes: { category: "size", type: 'lineHeight' } },
   },
 
   input: {

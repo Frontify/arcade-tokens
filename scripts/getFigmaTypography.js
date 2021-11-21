@@ -1,4 +1,5 @@
 const TYPE = "typography";
+const getFigmaElementTypography = require("./getFigmaElementTypography");
 
 /**
  * =============
@@ -221,5 +222,11 @@ const body = (tokens) => {
 
 module.exports = ({ dictionary }) => {
   const tokens = dictionary.tokens;
-  return { ...body(tokens), ...heading(tokens), ...code(tokens) };
+
+  return {
+    ...body(tokens),
+    ...heading(tokens),
+    ...code(tokens),
+    ...getFigmaElementTypography(dictionary.allTokens),
+  };
 };

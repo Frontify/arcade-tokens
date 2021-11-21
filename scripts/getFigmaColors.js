@@ -36,14 +36,7 @@ const colors = ({ tokens }) => {
   return colors;
 };
 
-module.exports = ({ dictionary, options }) => {
+module.exports = ({ dictionary }) => {
   const tokens = dictionary.allTokens;
-
-  // if (options && options.theme) {
-  //   const tokens = tokens.filter((token) => {
-  //     return token.filePath.includes("theme." + options.theme);
-  //   });
-  // }
-
   return colors({ tokens });
 };
