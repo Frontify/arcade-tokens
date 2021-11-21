@@ -2,15 +2,15 @@ const mergeDeep = require("./mergeDeep");
 const { isTypeToken } = require("./tokenFilters");
 
 const TYPE = "typography";
-
 const MAIN_TOKEN_NAMES = ["body", "heading", "code"];
-
-const REQUIRED_STYLES = [
+const REQUIRED_PROPERTIES = [
   "font-size",
   "line-height",
   "font-family",
   "font-weight",
 ];
+const OPTIONAL_PROPERTIES = ["letter-spacing"];
+const ALL_PROPERTIES = REQUIRED_PROPERTIES.concat(OPTIONAL_PROPERTIES);
 
 const containsAll = (obj, arr) => {
   for (const str of arr) {
@@ -31,15 +31,17 @@ const clearAndUpper = (text) => {
   return text.replace(/-/, "").toUpperCase();
 };
 
-const getTree = (path, token) => {
+const getFormattedTokenTree = (path, token) => {
   let tree = {};
   const pre = path[0];
   const post = path.slice(1, path.length);
+
   if (path.length > 1) {
-    tree[pre] = getTree(post, token);
+    tree[pre] = getFormattedTokenTree(post, token);
   } else if (path.length > 0) {
     tree[pre] = token.value;
   }
+
   return tree;
 };
 
@@ -68,6 +70,7 @@ const joinProperties = (path, propertiesToJoin) => {
       path = pre.concat(prop, post);
     }
   });
+
   return path;
 };
 
@@ -75,79 +78,75 @@ const joinProperties = (path, propertiesToJoin) => {
  * NOTE (From Jamie): This took me hours and it's still an absolute mess. I'm not even
  * 100% sure how it works! Probably worth a cleanup
  */
-const getStyles = ({ tree, newObj = {}, name = "", prev = "" }) => {
+const getStyles = ({ tree, styles = {}, name = "", prev = "" }) => {
   for (key in tree) {
-    if (!REQUIRED_STYLES.includes(key)) {
-      newObj = getStyles({
+    // It's not the key of a font style
+    if (!ALL_PROPERTIES.includes(key)) {
+      styles = getStyles({
         tree: tree[key],
-        newObj,
+        styles,
         name: name !== "" ? name + "-" + key : key,
         prev: name,
       });
-    } else {
-      if (!newObj[name]) {
-        newObj[name] = {
-          ...newObj[prev],
-          ...{ [key]: tree[key] },
-        };
-      } else {
-        newObj[name][key] = tree[key];
-      }
+    }
+    // A style doesn't exist yet on the styles
+    else if (!styles[name]) {
+      styles[name] = {
+        ...styles[prev],
+        ...{ [key]: tree[key] },
+      };
+    }
+    // The style exists and we want to extend it with the new property
+    else {
+      styles[name][key] = tree[key];
     }
   }
-  return newObj;
+  return styles;
 };
 
-const getUiTypeTokens = (tokens) => {
-  let tree = {};
+const getElementTypography = (tokens) => {
+  let formattedTokenTree = {};
+  let elementTypography = {};
+
+  // Creates a tree that's needed for 'getStyles'
   tokens.forEach((token) => {
     const path = token.name.split("-");
-    // const joined = joinProperties(path, MAIN_TOKEN_STYLES);
-    tree = mergeDeep(tree, getTree(path, token));
+    const joined = joinProperties(path, ALL_PROPERTIES);
+    formattedTokenTree = mergeDeep(
+      formattedTokenTree,
+      getFormattedTokenTree(joined, token)
+    );
   });
 
-  console.log(tree);
+  // Creates a tree of styles based on name and such
+  const styles = getStyles({ tree: formattedTokenTree });
 
-  let returnObject = {};
-  const styles = getStyles({ tree: tree });
-  for (key in styles) {
-    if (containsAll(styles[key], REQUIRED_STYLES)) {
-      returnObject[toCamelCase(key)] = styles[key];
-    }
-  }
+  for (styleKey in styles) {
+    const properties = styles[styleKey];
+    const category = styleKey.split("-")[0];
+    const hasRequiredProperties = containsAll(properties, REQUIRED_PROPERTIES);
 
-  return returnObject;
-};
+    if (hasRequiredProperties) {
+      let transformedProperties = {};
 
-const getElementTypeTokens = (tokens) => {
-  let tree = {};
-  tokens.forEach((token) => {
-    const path = token.name.split("-");
-    const joined = joinProperties(path, REQUIRED_STYLES);
-    tree = mergeDeep(tree, getTree(joined, token));
-  });
-
-  let returnObject = {};
-  const styles = getStyles({ tree: tree });
-
-  for (key in styles) {
-    if (containsAll(styles[key], REQUIRED_STYLES)) {
-      let transformed = {};
-
-      for (propKey in styles[key]) {
-        transformed[toCamelCase(propKey)] = styles[key][propKey];
+      for (propertyKey in properties) {
+        const propertyValue = properties[propertyKey];
+        const camelCaseProperty = toCamelCase(propertyKey);
+        transformedProperties[camelCaseProperty] = propertyValue;
       }
 
-      const category = key.split("-")[0];
-      if (!returnObject[category]) {
-        returnObject[category] = { [key]: { type: TYPE, value: transformed } };
-      } else {
-        returnObject[category][key] = { type: TYPE, value: transformed };
-      }
+      elementTypography = mergeDeep(elementTypography, {
+        [category]: {
+          [styleKey]: {
+            type: TYPE,
+            value: transformedProperties,
+          },
+        },
+      });
     }
   }
-
-  return returnObject;
+  console.log(elementTypography);
+  return elementTypography;
 };
 
 module.exports = (allTokens) => {
@@ -155,5 +154,5 @@ module.exports = (allTokens) => {
     return !MAIN_TOKEN_NAMES.includes(token.path[0]) && isTypeToken(token);
   });
 
-  return getElementTypeTokens(elementTypeTokens);
+  return getElementTypography(elementTypeTokens);
 };
