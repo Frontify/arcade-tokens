@@ -14,6 +14,8 @@ const inputDirectory = "tokens/";
 const tempDirectory = "temp/";
 const outputDirectory = "dist/";
 const tokenFiles = fs.readdirSync(inputDirectory);
+const figmaTempDirectory = `${tempDirectory}figma/`;
+const figmaOutputDirectory = `${outputDirectory}figma/`;
 
 const brandColorsPath = inputDirectory + "brand.colors.js";
 const brandTypographyPath = inputDirectory + "brand.typography.js";
@@ -232,9 +234,6 @@ colorThemes.forEach((theme) => {
     },
   }).buildAllPlatforms();
 });
-
-const figmaTempDirectory = `${tempDirectory}figma/`;
-const figmaOutputDirectory = `${outputDirectory}figma/`;
 
 fs.readdir(figmaTempDirectory, (error, files) => {
   return new Promise((resolve, reject) => {
