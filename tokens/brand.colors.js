@@ -37,7 +37,7 @@ module.exports = {
     "violet-70"     : { value: "#7159d7" },
     "violet-80"     : { value: "#6352b4" },
     "violet-90"     : { value: "#564996" },
-    "violet-100"    : { value: "#463f75" },
+    "violet-100"    : { value: "#363256" },
     
     // RED
     "red-bright"    : { value: "#FF375A" },
@@ -52,7 +52,7 @@ module.exports = {
     "red-70"        : { value: "#ed3956" },
     "red-80"        : { value: "#d83b52" },
     "red-90"        : { value: "#a33945" },
-    "red-100"       : { value: "#83343b" },
+    "red-100"       : { value: "#57282b" },
 
     // GREEN
     "green-bright"  : { value: "#00C8A5" },

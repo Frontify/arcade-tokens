@@ -32,10 +32,10 @@ module.exports = {
     "interactive-pressed"           : { value: "{color.violet-80.value}"},
     "interactive-inverse"           : { value: "{color.lightest.value}" },
     
-    "interactive-secondary"         : { value: "{color.violet-60.value}" },
-    "interactive-secondary-hover"   : { value: "{color.violet-70.value}"},
-    "interactive-secondary-pressed" : { value: "{color.violet-80.value}"},
-    "interactive-secondary-inverse" : { value: "{color.lightest.value}" },
+    "interactive-secondary"         : { value: "{color.violet-10.value}" },
+    "interactive-secondary-hover"   : { value: "{color.violet-20.value}"},
+    "interactive-secondary-pressed" : { value: "{color.violet-30.value}"},
+    "interactive-secondary-inverse" : { value: "{color.violet-90.value}" },
 
     
     // POSITIVE
@@ -44,22 +44,22 @@ module.exports = {
     "positive-pressed"              : { value: "{color.green-80.value}"},
     "positive-inverse"              : { value: "{color.lightest.value}"},
 
-    "positive-secondary"            : { value: "{color.green-60.value}" },
-    "positive-secondary-hover"      : { value: "{color.green-70.value}"},
-    "positive-secondary-pressed"    : { value: "{color.green-80.value}"},
-    "positive-secondary-inverse"    : { value: "{color.lightest.value}"},
+    "positive-secondary"            : { value: "{color.green-10.value}" },
+    "positive-secondary-hover"      : { value: "{color.green-20.value}"},
+    "positive-secondary-pressed"    : { value: "{color.green-30.value}"},
+    "positive-secondary-inverse"    : { value: "{color.green-90.value}"},
 
 
     // WARNING
     "warning"                       : { value: "{color.yellow-60.value}" },
     "warning-hover"                 : { value: "{color.yellow-70.value}"},
     "warning-pressed"               : { value: "{color.yellow-80.value}"},
-    "warning-inverse"               : { value: "{color.neutral-80.value}"},
+    "warning-inverse"               : { value: "{color.lightest.value}"},
 
-    "warning-secondary"             : { value: "{color.yellow-60.value}" },
-    "warning-secondary-hover"       : { value: "{color.yellow-70.value}"},
-    "warning-secondary-pressed"     : { value: "{color.yellow-80.value}"},
-    "warning-secondary-inverse"     : { value: "{color.neutral-80.value}"},
+    "warning-secondary"             : { value: "{color.yellow-10.value}" },
+    "warning-secondary-hover"       : { value: "{color.yellow-20.value}"},
+    "warning-secondary-pressed"     : { value: "{color.yellow-30.value}"},
+    "warning-secondary-inverse"     : { value: "{color.yellow-90.value}"},
 
     
     // NEGATIVE
@@ -68,9 +68,9 @@ module.exports = {
     "negative-pressed"              : { value: "{color.red-80.value}"},
     "negative-inverse"              : { value: "{color.lightest.value}"},
 
-    "negative-secondary"            : { value: "{color.red-60.value}" },
-    "negative-secondary-hover"      : { value: "{color.red-70.value}"},
-    "negative-secondary-pressed"    : { value: "{color.red-80.value}"},
-    "negative-secondary-inverse"    : { value: "{color.lightest.value}"},
+    "negative-secondary"            : { value: "{color.red-10.value}" },
+    "negative-secondary-hover"      : { value: "{color.red-20.value}"},
+    "negative-secondary-pressed"    : { value: "{color.red-30.value}"},
+    "negative-secondary-inverse"    : { value: "{color.red-90.value}"},
   }
 };

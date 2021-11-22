@@ -8,8 +8,9 @@ module.exports = {
   },
 
   text: {
-    "color"      : { value: "{color.neutral-80.value}", attributes: { category: "color" } },
-    "color-weak" : { value: "{color.neutral-60.value}", attributes: { category: "color" } },
+    "color"        : { value: "{color.neutral-80.value}", attributes: { category: "color" } },
+    "color-weak"   : { value: "{color.neutral-60.value}", attributes: { category: "color" } },
+    "color-x-weak" : { value: "{color.neutral-50.value}", attributes: { category: "color" } },
   },
 
   line: {
@@ -64,7 +65,7 @@ module.exports = {
     "background-color"   : { value: "{color.neutral-50.value}", attributes: { category: "color" } },
     "border-color"       : { value: "{color.neutral-50.value}", attributes: { category: "color" } },
     "font-family"        : { value: '{body.family.value}', attributes: { category: "font", type: 'family' } },
-    "font-weight-name"   : { value: '{body.weight-name.value}', attributes: { category: "font", type: 'name' } },
+    "font-weight-name"   : { value: '{body.weight-strong-name.value}', attributes: { category: "font", type: 'name' } },
     "small-font-size"    : { value: '{body.size-small.value}', attributes: { category: "size", type: 'font' } },
     "small-line-height"  : { value: '{body.size-small-line-height.value}', attributes: { category: "size", type: 'lineHeight' } },
     "medium-font-size"   : { value: '{body.size-medium.value}', attributes: { category: "size", type: 'font' } },
@@ -72,8 +73,25 @@ module.exports = {
   },
 
   input: {
-    "placeholder-color" : { value: "{color.neutral-50.value}", attributes: { category: "color" } },
-    "border-color"      : { value: "{border.color.value}", attributes: { category: "color" } },
-    "label-color"       : { value: "{text.color.value}", attributes: { category: "color" } },
+    // Border
+    "border-color"                 : { value: "{border.color.value}", attributes: { category: "color" } },
+    // Value
+    "value-color"                  : { value: "{text.color.value}", attributes: { category: "color" } },
+    "value-font-family"            : { value: '{body.family.value}', attributes: { category: "font", type: 'family' } },
+    "value-font-weight-name"       : { value: '{body.weight-name.value}', attributes: { category: "font", type: 'name' } },
+    "value-font-size"              : { value: '{body.size-medium.value}', attributes: { category: "size", type: 'font' } },
+    "value-line-height"            : { value: '{body.size-medium-line-height.value}', attributes: { category: "size", type: 'lineHeight' } },
+    // Placeholder
+    "placeholder-color"            : { value: "{text.color-x-weak.value}", attributes: { category: "color" } },
+    "placeholder-font-family"      : { value: '{body.family.value}', attributes: { category: "font", type: 'family' } },
+    "placeholder-font-weight-name" : { value: '{body.weight-name.value}', attributes: { category: "font", type: 'name' } },
+    "placeholder-font-size"        : { value: '{body.size-medium.value}', attributes: { category: "size", type: 'font' } },
+    "placeholder-line-height"      : { value: '{body.size-medium-line-height.value}', attributes: { category: "size", type: 'lineHeight' } },
+    // Label
+    "label-color"                  : { value: "{text.color.value}", attributes: { category: "color" } },
+    "label-font-family"            : { value: '{body.family.value}', attributes: { category: "font", type: 'family' } },
+    "label-font-weight-name"       : { value: '{body.weight-strong-name.value}', attributes: { category: "font", type: 'name' } },
+    "label-font-size"              : { value: '{body.size-small.value}', attributes: { category: "size", type: 'font' } },
+    "label-line-height"            : { value: '{body.size-small-line-height.value}', attributes: { category: "size", type: 'lineHeight' } },
   }
 };
