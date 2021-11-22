@@ -152,9 +152,9 @@ module.exports = {
     "negative-color-pressed" : { value: "{color.negative-80.value}", attributes: { category: "color" } },
     "negative-color-inverse" : { value: "{color.lightest.value}", attributes: { category: "color" } },
     // Positive Style
-    "positive-color"         : { value: "{color.positive-60.value}", attributes: { category: "color" } },
-    "positive-color-hover"   : { value: "{color.positive-70.value}", attributes: { category: "color" } },
-    "positive-color-pressed" : { value: "{color.positive-80.value}", attributes: { category: "color" } },
+    "positive-color"         : { value: "{color.positive-70.value}", attributes: { category: "color" } },
+    "positive-color-hover"   : { value: "{color.positive-80.value}", attributes: { category: "color" } },
+    "positive-color-pressed" : { value: "{color.positive-90.value}", attributes: { category: "color" } },
     "positive-color-inverse" : { value: "{color.lightest.value}", attributes: { category: "color" } },
   },
   /**

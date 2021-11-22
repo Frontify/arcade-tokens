@@ -130,7 +130,7 @@ module.exports = {
     "positive-color"         : { value: "{color.positive-50.value}", attributes: { category: "color" } },
     "positive-color-hover"   : { value: "{color.positive-40.value}", attributes: { category: "color" } },
     "positive-color-pressed" : { value: "{color.positive-30.value}", attributes: { category: "color" } },
-    "positive-color-inverse" : { value: "{color.lightest.value}", attributes: { category: "color" } },
+    "positive-color-inverse" : { value: "{color.neutral-10.value}", attributes: { category: "color" } },
   },
 
   // All values need to be provided for the sake of Figma,
