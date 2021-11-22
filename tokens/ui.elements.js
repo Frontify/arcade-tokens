@@ -86,7 +86,7 @@ module.exports = {
     "placeholder-font-size"        : { value: '{body.size-medium.value}', attributes: { category: "size", type: 'font' } },
     "placeholder-line-height"      : { value: '{body.size-medium-line-height.value}', attributes: { category: "size", type: 'lineHeight' } },
     // Border
-    "border-color"                 : { value: "{border.color.value}", attributes: { category: "color" } },    
+    "border-color"                 : { value: "{border.color-strong.value}", attributes: { category: "color" } },    
   },
 
   /**
@@ -147,9 +147,9 @@ module.exports = {
     "strong-color-pressed"   : { value: "{color.neutral-100.value}", attributes: { category: "color" } },
     "strong-color-inverse"   : { value: "{color.neutral-0.value}", attributes: { category: "color" } },
     // Negative Style
-    "negative-color"         : { value: "{color.negative-60.value}", attributes: { category: "color" } },
-    "negative-color-hover"   : { value: "{color.negative-70.value}", attributes: { category: "color" } },
-    "negative-color-pressed" : { value: "{color.negative-80.value}", attributes: { category: "color" } },
+    "negative-color"         : { value: "{color.negative-70.value}", attributes: { category: "color" } },
+    "negative-color-hover"   : { value: "{color.negative-80.value}", attributes: { category: "color" } },
+    "negative-color-pressed" : { value: "{color.negative-90.value}", attributes: { category: "color" } },
     "negative-color-inverse" : { value: "{color.lightest.value}", attributes: { category: "color" } },
     // Positive Style
     "positive-color"         : { value: "{color.positive-70.value}", attributes: { category: "color" } },

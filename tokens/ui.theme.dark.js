@@ -67,10 +67,10 @@ module.exports = {
     "color"             : { value: "{color.neutral-100.value}", attributes: { category: 'color' } },
     "color-weak"        : { value: "{color.neutral-60.value}", attributes: { category: 'color' } },
     "color-x-weak"      : { value: "{color.neutral-50.value}", attributes: { category: "color" } },
-    "color-negative"    : { value: "{color.negative-70.value}", attributes: { category: "color" } },
+    "color-negative"    : { value: "{color.negative-60.value}", attributes: { category: "color" } },
     "color-positive"    : { value: "{color.positive-70.value}", attributes: { category: "color" } },
-    "color-warning"     : { value: "{color.warning-70.value}", attributes: { category: "color" } },
-    "color-interactive" : { value: "{color.interactive-70.value}", attributes: { category: "color" } },
+    "color-warning"     : { value: "{color.warning-50.value}", attributes: { category: "color" } },
+    "color-interactive" : { value: "{color.interactive-80.value}", attributes: { category: "color" } },
   },
 
   border: {
@@ -80,7 +80,7 @@ module.exports = {
   },
 
   input: {
-    "border-color"      : { value: "{border.color.value}", attributes: { category: "color" } },
+    "border-color"      : { value: "{border.color-strong.value}", attributes: { category: "color" } },
     "value-color"       : { value: "{text.color.value}", attributes: { category: "color" } },
     "placeholder-color" : { value: "{text.color-x-weak.value}", attributes: { category: "color" } },
     "label-color"       : { value: "{text.color.value}", attributes: { category: "color" } },
@@ -122,10 +122,10 @@ module.exports = {
     "strong-color-pressed"   : { value: "{color.neutral-80.value}", attributes: { category: "color" } },
     "strong-color-inverse"   : { value: "{color.neutral-10.value}", attributes: { category: "color" } },
     // Negative Style
-    "negative-color"         : { value: "{color.negative-50.value}", attributes: { category: "color" } },
-    "negative-color-hover"   : { value: "{color.negative-40.value}", attributes: { category: "color" } },
-    "negative-color-pressed" : { value: "{color.negative-30.value}", attributes: { category: "color" } },
-    "negative-color-inverse" : { value: "{color.lightest.value}", attributes: { category: "color" } },
+    "negative-color"         : { value: "{color.negative-60.value}", attributes: { category: "color" } },
+    "negative-color-hover"   : { value: "{color.negative-50.value}", attributes: { category: "color" } },
+    "negative-color-pressed" : { value: "{color.negative-40.value}", attributes: { category: "color" } },
+    "negative-color-inverse" : { value: "{color.neutral-10.value}", attributes: { category: "color" } },
     // Positive Style
     "positive-color"         : { value: "{color.positive-50.value}", attributes: { category: "color" } },
     "positive-color-hover"   : { value: "{color.positive-40.value}", attributes: { category: "color" } },
