@@ -1,16 +1,3 @@
-// const createTree = ({ node }) => {
-//   let tree = {};
-//   if (node.hasOwnProperty("value")) {
-//     return `var(--${node.name})`;
-//   }
-//   for (key in node) {
-//     tree[key.replace("_", "DEFAULT")] = createTree({
-//       node: node[key],
-//     });
-//   }
-//   return tree;
-// };
-
 const getExtend = ({ dictionary }) => {
   return {
     outline: {
@@ -19,12 +6,17 @@ const getExtend = ({ dictionary }) => {
   };
 };
 
-const getObject = ({ tokens, filter }) => {
+const trimHyphens = (string) => {
+  return string.replace(/^-+/, "").replace(/-+$/, "");
+};
+
+const getObject = ({ tokens, filter, remove }) => {
   const matchingTokens = tokens.filter(filter);
 
   let object = {};
   matchingTokens.forEach((token) => {
-    object[token.name] = `var(--${token.name})`;
+    const key = trimHyphens(token.name.replace(remove, ""));
+    object[key || "DEFAULT"] = `var(--${token.name})`;
   });
   return object;
 };
@@ -34,6 +26,7 @@ const getTheme = (dictionary) => {
 
   return {
     fontSize: getObject({
+      remove: "font-size",
       tokens,
       filter: (token) => {
         return (
@@ -43,6 +36,7 @@ const getTheme = (dictionary) => {
       },
     }),
     fontFamily: getObject({
+      remove: "font-family",
       tokens,
       filter: (token) => {
         return (
@@ -52,6 +46,7 @@ const getTheme = (dictionary) => {
       },
     }),
     boxShadow: getObject({
+      remove: "shadow",
       tokens,
       filter: (token) => {
         return (
@@ -61,6 +56,7 @@ const getTheme = (dictionary) => {
       },
     }),
     borderWidth: getObject({
+      remove: "border-width",
       tokens,
       filter: (token) => {
         return (
@@ -69,7 +65,8 @@ const getTheme = (dictionary) => {
         );
       },
     }),
-    borderWidth: getObject({
+    borderRadius: getObject({
+      remove: "border-radius",
       tokens,
       filter: (token) => {
         return (
@@ -79,12 +76,7 @@ const getTheme = (dictionary) => {
       },
     }),
     colors: getObject({
-      tokens,
-      filter: (token) => {
-        return token.path[0] === "color";
-      },
-    }),
-    extend: getObject({
+      remove: "color",
       tokens,
       filter: (token) => {
         return token.path[0] === "color";
