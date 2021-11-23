@@ -40,7 +40,7 @@ module.exports = {
   * ======================================================================== */
   line: {
     "width"        : { value: "1px", attributes: { category: "size", type: "lineWidth" } },
-    "width-strong" : { value: "2px", attributes: { category: "size", type: "lineWidth" } }
+    "width-large" : { value: "2px", attributes: { category: "size", type: "lineWidth" } }
   },
 
   /**
@@ -57,7 +57,7 @@ module.exports = {
     "color-xx-strong" : { value: "{color.neutral-80.value}", attributes: { category: "color" } },
     // Width
     "width"          : { value: "{line.width.value}", attributes: { category: "size", type: "lineWidth" } },
-    "width-strong"   : { value: "{line.width-strong.value}", attributes: { category: "size", type: "lineWidth" } },
+    "width-large"   : { value: "{line.width-strong.value}", attributes: { category: "size", type: "lineWidth" } },
     // Radius
     "radius"         : { value: "4px", attributes: { category: "size", type: "borderRadius" } },
     "radius-small"   : { value: "2px", attributes: { category: "size", type: "borderRadius" } },
