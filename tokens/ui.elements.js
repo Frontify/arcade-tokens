@@ -57,7 +57,7 @@ module.exports = {
     "color-xx-strong" : { value: "{color.neutral-80.value}", attributes: { category: "color" } },
     // Width
     "width"          : { value: "{line.width.value}", attributes: { category: "size", type: "lineWidth" } },
-    "width-large"   : { value: "{line.width-strong.value}", attributes: { category: "size", type: "lineWidth" } },
+    "width-large"   : { value: "{line.width-large.value}", attributes: { category: "size", type: "lineWidth" } },
     // Radius
     "radius"         : { value: "4px", attributes: { category: "size", type: "borderRadius" } },
     "radius-small"   : { value: "2px", attributes: { category: "size", type: "borderRadius" } },
@@ -72,7 +72,7 @@ module.exports = {
   * ======================================================================== */
   highlight: {
     // Default
-    "color"                     : { value: "{color.neutral-5.value}", attributes: { category: "color" } },
+    "color"                     : { value: "{color.neutral-10.value}", attributes: { category: "color" } },
     "color-inverse"             : { value: "{text.color.value}", attributes: { category: "color" } },
     // Negative
     "negative-color"            : { value: "{color.negative-10.value}", attributes: { category: "color" } },
