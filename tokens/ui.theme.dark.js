@@ -25,7 +25,7 @@ module.exports = {
     "color"          : { value: "{color.neutral-70.value}", attributes: { category: 'color' } },
     "color-strong"   : { value: "{color.neutral-60.value}", attributes: { category: 'color' } },
     "color-x-strong" : { value: "{color.neutral-50.value}", attributes: { category: 'color' } },
-    "color-xx-strong" : { value: "{color.neutral-100.value}", attributes: { category: 'color' } },
+    "color-xx-strong" : { value: "{color.neutral-0.value}", attributes: { category: 'color' } },
   },
 
   highlight: {
