@@ -14,7 +14,8 @@ module.exports = {
   * The main background of the area that is being themed
   * ======================================================================== */
   base : {
-    "color" : { value: "{color.neutral-0.value}", attributes: { category: "color" } }
+    "color" : { value: "{color.neutral-0.value}", attributes: { category: "color" } },
+    "color-alt" : { value: "{color.neutral-5.value}", attributes: { category: "color" } }
   },
 
   /**
@@ -22,13 +23,14 @@ module.exports = {
   * Any text element
   * ======================================================================== */
   text: {
-    "color"             : { value: "{color.neutral-80.value}", attributes: { category: "color" } },
-    "color-weak"        : { value: "{color.neutral-60.value}", attributes: { category: "color" } },
     "color-x-weak"      : { value: "{color.neutral-50.value}", attributes: { category: "color" } },
+    "color-weak"        : { value: "{color.neutral-60.value}", attributes: { category: "color" } },
+    "color"             : { value: "{color.neutral-80.value}", attributes: { category: "color" } },
     "color-negative"    : { value: "{color.negative-70.value}", attributes: { category: "color" } },
     "color-positive"    : { value: "{color.positive-70.value}", attributes: { category: "color" } },
     "color-warning"     : { value: "{color.warning-70.value}", attributes: { category: "color" } },
     "color-interactive" : { value: "{color.interactive-70.value}", attributes: { category: "color" } },
+    "color-disabled"    : { value: "{color.neutral-40.value}", attributes: { category: "color" } },
   },
 
   /**
@@ -48,9 +50,11 @@ module.exports = {
   * ======================================================================== */
   border: {
     // Color
-    "color"          : { value: "{color.neutral-20.value}", attributes: { category: "color" } },
-    "color-strong"   : { value: "{color.neutral-30.value}", attributes: { category: "color" } },
-    "color-x-strong" : { value: "{color.neutral-80.value}", attributes: { category: "color" } },
+    "color-weak"      : { value: "{color.neutral-10.value}", attributes: { category: "color" } },
+    "color"           : { value: "{color.neutral-20.value}", attributes: { category: "color" } },
+    "color-strong"    : { value: "{color.neutral-30.value}", attributes: { category: "color" } },
+    "color-x-strong"  : { value: "{color.neutral-60.value}", attributes: { category: "color" } },
+    "color-xx-strong" : { value: "{color.neutral-80.value}", attributes: { category: "color" } },
     // Width
     "width"          : { value: "{line.width.value}", attributes: { category: "size", type: "lineWidth" } },
     "width-strong"   : { value: "{line.width-strong.value}", attributes: { category: "size", type: "lineWidth" } },
@@ -62,34 +66,6 @@ module.exports = {
   },
 
   /**
-  * INPUT
-  * Generally form fields and their associated elements, but it may be apporpriate
-  * to apply to other elements
-  * ======================================================================== */
-  input: {
-    // Value
-    "value-color"                  : { value: "{text.color.value}", attributes: { category: "color" } },
-    "value-font-family"            : { value: '{body.family.value}', attributes: { category: "font", type: 'family' } },
-    "value-font-weight-name"       : { value: '{body.weight-name.value}', attributes: { category: "font", type: 'name' } },
-    "value-font-size"              : { value: '{body.size-medium.value}', attributes: { category: "size", type: 'font' } },
-    "value-line-height"            : { value: '{body.size-medium-line-height.value}', attributes: { category: "size", type: 'lineHeight' } },
-    // Label
-    "label-color"                  : { value: "{text.color.value}", attributes: { category: "color" } },
-    "label-font-family"            : { value: '{body.family.value}', attributes: { category: "font", type: 'family' } },
-    "label-font-weight-name"       : { value: '{body.weight-strong-name.value}', attributes: { category: "font", type: 'name' } },
-    "label-font-size"              : { value: '{body.size-small.value}', attributes: { category: "size", type: 'font' } },
-    "label-line-height"            : { value: '{body.size-small-line-height.value}', attributes: { category: "size", type: 'lineHeight' } },
-    // Placeholder
-    "placeholder-color"            : { value: "{text.color-x-weak.value}", attributes: { category: "color" } },
-    "placeholder-font-family"      : { value: '{body.family.value}', attributes: { category: "font", type: 'family' } },
-    "placeholder-font-weight-name" : { value: '{body.weight-name.value}', attributes: { category: "font", type: 'name' } },
-    "placeholder-font-size"        : { value: '{body.size-medium.value}', attributes: { category: "size", type: 'font' } },
-    "placeholder-line-height"      : { value: '{body.size-medium-line-height.value}', attributes: { category: "size", type: 'lineHeight' } },
-    // Border
-    "border-color"                 : { value: "{border.color-strong.value}", attributes: { category: "color" } },    
-  },
-
-  /**
   * HIGHLIGHT
   * Used to give a background color and suitable content color to a small area,
   * such as a notification banner, or a trend icon in data visualisation
@@ -98,9 +74,6 @@ module.exports = {
     // Default
     "color"                     : { value: "{color.neutral-5.value}", attributes: { category: "color" } },
     "color-inverse"             : { value: "{text.color.value}", attributes: { category: "color" } },
-    // Strong
-    "strong-color"              : { value: "{color.interactive-60.value}", attributes: { category: "color" } },
-    "strong-color-inverse"      : { value: "{color.lightest.value}", attributes: { category: "color" } },
     // Negative
     "negative-color"            : { value: "{color.negative-10.value}", attributes: { category: "color" } },
     "negative-color-inverse"    : { value: "{color.negative-80.value}", attributes: { category: "color" } },
@@ -113,6 +86,9 @@ module.exports = {
     // Informative
     "informative-color"         : { value: "{color.interactive-10.value}", attributes: { category: "color" } },
     "informative-color-inverse" : { value: "{color.interactive-80.value}", attributes: { category: "color" } },
+    // Strong
+    "strong-color"              : { value: "{color.neutral-80.value}", attributes: { category: "color" } },
+    "strong-color-inverse"      : { value: "{color.lightest.value}", attributes: { category: "color" } },
   },
 
   /**
@@ -121,41 +97,45 @@ module.exports = {
   * background. This is to allow for themeing.
   * ======================================================================== */
   button: {
-    // Common
-    "font-family"            : { value: '{body.family.value}', attributes: { category: "font", type: 'family' } },
-    "font-weight-name"       : { value: '{body.weight-strong-name.value}', attributes: { category: "font", type: 'name' } },
-    // Small size
-    "small-font-size"        : { value: '{body.size-small.value}', attributes: { category: "size", type: 'font' } },
-    "small-line-height"      : { value: '{body.size-small-line-height.value}', attributes: { category: "size", type: 'lineHeight' } },
-    // Medium size
-    "medium-font-size"       : { value: '{body.size-medium.value}', attributes: { category: "size", type: 'font' } },
-    "medium-line-height"     : { value: '{body.size-medium-line-height.value}', attributes: { category: "size", type: 'lineHeight' } },
-    // Large size
-    "large-font-size"        : { value: '{body.size-large.value}', attributes: { category: "size", type: 'font' } },
-    "large-line-height"      : { value: '{body.size-large-line-height.value}', attributes: { category: "size", type: 'lineHeight' } },
     // Default Style
-    "color"                  : { value: "{color.neutral-10.value}", attributes: { category: "color" } },
-    "color-hover"            : { value: "{color.neutral-20.value}", attributes: { category: "color" } },
-    "color-pressed"          : { value: "{color.neutral-30.value}", attributes: { category: "color" } },
-    "color-inverse"          : { value: "{text.color.value}", attributes: { category: "color" } },
-    "border-color"           : { value: "{color.neutral-10.value}", attributes: { category: "color" } },
-    "border-color-hover"     : { value: "{color.neutral-20.value}", attributes: { category: "color" } },
-    "border-color-pressed"   : { value: "{color.neutral-30.value}", attributes: { category: "color" } },
+    "color"                         : { value: "{color.neutral-10.value}", attributes: { category: "color" } },
+    "color-hover"                   : { value: "{color.neutral-20.value}", attributes: { category: "color" } },
+    "color-pressed"                 : { value: "{color.neutral-30.value}", attributes: { category: "color" } },
+    "color-inverse"                 : { value: "{text.color.value}", attributes: { category: "color" } },
+    // Alt Style
+    "alt-color"                     : { value: "{color.neutral-10.value}", attributes: { category: "color" } },
+    "alt-color-hover"               : { value: "{color.neutral-20.value}", attributes: { category: "color" } },
+    "alt-color-pressed"             : { value: "{color.neutral-30.value}", attributes: { category: "color" } },
+    "alt-color-inverse"             : { value: "{text.color.value}", attributes: { category: "color" } },
+    "alt-border-color"              : { value: "{color.neutral-10.value}", attributes: { category: "color" } },
+    "alt-border-color-hover"        : { value: "{color.neutral-20.value}", attributes: { category: "color" } },
+    "alt-border-color-pressed"      : { value: "{color.neutral-30.value}", attributes: { category: "color" } },
     // Strong Style
-    "strong-color"           : { value: "{color.neutral-70.value}", attributes: { category: "color" } },
-    "strong-color-hover"     : { value: "{color.neutral-90.value}", attributes: { category: "color" } },
-    "strong-color-pressed"   : { value: "{color.neutral-100.value}", attributes: { category: "color" } },
-    "strong-color-inverse"   : { value: "{color.neutral-0.value}", attributes: { category: "color" } },
+    "strong-color"                  : { value: "{color.neutral-70.value}", attributes: { category: "color" } },
+    "strong-color-hover"            : { value: "{color.neutral-90.value}", attributes: { category: "color" } },
+    "strong-color-pressed"          : { value: "{color.neutral-100.value}", attributes: { category: "color" } },
+    "strong-color-inverse"          : { value: "{color.neutral-0.value}", attributes: { category: "color" } },
     // Negative Style
-    "negative-color"         : { value: "{color.negative-70.value}", attributes: { category: "color" } },
-    "negative-color-hover"   : { value: "{color.negative-80.value}", attributes: { category: "color" } },
-    "negative-color-pressed" : { value: "{color.negative-90.value}", attributes: { category: "color" } },
-    "negative-color-inverse" : { value: "{color.lightest.value}", attributes: { category: "color" } },
+    "negative-color"                : { value: "{color.negative-70.value}", attributes: { category: "color" } },
+    "negative-color-hover"          : { value: "{color.negative-80.value}", attributes: { category: "color" } },
+    "negative-color-pressed"        : { value: "{color.negative-90.value}", attributes: { category: "color" } },
+    "negative-color-inverse"        : { value: "{color.lightest.value}", attributes: { category: "color" } },
     // Positive Style
-    "positive-color"         : { value: "{color.positive-70.value}", attributes: { category: "color" } },
-    "positive-color-hover"   : { value: "{color.positive-80.value}", attributes: { category: "color" } },
-    "positive-color-pressed" : { value: "{color.positive-90.value}", attributes: { category: "color" } },
-    "positive-color-inverse" : { value: "{color.lightest.value}", attributes: { category: "color" } },
+    "positive-color"                : { value: "{color.positive-70.value}", attributes: { category: "color" } },
+    "positive-color-hover"          : { value: "{color.positive-80.value}", attributes: { category: "color" } },
+    "positive-color-pressed"        : { value: "{color.positive-90.value}", attributes: { category: "color" } },
+    "positive-color-inverse"        : { value: "{color.lightest.value}", attributes: { category: "color" } },
+    // Interactive Style
+    "interactive-color"             : { value: "{color.interactive-60.value}", attributes: { category: "color" } },
+    "interactive-color-hover"       : { value: "{color.interactive-70.value}", attributes: { category: "color" } },
+    "interactive-color-pressed"     : { value: "{color.interactive-80.value}", attributes: { category: "color" } },
+    "interactive-color-inverse"     : { value: "{color.lightest.value}", attributes: { category: "color" } },
+    // Disabled Style
+    "disabled-color"                : { value: "{color.neutral-10.value}", attributes: { category: "color" } },
+    "disabled-color-inverse"        : { value: "{color.lightest.value}", attributes: { category: "color" } },
+    // Disabled Style
+    "disabled-strong-color"         : { value: "{color.neutral-30.value}", attributes: { category: "color" } },
+    "disabled-strong-color-inverse" : { value: "{color.lightest.value}", attributes: { category: "color" } },
   },
   /**
   * SHADOW
