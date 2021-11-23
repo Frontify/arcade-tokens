@@ -62,6 +62,7 @@ module.exports = (tokens) => {
       "Negative Inverse"        : { value: tokens.button["negative-color-inverse"].value, type: TYPE },
       "Disabled"                : { value: tokens.button["disabled-color"].value, type: TYPE },
       "Disabled Inverse"        : { value: tokens.button["disabled-color-inverse"].value, type: TYPE },
+      "Disabled Border"         : { value: tokens.button["disabled-border-color"].value, type: TYPE },
       "Disabled Strong"         : { value: tokens.button["disabled-strong-color"].value, type: TYPE },
       "Disabled Strong Inverse" : { value: tokens.button["disabled-strong-color-inverse"].value, type: TYPE },
     },

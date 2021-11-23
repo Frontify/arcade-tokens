@@ -128,6 +128,7 @@ module.exports = {
     // Disabled Style
     "disabled-color"                : { value: "{color.neutral-5.value}", attributes: { category: "color" } },
     "disabled-color-inverse"        : { value: "{text.color-disabled.value}", attributes: { category: "color" } },
+    "disabled-border-color"         : { value: "{color.neutral-10.value}", attributes: { category: "color" } },
     "disabled-strong-color"         : { value: "{color.neutral-30.value}", attributes: { category: "color" } },
     "disabled-strong-color-inverse" : { value: "{color.neutral-0.value}", attributes: { category: "color" } },
   },
