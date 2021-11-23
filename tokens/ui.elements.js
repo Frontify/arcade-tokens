@@ -115,16 +115,16 @@ module.exports = {
     "interactive-color-hover"       : { value: "{color.interactive-70.value}", attributes: { category: "color" } },
     "interactive-color-pressed"     : { value: "{color.interactive-80.value}", attributes: { category: "color" } },
     "interactive-color-inverse"     : { value: "{color.neutral-0.value}", attributes: { category: "color" } },
-    // Negative Style
-    "negative-color"                : { value: "{color.negative-70.value}", attributes: { category: "color" } },
-    "negative-color-hover"          : { value: "{color.negative-80.value}", attributes: { category: "color" } },
-    "negative-color-pressed"        : { value: "{color.negative-90.value}", attributes: { category: "color" } },
-    "negative-color-inverse"        : { value: "{color.neutral-0.value}", attributes: { category: "color" } },
     // Positive Style
     "positive-color"                : { value: "{color.positive-70.value}", attributes: { category: "color" } },
     "positive-color-hover"          : { value: "{color.positive-80.value}", attributes: { category: "color" } },
     "positive-color-pressed"        : { value: "{color.positive-90.value}", attributes: { category: "color" } },
     "positive-color-inverse"        : { value: "{color.neutral-0.value}", attributes: { category: "color" } },
+    // Negative Style
+    "negative-color"                : { value: "{color.negative-70.value}", attributes: { category: "color" } },
+    "negative-color-hover"          : { value: "{color.negative-80.value}", attributes: { category: "color" } },
+    "negative-color-pressed"        : { value: "{color.negative-90.value}", attributes: { category: "color" } },
+    "negative-color-inverse"        : { value: "{color.neutral-0.value}", attributes: { category: "color" } },
     // Disabled Style
     "disabled-color"                : { value: "{color.neutral-10.value}", attributes: { category: "color" } },
     "disabled-color-inverse"        : { value: "{text.color-disabled.value}", attributes: { category: "color" } },

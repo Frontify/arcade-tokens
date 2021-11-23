@@ -68,16 +68,16 @@ module.exports = {
     "interactive-color-hover"   : { value: "{color.interactive-50.value}", attributes: { category: "color" } },
     "interactive-color-pressed" : { value: "{color.interactive-60.value}", attributes: { category: "color" } },
     "interactive-color-inverse" : { value: "{color.neutral-80.value}", attributes: { category: "color" } },
-    // Negative Style
-    "negative-color"            : { value: "{color.negative-40.value}", attributes: { category: "color" } },
-    "negative-color-hover"      : { value: "{color.negative-50.value}", attributes: { category: "color" } },
-    "negative-color-pressed"    : { value: "{color.negative-60.value}", attributes: { category: "color" } },
-    "negative-color-inverse"    : { value: "{color.neutral-80.value}", attributes: { category: "color" } },
     // Positive Style
     "positive-color"            : { value: "{color.positive-40.value}", attributes: { category: "color" } },
     "positive-color-hover"      : { value: "{color.positive-50.value}", attributes: { category: "color" } },
     "positive-color-pressed"    : { value: "{color.positive-60.value}", attributes: { category: "color" } },
     "positive-color-inverse"    : { value: "{color.neutral-80.value}", attributes: { category: "color" } },
+    // Negative Style
+    "negative-color"            : { value: "{color.negative-40.value}", attributes: { category: "color" } },
+    "negative-color-hover"      : { value: "{color.negative-50.value}", attributes: { category: "color" } },
+    "negative-color-pressed"    : { value: "{color.negative-60.value}", attributes: { category: "color" } },
+    "negative-color-inverse"    : { value: "{color.neutral-80.value}", attributes: { category: "color" } },
     // Disabled Style
     "disabled-color"                : { value: "{color.neutral-80.value}", attributes: { category: "color" } },
     "disabled-color-inverse"        : { value: "{text.color-disabled.value}", attributes: { category: "color" } },
