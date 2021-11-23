@@ -29,15 +29,12 @@ module.exports = {
     "weight-number"            : { value: "{font.space-grotesk-medium-weight-number.value}", attributes: { category: 'font', type: 'weight' } },
     "weight-strong-name"       : { value: "{font.space-grotesk-bold-weight-name.value}", attributes: { category: 'font', type: 'name' } },
     "weight-strong-number"     : { value: "{font.space-grotesk-bold-weight-number.value}", attributes: { category: 'font', type: 'weight' } },
-    // SMALL
-    "size-small"               : { value: "{body.size-medium.value}", attributes: { category: "size", type: "font" } },
-    "size-small-line-height"   : { value: "{body.size-medium-line-height.value}", attributes: { category: "size", type: "lineHeight" } },
     // MEDIUM
-    "size-medium"              : { value: "{body.size-large.value}", attributes: { category: "size", type: "font" } },
-    "size-medium-line-height"  : { value: "{body.size-large-line-height.value}", attributes: { category: "size", type: "lineHeight" } },
+    "size-medium"              : { value: "{body.size-medium.value}", attributes: { category: "size", type: "font" } },
+    "size-medium-line-height"  : { value: "{body.size-medium-line-height.value}", attributes: { category: "size", type: "lineHeight" } },
     // LARGE
-    "size-large"               : { value: 1.25, attributes: { category: "size", type: "font" } },
-    "size-large-line-height"   : { value: 1.5, attributes: { category: "size", type: "lineHeight" } },
+    "size-large"               : { value: "{body.size-large.value}", attributes: { category: "size", type: "font" } },
+    "size-large-line-height"   : { value: "{body.size-large-line-height.value}", attributes: { category: "size", type: "lineHeight" } },
     // X-LARGE
     "size-x-large"             : { value: 1.5, attributes: { category: "size", type: "font" } },
     "size-x-large-line-height" : { value: 1.75, attributes: { category: "size", type: "lineHeight" } },
