@@ -1,232 +1,246 @@
-const TYPE = "typography";
-const getFigmaElementTypography = require("./getFigmaElementTypography");
+module.exports = (tokens) => {
+  const TYPE = "typography";
 
-/**
- * =============
- * CODE
- * =============
- */
-const code = (tokens) => {
-  if (!tokens.code) return null;
+  // Body
+  const body = tokens.body;
+  const bodyFamily = body["family"].value;
+  const bodyWeight = body["weight-name"].value;
+  const bodyWeightStrong = body["weight-strong-name"].value;
+  const bodyWeightXStrong = body["weight-x-strong-name"].value;
 
-  const codeDefault = {
-    fontFamily: tokens.code["family"].value,
-    fontSize: tokens.code["size-small"].value,
-    fontWeight: tokens.code["weight-name"].value,
-    lineHeight: tokens.code["size-small-line-height"].value,
-  };
+  const bodySizeSmall = body["size-small"].value;
+  const bodySizeMedium = body["size-medium"].value;
+  const bodySizeLarge = body["size-large"].value;
 
-  const codeMediumDefault = {
-    ...codeDefault,
-    ...{
-      fontSize: tokens.code["size-medium"].value,
-      lineHeight: tokens.code["size-medium-line-height"].value,
-    },
-  };
+  const bodyLineHeightSmall = body["size-small-line-height"].value;
+  const bodyLineHeightMedium = body["size-medium-line-height"].value;
+  const bodyLineHeightLarge = body["size-large-line-height"].value;
 
-  const codeLargeDefault = {
-    ...codeDefault,
-    ...{
-      fontSize: tokens.code["size-large"].value,
-      lineHeight: tokens.code["size-large-line-height"].value,
-    },
-  };
+  // Heading
+  const heading = tokens.heading;
+  const headingFamily = heading["family"].value;
+  const headingWeight = heading["weight-name"].value;
+  const headingWeightStrong = heading["weight-strong-name"].value;
 
-  return {
-    "code-size-small": {
-      "weight-DEFAULT": { type: TYPE, value: codeDefault },
-      "weight-strong": {
-        type: TYPE,
-        value: {
-          ...codeDefault,
-          ...{ fontWeight: tokens.code["weight-strong-name"].value },
-        },
-      },
-    },
-    "code-size-medium": {
-      "weight-DEFAULT": { type: TYPE, value: codeMediumDefault },
-      "weight-strong": {
-        type: TYPE,
-        value: {
-          ...codeMediumDefault,
-          ...{ fontWeight: tokens.code["weight-strong-name"].value },
-        },
-      },
-    },
-    "code-size-large": {
-      "weight-DEFAULT": { type: TYPE, value: codeLargeDefault },
-      "weight-strong": {
-        type: TYPE,
-        value: {
-          ...codeLargeDefault,
-          ...{ fontWeight: tokens.code["weight-strong-name"].value },
-        },
-      },
-    },
-  };
-};
+  const headingSizeMedium = heading["size-medium"].value;
+  const headingSizeLarge = heading["size-large"].value;
+  const headingSizeXLarge = heading["size-x-large"].value;
 
-/**
- * =============
- * HEADING
- * =============
- */
-const heading = (tokens) => {
-  if (!tokens.heading) return null;
+  const headingLineHeightMedium = heading["size-medium-line-height"].value;
+  const headingLineHeightLarge = heading["size-large-line-height"].value;
+  const headingLineHeightXLarge = heading["size-large-line-height"].value;
 
-  const headingDefault = {
-    fontFamily: tokens.heading["family"].value,
-    fontSize: tokens.heading["size-small"].value,
-    fontWeight: tokens.heading["weight-name"].value,
-    lineHeight: tokens.heading["size-small-line-height"].value,
-  };
+  // Code
+  const code = tokens.code;
+  const codeFamily = code["family"].value;
+  const codeWeight = code["weight-name"].value;
+  const codeWeightStrong = code["weight-strong-name"].value;
 
-  const headingMediumDefault = {
-    ...headingDefault,
-    ...{
-      fontSize: tokens.heading["size-medium"].value,
-      lineHeight: tokens.heading["size-medium-line-height"].value,
-    },
-  };
+  const codeSizeSmall = code["size-small"].value;
+  const codeSizeMedium = code["size-medium"].value;
+  const codeSizeLarge = code["size-large"].value;
 
-  const headingLargeDefault = {
-    ...headingDefault,
-    ...{
-      fontSize: tokens.heading["size-large"].value,
-      lineHeight: tokens.heading["size-large-line-height"].value,
-    },
-  };
+  const codeLineHeightSmall = code["size-small-line-height"].value;
+  const codeLineHeightMedium = code["size-medium-line-height"].value;
+  const codeLineHeightLarge = code["size-large-line-height"].value;
 
   return {
-    "heading-size-small": {
-      "weight-DEFAULT": { type: TYPE, value: headingDefault },
-      "weight-strong": {
+    Body: {
+      Small: {
         type: TYPE,
         value: {
-          ...headingDefault,
-          ...{ fontWeight: tokens.heading["weight-strong-name"].value },
+          fontFamily: bodyFamily,
+          fontSize: bodySizeSmall,
+          fontWeight: bodyWeight,
+          lineHeight: bodyLineHeightSmall,
+        },
+      },
+      "Small Strong": {
+        type: TYPE,
+        value: {
+          fontFamily: bodyFamily,
+          fontSize: bodySizeSmall,
+          fontWeight: bodyWeightStrong,
+          lineHeight: bodyLineHeightSmall,
+        },
+      },
+      "Small X-Strong": {
+        type: TYPE,
+        value: {
+          fontFamily: bodyFamily,
+          fontSize: bodySizeSmall,
+          fontWeight: bodyWeightXStrong,
+          lineHeight: bodyLineHeightSmall,
+        },
+      },
+      Medium: {
+        type: TYPE,
+        value: {
+          fontFamily: bodyFamily,
+          fontSize: bodySizeMedium,
+          fontWeight: bodyWeight,
+          lineHeight: bodyLineHeightMedium,
+        },
+      },
+      "Medium Strong": {
+        type: TYPE,
+        value: {
+          fontFamily: bodyFamily,
+          fontSize: bodySizeMedium,
+          fontWeight: bodyWeightStrong,
+          lineHeight: bodyLineHeightMedium,
+        },
+      },
+      "Medium X-Strong": {
+        type: TYPE,
+        value: {
+          fontFamily: bodyFamily,
+          fontSize: bodySizeMedium,
+          fontWeight: bodyWeightXStrong,
+          lineHeight: bodyLineHeightMedium,
+        },
+      },
+      Large: {
+        type: TYPE,
+        value: {
+          fontFamily: bodyFamily,
+          fontSize: bodySizeLarge,
+          fontWeight: bodyWeight,
+          lineHeight: bodyLineHeightLarge,
+        },
+      },
+      "Large Strong": {
+        type: TYPE,
+        value: {
+          fontFamily: bodyFamily,
+          fontSize: bodySizeLarge,
+          fontWeight: bodyWeightStrong,
+          lineHeight: bodyLineHeightLarge,
+        },
+      },
+      "Large X-Strong": {
+        type: TYPE,
+        value: {
+          fontFamily: bodyFamily,
+          fontSize: bodySizeLarge,
+          fontWeight: bodyWeightXStrong,
+          lineHeight: bodyLineHeightLarge,
         },
       },
     },
-    "heading-size-medium": {
-      "weight-DEFAULT": { type: TYPE, value: headingMediumDefault },
-      "weight-strong": {
+    Heading: {
+      Medium: {
         type: TYPE,
         value: {
-          ...headingMediumDefault,
-          ...{ fontWeight: tokens.heading["weight-strong-name"].value },
+          fontFamily: headingFamily,
+          fontSize: headingSizeMedium,
+          fontWeight: headingWeight,
+          lineHeight: headingLineHeightMedium,
+        },
+      },
+      "Medium Strong": {
+        type: TYPE,
+        value: {
+          fontFamily: headingFamily,
+          fontSize: headingSizeMedium,
+          fontWeight: headingWeightStrong,
+          lineHeight: headingLineHeightMedium,
+        },
+      },
+      Large: {
+        type: TYPE,
+        value: {
+          fontFamily: headingFamily,
+          fontSize: headingSizeLarge,
+          fontWeight: headingWeight,
+          lineHeight: headingLineHeightLarge,
+        },
+      },
+      "Large Strong": {
+        type: TYPE,
+        value: {
+          fontFamily: headingFamily,
+          fontSize: headingSizeLarge,
+          fontWeight: headingWeightStrong,
+          lineHeight: headingLineHeightLarge,
+        },
+      },
+
+      "X-Large": {
+        type: TYPE,
+        value: {
+          fontFamily: headingFamily,
+          fontSize: headingSizeXLarge,
+          fontWeight: headingWeight,
+          lineHeight: headingLineHeightXLarge,
+        },
+      },
+      "X-Large Strong": {
+        type: TYPE,
+        value: {
+          fontFamily: headingFamily,
+          fontSize: headingSizeXLarge,
+          fontWeight: headingWeightStrong,
+          lineHeight: headingLineHeightXLarge,
         },
       },
     },
-    "heading-size-large": {
-      "weight-DEFAULT": { type: TYPE, value: headingLargeDefault },
-      "weight-strong": {
+    Code: {
+      Small: {
         type: TYPE,
         value: {
-          ...headingLargeDefault,
-          ...{ fontWeight: tokens.heading["weight-strong-name"].value },
+          fontFamily: codeFamily,
+          fontSize: codeSizeSmall,
+          fontWeight: codeWeight,
+          lineHeight: codeLineHeightSmall,
+        },
+      },
+      "Small Strong": {
+        type: TYPE,
+        value: {
+          fontFamily: codeFamily,
+          fontSize: codeSizeSmall,
+          fontWeight: codeWeightStrong,
+          lineHeight: codeLineHeightSmall,
+        },
+      },
+      Medium: {
+        type: TYPE,
+        value: {
+          fontFamily: codeFamily,
+          fontSize: codeSizeMedium,
+          fontWeight: codeWeight,
+          lineHeight: codeLineHeightMedium,
+        },
+      },
+      "Medium Strong": {
+        type: TYPE,
+        value: {
+          fontFamily: codeFamily,
+          fontSize: codeSizeMedium,
+          fontWeight: codeWeightStrong,
+          lineHeight: codeLineHeightMedium,
+        },
+      },
+
+      Large: {
+        type: TYPE,
+        value: {
+          fontFamily: codeFamily,
+          fontSize: codeSizeLarge,
+          fontWeight: codeWeight,
+          lineHeight: codeLineHeightLarge,
+        },
+      },
+      "Large Strong": {
+        type: TYPE,
+        value: {
+          fontFamily: codeFamily,
+          fontSize: codeSizeLarge,
+          fontWeight: codeWeightStrong,
+          lineHeight: codeLineHeightLarge,
         },
       },
     },
-  };
-};
-
-/**
- * =============
- * BODY
- * =============
- */
-
-const body = (tokens) => {
-  if (!tokens.body) return null;
-
-  const bodyDefault = {
-    fontFamily: tokens.body["family"].value,
-    fontSize: tokens.body["size-small"].value,
-    fontWeight: tokens.body["weight-name"].value,
-    lineHeight: tokens.body["size-small-line-height"].value,
-  };
-
-  const bodyMediumDefault = {
-    ...bodyDefault,
-    ...{
-      fontSize: tokens.body["size-medium"].value,
-      lineHeight: tokens.body["size-medium-line-height"].value,
-    },
-  };
-
-  const bodyLargeDefault = {
-    ...bodyDefault,
-    ...{
-      fontSize: tokens.body["size-large"].value,
-      lineHeight: tokens.body["size-large-line-height"].value,
-    },
-  };
-
-  return {
-    "body-size-small": {
-      "weight-DEFAULT": { type: TYPE, value: bodyDefault },
-      "weight-strong": {
-        type: TYPE,
-        value: {
-          ...bodyDefault,
-          ...{ fontWeight: tokens.body["weight-strong-name"].value },
-        },
-      },
-      "weight-x-strong": {
-        type: TYPE,
-        value: {
-          ...bodyDefault,
-          ...{ fontWeight: tokens.body["weight-x-strong-name"].value },
-        },
-      },
-    },
-    "body-size-medium": {
-      "weight-DEFAULT": { type: TYPE, value: bodyMediumDefault },
-      "weight-strong": {
-        type: TYPE,
-        value: {
-          ...bodyMediumDefault,
-          ...{ fontWeight: tokens.body["weight-strong-name"].value },
-        },
-      },
-
-      "weight-x-strong": {
-        type: TYPE,
-        value: {
-          ...bodyMediumDefault,
-          ...{ fontWeight: tokens.body["weight-x-strong-name"].value },
-        },
-      },
-    },
-    "body-size-large": {
-      "weight-DEFAULT": { type: TYPE, value: bodyLargeDefault },
-      "weight-strong": {
-        type: TYPE,
-        value: {
-          ...bodyLargeDefault,
-          ...{ fontWeight: tokens.body["weight-strong-name"].value },
-        },
-      },
-
-      "weight-x-strong": {
-        type: TYPE,
-        value: {
-          ...bodyLargeDefault,
-          ...{ fontWeight: tokens.body["weight-x-strong-name"].value },
-        },
-      },
-    },
-  };
-};
-
-module.exports = ({ dictionary }) => {
-  const tokens = dictionary.tokens;
-
-  return {
-    ...body(tokens),
-    ...heading(tokens),
-    ...code(tokens),
-    ...getFigmaElementTypography(dictionary.allTokens),
   };
 };

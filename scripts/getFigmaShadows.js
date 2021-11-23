@@ -1,13 +1,6 @@
-const TYPE = "boxShadow";
-
-/**
- * =============
- * BODY
- * =============
- */
-
-const shadows = ({ tokens }) => {
+module.exports = (tokens) => {
   if (!tokens.shadow) return null;
+  const TYPE = "boxShadow";
 
   const shadowDefault = {
     x: tokens.shadow["offset-x"].value,
@@ -18,11 +11,11 @@ const shadows = ({ tokens }) => {
   };
 
   return {
-    "shadow-DEFAULT": {
+    DEFAULT: {
       type: TYPE,
       value: shadowDefault,
     },
-    "shadow-top": {
+    Top: {
       type: TYPE,
       value: {
         ...shadowDefault,
@@ -32,7 +25,7 @@ const shadows = ({ tokens }) => {
         },
       },
     },
-    "shadow-bottom": {
+    Bottom: {
       type: TYPE,
       value: {
         ...shadowDefault,
@@ -42,7 +35,7 @@ const shadows = ({ tokens }) => {
         },
       },
     },
-    "shadow-large": {
+    Large: {
       type: TYPE,
       value: {
         x: tokens.shadow["large-offset-x"].value,
@@ -53,9 +46,4 @@ const shadows = ({ tokens }) => {
       },
     },
   };
-};
-
-module.exports = ({ dictionary }) => {
-  const tokens = dictionary.tokens;
-  return shadows({ tokens });
 };

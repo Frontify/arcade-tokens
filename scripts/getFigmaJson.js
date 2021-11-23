@@ -1,28 +1,32 @@
+const mergeDeep = require("./mergeDeep");
+const toTitleCase = require("./toTitleCase");
+
 const getFigmaTypography = require("./getFigmaTypography");
 const getFigmaShadows = require("./getFigmaShadows");
-const getFigmaColors = require("./getFigmaColors");
-const mergeDeep = require("./mergeDeep");
+const getFigmaAliasColors = require("./getFigmaAliasColors");
 
 const formatThemeName = (string) => {
-  return string.toLowerCase().split(".").join("-");
-};
-
-const getTheme = ({ dictionary, options }) => {
-  return mergeDeep(
-    getFigmaColors({ dictionary, options }),
-    mergeDeep(
-      getFigmaTypography({ dictionary, options }),
-      getFigmaShadows({ dictionary, options })
-    )
-  );
+  return toTitleCase(string.toLowerCase().replace(".", " "));
 };
 
 module.exports = ({ dictionary, options }) => {
-  const theme = getTheme({ dictionary, options });
+  const tokens = dictionary.tokens;
+
+  const mergedColorsAndShadows = mergeDeep(
+    getFigmaShadows(tokens),
+    getFigmaAliasColors(tokens)
+  );
 
   if (options && options.theme) {
-    return JSON.stringify({ [formatThemeName(options.theme)]: theme });
+    return JSON.stringify({
+      [formatThemeName(options.theme)]: mergedColorsAndShadows,
+    });
   }
 
-  return JSON.stringify(theme);
+  const allMerged = mergeDeep(
+    getFigmaTypography(tokens),
+    mergedColorsAndShadows
+  );
+
+  return JSON.stringify(allMerged);
 };

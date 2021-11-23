@@ -203,9 +203,7 @@ colorThemes.forEach((theme) => {
           {
             destination: `${theme}.json`,
             format: "figma",
-            options: {
-              theme: theme,
-            },
+            options: { theme: theme },
             filter: (token) => {
               return token.filePath.indexOf(theme) > -1;
             },
@@ -219,9 +217,7 @@ colorThemes.forEach((theme) => {
           {
             destination: `theme.${theme}.css`,
             format: "css/variables",
-            options: {
-              theme: theme,
-            },
+            options: { theme: theme },
             filter: (token) => {
               return (
                 token.filePath.indexOf(theme) > -1 &&
