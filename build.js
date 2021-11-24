@@ -3,8 +3,8 @@
  */
 const StyleDictionary = require("style-dictionary");
 const fs = require("fs");
-const transformColor = require("./scripts/transformColor");
-const getFigmaJson = require("./scripts/getFigmaJson");
+const transformColor = require("./src/utils/transformColor");
+const getFigmaJson = require("./src/formatters/figma");
 const formatTailwind = require("./src/formatters/tailwind");
 
 /**

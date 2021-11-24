@@ -1,2 +1,2 @@
 tokens
-scripts/getFigmaAliasColors.js
+src/formatters/figma/getFigmaAliasColors.js
