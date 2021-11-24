@@ -3,9 +3,9 @@
  */
 const StyleDictionary = require("style-dictionary");
 const fs = require("fs");
-const getTailwindConfig = require("./scripts/getTailwindConfig");
 const transformColor = require("./scripts/transformColor");
 const getFigmaJson = require("./scripts/getFigmaJson");
+const formatTailwind = require("./src/formatters/tailwind");
 
 /**
  * FILE SYSTEM
@@ -93,9 +93,8 @@ StyleDictionary.registerTransformGroup({
 
 StyleDictionary.registerFormat({
   name: "tailwind",
-  formatter: ({ dictionary, options, file }) => {
-    return getTailwindConfig({ dictionary, options, file });
-  },
+  formatter: ({ dictionary, options, file }) =>
+    formatTailwind({ dictionary, options, file }),
 });
 
 StyleDictionary.registerFormat({

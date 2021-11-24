@@ -1,7 +1,7 @@
 const getExtend = ({ dictionary }) => {
   return {
     outline: {
-      violet: `1px solid var(--${dictionary.tokens.color["interactive"].name})`,
+      violet: `1px solid var(--${dictionary.tokens.color.interactive.DEFAULT.name})`,
     },
   };
 };
@@ -21,8 +21,12 @@ const getObject = ({ tokens, filter, remove }) => {
   return object;
 };
 
-const getFontSize = ({ tokens, filter, remove }) => {
-  const matchingTokens = tokens.filter(filter);
+const getFontSize = ({ tokens }) => {
+  const matchingTokens = tokens.filter(
+    (token) =>
+      token.attributes.category === "size" &&
+      ["font", "lineHeight"].includes(token.attributes.type)
+  );
 
   const dictionary = matchingTokens.reduce((acc, cur) => {
     const slug = cur.name.replace("-line-height", "");
@@ -37,14 +41,12 @@ const getFontSize = ({ tokens, filter, remove }) => {
   }, {});
 
   const list = Object.keys(dictionary).map((key) => {
-    const slug = trimHyphens(key.replace(remove, ""));
+    const slug = key.replace("size-", "");
 
     return {
       [slug]: [
-        dictionary[key][key].value,
-        {
-          lineHeight: dictionary[key][`${key}-line-height`].value,
-        },
+        `--var(${dictionary[key][key].name})`,
+        `--var(${dictionary[key][`${key}-line-height`].name})`,
       ],
     };
   });
@@ -56,69 +58,65 @@ const getFontSize = ({ tokens, filter, remove }) => {
   return fonts;
 };
 
+const getColors = ({ tokens }) => {
+  const matchingTokens = tokens.filter((token) => token.path[0] === "color");
+
+  return matchingTokens.reduce((acc, cur) => {
+    const { type, item } = cur.attributes;
+
+    if (!item) {
+      return {
+        ...acc,
+        [type]: `var(--${cur.name})`,
+      };
+    }
+
+    return {
+      ...acc,
+      [type]: { ...acc[type], [item]: `var(--${cur.name})` },
+    };
+  }, {});
+};
+
 const getTheme = (dictionary) => {
   const tokens = dictionary.allTokens;
 
   return {
     fontSize: getFontSize({
-      remove: "size-",
       tokens,
-      filter: (token) => {
-        return (
-          token.attributes.category === "size" &&
-          (token.attributes.type === "font" ||
-            token.attributes.type === "lineHeight")
-        );
-      },
     }),
     fontFamily: getObject({
       remove: "family",
       tokens,
-      filter: (token) => {
-        return (
-          token.attributes.category === "font" &&
-          token.attributes.type === "family"
-        );
-      },
+      filter: (token) =>
+        token.attributes.category === "font" &&
+        token.attributes.type === "family",
     }),
     boxShadow: getObject({
       remove: "shadow",
       tokens,
-      filter: (token) => {
-        return (
-          token.attributes.category === "shadow" &&
-          token.attributes.type === "matrix"
-        );
-      },
+      filter: (token) =>
+        token.attributes.category === "shadow" &&
+        token.attributes.type === "matrix",
     }),
     borderWidth: getObject({
       remove: "border-width",
       tokens,
-      filter: (token) => {
-        return (
-          token.attributes.category === "size" &&
-          token.attributes.type === "lineWidth"
-        );
-      },
+      filter: (token) =>
+        token.attributes.category === "size" &&
+        token.attributes.type === "lineWidth",
     }),
     borderRadius: getObject({
       remove: "border-radius",
       tokens,
-      filter: (token) => {
-        return (
-          token.attributes.category === "size" &&
-          token.attributes.type === "borderRadius"
-        );
-      },
+      filter: (token) =>
+        token.attributes.category === "size" &&
+        token.attributes.type === "borderRadius",
     }),
-    colors: getObject({
-      remove: "color",
+    colors: getColors({
       tokens,
-      filter: (token) => {
-        return token.path[0] === "color";
-      },
     }),
-    ringColor: `var(--${dictionary.tokens.color["interactive"].name})`,
+    ringColor: `var(--${dictionary.tokens.color.interactive.DEFAULT.name})`,
     extend: getExtend({ dictionary }),
   };
 };
