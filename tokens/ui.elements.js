@@ -14,8 +14,8 @@ module.exports = {
   * The main background of the area that is being themed
   * ======================================================================== */
   base : {
-    "color"     : { value: "{color.neutral-0.value}", attributes: { category: "color" } },
-    "color-alt" : { value: "{color.neutral-5.value}", attributes: { category: "color" } }
+    "color"     : { value: "{color.neutral.0.value}", attributes: { category: "color" } },
+    "color-alt" : { value: "{color.neutral.5.value}", attributes: { category: "color" } }
   },
 
   /**
@@ -23,14 +23,14 @@ module.exports = {
   * Any text element
   * ======================================================================== */
   text: {
-    "color-x-weak"      : { value: "{color.neutral-50.value}", attributes: { category: "color" } },
-    "color-weak"        : { value: "{color.neutral-60.value}", attributes: { category: "color" } },
-    "color"             : { value: "{color.neutral-80.value}", attributes: { category: "color" } },
-    "color-negative"    : { value: "{color.negative-70.value}", attributes: { category: "color" } },
-    "color-positive"    : { value: "{color.positive-70.value}", attributes: { category: "color" } },
-    "color-warning"     : { value: "{color.warning-70.value}", attributes: { category: "color" } },
-    "color-interactive" : { value: "{color.interactive-70.value}", attributes: { category: "color" } },
-    "color-disabled"    : { value: "{color.neutral-40.value}", attributes: { category: "color" } },
+    "color-x-weak"      : { value: "{color.neutral.50.value}", attributes: { category: "color" } },
+    "color-weak"        : { value: "{color.neutral.60.value}", attributes: { category: "color" } },
+    "color"             : { value: "{color.neutral.80.value}", attributes: { category: "color" } },
+    "color-negative"    : { value: "{color.negative.70.value}", attributes: { category: "color" } },
+    "color-positive"    : { value: "{color.positive.70.value}", attributes: { category: "color" } },
+    "color-warning"     : { value: "{color.warning.70.value}", attributes: { category: "color" } },
+    "color-interactive" : { value: "{color.interactive.70.value}", attributes: { category: "color" } },
+    "color-disabled"    : { value: "{color.neutral.40.value}", attributes: { category: "color" } },
   },
 
   /**
@@ -50,11 +50,11 @@ module.exports = {
   * ======================================================================== */
   border: {
     // Color
-    "color-weak"      : { value: "{color.neutral-10.value}", attributes: { category: "color" } },
-    "color"           : { value: "{color.neutral-20.value}", attributes: { category: "color" } },
-    "color-strong"    : { value: "{color.neutral-30.value}", attributes: { category: "color" } },
-    "color-x-strong"  : { value: "{color.neutral-60.value}", attributes: { category: "color" } },
-    "color-xx-strong" : { value: "{color.neutral-80.value}", attributes: { category: "color" } },
+    "color-weak"      : { value: "{color.neutral.10.value}", attributes: { category: "color" } },
+    "color"           : { value: "{color.neutral.20.value}", attributes: { category: "color" } },
+    "color-strong"    : { value: "{color.neutral.30.value}", attributes: { category: "color" } },
+    "color-x-strong"  : { value: "{color.neutral.60.value}", attributes: { category: "color" } },
+    "color-xx-strong" : { value: "{color.neutral.80.value}", attributes: { category: "color" } },
     // Width
     "width"          : { value: "{line.width.value}", attributes: { category: "size", type: "lineWidth" } },
     "width-large"   : { value: "{line.width-large.value}", attributes: { category: "size", type: "lineWidth" } },
@@ -72,23 +72,23 @@ module.exports = {
   * ======================================================================== */
   highlight: {
     // Default
-    "color"                     : { value: "{color.neutral-10.value}", attributes: { category: "color" } },
+    "color"                     : { value: "{color.neutral.10.value}", attributes: { category: "color" } },
     "color-inverse"             : { value: "{text.color.value}", attributes: { category: "color" } },
     // Negative
-    "negative-color"            : { value: "{color.negative-10.value}", attributes: { category: "color" } },
-    "negative-color-inverse"    : { value: "{color.negative-80.value}", attributes: { category: "color" } },
+    "negative-color"            : { value: "{color.negative.10.value}", attributes: { category: "color" } },
+    "negative-color-inverse"    : { value: "{color.negative.80.value}", attributes: { category: "color" } },
     // Positive
-    "positive-color"            : { value: "{color.positive-10.value}", attributes: { category: "color" } },
-    "positive-color-inverse"    : { value: "{color.positive-90.value}", attributes: { category: "color" } },
+    "positive-color"            : { value: "{color.positive.10.value}", attributes: { category: "color" } },
+    "positive-color-inverse"    : { value: "{color.positive.90.value}", attributes: { category: "color" } },
     // Warning
-    "warning-color"             : { value: "{color.warning-10.value}", attributes: { category: "color" } },
-    "warning-color-inverse"     : { value: "{color.warning-90.value}", attributes: { category: "color" } },
+    "warning-color"             : { value: "{color.warning.10.value}", attributes: { category: "color" } },
+    "warning-color-inverse"     : { value: "{color.warning.90.value}", attributes: { category: "color" } },
     // Informative
-    "interactive-color"         : { value: "{color.interactive-10.value}", attributes: { category: "color" } },
-    "interactive-color-inverse" : { value: "{color.interactive-80.value}", attributes: { category: "color" } },
+    "interactive-color"         : { value: "{color.interactive.10.value}", attributes: { category: "color" } },
+    "interactive-color-inverse" : { value: "{color.interactive.80.value}", attributes: { category: "color" } },
     // Strong
-    "strong-color"              : { value: "{color.neutral-80.value}", attributes: { category: "color" } },
-    "strong-color-inverse"      : { value: "{color.neutral-0.value}", attributes: { category: "color" } },
+    "strong-color"              : { value: "{color.neutral.80.value}", attributes: { category: "color" } },
+    "strong-color-inverse"      : { value: "{color.neutral.0.value}", attributes: { category: "color" } },
   },
 
   /**
@@ -98,39 +98,39 @@ module.exports = {
   * ======================================================================== */
   button: {
     // Default Style
-    "color"                         : { value: "{color.neutral-10.value}", attributes: { category: "color" } },
-    "color-hover"                   : { value: "{color.neutral-20.value}", attributes: { category: "color" } },
-    "color-pressed"                 : { value: "{color.neutral-30.value}", attributes: { category: "color" } },
+    "color"                         : { value: "{color.neutral.10.value}", attributes: { category: "color" } },
+    "color-hover"                   : { value: "{color.neutral.20.value}", attributes: { category: "color" } },
+    "color-pressed"                 : { value: "{color.neutral.30.value}", attributes: { category: "color" } },
     "color-inverse"                 : { value: "{text.color.value}", attributes: { category: "color" } },
-    "border-color"                  : { value: "{color.neutral-20.value}", attributes: { category: "color" } },
-    "border-color-hover"            : { value: "{color.neutral-20.value}", attributes: { category: "color" } },
-    "border-color-pressed"          : { value: "{color.neutral-30.value}", attributes: { category: "color" } },
+    "border-color"                  : { value: "{color.neutral.20.value}", attributes: { category: "color" } },
+    "border-color-hover"            : { value: "{color.neutral.20.value}", attributes: { category: "color" } },
+    "border-color-pressed"          : { value: "{color.neutral.30.value}", attributes: { category: "color" } },
     // Strong Style
-    "strong-color"                  : { value: "{color.neutral-70.value}", attributes: { category: "color" } },
-    "strong-color-hover"            : { value: "{color.neutral-90.value}", attributes: { category: "color" } },
-    "strong-color-pressed"          : { value: "{color.neutral-100.value}", attributes: { category: "color" } },
-    "strong-color-inverse"          : { value: "{color.neutral-0.value}", attributes: { category: "color" } },
+    "strong-color"                  : { value: "{color.neutral.70.value}", attributes: { category: "color" } },
+    "strong-color-hover"            : { value: "{color.neutral.90.value}", attributes: { category: "color" } },
+    "strong-color-pressed"          : { value: "{color.neutral.100.value}", attributes: { category: "color" } },
+    "strong-color-inverse"          : { value: "{color.neutral.0.value}", attributes: { category: "color" } },
     // Interactive Style
-    "interactive-color"             : { value: "{color.interactive-60.value}", attributes: { category: "color" } },
-    "interactive-color-hover"       : { value: "{color.interactive-70.value}", attributes: { category: "color" } },
-    "interactive-color-pressed"     : { value: "{color.interactive-80.value}", attributes: { category: "color" } },
-    "interactive-color-inverse"     : { value: "{color.neutral-0.value}", attributes: { category: "color" } },
+    "interactive-color"             : { value: "{color.interactive.60.value}", attributes: { category: "color" } },
+    "interactive-color-hover"       : { value: "{color.interactive.70.value}", attributes: { category: "color" } },
+    "interactive-color-pressed"     : { value: "{color.interactive.80.value}", attributes: { category: "color" } },
+    "interactive-color-inverse"     : { value: "{color.neutral.0.value}", attributes: { category: "color" } },
     // Positive Style
-    "positive-color"                : { value: "{color.positive-70.value}", attributes: { category: "color" } },
-    "positive-color-hover"          : { value: "{color.positive-80.value}", attributes: { category: "color" } },
-    "positive-color-pressed"        : { value: "{color.positive-90.value}", attributes: { category: "color" } },
-    "positive-color-inverse"        : { value: "{color.neutral-0.value}", attributes: { category: "color" } },
+    "positive-color"                : { value: "{color.positive.70.value}", attributes: { category: "color" } },
+    "positive-color-hover"          : { value: "{color.positive.80.value}", attributes: { category: "color" } },
+    "positive-color-pressed"        : { value: "{color.positive.90.value}", attributes: { category: "color" } },
+    "positive-color-inverse"        : { value: "{color.neutral.0.value}", attributes: { category: "color" } },
     // Negative Style
-    "negative-color"                : { value: "{color.negative-70.value}", attributes: { category: "color" } },
-    "negative-color-hover"          : { value: "{color.negative-80.value}", attributes: { category: "color" } },
-    "negative-color-pressed"        : { value: "{color.negative-90.value}", attributes: { category: "color" } },
-    "negative-color-inverse"        : { value: "{color.neutral-0.value}", attributes: { category: "color" } },
+    "negative-color"                : { value: "{color.negative.70.value}", attributes: { category: "color" } },
+    "negative-color-hover"          : { value: "{color.negative.80.value}", attributes: { category: "color" } },
+    "negative-color-pressed"        : { value: "{color.negative.90.value}", attributes: { category: "color" } },
+    "negative-color-inverse"        : { value: "{color.neutral.0.value}", attributes: { category: "color" } },
     // Disabled Style
-    "disabled-color"                : { value: "{color.neutral-5.value}", attributes: { category: "color" } },
+    "disabled-color"                : { value: "{color.neutral.5.value}", attributes: { category: "color" } },
     "disabled-color-inverse"        : { value: "{text.color-disabled.value}", attributes: { category: "color" } },
-    "disabled-border-color"         : { value: "{color.neutral-10.value}", attributes: { category: "color" } },
-    "disabled-strong-color"         : { value: "{color.neutral-30.value}", attributes: { category: "color" } },
-    "disabled-strong-color-inverse" : { value: "{color.neutral-0.value}", attributes: { category: "color" } },
+    "disabled-border-color"         : { value: "{color.neutral.10.value}", attributes: { category: "color" } },
+    "disabled-strong-color"         : { value: "{color.neutral.30.value}", attributes: { category: "color" } },
+    "disabled-strong-color-inverse" : { value: "{color.neutral.0.value}", attributes: { category: "color" } },
   },
   /**
   * SHADOW
