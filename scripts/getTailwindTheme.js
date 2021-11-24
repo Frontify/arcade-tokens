@@ -26,7 +26,7 @@ const getFontSize = ({ tokens, filter, remove }) => {
 
   const dictionary = matchingTokens.reduce((acc, cur) => {
     const slug = cur.name.replace("-line-height", "");
-    console.info(cur);
+
     return {
       ...acc,
       [slug]: {

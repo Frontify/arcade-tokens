@@ -20,6 +20,15 @@ module.exports = ({ dictionary, file, options }) => {
     `const plugin = require('tailwindcss/plugin')
 
       module.exports = {
+          mode: "jit",
+          darkMode: "class",
+          prefix: "tw-",
+          variants: {
+            extend: {
+              backgroundColor: ["active"],
+              textColor: ["active"],
+            }
+          },
           theme: ${JSON.stringify(tailwindTheme)},
           plugins: [
           plugin(function({ addComponents}) { 
