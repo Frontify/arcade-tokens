@@ -39,8 +39,8 @@ module.exports = {
   * reference these to maintain a consistent weight
   * ======================================================================== */
   line: {
-    "width"        : { value: "1px", attributes: { category: "size", type: "lineWidth" } },
-    "width-large" : { value: "2px", attributes: { category: "size", type: "lineWidth" } }
+    "width"        : { value: 0.063, attributes: { category: "size", type: "lineWidth" } },
+    "width-large" : { value: 0.125, attributes: { category: "size", type: "lineWidth" } }
   },
 
   /**
@@ -59,10 +59,10 @@ module.exports = {
     "width"          : { value: "{line.width.value}", attributes: { category: "size", type: "lineWidth" } },
     "width-large"   : { value: "{line.width-large.value}", attributes: { category: "size", type: "lineWidth" } },
     // Radius
-    "radius"         : { value: "4px", attributes: { category: "size", type: "borderRadius" } },
-    "radius-small"   : { value: "2px", attributes: { category: "size", type: "borderRadius" } },
-    "radius-large"   : { value: "8px", attributes: { category: "size", type: "borderRadius" } },
-    "radius-x-large" : { value: "12px", attributes: { category: "size", type: "borderRadius" } },
+    "radius"         : { value: 0.25, attributes: { category: "size", type: "borderRadius" } },
+    "radius-small"   : { value: 0.125, attributes: { category: "size", type: "borderRadius" } },
+    "radius-large"   : { value: 0.5, attributes: { category: "size", type: "borderRadius" } },
+    "radius-x-large" : { value: 0.75, attributes: { category: "size", type: "borderRadius" } },
   },
 
   /**
