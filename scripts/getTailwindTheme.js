@@ -21,22 +21,58 @@ const getObject = ({ tokens, filter, remove }) => {
   return object;
 };
 
+const getFontSize = ({ tokens, filter, remove }) => {
+  const matchingTokens = tokens.filter(filter);
+
+  const dictionary = matchingTokens.reduce((acc, cur) => {
+    const slug = cur.name.replace("-line-height", "");
+    console.info(cur);
+    return {
+      ...acc,
+      [slug]: {
+        ...acc[slug],
+        [cur.name]: cur,
+      },
+    };
+  }, {});
+
+  const list = Object.keys(dictionary).map((key) => {
+    const slug = trimHyphens(key.replace(remove, ""));
+
+    return {
+      [slug]: [
+        dictionary[key][key].value,
+        {
+          lineHeight: dictionary[key][`${key}-line-height`].value,
+        },
+      ],
+    };
+  });
+
+  const fonts = list.reduce((acc, cur) => {
+    return { ...acc, ...cur };
+  }, {});
+
+  return fonts;
+};
+
 const getTheme = (dictionary) => {
   const tokens = dictionary.allTokens;
 
   return {
-    fontSize: getObject({
-      remove: "font-size",
+    fontSize: getFontSize({
+      remove: "size-",
       tokens,
       filter: (token) => {
         return (
           token.attributes.category === "size" &&
-          token.attributes.type === "font"
+          (token.attributes.type === "font" ||
+            token.attributes.type === "lineHeight")
         );
       },
     }),
     fontFamily: getObject({
-      remove: "font-family",
+      remove: "family",
       tokens,
       filter: (token) => {
         return (

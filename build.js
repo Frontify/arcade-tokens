@@ -70,7 +70,7 @@ StyleDictionary.registerTransformGroup({
   transforms: [
     "attribute/cti",
     "name/cti/kebab",
-    "size/px",
+    "size/rem",
     "color/apply-modify",
     "color/css",
   ],
