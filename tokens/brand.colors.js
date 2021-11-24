@@ -13,7 +13,7 @@ module.exports = {
     // GREY
     "grey-0"        : { value: "#FFFFFF" },
     "grey-5"        : { value: "{color.off-white.value}"},
-    "grey-10"       : { value: "#f4f4f4"},
+    "grey-10"       : { value: "#F7F7F7"},
     "grey-20"       : { value: "#e8e9e9"},
     "grey-30"       : { value: "#c0c1c1"},
     "grey-40"       : { value: "#a5a8a8"},
