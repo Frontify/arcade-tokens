@@ -1,91 +1,164 @@
 /**
- * Here we make specific design decisions
- */
+* ELEMENTS
+*
+* These tokens should be applied to specific elements or properties.
+* in general, the elements get more specific from top to bottom
+*
+* When extending element tokens, make sure to add them to theme files as
+* appropriate
+* ======================================================================== */
 
 module.exports = {
-  // General
+  /**
+  * BASE
+  * The main background of the area that is being themed
+  * ======================================================================== */
+  base : {
+    "color"     : { value: "{color.neutral.0.value}", attributes: { category: "color" } },
+    "color-alt" : { value: "{color.neutral.5.value}", attributes: { category: "color" } }
+  },
+
+  /**
+  * TEXT
+  * Any text element
+  * ======================================================================== */
   text: {
-    color: {
-      _: { value: "{text.color.5.value}" },
-      1: { value: "{color.neutral.1.value}" },
-      2: { value: "{color.neutral.12.value}" },
-      3: { value: "{color.neutral.13.value}" },
-      4: { value: "{color.neutral.14.value}" },
-      5: { value: "{color.neutral.15.value}" },
-    },
+    "color-x-weak"      : { value: "{color.neutral.50.value}", attributes: { category: "color" } },
+    "color-weak"        : { value: "{color.neutral.60.value}", attributes: { category: "color" } },
+    "color"             : { value: "{color.neutral.80.value}", attributes: { category: "color" } },
+    "color-negative"    : { value: "{color.negative.70.value}", attributes: { category: "color" } },
+    "color-positive"    : { value: "{color.positive.70.value}", attributes: { category: "color" } },
+    "color-warning"     : { value: "{color.warning.70.value}", attributes: { category: "color" } },
+    "color-interactive" : { value: "{color.interactive.70.value}", attributes: { category: "color" } },
+    "color-disabled"    : { value: "{color.neutral.40.value}", attributes: { category: "color" } },
   },
+
+  /**
+  * LINE
+  * Straight lines, specifically not borders. Note that border tokens
+  * reference these to maintain a consistent weight
+  * ======================================================================== */
   line: {
-    width: {
-      _: { value: "{line.width.1.value}" },
-      1: { value: "1px" },
-      2: { value: "2px" },
-      3: { value: "4px" },
-    },
+    "width"        : { value: "1px", attributes: { category: "size", type: "lineWidth" } },
+    "width-large" : { value: "2px", attributes: { category: "size", type: "lineWidth" } }
   },
+
+  /**
+  * BORDER
+  * The line around an element. Not the difference between line (above)
+  * and border
+  * ======================================================================== */
   border: {
-    color: {
-      _: { value: "{border.color.3.value}" },
-      1: { value: "{color.neutral.2.value}" },
-      2: { value: "{color.neutral.4.value}" },
-      3: { value: "{color.neutral.6.value}" },
-      4: { value: "{color.neutral.8.value}" },
-    },
-    width: {
-      _: { value: "{border.width.1.value}" },
-      1: { value: "{line.width.1.value}" },
-      2: { value: "{line.width.2.value}" },
-      3: { value: "{line.width.3.value}" },
-    },
-    radius: {
-      _: { value: "{border.radius.1.value}" },
-      1: { value: "2px" },
-      2: { value: "4px" },
-      3: { value: "8px" },
-    },
+    // Color
+    "color-weak"      : { value: "{color.neutral.10.value}", attributes: { category: "color" } },
+    "color"           : { value: "{color.neutral.20.value}", attributes: { category: "color" } },
+    "color-strong"    : { value: "{color.neutral.30.value}", attributes: { category: "color" } },
+    "color-x-strong"  : { value: "{color.neutral.60.value}", attributes: { category: "color" } },
+    "color-xx-strong" : { value: "{color.neutral.80.value}", attributes: { category: "color" } },
+    // Width
+    "width"          : { value: "{line.width.value}", attributes: { category: "size", type: "lineWidth" } },
+    "width-large"   : { value: "{line.width-large.value}", attributes: { category: "size", type: "lineWidth" } },
+    // Radius
+    "radius"         : { value: "4px", attributes: { category: "size", type: "borderRadius" } },
+    "radius-small"   : { value: "2px", attributes: { category: "size", type: "borderRadius" } },
+    "radius-large"   : { value: "8px", attributes: { category: "size", type: "borderRadius" } },
+    "radius-x-large" : { value: "12px", attributes: { category: "size", type: "borderRadius" } },
   },
-  shadow: {
-    _: { value: "{shadow.medium._.value}" },
-    large: {
-      _: { value: "0 25px 80px 0 {shadow.large.color.value}" },
-      color: {
-        value: "{color.neutral.15.value}",
-        attributes: { category: 'color' },
-        modify: [{ type: "alpha", amount: 0.4 }]
-      },
-    },
-    medium: {
-      _: { value: "0 3px 10px 0 {shadow.medium.color.value}" },
-      top: { value: "0 -10px 10px -5px {shadow.medium.color.value}" },
-      bottom: { value: "0 10px 10px -5px {shadow.medium.color.value}" },
-      color: {
-        value: "{color.neutral.15.value}",
-        attributes: { category: 'color' },
-        modify: [{ type: "alpha", amount: 0.1}]
-      },
-    },
+
+  /**
+  * HIGHLIGHT
+  * Used to give a background color and suitable content color to a small area,
+  * such as a notification banner, or a trend icon in data visualisation
+  * ======================================================================== */
+  highlight: {
+    // Default
+    "color"                     : { value: "{color.neutral.10.value}", attributes: { category: "color" } },
+    "color-inverse"             : { value: "{text.color.value}", attributes: { category: "color" } },
+    // Negative
+    "negative-color"            : { value: "{color.negative.10.value}", attributes: { category: "color" } },
+    "negative-color-inverse"    : { value: "{color.negative.80.value}", attributes: { category: "color" } },
+    // Positive
+    "positive-color"            : { value: "{color.positive.10.value}", attributes: { category: "color" } },
+    "positive-color-inverse"    : { value: "{color.positive.90.value}", attributes: { category: "color" } },
+    // Warning
+    "warning-color"             : { value: "{color.warning.10.value}", attributes: { category: "color" } },
+    "warning-color-inverse"     : { value: "{color.warning.90.value}", attributes: { category: "color" } },
+    // Informative
+    "interactive-color"         : { value: "{color.interactive.10.value}", attributes: { category: "color" } },
+    "interactive-color-inverse" : { value: "{color.interactive.80.value}", attributes: { category: "color" } },
+    // Strong
+    "strong-color"              : { value: "{color.neutral.80.value}", attributes: { category: "color" } },
+    "strong-color-inverse"      : { value: "{color.neutral.0.value}", attributes: { category: "color" } },
   },
-  // Components
-  tooltip: {
-    background: {
-      color: { value: "{color.inverse._.value}" },
-    },
-  },
-  checkbox: {
-    border: {
-      width: { value: "{border.width.2.value}" },
-    },
-  },
+
+  /**
+  * BUTTON
+  * Self explanatory. Note that the default style has borders defined which match its
+  * background. This is to allow for themeing.
+  * ======================================================================== */
   button: {
-    font: {
-      weight: { value: "{body.weight.1.value}" },
-    },
+    // Default Style
+    "color"                         : { value: "{color.neutral.10.value}", attributes: { category: "color" } },
+    "color-hover"                   : { value: "{color.neutral.20.value}", attributes: { category: "color" } },
+    "color-pressed"                 : { value: "{color.neutral.30.value}", attributes: { category: "color" } },
+    "color-inverse"                 : { value: "{text.color.value}", attributes: { category: "color" } },
+    "border-color"                  : { value: "{color.neutral.20.value}", attributes: { category: "color" } },
+    "border-color-hover"            : { value: "{color.neutral.20.value}", attributes: { category: "color" } },
+    "border-color-pressed"          : { value: "{color.neutral.30.value}", attributes: { category: "color" } },
+    // Strong Style
+    "strong-color"                  : { value: "{color.neutral.70.value}", attributes: { category: "color" } },
+    "strong-color-hover"            : { value: "{color.neutral.90.value}", attributes: { category: "color" } },
+    "strong-color-pressed"          : { value: "{color.neutral.100.value}", attributes: { category: "color" } },
+    "strong-color-inverse"          : { value: "{color.neutral.0.value}", attributes: { category: "color" } },
+    // Interactive Style
+    "interactive-color"             : { value: "{color.interactive.60.value}", attributes: { category: "color" } },
+    "interactive-color-hover"       : { value: "{color.interactive.70.value}", attributes: { category: "color" } },
+    "interactive-color-pressed"     : { value: "{color.interactive.80.value}", attributes: { category: "color" } },
+    "interactive-color-inverse"     : { value: "{color.neutral.0.value}", attributes: { category: "color" } },
+    // Positive Style
+    "positive-color"                : { value: "{color.positive.70.value}", attributes: { category: "color" } },
+    "positive-color-hover"          : { value: "{color.positive.80.value}", attributes: { category: "color" } },
+    "positive-color-pressed"        : { value: "{color.positive.90.value}", attributes: { category: "color" } },
+    "positive-color-inverse"        : { value: "{color.neutral.0.value}", attributes: { category: "color" } },
+    // Negative Style
+    "negative-color"                : { value: "{color.negative.70.value}", attributes: { category: "color" } },
+    "negative-color-hover"          : { value: "{color.negative.80.value}", attributes: { category: "color" } },
+    "negative-color-pressed"        : { value: "{color.negative.90.value}", attributes: { category: "color" } },
+    "negative-color-inverse"        : { value: "{color.neutral.0.value}", attributes: { category: "color" } },
+    // Disabled Style
+    "disabled-color"                : { value: "{color.neutral.5.value}", attributes: { category: "color" } },
+    "disabled-color-inverse"        : { value: "{text.color-disabled.value}", attributes: { category: "color" } },
+    "disabled-border-color"         : { value: "{color.neutral.10.value}", attributes: { category: "color" } },
+    "disabled-strong-color"         : { value: "{color.neutral.30.value}", attributes: { category: "color" } },
+    "disabled-strong-color-inverse" : { value: "{color.neutral.0.value}", attributes: { category: "color" } },
   },
-  input: {
-    border: {
-      color: { value: "{border.color._.value}" },
-    },
-    label: {
-      color: { value: "{text.color._.value}" },
-    },
-  },
+  /**
+  * SHADOW
+  * ======================================================================== */
+  shadow: {
+    // Default
+    "matrix"          : { value: "{shadow.offset-y.value} {shadow.offset-x.value} {shadow.blur.value} {shadow.spread.value} {shadow.color.value}", attributes: { type: "matrix" } },
+    "offset-x"        : { value: 0, attributes: { category: "size", type: "shadowOffset", item: "x" } },
+    "offset-y"        : { value: 0.1875, attributes: { category: "size", type: "shadowOffset", item: "y" } },
+    "spread"          : { value: 0, attributes: { category: "size", type: "shadowSpread" } },
+    "blur"            : { value: 0.625, attributes: { category: "size", type: "shadowBlur" } },
+    "color"           : { value: "{color.darkest.value}", attributes: { category: "color", type: "shadow" }, modify: [{ type: "alpha", amount: 0.05 }] },
+    // Top shadow
+    "top-matrix"      : { value: "{shadow.top-offset-y.value} {shadow.top-offset-x.value} {shadow.blur.value} {shadow.top-spread.value} {shadow.color.value}", attributes: { type: "matrix" } },
+    "top-offset-x"    : { value: "{shadow.offset-x.value}", attributes: { category: "size", type: "shadowOffset", item: "x", } },
+    "top-offset-y"    : { value: -0.625, attributes: { category: "size", type: "shadowOffset", item: "y" } },
+    "top-spread"      : { value: -0.3125, attributes: { category: "size", type: "shadowSpread" } },
+    // Bottom shadow
+    "bottom-matrix"   : { value: "{shadow.bottom-offset-y.value} {shadow.bottom-offset-x.value} {shadow.blur.value} {shadow.bottom-spread.value} {shadow.color.value}", attributes: { type: "matrix" } },
+    "bottom-offset-x" : { value: "{shadow.offset-x.value}", attributes: { category: "size", type: "shadowOffset", item: "x" } },
+    "bottom-offset-y" : { value: 0.625, attributes: { category: "size", type: "shadowOffset", item: "y" } },
+    "bottom-spread"   : { value: -0.3125, attributes: { category: "size", type: "shadowSpread" } },
+    // Large size
+    "large-matrix"    : { value: "{shadow.large-offset-y.value} {shadow.large-offset-x.value} {shadow.large-blur.value} {shadow.large-spread.value} {shadow.large-color.value}", attributes: { type: "matrix" } },
+    "large-offset-y"  : { value: 1.5625, attributes: { category: "size", type: "shadowOffset", item: "x" } },
+    "large-offset-x"  : { value: 0, attributes: { category: "size", type: "shadowOffset", item: "y" } },
+    "large-spread"    : { value: 0, attributes: { category: "size", type: "shadowSpread" } },
+    "large-blur"      : { value: 5, attributes: { category: "size", type: "shadowBlur" } },
+    "large-color"     : { value: "{color.darkest.value}", attributes: { category: "color", type: "shadow" }, modify: [{ type: "alpha", amount: 0.1 }] },
+  }
 };

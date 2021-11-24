@@ -3,15 +3,19 @@
  */
 const StyleDictionary = require("style-dictionary");
 const fs = require("fs");
-const getTailwindConfig = require("./scripts/getTailwindConfig");
 const transformColor = require("./scripts/transformColor");
+const getFigmaJson = require("./scripts/getFigmaJson");
+const formatTailwind = require("./src/formatters/tailwind");
 
 /**
  * FILE SYSTEM
  */
 const inputDirectory = "tokens/";
+const tempDirectory = "temp/";
 const outputDirectory = "dist/";
 const tokenFiles = fs.readdirSync(inputDirectory);
+const figmaTempDirectory = `${tempDirectory}figma/`;
+const figmaOutputDirectory = `${outputDirectory}figma/`;
 
 const brandColorsPath = inputDirectory + "brand.colors.js";
 const brandTypographyPath = inputDirectory + "brand.typography.js";
@@ -41,6 +45,66 @@ const colorThemes = tokenFiles
   });
 
 /**
+ * TRANSORMS
+ */
+
+StyleDictionary.registerTransform({
+  name: "color/apply-modify",
+  type: "value",
+  transitive: true,
+  matcher: (token) => token.attributes.category === "color" && token.modify,
+  transformer: (token) => {
+    return transformColor(token);
+  },
+});
+
+StyleDictionary.registerTransform(
+  Object.assign({}, StyleDictionary.transform[`color/css`], {
+    name: "color/css",
+    transitive: true,
+  })
+);
+
+StyleDictionary.registerTransformGroup({
+  name: "tailwind",
+  transforms: [
+    "attribute/cti",
+    "name/cti/kebab",
+    "size/rem",
+    "color/apply-modify",
+    "color/css",
+  ],
+});
+
+StyleDictionary.registerTransformGroup({
+  name: "figma",
+  transforms: [
+    "attribute/cti",
+    "name/cti/kebab",
+    "size/remToPx",
+    "color/apply-modify",
+    "color/css",
+  ],
+});
+
+/**
+ * FORMATS
+ */
+
+StyleDictionary.registerFormat({
+  name: "tailwind",
+  formatter: ({ dictionary, options, file }) =>
+    formatTailwind({ dictionary, options, file }),
+});
+
+StyleDictionary.registerFormat({
+  name: "figma",
+  formatter: ({ dictionary, options }) => {
+    return getFigmaJson({ dictionary, options });
+  },
+});
+
+/**
  * MAIN RUN
  * - Style dictionary does a deep merge of everything in input (except for theme files).
  * - This ensures that there are no naming collisions, and that references are respected.
@@ -48,37 +112,23 @@ const colorThemes = tokenFiles
  * - Each file applies a 'filter' to select which of those tokens it wants to include.
  * - This ensures that each file only contains the final, consumable tokens.
  */
+
 StyleDictionary.extend({
   source: [...brandFilePaths, ...uiFilePaths],
-  transformGroup: {
-    tailwind: [
-      "attribute/cti",
-      "name/cti/kebab",
-      "size/px",
-      "colorTransform",
-      "color/css",
-    ],
-    css: ["attribute/cti", "name/cti/kebab", "colorTransform", "color/css"],
-  },
-  transform: {
-    // Standard color value transformation
-    colorTransform: {
-      type: "value",
-      transitive: true,
-      matcher: (token) => token.attributes.category === "color" && token.modify,
-      transformer: transformColor,
-    },
-    // Make the standard color/css transitive
-    "color/css": Object.assign({}, StyleDictionary.transform[`color/css`], {
-      transitive: true,
-    }),
-  },
-  format: {
-    tailwind: ({ dictionary, options, file }) => {
-      return getTailwindConfig({ dictionary, options, file });
-    },
-  },
   platforms: {
+    figma: {
+      transformGroup: "figma",
+      buildPath: tempDirectory + "figma/",
+      files: [
+        {
+          destination: "default.json",
+          format: "figma",
+          filter: (token) => {
+            return uiFilePaths.includes(token.filePath);
+          },
+        },
+      ],
+    },
     tailwind: {
       transformGroup: "tailwind",
       buildPath: outputDirectory + "tailwind/",
@@ -143,8 +193,22 @@ colorThemes.forEach((theme) => {
     // Include references from all files
     include: [...brandFilePaths, ...uiFilePaths],
     // Only output from the appropriate color theme file
-    source: [uiThemesGlob],
+    source: [inputDirectory + "ui.theme." + theme + ".js"],
     platforms: {
+      figma: {
+        transformGroup: "figma",
+        buildPath: tempDirectory + "figma/",
+        files: [
+          {
+            destination: `${theme}.json`,
+            format: "figma",
+            options: { theme: theme },
+            filter: (token) => {
+              return token.filePath.indexOf(theme) > -1;
+            },
+          },
+        ],
+      },
       css: {
         transformGroup: "css",
         buildPath: outputDirectory + "css/",
@@ -152,12 +216,38 @@ colorThemes.forEach((theme) => {
           {
             destination: `theme.${theme}.css`,
             format: "css/variables",
+            options: { theme: theme },
             filter: (token) => {
-              return token.filePath.indexOf(theme) > -1;
+              return (
+                token.filePath.indexOf(theme) > -1 &&
+                token.attributes.category === "color"
+              );
             },
           },
         ],
       },
     },
   }).buildAllPlatforms();
+});
+
+fs.readdir(figmaTempDirectory, (error, files) => {
+  return new Promise((resolve, reject) => {
+    if (error) reject(error);
+
+    let combinedJson = {};
+    files.reverse().forEach((file) => {
+      const content = fs.readFileSync(figmaTempDirectory + file, "utf8");
+      combinedJson = { ...combinedJson, ...JSON.parse(content) };
+    });
+
+    resolve(combinedJson);
+  }).then((data) => {
+    if (!fs.existsSync(figmaOutputDirectory)) {
+      fs.mkdirSync(figmaOutputDirectory);
+    }
+    fs.writeFileSync(
+      `${figmaOutputDirectory}combined.json`,
+      JSON.stringify(data)
+    );
+  });
 });
