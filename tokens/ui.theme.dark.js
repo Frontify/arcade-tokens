@@ -114,4 +114,7 @@ module.exports = {
     "large-blur"      : { value: 5, attributes: { category: "size", type: "shadowBlur" } },
     "large-color"     : { value: "{color.darkest.value}", attributes: { category: "color", type: "shadow" }, modify: [{ type: "alpha", amount: 0.8 }] },
   },
+  overlay: {
+    "color" : { value: "{color.darkest.value}", attributes: { category: "color", type: "shadow" }, modify: [{ type: "alpha", amount: 0.5 }] },
+  }
 };
