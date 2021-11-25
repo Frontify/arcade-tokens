@@ -52,7 +52,7 @@ module.exports = {
     // Color
     "color-weak"      : { value: "{color.darkest.value}", attributes: { category: "color" }, modify: [{ type: "alpha", amount: 0.05 }] },
     "color"           : { value: "{color.darkest.value}", attributes: { category: "color" }, modify: [{ type: "alpha", amount: 0.1 }] },
-    "color-strong"    : { value: "{color.darkest.value}", attributes: { category: "color" }, modify: [{ type: "alpha", amount: 0.2 }] },
+    "color-strong"    : { value: "{color.darkest.value}", attributes: { category: "color" }, modify: [{ type: "alpha", amount: 0.15 }] },
     "color-x-strong"  : { value: "{color.darkest.value}", attributes: { category: "color" }, modify: [{ type: "alpha", amount: 0.3 }] },
     "color-xx-strong" : { value: "{color.neutral.80.value}", attributes: { category: "color" } },
     // Width
