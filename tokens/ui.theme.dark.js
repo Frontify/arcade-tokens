@@ -11,13 +11,13 @@ module.exports = {
 
   text: {
     "color"             : { value: "{color.neutral.0.value}", attributes: { category: 'color' } },
-    "color-weak"        : { value: "{color.neutral.10.value}", attributes: { category: 'color' } },
-    "color-x-weak"      : { value: "{color.neutral.20.value}", attributes: { category: "color" } },
+    "color-weak"        : { value: "{color.neutral.20.value}", attributes: { category: 'color' } },
+    "color-x-weak"      : { value: "{color.neutral.40.value}", attributes: { category: "color" } },
     "color-negative"    : { value: "{color.negative.40.value}", attributes: { category: "color" } },
     "color-positive"    : { value: "{color.positive.40.value}", attributes: { category: "color" } },
     "color-warning"     : { value: "{color.warning.50.value}", attributes: { category: "color" } },
     "color-interactive" : { value: "{color.interactive.30.value}", attributes: { category: "color" } },
-    "color-disabled"    : { value: "{color.neutral.50.value}", attributes: { category: "color" } },
+    "color-disabled"    : { value: "{color.neutral.40.value}", attributes: { category: "color" } },
   },
 
   border: {
