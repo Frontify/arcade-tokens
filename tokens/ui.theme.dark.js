@@ -11,21 +11,21 @@ module.exports = {
 
   text: {
     "color"             : { value: "{color.neutral.0.value}", attributes: { category: 'color' } },
-    "color-weak"        : { value: "{color.neutral.10.value}", attributes: { category: 'color' } },
-    "color-x-weak"      : { value: "{color.neutral.20.value}", attributes: { category: "color" } },
+    "color-weak"        : { value: "{color.neutral.20.value}", attributes: { category: 'color' } },
+    "color-x-weak"      : { value: "{color.neutral.40.value}", attributes: { category: "color" } },
     "color-negative"    : { value: "{color.negative.40.value}", attributes: { category: "color" } },
     "color-positive"    : { value: "{color.positive.40.value}", attributes: { category: "color" } },
     "color-warning"     : { value: "{color.warning.50.value}", attributes: { category: "color" } },
     "color-interactive" : { value: "{color.interactive.30.value}", attributes: { category: "color" } },
-    "color-disabled"    : { value: "{color.neutral.50.value}", attributes: { category: "color" } },
+    "color-disabled"    : { value: "{color.neutral.40.value}", attributes: { category: "color" } },
   },
 
   border: {
-    "color-weak"     : { value: "{color.neutral.70.value}", attributes: { category: 'color' } },
-    "color"          : { value: "{color.neutral.70.value}", attributes: { category: 'color' } },
-    "color-strong"   : { value: "{color.neutral.60.value}", attributes: { category: 'color' } },
-    "color-x-strong" : { value: "{color.neutral.50.value}", attributes: { category: 'color' } },
-    "color-xx-strong" : { value: "{color.neutral.0.value}", attributes: { category: 'color' } },
+    "color-weak"      : { value: "{color.lightest.value}", attributes: { category: "color" }, modify: [{ type: "alpha", amount: 0.1 }] },
+    "color"           : { value: "{color.lightest.value}", attributes: { category: "color" }, modify: [{ type: "alpha", amount: 0.15 }] },
+    "color-strong"    : { value: "{color.lightest.value}", attributes: { category: "color" }, modify: [{ type: "alpha", amount: 0.30 }] },
+    "color-x-strong"  : { value: "{color.lightest.value}", attributes: { category: "color" }, modify: [{ type: "alpha", amount: 0.5 }] },
+    "color-xx-strong" : { value: "{color.neutral.0.value}", attributes: { category: "color" } },
   },
 
   highlight: {

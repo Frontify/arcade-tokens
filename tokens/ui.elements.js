@@ -50,10 +50,10 @@ module.exports = {
   * ======================================================================== */
   border: {
     // Color
-    "color-weak"      : { value: "{color.neutral.10.value}", attributes: { category: "color" } },
-    "color"           : { value: "{color.neutral.20.value}", attributes: { category: "color" } },
-    "color-strong"    : { value: "{color.neutral.30.value}", attributes: { category: "color" } },
-    "color-x-strong"  : { value: "{color.neutral.60.value}", attributes: { category: "color" } },
+    "color-weak"      : { value: "{color.darkest.value}", attributes: { category: "color" }, modify: [{ type: "alpha", amount: 0.05 }] },
+    "color"           : { value: "{color.darkest.value}", attributes: { category: "color" }, modify: [{ type: "alpha", amount: 0.1 }] },
+    "color-strong"    : { value: "{color.darkest.value}", attributes: { category: "color" }, modify: [{ type: "alpha", amount: 0.15 }] },
+    "color-x-strong"  : { value: "{color.darkest.value}", attributes: { category: "color" }, modify: [{ type: "alpha", amount: 0.3 }] },
     "color-xx-strong" : { value: "{color.neutral.80.value}", attributes: { category: "color" } },
     // Width
     "width"          : { value: "{line.width.value}", attributes: { category: "size", type: "lineWidth" } },
