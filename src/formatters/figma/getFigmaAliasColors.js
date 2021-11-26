@@ -70,5 +70,8 @@ module.exports = (tokens) => {
       "Lightest" : { value: tokens.color["lightest"].value, type: TYPE },
       "Darkest"  : { value: tokens.color["darkest"].value, type: TYPE },
     },
+    "Overlay": {
+      "DEFAULT" : { value: tokens.overlay["color"].value, type: TYPE },
+    },
   };
 };

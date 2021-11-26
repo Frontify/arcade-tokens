@@ -160,5 +160,8 @@ module.exports = {
     "large-spread"    : { value: 0, attributes: { category: "size", type: "shadowSpread" } },
     "large-blur"      : { value: 5, attributes: { category: "size", type: "shadowBlur" } },
     "large-color"     : { value: "{color.darkest.value}", attributes: { category: "color", type: "shadow" }, modify: [{ type: "alpha", amount: 0.1 }] },
+  },
+  overlay: {
+    "color" : { value: "{color.neutral.20.value}", attributes: { category: "color", type: "shadow" }, modify: [{ type: "alpha", amount: 0.5 }] },
   }
 };
