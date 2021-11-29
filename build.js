@@ -134,7 +134,7 @@ StyleDictionary.extend({
         {
           destination: "index.js",
           format: "javascript/module",
-          filter: (token) => uiColorsPath === token.filePath,
+          filter: (token) => uiFilePaths.includes(token.filePath),
         },
       ],
     },
