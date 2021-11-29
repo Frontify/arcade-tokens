@@ -78,7 +78,13 @@ StyleDictionary.registerTransformGroup({
 
 StyleDictionary.registerTransformGroup({
   name: "es",
-  transforms: ["size/rem", "color/hex", "name/cti/kebab"],
+  transforms: [
+    "size/rem",
+    "name/cti/kebab",
+    "attribute/cti",
+    "color/apply-modify",
+    "color/css",
+  ],
 });
 
 StyleDictionary.registerTransformGroup({
