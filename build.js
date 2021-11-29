@@ -77,6 +77,17 @@ StyleDictionary.registerTransformGroup({
 });
 
 StyleDictionary.registerTransformGroup({
+  name: "es",
+  transforms: [
+    "size/rem",
+    "name/cti/kebab",
+    "attribute/cti",
+    "color/apply-modify",
+    "color/css",
+  ],
+});
+
+StyleDictionary.registerTransformGroup({
   name: "figma",
   transforms: [
     "attribute/cti",
@@ -116,6 +127,17 @@ StyleDictionary.registerFormat({
 StyleDictionary.extend({
   source: [...brandFilePaths, ...uiFilePaths],
   platforms: {
+    es: {
+      transformGroup: "es",
+      buildPath: outputDirectory + "esm/",
+      files: [
+        {
+          destination: "index.js",
+          format: "javascript/module",
+          filter: (token) => uiColorsPath === token.filePath,
+        },
+      ],
+    },
     figma: {
       transformGroup: "figma",
       buildPath: tempDirectory + "figma/",
