@@ -59,10 +59,7 @@ const getFontSize = ({ tokens }) => {
 };
 
 const getColors = ({ tokens }) => {
-  console.log(tokens);
   const matchingTokens = tokens.filter((token) => token.path[0] === "color");
-
-  console.log(matchingTokens);
 
   return matchingTokens.reduce((acc, cur) => {
     const { type, item } = cur.attributes;
