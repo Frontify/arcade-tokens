@@ -16,22 +16,20 @@ const outputDirectory = "dist/";
 const tokenFiles = fs.readdirSync(inputDirectory);
 const figmaTempDirectory = `${tempDirectory}figma/`;
 const figmaOutputDirectory = `${outputDirectory}figma/`;
+const colorThemes = ["dark"];
+
+// `tokens/**/!(*.${modes.join(`|*.`)}).json5`;
 
 const mainTokenGlob = [
-  inputDirectory + "brand.*.js",
-  inputDirectory + "alias.*.js",
-  inputDirectory + "component.*.js",
+  inputDirectory + `brand.!(*.${colorThemes.join(`|*.`)}).js`,
+  inputDirectory + `alias.!(*.${colorThemes.join(`|*.`)}).js`,
+  inputDirectory + `component.!(*.${colorThemes.join(`|*.`)}).js`,
 ];
 
 /**
  * THEMES
  * - Gets the names of the color themes from the filesystem
  */
-const colorThemes = tokenFiles
-  .filter((file) => file.indexOf("theme.") > -1)
-  .map((file) => {
-    return file.replace("theme.", "").replace(".js", "");
-  });
 
 /**
  * TRANSORMS
@@ -268,7 +266,7 @@ colorThemes.forEach((theme) => {
     // Include references from all files
     include: mainTokenGlob,
     // Only output from the appropriate color theme file
-    source: [inputDirectory + "theme." + theme + ".js"],
+    source: [inputDirectory + "*." + theme + ".js"],
     platforms: {
       figma: {
         transformGroup: "figma",
