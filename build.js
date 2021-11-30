@@ -174,6 +174,13 @@ StyleDictionary.registerFilter({
   },
 });
 
+StyleDictionary.registerFilter({
+  name: "isComponent",
+  matcher: (token) => {
+    return token.filePath.indexOf("component.") > -1;
+  },
+});
+
 /**
  * MAIN RUN
  * - Style dictionary does a deep merge of everything in input (except for theme files).
@@ -202,7 +209,7 @@ StyleDictionary.extend({
       buildPath: tempDirectory + "figma/",
       files: [
         {
-          destination: "default.json",
+          destination: "aliases.json",
           format: "figma",
           filter: "isAlias",
         },
