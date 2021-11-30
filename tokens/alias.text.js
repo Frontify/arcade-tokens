@@ -5,13 +5,13 @@
 
 module.exports = {
   text: {
-    "color-x-weak"      : { value: "{color.neutral.50.value}", attributes: { category: "color" } },
-    "color-weak"        : { value: "{color.neutral.60.value}", attributes: { category: "color" } },
-    "color"             : { value: "{color.neutral.80.value}", attributes: { category: "color" } },
-    "color-negative"    : { value: "{color.negative.70.value}", attributes: { category: "color" } },
-    "color-positive"    : { value: "{color.positive.70.value}", attributes: { category: "color" } },
-    "color-warning"     : { value: "{color.warning.70.value}", attributes: { category: "color" } },
-    "color-interactive" : { value: "{color.interactive.70.value}", attributes: { category: "color" } },
-    "color-disabled"    : { value: "{color.neutral.40.value}", attributes: { category: "color" } },
+    "color-x-weak"      : { value: "{color.grey.50.value}", attributes: { category: "color" } },
+    "color-weak"        : { value: "{color.grey.60.value}", attributes: { category: "color" } },
+    "color"             : { value: "{color.grey.80.value}", attributes: { category: "color" } },
+    "color-negative"    : { value: "{color.red.70.value}", attributes: { category: "color" } },
+    "color-positive"    : { value: "{color.green.70.value}", attributes: { category: "color" } },
+    "color-warning"     : { value: "{color.yellow.70.value}", attributes: { category: "color" } },
+    "color-interactive" : { value: "{color.violet.70.value}", attributes: { category: "color" } },
+    "color-disabled"    : { value: "{color.grey.40.value}", attributes: { category: "color" } },
   }
 };

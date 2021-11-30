@@ -5,7 +5,7 @@
 
 module.exports = {
   base : {
-    "color"     : { value: "{color.neutral.0.value}", attributes: { category: "color" } },
-    "color-alt" : { value: "{color.neutral.5.value}", attributes: { category: "color" } }
+    "color"     : { value: "{color.grey.0.value}", attributes: { category: "color" } },
+    "color-alt" : { value: "{color.grey.5.value}", attributes: { category: "color" } }
   }
 };

@@ -5,6 +5,6 @@
 
 module.exports = {
   overlay: {
-    "color" : { value: "{color.neutral.20.value}", attributes: { category: "color", type: "shadow" }, modify: [{ type: "alpha", amount: 0.5 }] },
+    "color" : { value: "{color.grey.20.value}", attributes: { category: "color", type: "shadow" }, modify: [{ type: "alpha", amount: 0.5 }] },
   }
 };

@@ -1,23 +1,17 @@
 module.exports = {
-  color: {
-    "lightest": {value: "{color.neutral.0.value}", attributes: { category: 'color'} },
-    "darkest": {value: "{color.neutral.100.value}", attributes: { category: 'color'} },
-    
-  },
   base: {
-    "color" : { value: "{color.neutral.80.value}", attributes: { category: 'color' } },
-    "color-alt" : { value: "{color.neutral.90.value}", attributes: { category: 'color' } },
+    "color"     : { value: "{color.grey.80.value}", attributes: { category: 'color' } },
+    "color-alt" : { value: "{color.grey.90.value}", attributes: { category: 'color' } },
   },
-
   text: {
-    "color"             : { value: "{color.neutral.0.value}", attributes: { category: 'color' } },
-    "color-weak"        : { value: "{color.neutral.20.value}", attributes: { category: 'color' } },
-    "color-x-weak"      : { value: "{color.neutral.40.value}", attributes: { category: "color" } },
-    "color-negative"    : { value: "{color.negative.40.value}", attributes: { category: "color" } },
-    "color-positive"    : { value: "{color.positive.40.value}", attributes: { category: "color" } },
-    "color-warning"     : { value: "{color.warning.50.value}", attributes: { category: "color" } },
-    "color-interactive" : { value: "{color.interactive.30.value}", attributes: { category: "color" } },
-    "color-disabled"    : { value: "{color.neutral.40.value}", attributes: { category: "color" } },
+    "color"             : { value: "{color.grey.0.value}", attributes: { category: 'color' } },
+    "color-weak"        : { value: "{color.grey.20.value}", attributes: { category: 'color' } },
+    "color-x-weak"      : { value: "{color.grey.40.value}", attributes: { category: "color" } },
+    "color-negative"    : { value: "{color.red.40.value}", attributes: { category: "color" } },
+    "color-positive"    : { value: "{color.green.40.value}", attributes: { category: "color" } },
+    "color-warning"     : { value: "{color.yellow.50.value}", attributes: { category: "color" } },
+    "color-interactive" : { value: "{color.violet.30.value}", attributes: { category: "color" } },
+    "color-disabled"    : { value: "{color.grey.40.value}", attributes: { category: "color" } },
   },
 
   border: {
@@ -25,65 +19,28 @@ module.exports = {
     "color"           : { value: "{color.lightest.value}", attributes: { category: "color" }, modify: [{ type: "alpha", amount: 0.15 }] },
     "color-strong"    : { value: "{color.lightest.value}", attributes: { category: "color" }, modify: [{ type: "alpha", amount: 0.30 }] },
     "color-x-strong"  : { value: "{color.lightest.value}", attributes: { category: "color" }, modify: [{ type: "alpha", amount: 0.5 }] },
-    "color-xx-strong" : { value: "{color.neutral.0.value}", attributes: { category: "color" } },
+    "color-xx-strong" : { value: "{color.grey.0.value}", attributes: { category: "color" } },
   },
 
   highlight: {
     // Default
-    "color"                     : { value: "{color.neutral.70.value}", attributes: { category: "color" } },
+    "color"                     : { value: "{color.grey.70.value}", attributes: { category: "color" } },
     "color-inverse"             : { value: "{text.color.value}", attributes: { category: "color" } },
     // Negative
-    "negative-color"            : { value: "{color.negative.100.value}", attributes: { category: "color" } },
-    "negative-color-inverse"    : { value: "{color.negative.20.value}", attributes: { category: "color" } },
+    "negative-color"            : { value: "{color.red.100.value}", attributes: { category: "color" } },
+    "negative-color-inverse"    : { value: "{color.red.20.value}", attributes: { category: "color" } },
     // Positive
-    "positive-color"            : { value: "{color.positive.100.value}", attributes: { category: "color" } },
-    "positive-color-inverse"    : { value: "{color.positive.20.value}", attributes: { category: "color" } },
+    "positive-color"            : { value: "{color.green.100.value}", attributes: { category: "color" } },
+    "positive-color-inverse"    : { value: "{color.green.20.value}", attributes: { category: "color" } },
     // Warning
-    "warning-color"             : { value: "{color.warning.100.value}", attributes: { category: "color" } },
-    "warning-color-inverse"     : { value: "{color.warning.40.value}", attributes: { category: "color" } },
+    "warning-color"             : { value: "{color.yellow.100.value}", attributes: { category: "color" } },
+    "warning-color-inverse"     : { value: "{color.yellow.40.value}", attributes: { category: "color" } },
     // Informative
-    "interactive-color"         : { value: "{color.interactive.100.value}", attributes: { category: "color" } },
-    "interactive-color-inverse" : { value: "{color.interactive.20.value}", attributes: { category: "color" } },
+    "interactive-color"         : { value: "{color.violet.100.value}", attributes: { category: "color" } },
+    "interactive-color-inverse" : { value: "{color.violet.20.value}", attributes: { category: "color" } },
      // Strong
-    "strong-color"              : { value: "{color.neutral.0.value}", attributes: { category: "color" } },
-    "strong-color-inverse"      : { value: "{color.neutral.80.value}", attributes: { category: "color" } },
-  },
-
-  button: {
-    // Default Style
-    "color"                     : { value: "{color.neutral.70.value}", attributes: { category: "color" } },
-    "color-hover"               : { value: "{color.neutral.90.value}", attributes: { category: "color" } },
-    "color-pressed"             : { value: "{color.neutral.100.value}", attributes: { category: "color" } },
-    "color-inverse"             : { value: "{text.color.value}", attributes: { category: "color" } },
-    "border-color"              : { value: "{color.neutral.70.value}", attributes: { category: "color" } },
-    "border-color-hover"        : { value: "{color.neutral.70.value}", attributes: { category: "color" } },
-    "border-color-pressed"      : { value: "{color.neutral.70.value}", attributes: { category: "color" } },
-    // Strong Style
-    "strong-color"              : { value: "{color.neutral.0.value}", attributes: { category: "color" } },
-    "strong-color-hover"        : { value: "{color.neutral.20.value}", attributes: { category: "color" } },
-    "strong-color-pressed"      : { value: "{color.neutral.30.value}", attributes: { category: "color" } },
-    "strong-color-inverse"      : { value: "{color.neutral.80.value}", attributes: { category: "color" } },
-    // Interactive Style
-    "interactive-color"             : { value: "{color.interactive.60.value}", attributes: { category: "color" } },
-    "interactive-color-hover"       : { value: "{color.interactive.70.value}", attributes: { category: "color" } },
-    "interactive-color-pressed"     : { value: "{color.interactive.80.value}", attributes: { category: "color" } },
-    "interactive-color-inverse"     : { value: "{color.neutral.0.value}", attributes: { category: "color" } },
-    // Positive Style
-    "positive-color"                : { value: "{color.positive.70.value}", attributes: { category: "color" } },
-    "positive-color-hover"          : { value: "{color.positive.80.value}", attributes: { category: "color" } },
-    "positive-color-pressed"        : { value: "{color.positive.90.value}", attributes: { category: "color" } },
-    "positive-color-inverse"        : { value: "{color.neutral.0.value}", attributes: { category: "color" } },
-    // Negative Style
-    "negative-color"                : { value: "{color.negative.70.value}", attributes: { category: "color" } },
-    "negative-color-hover"          : { value: "{color.negative.80.value}", attributes: { category: "color" } },
-    "negative-color-pressed"        : { value: "{color.negative.90.value}", attributes: { category: "color" } },
-    "negative-color-inverse"        : { value: "{color.neutral.0.value}", attributes: { category: "color" } },
-    // Disabled Style
-    "disabled-color"                : { value: "{color.neutral.80.value}", attributes: { category: "color" } },
-    "disabled-color-inverse"        : { value: "{text.color-disabled.value}", attributes: { category: "color" } },
-    "disabled-border-color"         : { value: "{color.neutral.70.value}", attributes: { category: "color" } },
-    "disabled-strong-color"         : { value: "{color.neutral.50.value}", attributes: { category: "color" } },
-    "disabled-strong-color-inverse" : { value: "{color.neutral.80.value}", attributes: { category: "color" } },
+    "strong-color"              : { value: "{color.grey.0.value}", attributes: { category: "color" } },
+    "strong-color-inverse"      : { value: "{color.grey.80.value}", attributes: { category: "color" } },
   },
 
   // All values need to be provided for the sake of Figma,
@@ -95,7 +52,7 @@ module.exports = {
     "offset-y"        : { value: 0.1875, attributes: { category: "size", type: "shadowOffset", item: "y" } },
     "spread"          : { value: 0, attributes: { category: "size", type: "shadowSpread" } },
     "blur"            : { value: 0.625, attributes: { category: "size", type: "shadowBlur" } },
-    "color"           : { value: "{color.darkest.value}", attributes: { category: "color", type: "shadow" }, modify: [{ type: "alpha", amount: 0.5 }] },
+    "color"           : { value: "{color.neutral-100.value}", attributes: { category: "color", type: "shadow" }, modify: [{ type: "alpha", amount: 0.5 }] },
     // Top shadow
     "top-matrix"      : { value: "{shadow.top-offset-y.value} {shadow.top-offset-x.value} {shadow.blur.value} {shadow.top-spread.value} {shadow.color.value}", attributes: { type: "matrix" } },
     "top-offset-x"    : { value: "{shadow.offset-y.value}", attributes: { category: "size", type: "shadowOffset", item: "x", } },
@@ -112,9 +69,10 @@ module.exports = {
     "large-offset-x"  : { value: 0, attributes: { category: "size", type: "shadowOffset", item: "y" } },
     "large-spread"    : { value: 0, attributes: { category: "size", type: "shadowSpread" } },
     "large-blur"      : { value: 5, attributes: { category: "size", type: "shadowBlur" } },
-    "large-color"     : { value: "{color.darkest.value}", attributes: { category: "color", type: "shadow" }, modify: [{ type: "alpha", amount: 0.8 }] },
+    "large-color"     : { value: "{color.neutral-100.value}", attributes: { category: "color", type: "shadow" }, modify: [{ type: "alpha", amount: 0.8 }] },
   },
+
   overlay: {
-    "color" : { value: "{color.darkest.value}", attributes: { category: "color", type: "shadow" }, modify: [{ type: "alpha", amount: 0.5 }] },
+    "color" : { value: "{color.neutral-100.value}", attributes: { category: "color", type: "shadow" }, modify: [{ type: "alpha", amount: 0.5 }] },
   }
 };
