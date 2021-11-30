@@ -16,8 +16,6 @@ const tempDirectory = "temp/";
 const outputDirectory = "dist/";
 const colorThemes = ["dark"];
 
-// `tokens/**/!(*.${modes.join(`|*.`)}).json5`;
-
 const mainTokenGlob = [
   inputDirectory + `brand.!(*.${colorThemes.join(`|*.`)}).js`,
   inputDirectory + `alias.!(*.${colorThemes.join(`|*.`)}).js`,
