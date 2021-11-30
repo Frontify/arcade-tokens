@@ -1,8 +1,8 @@
 const mergeDeep = require("./mergeDeep");
 const toTitleCase = require("./toTitleCase");
 
-const getFigmaTypography = require("./getFigmaTypography");
-const getFigmaShadows = require("./getFigmaShadows");
+const getFigmaAliasTypography = require("./getFigmaAliasTypography");
+const getFigmaAliasShadows = require("./getFigmaAliasShadows");
 const getFigmaAliasColors = require("./getFigmaAliasColors");
 
 const formatThemeName = (string) => {
@@ -13,7 +13,7 @@ module.exports = ({ dictionary, options }) => {
   const tokens = dictionary.tokens;
 
   const mergedColorsAndShadows = mergeDeep(
-    getFigmaShadows(tokens),
+    getFigmaAliasShadows(tokens),
     getFigmaAliasColors(tokens)
   );
 
@@ -24,7 +24,7 @@ module.exports = ({ dictionary, options }) => {
   }
 
   const allMerged = mergeDeep(
-    getFigmaTypography(tokens),
+    getFigmaAliasTypography(tokens),
     mergedColorsAndShadows
   );
 
