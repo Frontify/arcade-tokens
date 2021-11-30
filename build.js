@@ -17,21 +17,10 @@ const tokenFiles = fs.readdirSync(inputDirectory);
 const figmaTempDirectory = `${tempDirectory}figma/`;
 const figmaOutputDirectory = `${outputDirectory}figma/`;
 
-const brandColorsPath = inputDirectory + "brand.colors.js";
-const brandTypographyPath = inputDirectory + "brand.typography.js";
-const uiColorsPath = inputDirectory + "ui.colors.js";
-const uiElementsPath = inputDirectory + "ui.elements.js";
-const uiSizingPath = inputDirectory + "ui.sizing.js";
-const uiTypographyPath = inputDirectory + "ui.typography.js";
-const uiThemesGlob = inputDirectory + "ui.theme.*.js";
-
-const brandFilePaths = [brandColorsPath, brandTypographyPath];
-
-const uiFilePaths = [
-  uiColorsPath,
-  uiElementsPath,
-  uiSizingPath,
-  uiTypographyPath,
+const mainTokenGlob = [
+  inputDirectory + "brand.*.js",
+  inputDirectory + "alias.*.js",
+  inputDirectory + "component.*.js",
 ];
 
 /**
@@ -39,9 +28,9 @@ const uiFilePaths = [
  * - Gets the names of the color themes from the filesystem
  */
 const colorThemes = tokenFiles
-  .filter((file) => file.indexOf(".theme.") > -1)
+  .filter((file) => file.indexOf("theme.") > -1)
   .map((file) => {
-    return file.replace("ui.theme.", "").replace(".js", "");
+    return file.replace("theme.", "").replace(".js", "");
   });
 
 /**
@@ -116,6 +105,76 @@ StyleDictionary.registerFormat({
 });
 
 /**
+ * FILTERS
+ */
+
+StyleDictionary.registerFilter({
+  name: "isColor",
+  matcher: (token) => {
+    return token.attributes.category === "color";
+  },
+});
+
+StyleDictionary.registerFilter({
+  name: "isBrand",
+  matcher: (token) => {
+    return token.filePath.indexOf("alias.") > -1;
+  },
+});
+
+StyleDictionary.registerFilter({
+  name: "isBrandColor",
+  matcher: (token) => {
+    if (token.filePath.indexOf("brand.") === -1) return false;
+    return token.attributes.category === "color";
+  },
+});
+
+StyleDictionary.registerFilter({
+  name: "isAlias",
+  matcher: (token) => {
+    return token.filePath.indexOf("alias.") > -1;
+  },
+});
+
+StyleDictionary.registerFilter({
+  name: "isAliasTypography",
+  matcher: (token) => {
+    if (token.filePath.indexOf("alias.") === -1) return false;
+
+    const fontCategory = token.attributes.category === "font";
+    const sizeCategory = token.attributes.category === "size";
+    const fontType = token.attributes.type === "font";
+    const lineHeightType = token.attributes.type === "lineHeight";
+
+    return (
+      fontCategory ||
+      (sizeCategory && fontType) ||
+      (sizeCategory && lineHeightType)
+    );
+  },
+});
+
+StyleDictionary.registerFilter({
+  name: "isAliasSpace",
+  matcher: (token) => {
+    if (token.filePath.indexOf("alias.") === -1) return false;
+    return (
+      token.attributes.category === "size" &&
+      token.attributes.type === "spacing"
+    );
+  },
+});
+
+StyleDictionary.registerFilter({
+  name: "isAliasColor",
+  matcher: (token) => {
+    if (token.filePath.indexOf("alias.") === -1) return false;
+    return token.attributes.category === "color";
+  },
+});
+
+/**
  * MAIN RUN
  * - Style dictionary does a deep merge of everything in input (except for theme files).
  * - This ensures that there are no naming collisions, and that references are respected.
@@ -125,7 +184,7 @@ StyleDictionary.registerFormat({
  */
 
 StyleDictionary.extend({
-  source: [...brandFilePaths, ...uiFilePaths],
+  source: mainTokenGlob,
   platforms: {
     es: {
       transformGroup: "es",
@@ -134,7 +193,7 @@ StyleDictionary.extend({
         {
           destination: "index.js",
           format: "javascript/module",
-          filter: (token) => uiFilePaths.includes(token.filePath),
+          filter: "isAlias",
         },
       ],
     },
@@ -145,9 +204,7 @@ StyleDictionary.extend({
         {
           destination: "default.json",
           format: "figma",
-          filter: (token) => {
-            return uiFilePaths.includes(token.filePath);
-          },
+          filter: "isAlias",
         },
       ],
     },
@@ -158,9 +215,6 @@ StyleDictionary.extend({
         {
           destination: "tailwind.config.js",
           format: "tailwind",
-          filter: (token) => {
-            return uiFilePaths.includes(token.filePath);
-          },
         },
       ],
     },
@@ -169,32 +223,24 @@ StyleDictionary.extend({
       buildPath: outputDirectory + "css/",
       files: [
         {
+          destination: "all.css",
+          format: "css/variables",
+          filter: "isAlias",
+        },
+        {
           destination: "colors.css",
           format: "css/variables",
-          filter: (token) => {
-            return token.filePath === uiColorsPath;
-          },
+          filter: "isAliasColor",
         },
         {
           destination: "typography.css",
           format: "css/variables",
-          filter: (token) => {
-            return token.filePath === uiTypographyPath;
-          },
+          filter: "isAliasTypography",
         },
         {
-          destination: "sizes.css",
+          destination: "spacing.css",
           format: "css/variables",
-          filter: (token) => {
-            return token.filePath === uiSizingPath;
-          },
-        },
-        {
-          destination: "elements.css",
-          format: "css/variables",
-          filter: (token) => {
-            return token.filePath === uiElementsPath;
-          },
+          filter: "isAliasSpace",
         },
       ],
     },
@@ -213,9 +259,9 @@ StyleDictionary.extend({
 colorThemes.forEach((theme) => {
   StyleDictionary.extend({
     // Include references from all files
-    include: [...brandFilePaths, ...uiFilePaths],
+    include: mainTokenGlob,
     // Only output from the appropriate color theme file
-    source: [inputDirectory + "ui.theme." + theme + ".js"],
+    source: [inputDirectory + "theme." + theme + ".js"],
     platforms: {
       figma: {
         transformGroup: "figma",

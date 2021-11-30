@@ -14,11 +14,11 @@ module.exports = {
     "color-disabled"    : { value: "{color.grey.40.value}", attributes: { category: "color" } },
   },
 
-  border: {
-    "color-weak"      : { value: "{color.lightest.value}", attributes: { category: "color" }, modify: [{ type: "alpha", amount: 0.1 }] },
-    "color"           : { value: "{color.lightest.value}", attributes: { category: "color" }, modify: [{ type: "alpha", amount: 0.15 }] },
-    "color-strong"    : { value: "{color.lightest.value}", attributes: { category: "color" }, modify: [{ type: "alpha", amount: 0.30 }] },
-    "color-x-strong"  : { value: "{color.lightest.value}", attributes: { category: "color" }, modify: [{ type: "alpha", amount: 0.5 }] },
+  line: {
+    "color-weak"      : { value: "{color.grey.0.value}", attributes: { category: "color" }, modify: [{ type: "alpha", amount: 0.1 }] },
+    "color"           : { value: "{color.grey.0.value}", attributes: { category: "color" }, modify: [{ type: "alpha", amount: 0.15 }] },
+    "color-strong"    : { value: "{color.grey.0.value}", attributes: { category: "color" }, modify: [{ type: "alpha", amount: 0.30 }] },
+    "color-x-strong"  : { value: "{color.grey.0.value}", attributes: { category: "color" }, modify: [{ type: "alpha", amount: 0.5 }] },
     "color-xx-strong" : { value: "{color.grey.0.value}", attributes: { category: "color" } },
   },
 
@@ -52,7 +52,7 @@ module.exports = {
     "offset-y"        : { value: 0.1875, attributes: { category: "size", type: "shadowOffset", item: "y" } },
     "spread"          : { value: 0, attributes: { category: "size", type: "shadowSpread" } },
     "blur"            : { value: 0.625, attributes: { category: "size", type: "shadowBlur" } },
-    "color"           : { value: "{color.neutral-100.value}", attributes: { category: "color", type: "shadow" }, modify: [{ type: "alpha", amount: 0.5 }] },
+    "color"           : { value: "{color.grey.100.value}", attributes: { category: "color", type: "shadow" }, modify: [{ type: "alpha", amount: 0.5 }] },
     // Top shadow
     "top-matrix"      : { value: "{shadow.top-offset-y.value} {shadow.top-offset-x.value} {shadow.blur.value} {shadow.top-spread.value} {shadow.color.value}", attributes: { type: "matrix" } },
     "top-offset-x"    : { value: "{shadow.offset-y.value}", attributes: { category: "size", type: "shadowOffset", item: "x", } },
@@ -69,10 +69,10 @@ module.exports = {
     "large-offset-x"  : { value: 0, attributes: { category: "size", type: "shadowOffset", item: "y" } },
     "large-spread"    : { value: 0, attributes: { category: "size", type: "shadowSpread" } },
     "large-blur"      : { value: 5, attributes: { category: "size", type: "shadowBlur" } },
-    "large-color"     : { value: "{color.neutral-100.value}", attributes: { category: "color", type: "shadow" }, modify: [{ type: "alpha", amount: 0.8 }] },
+    "large-color"     : { value: "{color.grey.100.value}", attributes: { category: "color", type: "shadow" }, modify: [{ type: "alpha", amount: 0.8 }] },
   },
 
   overlay: {
-    "color" : { value: "{color.neutral-100.value}", attributes: { category: "color", type: "shadow" }, modify: [{ type: "alpha", amount: 0.5 }] },
+    "color" : { value: "{color.grey.100.value}", attributes: { category: "color", type: "shadow" }, modify: [{ type: "alpha", amount: 0.5 }] },
   }
 };

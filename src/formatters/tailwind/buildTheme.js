@@ -1,7 +1,7 @@
 const getExtend = ({ dictionary }) => {
   return {
     outline: {
-      violet: `1px solid var(--${dictionary.tokens.color.interactive.DEFAULT.name})`,
+      violet: `1px solid var(--${dictionary.tokens.focus["ring-color"].name})`,
     },
   };
 };
@@ -59,7 +59,10 @@ const getFontSize = ({ tokens }) => {
 };
 
 const getColors = ({ tokens }) => {
+  console.log(tokens);
   const matchingTokens = tokens.filter((token) => token.path[0] === "color");
+
+  console.log(matchingTokens);
 
   return matchingTokens.reduce((acc, cur) => {
     const { type, item } = cur.attributes;
@@ -100,14 +103,14 @@ const getTheme = (dictionary) => {
         token.attributes.type === "matrix",
     }),
     borderWidth: getObject({
-      remove: "border-width",
+      remove: "line-width",
       tokens,
       filter: (token) =>
         token.attributes.category === "size" &&
         token.attributes.type === "lineWidth",
     }),
     borderRadius: getObject({
-      remove: "border-radius",
+      remove: "radius",
       tokens,
       filter: (token) =>
         token.attributes.category === "size" &&
@@ -116,7 +119,7 @@ const getTheme = (dictionary) => {
     colors: getColors({
       tokens,
     }),
-    ringColor: `var(--${dictionary.tokens.color.interactive.DEFAULT.name})`,
+    ringColor: `var(--${dictionary.tokens.focus["ring-color"].name})`,
     extend: getExtend({ dictionary }),
   };
 };
