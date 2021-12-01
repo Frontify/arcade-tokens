@@ -4,8 +4,9 @@
 const StyleDictionary = require("style-dictionary");
 const fs = require("fs");
 const transformColor = require("./src/utils/transformColor");
-const getFigmaJson = require("./src/formatters/figma");
 const formatTailwind = require("./src/formatters/tailwind");
+const formatFigma = require("./src/formatters/figma/index.js");
+const mergeFigmaFiles = require("./src/utils/mergeFigmaFiles.js");
 
 /**
  * FILE SYSTEM
@@ -13,36 +14,18 @@ const formatTailwind = require("./src/formatters/tailwind");
 const inputDirectory = "tokens/";
 const tempDirectory = "temp/";
 const outputDirectory = "dist/";
-const tokenFiles = fs.readdirSync(inputDirectory);
-const figmaTempDirectory = `${tempDirectory}figma/`;
-const figmaOutputDirectory = `${outputDirectory}figma/`;
+const colorThemes = ["dark"];
 
-const brandColorsPath = inputDirectory + "brand.colors.js";
-const brandTypographyPath = inputDirectory + "brand.typography.js";
-const uiColorsPath = inputDirectory + "ui.colors.js";
-const uiElementsPath = inputDirectory + "ui.elements.js";
-const uiSizingPath = inputDirectory + "ui.sizing.js";
-const uiTypographyPath = inputDirectory + "ui.typography.js";
-const uiThemesGlob = inputDirectory + "ui.theme.*.js";
-
-const brandFilePaths = [brandColorsPath, brandTypographyPath];
-
-const uiFilePaths = [
-  uiColorsPath,
-  uiElementsPath,
-  uiSizingPath,
-  uiTypographyPath,
+const mainTokenGlob = [
+  inputDirectory + `brand.!(*.${colorThemes.join(`|*.`)}).js`,
+  inputDirectory + `alias.!(*.${colorThemes.join(`|*.`)}).js`,
+  inputDirectory + `component.!(*.${colorThemes.join(`|*.`)}).js`,
 ];
 
 /**
  * THEMES
  * - Gets the names of the color themes from the filesystem
  */
-const colorThemes = tokenFiles
-  .filter((file) => file.indexOf(".theme.") > -1)
-  .map((file) => {
-    return file.replace("ui.theme.", "").replace(".js", "");
-  });
 
 /**
  * TRANSORMS
@@ -111,7 +94,69 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: "figma",
   formatter: ({ dictionary, options }) => {
-    return getFigmaJson({ dictionary, options });
+    return formatFigma({ dictionary, options });
+  },
+});
+
+/**
+ * FILTERS
+ */
+
+StyleDictionary.registerFilter({
+  name: "isColor",
+  matcher: (token) => {
+    return token.attributes.category === "color";
+  },
+});
+
+StyleDictionary.registerFilter({
+  name: "isAlias",
+  matcher: (token) => {
+    return token.filePath.indexOf("alias.") > -1;
+  },
+});
+
+StyleDictionary.registerFilter({
+  name: "isAliasTypography",
+  matcher: (token) => {
+    if (token.filePath.indexOf("alias.") === -1) return false;
+
+    const fontCategory = token.attributes.category === "font";
+    const sizeCategory = token.attributes.category === "size";
+    const fontType = token.attributes.type === "font";
+    const lineHeightType = token.attributes.type === "lineHeight";
+
+    return (
+      fontCategory ||
+      (sizeCategory && fontType) ||
+      (sizeCategory && lineHeightType)
+    );
+  },
+});
+
+StyleDictionary.registerFilter({
+  name: "isAliasSpace",
+  matcher: (token) => {
+    if (token.filePath.indexOf("alias.") === -1) return false;
+    return (
+      token.attributes.category === "size" &&
+      token.attributes.type === "spacing"
+    );
+  },
+});
+
+StyleDictionary.registerFilter({
+  name: "isAliasColor",
+  matcher: (token) => {
+    if (token.filePath.indexOf("alias.") === -1) return false;
+    return token.attributes.category === "color";
+  },
+});
+
+StyleDictionary.registerFilter({
+  name: "isComponent",
+  matcher: (token) => {
+    return token.filePath.indexOf("component.") > -1;
   },
 });
 
@@ -125,7 +170,7 @@ StyleDictionary.registerFormat({
  */
 
 StyleDictionary.extend({
-  source: [...brandFilePaths, ...uiFilePaths],
+  source: mainTokenGlob,
   platforms: {
     es: {
       transformGroup: "es",
@@ -134,7 +179,7 @@ StyleDictionary.extend({
         {
           destination: "index.js",
           format: "javascript/module",
-          filter: (token) => uiFilePaths.includes(token.filePath),
+          filter: "isAlias",
         },
       ],
     },
@@ -143,11 +188,14 @@ StyleDictionary.extend({
       buildPath: tempDirectory + "figma/",
       files: [
         {
-          destination: "default.json",
+          destination: "aliases.json",
           format: "figma",
-          filter: (token) => {
-            return uiFilePaths.includes(token.filePath);
-          },
+          filter: "isAlias",
+        },
+        {
+          destination: "components.json",
+          format: "figma",
+          filter: "isComponent",
         },
       ],
     },
@@ -158,9 +206,6 @@ StyleDictionary.extend({
         {
           destination: "tailwind.config.js",
           format: "tailwind",
-          filter: (token) => {
-            return uiFilePaths.includes(token.filePath);
-          },
         },
       ],
     },
@@ -169,32 +214,24 @@ StyleDictionary.extend({
       buildPath: outputDirectory + "css/",
       files: [
         {
+          destination: "all.css",
+          format: "css/variables",
+          filter: "isAlias",
+        },
+        {
           destination: "colors.css",
           format: "css/variables",
-          filter: (token) => {
-            return token.filePath === uiColorsPath;
-          },
+          filter: "isAliasColor",
         },
         {
           destination: "typography.css",
           format: "css/variables",
-          filter: (token) => {
-            return token.filePath === uiTypographyPath;
-          },
+          filter: "isAliasTypography",
         },
         {
-          destination: "sizes.css",
+          destination: "spacing.css",
           format: "css/variables",
-          filter: (token) => {
-            return token.filePath === uiSizingPath;
-          },
-        },
-        {
-          destination: "elements.css",
-          format: "css/variables",
-          filter: (token) => {
-            return token.filePath === uiElementsPath;
-          },
+          filter: "isAliasSpace",
         },
       ],
     },
@@ -213,20 +250,36 @@ StyleDictionary.extend({
 colorThemes.forEach((theme) => {
   StyleDictionary.extend({
     // Include references from all files
-    include: [...brandFilePaths, ...uiFilePaths],
+    include: mainTokenGlob,
     // Only output from the appropriate color theme file
-    source: [inputDirectory + "ui.theme." + theme + ".js"],
+    source: [inputDirectory + "*." + theme + ".js"],
     platforms: {
       figma: {
         transformGroup: "figma",
         buildPath: tempDirectory + "figma/",
         files: [
           {
-            destination: `${theme}.json`,
+            destination: `aliases.${theme}.json`,
             format: "figma",
             options: { theme: theme },
             filter: (token) => {
-              return token.filePath.indexOf(theme) > -1;
+              return (
+                token.filePath.indexOf(theme) > -1 &&
+                token.filePath.indexOf("alias.") > -1 &&
+                token.attributes.category === "color"
+              );
+            },
+          },
+          {
+            destination: `components.${theme}.json`,
+            format: "figma",
+            options: { theme: theme },
+            filter: (token) => {
+              return (
+                token.filePath.indexOf(theme) > -1 &&
+                token.filePath.indexOf("component.") > -1 &&
+                token.attributes.category === "color"
+              );
             },
           },
         ],
@@ -252,24 +305,4 @@ colorThemes.forEach((theme) => {
   }).buildAllPlatforms();
 });
 
-fs.readdir(figmaTempDirectory, (error, files) => {
-  return new Promise((resolve, reject) => {
-    if (error) reject(error);
-
-    let combinedJson = {};
-    files.reverse().forEach((file) => {
-      const content = fs.readFileSync(figmaTempDirectory + file, "utf8");
-      combinedJson = { ...combinedJson, ...JSON.parse(content) };
-    });
-
-    resolve(combinedJson);
-  }).then((data) => {
-    if (!fs.existsSync(figmaOutputDirectory)) {
-      fs.mkdirSync(figmaOutputDirectory);
-    }
-    fs.writeFileSync(
-      `${figmaOutputDirectory}combined.json`,
-      JSON.stringify(data)
-    );
-  });
-});
+mergeFigmaFiles();
