@@ -9,11 +9,9 @@ const styles = (tokens) => {
   let returnObject = {};
 
   tokens.forEach((token) => {
-    const category = toTitleCase(token.path[0]);
-    const name = toTitleCase(
-      token.path.slice(1).join(" ").replaceAll("-", " ")
-    );
-    const value = token.value;
+    let category = toTitleCase(token.path[0]);
+    let name = toTitleCase(token.path.slice(1).join(" ").replaceAll("-", " "));
+    let value = token.value;
     let type;
 
     if (
@@ -31,12 +29,13 @@ const styles = (tokens) => {
     }
 
     if (token.attributes.category === "color") {
+      name = name.replace("Color", "").trim();
       type = "color";
     }
 
     if (type) {
       returnObject = mergeDeep(returnObject, {
-        [category]: { [name]: { value: value, type: type } },
+        [category]: { [name || "DEFAULT"]: { value: value, type: type } },
       });
     }
   });
