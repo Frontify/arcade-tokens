@@ -79,8 +79,8 @@ module.exports = {
     "x-large": {
       value: {
         fontFamily: "{heading.family.value}",
-        fontSize: "{heading.size-large.value}",
-        lineHeight: "{heading.size-large-line-height.value}",
+        fontSize: "{heading.size-x-large.value}",
+        lineHeight: "{heading.size-x-large-line-height.value}",
         fontWeight: "{heading.weight-name.value}",
       },
       attributes: {
@@ -91,8 +91,8 @@ module.exports = {
     "x-large-strong": {
       value: {
         fontFamily: "{heading.family.value}",
-        fontSize: "{heading.size-large.value}",
-        lineHeight: "{heading.size-large-line-height.value}",
+        fontSize: "{heading.size-x-large.value}",
+        lineHeight: "{heading.size-x-large-line-height.value}",
         fontWeight: "{heading.weight-strong-name.value}",
       },
       attributes: {
