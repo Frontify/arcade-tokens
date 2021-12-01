@@ -1,10 +1,8 @@
 const trimHyphens = require("../../utils/trimHyphens");
 
-const getExtend = ({ dictionary }) => {
+const getOutline = ({ dictionary }) => {
   return {
-    outline: {
-      violet: `1px solid var(--${dictionary.tokens.focus["ring-color"].name})`,
-    },
+    violet: `1px solid var(--${dictionary.tokens.focus["ring-color"].name})`,
   };
 };
 
@@ -114,42 +112,44 @@ const getTheme = (dictionary) => {
   const tokens = dictionary.allTokens;
 
   return {
-    fontSize: getFontSize({
-      tokens,
-    }),
-    fontFamily: getObject({
-      remove: "family",
-      tokens,
-      filter: (token) =>
-        token.attributes.category === "font" &&
-        token.attributes.type === "family",
-    }),
-    boxShadow: getObject({
-      remove: "shadow",
-      tokens,
-      filter: (token) =>
-        token.attributes.category === "shadow" &&
-        token.attributes.type === "matrix",
-    }),
-    borderWidth: getObject({
-      remove: "line-width",
-      tokens,
-      filter: (token) =>
-        token.attributes.category === "size" &&
-        token.attributes.type === "lineWidth",
-    }),
-    borderRadius: getObject({
-      remove: "radius",
-      tokens,
-      filter: (token) =>
-        token.attributes.category === "size" &&
-        token.attributes.type === "borderRadius",
-    }),
-    colors: getColors({
-      tokens,
-    }),
-    ringColor: `var(--${dictionary.tokens.focus["ring-color"].name})`,
-    extend: getExtend({ dictionary }),
+    extend: {
+      fontSize: getFontSize({
+        tokens,
+      }),
+      fontFamily: getObject({
+        remove: "family",
+        tokens,
+        filter: (token) =>
+          token.attributes.category === "font" &&
+          token.attributes.type === "family",
+      }),
+      boxShadow: getObject({
+        remove: "shadow",
+        tokens,
+        filter: (token) =>
+          token.attributes.category === "shadow" &&
+          token.attributes.type === "matrix",
+      }),
+      borderWidth: getObject({
+        remove: "line-width",
+        tokens,
+        filter: (token) =>
+          token.attributes.category === "size" &&
+          token.attributes.type === "lineWidth",
+      }),
+      borderRadius: getObject({
+        remove: "radius",
+        tokens,
+        filter: (token) =>
+          token.attributes.category === "size" &&
+          token.attributes.type === "borderRadius",
+      }),
+      colors: getColors({
+        tokens,
+      }),
+      ringColor: `var(--${dictionary.tokens.focus["ring-color"].name})`,
+      outline: getOutline({ dictionary }),
+    },
   };
 };
 
