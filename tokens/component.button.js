@@ -38,7 +38,7 @@ module.exports = {
     "strong-negative-background-color-hover"   : { value: "{button.strong-background-color-hover.value}", attributes: { category: "color" } },
     "strong-negative-background-color-pressed" : { value: "{button.strong-background-color-pressed.value}", attributes: { category: "color" } },
     "strong-negative-text-color"               : { value: "{button.strong-text-color.value}", attributes: { category: "color" } },
-    "strong-negative-icon-color"               : { value: "{color.red.50.value}", attributes: { category: "color" } },
+    "strong-negative-icon-color"               : { value: "{color.red.40.value}", attributes: { category: "color" } },
     "strong-negative-border-color"             : { value: "{line.color-weak.value}", attributes: { category: "color" } },
 
     "strong-positive-background-color"         : { value: "{button.strong-background-color.value}", attributes: { category: "color" } },
