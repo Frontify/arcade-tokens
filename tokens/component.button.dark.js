@@ -38,14 +38,14 @@ module.exports = {
     "strong-negative-background-color-hover"   : { value: "{button.strong-background-color-hover.value}", attributes: { category: "color" } },
     "strong-negative-background-color-pressed" : { value: "{button.strong-background-color-pressed.value}", attributes: { category: "color" } },
     "strong-negative-text-color"               : { value: "{button.strong-text-color.value}", attributes: { category: "color" } },
-    "strong-negative-icon-color"               : { value: "{color.red.60.value}", attributes: { category: "color" } },
+    "strong-negative-icon-color"               : { value: "{color.red.70.value}", attributes: { category: "color" } },
     "strong-negative-border-color"             : { value: "{line.color-weak.value}", attributes: { category: "color" } },
 
     "strong-positive-background-color"         : { value: "{button.strong-background-color.value}", attributes: { category: "color" } },
     "strong-positive-background-color-hover"   : { value: "{button.strong-background-color-hover.value}", attributes: { category: "color" } },
     "strong-positive-background-color-pressed" : { value: "{button.strong-background-color-pressed.value}", attributes: { category: "color" } },
     "strong-positive-text-color"               : { value: "{button.strong-text-color.value}", attributes: { category: "color" } },
-    "strong-positive-icon-color"               : { value: "{color.green.60.value}", attributes: { category: "color" } },
+    "strong-positive-icon-color"               : { value: "{color.green.70.value}", attributes: { category: "color" } },
     "strong-positive-border-color"             : { value: "{line.color-weak.value}", attributes: { category: "color" } },
       
     // Danger Style
