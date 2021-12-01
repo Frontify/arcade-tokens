@@ -29,5 +29,58 @@ module.exports = {
     "large-spread"    : { value: 0, attributes: { category: "size", type: "shadowSpread" } },
     "large-blur"      : { value: 5, attributes: { category: "size", type: "shadowBlur" } },
     "large-color"     : { value: "{color.grey.100.value}", attributes: { category: "color", type: "shadow" }, modify: [{ type: "alpha", amount: 0.8 }] },
+    
+    "_": {
+      value: {
+        x: "{shadow.offset-x.value}",
+        y: "{shadow.offset-y.value}",
+        blur: "{shadow.blur.value}",
+        spread: "{shadow.spread.value}",
+        color: "{shadow.color.value}",
+      },
+      attributes: {
+        category: 'shadow',
+        type: 'style'
+      }
+    },
+    "top": {
+      value: {
+        x: "{shadow.top-offset-x.value}",
+        y: "{shadow.top-offset-y.value}",
+        blur: "{shadow.blur.value}",
+        spread: "{shadow.top-spread.value}",
+        color: "{shadow.color.value}",
+      },
+      attributes: {
+        category: 'shadow',
+        type: 'style'
+      }
+    },
+    "bottom": {
+      value: {
+        x: "{shadow.bottom-offset-x.value}",
+        y: "{shadow.bottom-offset-y.value}",
+        blur: "{shadow.blur.value}",
+        spread: "{shadow.bottom-spread.value}",
+        color: "{shadow.color.value}",
+      },
+      attributes: {
+        category: 'shadow',
+        type: 'style'
+      }
+    },
+    "large": {
+      value: {
+        x: "{shadow.large-offset-x.value}",
+        y: "{shadow.large-offset-y.value}",
+        blur: "{shadow.large-blur.value}",
+        spread: "{shadow.large-spread.value}",
+        color: "{shadow.large-color.value}",
+      },
+      attributes: {
+        category: 'shadow',
+        type: 'style'
+      }
+    },
   },
 };

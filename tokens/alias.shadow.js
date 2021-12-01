@@ -30,7 +30,7 @@ module.exports = {
     "large-blur"      : { value: 5, attributes: { category: "size", type: "shadowBlur" } },
     "large-color"     : { value: "{color.grey.100.value}", attributes: { category: "color", type: "shadow" }, modify: [{ type: "alpha", amount: 0.1 }] },
     
-    "default": {
+    "_": {
       value: {
         x: "{shadow.offset-x.value}",
         y: "{shadow.offset-y.value}",
