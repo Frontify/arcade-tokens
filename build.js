@@ -4,8 +4,9 @@
 const StyleDictionary = require("style-dictionary");
 const fs = require("fs");
 const transformColor = require("./src/utils/transformColor");
-const getFigmaJson = require("./src/formatters/figma");
 const formatTailwind = require("./src/formatters/tailwind");
+const formatFigma = require("./src/formatters/figma/index.js");
+const mergeFigmaFiles = require("./src/utils/mergeFigmaFiles.js");
 
 /**
  * FILE SYSTEM
@@ -13,25 +14,18 @@ const formatTailwind = require("./src/formatters/tailwind");
 const inputDirectory = "tokens/";
 const tempDirectory = "temp/";
 const outputDirectory = "dist/";
-const tokenFiles = fs.readdirSync(inputDirectory);
-const figmaTempDirectory = `${tempDirectory}figma/`;
-const figmaOutputDirectory = `${outputDirectory}figma/`;
+const colorThemes = ["dark"];
 
 const mainTokenGlob = [
-  inputDirectory + "brand.*.js",
-  inputDirectory + "alias.*.js",
-  inputDirectory + "component.*.js",
+  inputDirectory + `brand.!(*.${colorThemes.join(`|*.`)}).js`,
+  inputDirectory + `alias.!(*.${colorThemes.join(`|*.`)}).js`,
+  inputDirectory + `component.!(*.${colorThemes.join(`|*.`)}).js`,
 ];
 
 /**
  * THEMES
  * - Gets the names of the color themes from the filesystem
  */
-const colorThemes = tokenFiles
-  .filter((file) => file.indexOf("theme.") > -1)
-  .map((file) => {
-    return file.replace("theme.", "").replace(".js", "");
-  });
 
 /**
  * TRANSORMS
@@ -100,7 +94,7 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: "figma",
   formatter: ({ dictionary, options }) => {
-    return getFigmaJson({ dictionary, options });
+    return formatFigma({ dictionary, options });
   },
 });
 
@@ -111,21 +105,6 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFilter({
   name: "isColor",
   matcher: (token) => {
-    return token.attributes.category === "color";
-  },
-});
-
-StyleDictionary.registerFilter({
-  name: "isBrand",
-  matcher: (token) => {
-    return token.filePath.indexOf("alias.") > -1;
-  },
-});
-
-StyleDictionary.registerFilter({
-  name: "isBrandColor",
-  matcher: (token) => {
-    if (token.filePath.indexOf("brand.") === -1) return false;
     return token.attributes.category === "color";
   },
 });
@@ -213,6 +192,11 @@ StyleDictionary.extend({
           format: "figma",
           filter: "isAlias",
         },
+        {
+          destination: "components.json",
+          format: "figma",
+          filter: "isComponent",
+        },
       ],
     },
     tailwind: {
@@ -268,18 +252,34 @@ colorThemes.forEach((theme) => {
     // Include references from all files
     include: mainTokenGlob,
     // Only output from the appropriate color theme file
-    source: [inputDirectory + "theme." + theme + ".js"],
+    source: [inputDirectory + "*." + theme + ".js"],
     platforms: {
       figma: {
         transformGroup: "figma",
         buildPath: tempDirectory + "figma/",
         files: [
           {
-            destination: `${theme}.json`,
+            destination: `aliases.${theme}.json`,
             format: "figma",
             options: { theme: theme },
             filter: (token) => {
-              return token.filePath.indexOf(theme) > -1;
+              return (
+                token.filePath.indexOf(theme) > -1 &&
+                token.filePath.indexOf("alias.") > -1 &&
+                token.attributes.category === "color"
+              );
+            },
+          },
+          {
+            destination: `components.${theme}.json`,
+            format: "figma",
+            options: { theme: theme },
+            filter: (token) => {
+              return (
+                token.filePath.indexOf(theme) > -1 &&
+                token.filePath.indexOf("component.") > -1 &&
+                token.attributes.category === "color"
+              );
             },
           },
         ],
@@ -305,24 +305,4 @@ colorThemes.forEach((theme) => {
   }).buildAllPlatforms();
 });
 
-fs.readdir(figmaTempDirectory, (error, files) => {
-  return new Promise((resolve, reject) => {
-    if (error) reject(error);
-
-    let combinedJson = {};
-    files.reverse().forEach((file) => {
-      const content = fs.readFileSync(figmaTempDirectory + file, "utf8");
-      combinedJson = { ...combinedJson, ...JSON.parse(content) };
-    });
-
-    resolve(combinedJson);
-  }).then((data) => {
-    if (!fs.existsSync(figmaOutputDirectory)) {
-      fs.mkdirSync(figmaOutputDirectory);
-    }
-    fs.writeFileSync(
-      `${figmaOutputDirectory}combined.json`,
-      JSON.stringify(data)
-    );
-  });
-});
+mergeFigmaFiles();

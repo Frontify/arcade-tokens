@@ -4,7 +4,7 @@
 
 module.exports = { 
   button: {
-    // Default Style
+      // Default Style
     "background-color"                         : { value: "{color.grey.10.value}", attributes: { category: "color" } },
     "background-color-hover"                   : { value: "{color.grey.20.value}", attributes: { category: "color" } },
     "background-color-pressed"                 : { value: "{color.grey.30.value}", attributes: { category: "color" } },

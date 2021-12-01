@@ -23,5 +23,82 @@ module.exports = {
     // X-Large Size
     "size-x-large"             : { value: 1.5, attributes: { category: "size", type: "font" } },
     "size-x-large-line-height" : { value: 1.75, attributes: { category: "size", type: "lineHeight" } },
-  }
+    
+    /**
+    * STYLES
+    * A bit repetitive but the easiest way to format the fonts for Figma
+    * ======================================================================== */
+    "medium": {
+      value: {
+        fontFamily: "{heading.family.value}",
+        fontSize: "{heading.size-medium.value}",
+        lineHeight: "{heading.size-medium-line-height.value}",
+        fontWeight: "{heading.weight-name.value}",
+      },
+      attributes: {
+        category: 'font',
+        type: 'style'
+      }
+    },
+    "medium-strong": {
+      value: {
+        fontFamily: "{heading.family.value}",
+        fontSize: "{heading.size-medium.value}",
+        lineHeight: "{heading.size-medium-line-height.value}",
+        fontWeight: "{heading.weight-strong-name.value}",
+      },
+      attributes: {
+        category: 'font',
+        type: 'style'
+      }
+    },
+    "large": {
+      value: {
+        fontFamily: "{heading.family.value}",
+        fontSize: "{heading.size-large.value}",
+        lineHeight: "{heading.size-large-line-height.value}",
+        fontWeight: "{heading.weight-name.value}",
+      },
+      attributes: {
+        category: 'font',
+        type: 'style'
+      }
+    },
+    "large-strong": {
+      value: {
+        fontFamily: "{heading.family.value}",
+        fontSize: "{heading.size-large.value}",
+        lineHeight: "{heading.size-large-line-height.value}",
+        fontWeight: "{heading.weight-strong-name.value}",
+      },
+      attributes: {
+        category: 'font',
+        type: 'style'
+      }
+    },
+    "x-large": {
+      value: {
+        fontFamily: "{heading.family.value}",
+        fontSize: "{heading.size-large.value}",
+        lineHeight: "{heading.size-large-line-height.value}",
+        fontWeight: "{heading.weight-name.value}",
+      },
+      attributes: {
+        category: 'font',
+        type: 'style'
+      }
+    },
+    "x-large-strong": {
+      value: {
+        fontFamily: "{heading.family.value}",
+        fontSize: "{heading.size-large.value}",
+        lineHeight: "{heading.size-large-line-height.value}",
+        fontWeight: "{heading.weight-strong-name.value}",
+      },
+      attributes: {
+        category: 'font',
+        type: 'style'
+      }
+    },
+  },
 };
