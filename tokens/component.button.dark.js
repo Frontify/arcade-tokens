@@ -49,9 +49,9 @@ module.exports = {
     "strong-positive-border-color"             : { value: "{line.color-weak.value}", attributes: { category: "color" } },
       
       // Danger Style
-    "danger-background-color"                  : { value: "{color.red.50.value}", attributes: { category: "color" } },
-    "danger-background-color-hover"            : { value: "{color.red.60.value}", attributes: { category: "color" } },
-    "danger-background-color-pressed"          : { value: "{color.red.70.value}", attributes: { category: "color" } },
+    "danger-background-color"                  : { value: "{color.red.60.value}", attributes: { category: "color" } },
+    "danger-background-color-hover"            : { value: "{color.red.70.value}", attributes: { category: "color" } },
+    "danger-background-color-pressed"          : { value: "{color.red.80.value}", attributes: { category: "color" } },
     "danger-text-color"                        : { value: "{color.grey.0.value}", attributes: { category: "color" } },
     "danger-icon-color"                        : { value: "{color.grey.0.value}", attributes: { category: "color" } },
     "danger-border-color"                      : { value: "{line.color-weak.value}", attributes: { category: "color" } },
