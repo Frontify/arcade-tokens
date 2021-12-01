@@ -265,8 +265,7 @@ colorThemes.forEach((theme) => {
             filter: (token) => {
               return (
                 token.filePath.indexOf(theme) > -1 &&
-                token.filePath.indexOf("alias.") > -1 &&
-                token.attributes.category === "color"
+                token.filePath.indexOf("alias.") > -1
               );
             },
           },
@@ -277,8 +276,7 @@ colorThemes.forEach((theme) => {
             filter: (token) => {
               return (
                 token.filePath.indexOf(theme) > -1 &&
-                token.filePath.indexOf("component.") > -1 &&
-                token.attributes.category === "color"
+                token.filePath.indexOf("component.") > -1
               );
             },
           },
