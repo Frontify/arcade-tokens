@@ -15,14 +15,14 @@ module.exports = {
     "negative-background-color"                : { value: "{button.background-color.value}", attributes: { category: "color" } },
     "negative-background-color-hover"          : { value: "{button.background-color-hover.value}", attributes: { category: "color" } },
     "negative-background-color-pressed"        : { value: "{button.background-color-pressed.value}", attributes: { category: "color" } },
-    "negative-text-color"                      : { value: "{button.background-color.value}", attributes: { category: "color" } },
+    "negative-text-color"                      : { value: "{button.text-color.value}", attributes: { category: "color" } },
     "negative-icon-color"                      : { value: "{text.color-negative.value}", attributes: { category: "color" } },
     "negative-border-color"                    : { value: "{line.color-weak.value}", attributes: { category: "color" } },
 
     "positive-background-color"                : { value: "{button.background-color.value}", attributes: { category: "color" } },
     "positive-background-color-hover"          : { value: "{button.background-color-hover.value}", attributes: { category: "color" } },
     "positive-background-color-pressed"        : { value: "{button.background-color-pressed.value}", attributes: { category: "color" } },
-    "positive-text-color"                      : { value: "{button.background-color.value}", attributes: { category: "color" } },
+    "positive-text-color"                      : { value: "{button.text-color.value}", attributes: { category: "color" } },
     "positive-icon-color"                      : { value: "{text.color-positive.value}", attributes: { category: "color" } },
     "positive-border-color"                    : { value: "{line.color-weak.value}", attributes: { category: "color" } },
       
@@ -37,14 +37,14 @@ module.exports = {
     "strong-negative-background-color"         : { value: "{button.strong-background-color.value}", attributes: { category: "color" } },
     "strong-negative-background-color-hover"   : { value: "{button.strong-background-color-hover.value}", attributes: { category: "color" } },
     "strong-negative-background-color-pressed" : { value: "{button.strong-background-color-pressed.value}", attributes: { category: "color" } },
-    "strong-negative-text-color"               : { value: "{button.strong-background-color.value}", attributes: { category: "color" } },
+    "strong-negative-text-color"               : { value: "{button.strong-text-color.value}", attributes: { category: "color" } },
     "strong-negative-icon-color"               : { value: "{color.red.50.value}", attributes: { category: "color" } },
     "strong-negative-border-color"             : { value: "{line.color-weak.value}", attributes: { category: "color" } },
 
     "strong-positive-background-color"         : { value: "{button.strong-background-color.value}", attributes: { category: "color" } },
     "strong-positive-background-color-hover"   : { value: "{button.strong-background-color-hover.value}", attributes: { category: "color" } },
     "strong-positive-background-color-pressed" : { value: "{button.strong-background-color-pressed.value}", attributes: { category: "color" } },
-    "strong-positive-text-color"               : { value: "{button.strong-background-color.value}", attributes: { category: "color" } },
+    "strong-positive-text-color"               : { value: "{button.strong-text-color.value}", attributes: { category: "color" } },
     "strong-positive-icon-color"               : { value: "{color.green.50.value}", attributes: { category: "color" } },
     "strong-positive-border-color"             : { value: "{line.color-weak.value}", attributes: { category: "color" } },
       
