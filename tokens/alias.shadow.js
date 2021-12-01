@@ -24,8 +24,8 @@ module.exports = {
     "bottom-spread"   : { value: -0.3125, attributes: { category: "size", type: "shadowSpread" } },
     // Large size
     "large-matrix"    : { value: "{shadow.large-offset-y.value} {shadow.large-offset-x.value} {shadow.large-blur.value} {shadow.large-spread.value} {shadow.large-color.value}", attributes: { type: "matrix" } },
-    "large-offset-y"  : { value: 1.5625, attributes: { category: "size", type: "shadowOffset", item: "x" } },
-    "large-offset-x"  : { value: 0, attributes: { category: "size", type: "shadowOffset", item: "y" } },
+    "large-offset-x"  : { value: 0, attributes: { category: "size", type: "shadowOffset", item: "x" } },
+    "large-offset-y"  : { value: 1.5625, attributes: { category: "size", type: "shadowOffset", item: "y" } },
     "large-spread"    : { value: 0, attributes: { category: "size", type: "shadowSpread" } },
     "large-blur"      : { value: 5, attributes: { category: "size", type: "shadowBlur" } },
     "large-color"     : { value: "{color.grey.100.value}", attributes: { category: "color", type: "shadow" }, modify: [{ type: "alpha", amount: 0.1 }] },
@@ -69,7 +69,7 @@ module.exports = {
         type: 'style'
       }
     },
-    "large": {
+    "big": {
       value: {
         x: "{shadow.large-offset-x.value}",
         y: "{shadow.large-offset-y.value}",

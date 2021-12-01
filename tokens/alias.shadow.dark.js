@@ -69,7 +69,7 @@ module.exports = {
         type: 'style'
       }
     },
-    "large": {
+    "big": {
       value: {
         x: "{shadow.large-offset-x.value}",
         y: "{shadow.large-offset-y.value}",
