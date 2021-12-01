@@ -110,21 +110,6 @@ StyleDictionary.registerFilter({
 });
 
 StyleDictionary.registerFilter({
-  name: "isBrand",
-  matcher: (token) => {
-    return token.filePath.indexOf("alias.") > -1;
-  },
-});
-
-StyleDictionary.registerFilter({
-  name: "isBrandColor",
-  matcher: (token) => {
-    if (token.filePath.indexOf("brand.") === -1) return false;
-    return token.attributes.category === "color";
-  },
-});
-
-StyleDictionary.registerFilter({
   name: "isAlias",
   matcher: (token) => {
     return token.filePath.indexOf("alias.") > -1;
@@ -280,7 +265,8 @@ colorThemes.forEach((theme) => {
             filter: (token) => {
               return (
                 token.filePath.indexOf(theme) > -1 &&
-                token.filePath.indexOf("alias.") > -1
+                token.filePath.indexOf("alias.") > -1 &&
+                token.attributes.category === "color"
               );
             },
           },
@@ -291,7 +277,8 @@ colorThemes.forEach((theme) => {
             filter: (token) => {
               return (
                 token.filePath.indexOf(theme) > -1 &&
-                token.filePath.indexOf("component.") > -1
+                token.filePath.indexOf("component.") > -1 &&
+                token.attributes.category === "color"
               );
             },
           },
