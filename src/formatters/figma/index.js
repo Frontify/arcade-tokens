@@ -11,7 +11,7 @@ const styles = (tokens) => {
   tokens.forEach((token) => {
     let category = toTitleCase(token.path[0]);
     let name = toTitleCase(token.path.slice(1).join(" ").replaceAll("-", " "));
-    let value = token.value;
+    const value = token.value;
     let type;
 
     if (
@@ -29,7 +29,7 @@ const styles = (tokens) => {
     }
 
     if (token.attributes.category === "color") {
-      name = name.replace("Color", "").trim();
+      name = name.replace("Color", "").trim().replace(/\s+/g, " ");
       type = "color";
     }
 
