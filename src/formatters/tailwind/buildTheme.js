@@ -59,21 +59,57 @@ const getFontSize = ({ tokens }) => {
 };
 
 const getColors = ({ tokens }) => {
-  const matchingTokens = tokens.filter((token) => token.path[0] === "color");
+  const matchingTokens = tokens.filter(
+    (token) => token.attributes.category === "color"
+  );
 
-  return matchingTokens.reduce((acc, cur) => {
-    const { type, item } = cur.attributes;
+  return matchingTokens.reduce((acc, token) => {
+    const { type, item } = token.attributes;
 
-    if (!item) {
+    /* 
+      This returns direct values to the colors object, like:
+      {
+        "lightest": "var(--color-lightest)"
+      }
+     */
+    if (!item && token.filePath.includes("brand")) {
+      const key =
+        trimHyphens(type.replace("color", "").replace("--", "-")) || "DEFAULT";
       return {
         ...acc,
-        [type]: `var(--${cur.name})`,
+        [key]: `var(--${token.name})`,
       };
     }
 
+    /* 
+      This returns nested values to the colors object, like:
+      {
+        "grey": {
+          "80": "var(--color-grey-80)"
+        }
+      }
+     */
+
+    if (token.filePath.includes("brand")) {
+      const key =
+        trimHyphens(item.replace("color", "").replace("--", "-")) || "DEFAULT";
+      return {
+        ...acc,
+        [type]: {
+          ...acc[type],
+          [key]: `var(--${token.name})`,
+        },
+      };
+    }
+
+    const key =
+      trimHyphens(type.replace("color", "").replace("--", "-")) || "DEFAULT";
     return {
       ...acc,
-      [type]: { ...acc[type], [item]: `var(--${cur.name})` },
+      [token.path[0]]: {
+        ...acc[token.path[0]],
+        [key]: `var(--${token.name})`,
+      },
     };
   }, {});
 };
