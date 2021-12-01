@@ -7,6 +7,7 @@ const transformColor = require("./src/utils/transformColor");
 const formatTailwind = require("./src/formatters/tailwind");
 const formatFigma = require("./src/formatters/figma/index.js");
 const mergeFigmaFiles = require("./src/utils/mergeFigmaFiles.js");
+const trimHyphens = require("./src/utils/trimHyphens");
 
 /**
  * FILE SYSTEM
@@ -48,6 +49,21 @@ StyleDictionary.registerTransform(
   })
 );
 
+StyleDictionary.registerTransform({
+  name: "attribute/tailwind",
+  type: "attribute",
+  transitive: true,
+  matched: (token) => token.attributes.category === "color",
+  transformer: (token) => {
+    return {
+      "tailwind-name": trimHyphens(token.name.replace("color", "")).replace(
+        "--",
+        "-"
+      ),
+    };
+  },
+});
+
 StyleDictionary.registerTransformGroup({
   name: "tailwind",
   transforms: [
@@ -65,6 +81,7 @@ StyleDictionary.registerTransformGroup({
     "size/rem",
     "name/cti/kebab",
     "attribute/cti",
+    "attribute/tailwind",
     "color/apply-modify",
     "color/css",
   ],
