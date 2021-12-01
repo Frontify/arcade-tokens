@@ -97,7 +97,7 @@ const getColors = ({ tokens }) => {
         ...acc,
         [type]: {
           ...acc[type],
-          [key]: `var(--${token.name})`,
+          [key]: token.value,
         },
       };
     }

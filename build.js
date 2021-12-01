@@ -179,7 +179,7 @@ StyleDictionary.extend({
         {
           destination: "index.js",
           format: "javascript/module",
-          filter: "isAlias",
+          filter: "isColor",
         },
       ],
     },
