@@ -1,13 +1,11 @@
+const trimHyphens = require("../../utils/trimHyphens");
+
 const getExtend = ({ dictionary }) => {
   return {
     outline: {
       violet: `1px solid var(--${dictionary.tokens.focus["ring-color"].name})`,
     },
   };
-};
-
-const trimHyphens = (string) => {
-  return string.replace(/^-+/, "").replace(/-+$/, "");
 };
 
 const getObject = ({ tokens, filter, remove }) => {
@@ -68,9 +66,7 @@ const getColors = ({ tokens }) => {
 
     /* 
       This returns direct values to the colors object, like:
-      {
-        "lightest": "var(--color-lightest)"
-      }
+      { "lightest": "var(--color-lightest)" }
      */
     if (!item && token.filePath.includes("brand")) {
       const key =
