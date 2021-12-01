@@ -13,7 +13,7 @@ const styles = (tokens) => {
     let name = toTitleCase(
       token.path.slice(1).join(" ").replaceAll("-", " ").replaceAll("_", "")
     );
-    const value = token.value;
+    let value = token.value;
     let type;
 
     if (
@@ -28,6 +28,9 @@ const styles = (tokens) => {
       token.attributes.category === "shadow" &&
       token.attributes.type === "style"
     ) {
+      for (key in value) {
+        value[key] = value[key].replace("px", "");
+      }
       name = name || "DEFAULT SHADOW";
       type = "boxShadow";
     }
