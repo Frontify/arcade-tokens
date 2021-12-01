@@ -7,7 +7,7 @@ module.exports = {
   line: {
     // Color
     "color"           : { value: "{color.grey.100.value}", attributes: { category: "color" }, modify: [{ type: "alpha", amount: 0.1 }] },
-    "color-weak"      : { value: "{color.grey.100.value}", attributes: { category: "color" }, modify: [{ type: "alpha", amount: 0.05 }] },
+    "color-weak"      : { value: "{color.grey.100.value}", attributes: { category: "color" }, modify: [{ type: "alpha", amount: 0.035 }] },
     "color-strong"    : { value: "{color.grey.100.value}", attributes: { category: "color" }, modify: [{ type: "alpha", amount: 0.15 }] },
     "color-x-strong"  : { value: "{color.grey.100.value}", attributes: { category: "color" }, modify: [{ type: "alpha", amount: 0.3 }] },
     "color-xx-strong" : { value: "{color.grey.80.value}", attributes: { category: "color" } },
