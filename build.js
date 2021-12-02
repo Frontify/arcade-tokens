@@ -76,7 +76,7 @@ StyleDictionary.registerTransformGroup({
 });
 
 StyleDictionary.registerTransformGroup({
-  name: "umd",
+  name: "js",
   transforms: [
     "size/rem",
     "name/cti/kebab",
@@ -197,22 +197,22 @@ StyleDictionary.extend({
   source: mainTokenGlob,
   platforms: {
     colors: {
-      transformGroup: "umd",
-      buildPath: outputDirectory + "umd/colors/",
+      transformGroup: "js",
+      buildPath: outputDirectory + "js/",
       files: [
         {
-          destination: "index.js",
+          destination: "colors.js",
           format: "javascript/module",
           filter: "isColor",
         },
       ],
     },
-    umd: {
-      transformGroup: "umd",
-      buildPath: outputDirectory + "umd/alias/",
+    tokens: {
+      transformGroup: "js",
+      buildPath: outputDirectory + "js/",
       files: [
         {
-          destination: "index.js",
+          destination: "tokens.js",
           format: "javascript/module",
           filter: "isAliasNonColor",
         },
