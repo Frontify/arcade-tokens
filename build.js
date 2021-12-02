@@ -76,7 +76,7 @@ StyleDictionary.registerTransformGroup({
 });
 
 StyleDictionary.registerTransformGroup({
-  name: "es",
+  name: "umd",
   transforms: [
     "size/rem",
     "name/cti/kebab",
@@ -131,6 +131,13 @@ StyleDictionary.registerFilter({
   matcher: (token) => {
     return token.filePath.indexOf("alias.") > -1;
   },
+});
+
+StyleDictionary.registerFilter({
+  name: "isAliasNonColor",
+  matcher: (token) =>
+    token.filePath.indexOf("alias.") > 1 &&
+    token.attributes.category !== "color",
 });
 
 StyleDictionary.registerFilter({
@@ -189,14 +196,25 @@ StyleDictionary.registerFilter({
 StyleDictionary.extend({
   source: mainTokenGlob,
   platforms: {
-    es: {
-      transformGroup: "es",
-      buildPath: outputDirectory + "esm/",
+    colors: {
+      transformGroup: "umd",
+      buildPath: outputDirectory + "umd/colors/",
       files: [
         {
           destination: "index.js",
           format: "javascript/module",
           filter: "isColor",
+        },
+      ],
+    },
+    umd: {
+      transformGroup: "umd",
+      buildPath: outputDirectory + "umd/alias/",
+      files: [
+        {
+          destination: "index.js",
+          format: "javascript/module",
+          filter: "isAliasNonColor",
         },
       ],
     },
