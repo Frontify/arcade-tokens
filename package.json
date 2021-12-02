@@ -8,7 +8,7 @@
     "index.js"
   ],
   "exports": {
-    ".": "./dist/esm/index.js",
+    ".": "./dist/umd/",
     "./tailwind": "./dist/tailwind/tailwind.config.js",
     "./styles/": "./dist/css/"
   },
