@@ -112,6 +112,9 @@ const getTheme = (dictionary) => {
   const tokens = dictionary.allTokens;
 
   return {
+    colors: getColors({
+      tokens,
+    }),
     extend: {
       fontSize: getFontSize({
         tokens,
@@ -144,9 +147,7 @@ const getTheme = (dictionary) => {
           token.attributes.category === "size" &&
           token.attributes.type === "borderRadius",
       }),
-      colors: getColors({
-        tokens,
-      }),
+
       ringColor: `var(--${dictionary.tokens.focus["ring-color"].name})`,
       outline: getOutline({ dictionary }),
     },
