@@ -16,6 +16,7 @@ const styles = (tokens) => {
     let value = token.value;
     let type;
 
+    // Typography
     if (
       token.attributes.category === "font" &&
       token.attributes.type === "style"
@@ -24,6 +25,7 @@ const styles = (tokens) => {
       type = "typography";
     }
 
+    // Shadow
     if (
       token.attributes.category === "shadow" &&
       token.attributes.type === "style"
@@ -35,7 +37,13 @@ const styles = (tokens) => {
       type = "boxShadow";
     }
 
+    // Colors
     if (token.attributes.category === "color") {
+      // Format the Box tokens a bit nicer.
+      if (token.path[0] === "box") {
+        category += " " + name.split(" ")[0];
+        name = name.split(" ").slice(1).join(" ");
+      }
       name = name.replace("Color", "").trim().replace(/\s+/g, " ");
       name = name || "DEFAULT COLOR";
       type = "color";
@@ -47,6 +55,7 @@ const styles = (tokens) => {
       });
     }
   });
+
   return returnObject;
 };
 
