@@ -77,8 +77,8 @@ module.exports = {
     "warning-color-hover"                   : { value: "{color.yellow.20.value}", attributes: { category: "color" } },
     "warning-color-pressed"                 : { value: "{color.yellow.30.value}", attributes: { category: "color" } },
     "warning-inverse-color"                 : { value: "{color.yellow.90.value}", attributes: { category: "color" } },
-    "positive-inverse-color-hover"          : { value: "{color.yellow.100.value}", attributes: { category: "color" } },
-    "positive-inverse-color-pressed"        : { value: "{color.grey.90.value}", attributes: { category: "color" } },
+    "warning-inverse-color-hover"           : { value: "{color.yellow.100.value}", attributes: { category: "color" } },
+    "warning-inverse-color-pressed"         : { value: "{color.grey.90.value}", attributes: { category: "color" } },
 
     "warning-strong-color"                  : { value: "{color.yellow.60.value}", attributes: { category: "color" } },
     "warning-strong-color-hover"            : { value: "{color.yellow.70.value}", attributes: { category: "color" } },
