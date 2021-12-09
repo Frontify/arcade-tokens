@@ -62,8 +62,8 @@ module.exports = {
     "negative-color-hover"                  : { value: "{color.red.20.value}", attributes: { category: "color" } },
     "negative-color-pressed"                : { value: "{color.red.30.value}", attributes: { category: "color" } },
     "negative-inverse-color"                : { value: "{color.red.80.value}", attributes: { category: "color" } },
-    "positive-inverse-color-hover"          : { value: "{color.red.90.value}", attributes: { category: "color" } },
-    "positive-inverse-color-pressed"        : { value: "{color.red.100.value}", attributes: { category: "color" } },
+    "negative-inverse-color-hover"          : { value: "{color.red.90.value}", attributes: { category: "color" } },
+    "negative-inverse-color-pressed"        : { value: "{color.red.100.value}", attributes: { category: "color" } },
 
     "negative-strong-color"                 : { value: "{color.red.60.value}", attributes: { category: "color" } },
     "negative-strong-color-hover"           : { value: "{color.red.70.value}", attributes: { category: "color" } },
