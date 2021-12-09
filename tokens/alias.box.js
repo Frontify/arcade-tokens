@@ -47,32 +47,44 @@ module.exports = {
     "positive-color-hover"                  : { value: "{color.green.20.value}", attributes: { category: "color" } },
     "positive-color-pressed"                : { value: "{color.green.40.value}", attributes: { category: "color" } },
     "positive-inverse-color"                : { value: "{color.green.80.value}", attributes: { category: "color" } },
+    "positive-inverse-color-hover"          : { value: "{color.green.90.value}", attributes: { category: "color" } },
+    "positive-inverse-color-pressed"        : { value: "{color.green.100.value}", attributes: { category: "color" } },
 
     "positive-strong-color"                 : { value: "{color.green.60.value}", attributes: { category: "color" } },
     "positive-strong-color-hover"           : { value: "{color.green.70.value}", attributes: { category: "color" } },
     "positive-strong-color-pressed"         : { value: "{color.green.80.value}", attributes: { category: "color" } },
     "positive-strong-inverse-color"         : { value: "{color.grey.0.value}", attributes: { category: "color" } },
+    "positive-strong-inverse-color-hover"   : { value: "{color.green.10.value}", attributes: { category: "color" } },
+    "positive-strong-inverse-color-pressed" : { value: "{color.green.20.value}", attributes: { category: "color" } },
 
     // Negative
     "negative-color"                        : { value: "{color.red.10.value}", attributes: { category: "color" } },
     "negative-color-hover"                  : { value: "{color.red.20.value}", attributes: { category: "color" } },
     "negative-color-pressed"                : { value: "{color.red.30.value}", attributes: { category: "color" } },
     "negative-inverse-color"                : { value: "{color.red.80.value}", attributes: { category: "color" } },
+    "positive-inverse-color-hover"          : { value: "{color.red.90.value}", attributes: { category: "color" } },
+    "positive-inverse-color-pressed"        : { value: "{color.red.100.value}", attributes: { category: "color" } },
 
     "negative-strong-color"                 : { value: "{color.red.60.value}", attributes: { category: "color" } },
     "negative-strong-color-hover"           : { value: "{color.red.70.value}", attributes: { category: "color" } },
     "negative-strong-color-pressed"         : { value: "{color.red.80.value}", attributes: { category: "color" } },
     "negative-strong-inverse-color"         : { value: "{color.grey.0.value}", attributes: { category: "color" } },
+    "negative-strong-inverse-color-hover"   : { value: "{color.red.10.value}", attributes: { category: "color" } },
+    "negative-strong-inverse-color-pressed" : { value: "{color.red.20.value}", attributes: { category: "color" } },
 
     // Warning
     "warning-color"                         : { value: "{color.yellow.10.value}", attributes: { category: "color" } },
     "warning-color-hover"                   : { value: "{color.yellow.20.value}", attributes: { category: "color" } },
     "warning-color-pressed"                 : { value: "{color.yellow.30.value}", attributes: { category: "color" } },
     "warning-inverse-color"                 : { value: "{color.yellow.90.value}", attributes: { category: "color" } },
+    "positive-inverse-color-hover"          : { value: "{color.yellow.100.value}", attributes: { category: "color" } },
+    "positive-inverse-color-pressed"        : { value: "{color.grey.90.value}", attributes: { category: "color" } },
 
     "warning-strong-color"                  : { value: "{color.yellow.60.value}", attributes: { category: "color" } },
     "warning-strong-color-hover"            : { value: "{color.yellow.70.value}", attributes: { category: "color" } },
     "warning-strong-color-pressed"          : { value: "{color.yellow.80.value}", attributes: { category: "color" } },
     "warning-strong-inverse-color"          : { value: "{color.grey.90.value}", attributes: { category: "color" } },
+    "warning-strong-inverse-color-hover"    : { value: "{color.yellow.90.value}", attributes: { category: "color" } },
+    "warning-strong-inverse-color-pressed"  : { value: "{color.yellow.100.value}", attributes: { category: "color" } },
   },
 };
