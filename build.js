@@ -120,6 +120,13 @@ StyleDictionary.registerFormat({
  */
 
 StyleDictionary.registerFilter({
+  name: "isBrand",
+  matcher: (token) => {
+    return token.filePath.indexOf("brand.") > -1;
+  },
+});
+
+StyleDictionary.registerFilter({
   name: "isColor",
   matcher: (token) => {
     return token.attributes.category === "color";
@@ -222,6 +229,11 @@ StyleDictionary.extend({
       transformGroup: "figma",
       buildPath: tempDirectory + "figma/",
       files: [
+        {
+          destination: "brand.json",
+          format: "figma",
+          filter: "isBrand",
+        },
         {
           destination: "aliases.json",
           format: "figma",
