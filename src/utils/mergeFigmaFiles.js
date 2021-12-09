@@ -9,6 +9,12 @@ const enforceAliasOrder = {
   Base: null,
   Text: null,
   Line: null,
+  "Box Neutral": null,
+  "Box Selected": null,
+  "Box Disabled": null,
+  "Box Positive": null,
+  "Box Negative": null,
+  "Box Warning": null,
   // Fonts styles
   Body: null,
   Heading: null,
