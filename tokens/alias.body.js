@@ -15,6 +15,9 @@ module.exports = {
     "weight-strong-number"         : { value: "{font.space-grotesk-medium-weight-number.value}", attributes: { category: 'font', type: 'weight' } },
     "weight-x-strong-name"         : { value: "{font.space-grotesk-bold-weight-name.value}", attributes: { category: 'font', type: 'name' } },
     "weight-x-strong-number"       : { value: "{font.space-grotesk-bold-weight-number.value}", attributes: { category: 'font', type: 'weight' } },
+    // X-Small Size
+    "size-x-small"                   : { value: 0.75, attributes: { category: "size", type: "font" } },
+    "size-x-small-line-height"       : { value: 1, attributes: { category: "size", type: "lineHeight" } },
     // Small Size
     "size-small"                   : { value: 0.813, attributes: { category: "size", type: "font" } },
     "size-small-line-height"       : { value: 1, attributes: { category: "size", type: "lineHeight" } },
@@ -29,7 +32,40 @@ module.exports = {
     * STYLES
     * A bit repetitive but the easiest way to format the fonts for Figma
     * ======================================================================== */
-     "small": {
+    "x-small": {
+      value: {
+        fontFamily: "{body.family.value}",
+        fontSize: "{body.size-x-small.value}",
+        lineHeight: "{body.size-x-small-line-height.value}",
+        fontWeight: "{body.weight-name.value}",
+      },
+      attributes: {
+        category: 'font',
+        type: 'style'
+      }
+    },
+    "x-small-strong": {
+      value: {
+        fontFamily: "{body.family.value}",
+        fontSize: "{body.size-x-small.value}",
+        lineHeight: "{body.size-x-small-line-height.value}",
+        fontWeight: "{body.weight-strong-name.value}",
+      },
+      attributes: {
+        category: 'font',
+        type: 'style'
+      }
+    },
+    "x-small-x-strong": {
+      value: {
+        fontFamily: "{body.family.value}",
+        fontSize: "{body.size-x-small.value}",
+        lineHeight: "{body.size-x-small-line-height.value}",
+        fontWeight: "{body.weight-x-strong-name.value}",
+      },
+      attributes: { category: 'font', type: 'style' }
+    },
+    "small": {
       value: {
         fontFamily: "{body.family.value}",
         fontSize: "{body.size-small.value}",
