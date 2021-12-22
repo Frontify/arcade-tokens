@@ -15,7 +15,7 @@ module.exports = {
       "5"         : { value: "{color.off-white.value}"},
       "10"        : { value: "#f1f1f1"},
       "20"        : { value: "#e8e9e9"},
-      "30"        : { value: "#c0c1c1"},
+      "30"        : { value: "#D5D6D6"},
       "40"        : { value: "#a5a8a8"},
       "50"        : { value: "#8d9090"},
       "60"        : { value: "#6c7070"},
