@@ -27,12 +27,12 @@ module.exports = {
     * STYLES
     * A bit repetitive but the easiest way to format the fonts for Figma
     * ======================================================================== */
-     "small": {
+    "small": {
       value: {
-        fontFamily: "{body.family.value}",
-        fontSize: "{body.size-small.value}",
-        lineHeight: "{body.size-small-line-height.value}",
-        fontWeight: "{body.weight-name.value}",
+        fontFamily: "{code.family.value}",
+        fontSize: "{code.size-small.value}",
+        lineHeight: "{code.size-small-line-height.value}",
+        fontWeight: "{code.weight-name.value}",
       },
       attributes: {
         category: 'font',
@@ -41,31 +41,22 @@ module.exports = {
     },
     "small-strong": {
       value: {
-        fontFamily: "{body.family.value}",
-        fontSize: "{body.size-small.value}",
-        lineHeight: "{body.size-small-line-height.value}",
-        fontWeight: "{body.weight-strong-name.value}",
+        fontFamily: "{code.family.value}",
+        fontSize: "{code.size-small.value}",
+        lineHeight: "{code.size-small-line-height.value}",
+        fontWeight: "{code.weight-strong-name.value}",
       },
       attributes: {
         category: 'font',
         type: 'style'
       }
     },
-    "small-x-strong": {
-      value: {
-        fontFamily: "{body.family.value}",
-        fontSize: "{body.size-small.value}",
-        lineHeight: "{body.size-small-line-height.value}",
-        fontWeight: "{body.weight-x-strong-name.value}",
-      },
-      attributes: { category: 'font', type: 'style' }
-    },
     "medium": {
       value: {
-        fontFamily: "{body.family.value}",
-        fontSize: "{body.size-medium.value}",
-        lineHeight: "{body.size-medium-line-height.value}",
-        fontWeight: "{body.weight-name.value}",
+        fontFamily: "{code.family.value}",
+        fontSize: "{code.size-medium.value}",
+        lineHeight: "{code.size-medium-line-height.value}",
+        fontWeight: "{code.weight-name.value}",
       },
       attributes: {
         category: 'font',
@@ -74,31 +65,22 @@ module.exports = {
     },
     "medium-strong": {
       value: {
-        fontFamily: "{body.family.value}",
-        fontSize: "{body.size-medium.value}",
-        lineHeight: "{body.size-medium-line-height.value}",
-        fontWeight: "{body.weight-strong-name.value}",
+        fontFamily: "{code.family.value}",
+        fontSize: "{code.size-medium.value}",
+        lineHeight: "{code.size-medium-line-height.value}",
+        fontWeight: "{code.weight-strong-name.value}",
       },
       attributes: {
         category: 'font',
         type: 'style'
       }
     },
-    "medium-x-strong": {
-      value: {
-        fontFamily: "{body.family.value}",
-        fontSize: "{body.size-medium.value}",
-        lineHeight: "{body.size-medium-line-height.value}",
-        fontWeight: "{body.weight-x-strong-name.value}",
-      },
-      attributes: { category: 'font', type: 'style' }
-    },
     "large": {
       value: {
-        fontFamily: "{body.family.value}",
-        fontSize: "{body.size-large.value}",
-        lineHeight: "{body.size-large-line-height.value}",
-        fontWeight: "{body.weight-name.value}",
+        fontFamily: "{code.family.value}",
+        fontSize: "{code.size-large.value}",
+        lineHeight: "{code.size-large-line-height.value}",
+        fontWeight: "{code.weight-name.value}",
       },
       attributes: {
         category: 'font',
@@ -107,24 +89,15 @@ module.exports = {
     },
     "large-strong": {
       value: {
-        fontFamily: "{body.family.value}",
-        fontSize: "{body.size-large.value}",
-        lineHeight: "{body.size-large-line-height.value}",
-        fontWeight: "{body.weight-strong-name.value}",
+        fontFamily: "{code.family.value}",
+        fontSize: "{code.size-large.value}",
+        lineHeight: "{code.size-large-line-height.value}",
+        fontWeight: "{code.weight-strong-name.value}",
       },
       attributes: {
         category: 'font',
         type: 'style'
       }
-    },
-    "large-x-strong": {
-      value: {
-        fontFamily: "{body.family.value}",
-        fontSize: "{body.size-large.value}",
-        lineHeight: "{body.size-large-line-height.value}",
-        fontWeight: "{body.weight-x-strong-name.value}",
-      },
-      attributes: { category: 'font', type: 'style' }
     },
   },
 };
