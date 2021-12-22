@@ -26,27 +26,38 @@ module.exports = () => {
     return new Promise((resolve, reject) => {
       if (error) reject(error);
 
+      let brand = {};
       let aliases = {};
       let components = {};
+
       files.reverse().forEach((file) => {
         const content = fs.readFileSync(figmaTempDirectory + file, "utf8");
-        if (file.indexOf("aliases") > -1) {
+        if (file.indexOf("brand") > -1) {
+          brand = { ...brand, ...JSON.parse(content) };
+        } else if (file.indexOf("aliases") > -1) {
           aliases = { ...aliases, ...JSON.parse(content) };
         } else {
           components = { ...components, ...JSON.parse(content) };
         }
       });
 
-      resolve({ aliases, components });
+      resolve({ brand, aliases, components });
     }).then((data) => {
       if (!fs.existsSync(figmaOutputDirectory)) {
         fs.mkdirSync(figmaOutputDirectory);
       }
       data.aliases = Object.assign(enforceAliasOrder, data.aliases);
+
+      fs.writeFileSync(
+        `${figmaOutputDirectory}brand.json`,
+        JSON.stringify(data.brand)
+      );
+
       fs.writeFileSync(
         `${figmaOutputDirectory}aliases.json`,
         JSON.stringify(data.aliases)
       );
+
       fs.writeFileSync(
         `${figmaOutputDirectory}components.json`,
         JSON.stringify(data.components)
