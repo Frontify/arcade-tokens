@@ -5,11 +5,11 @@
 module.exports = { 
   button: {
     // Default Style
-    "background-color"                         : { value: "{color.grey.10.value}", attributes: { category: "color" } },
-    "background-color-hover"                   : { value: "{color.grey.20.value}", attributes: { category: "color" } },
-    "background-color-pressed"                 : { value: "{color.grey.30.value}", attributes: { category: "color" } },
-    "text-color"                               : { value: "{color.grey.80.value}", attributes: { category: "color" } },
-    "icon-color"                               : { value: "{color.grey.80.value}", attributes: { category: "color" } },
+    "background-color"                         : { value: "{box.neutral-color.value}", attributes: { category: "color" } },
+    "background-color-hover"                   : { value: "{box.neutral-color-hover.value}", attributes: { category: "color" } },
+    "background-color-pressed"                 : { value: "{box.neutral-color-pressed.value}", attributes: { category: "color" } },
+    "text-color"                               : { value: "{text.color.value}", attributes: { category: "color" } },
+    "icon-color"                               : { value: "{text.color.value}", attributes: { category: "color" } },
     "border-color"                             : { value: "{line.color-weak.value}", attributes: { category: "color" } },
 
     "negative-background-color"                : { value: "{button.background-color.value}", attributes: { category: "color" } },
@@ -27,11 +27,11 @@ module.exports = {
     "positive-border-color"                    : { value: "{line.color-weak.value}", attributes: { category: "color" } },
       
       // Strong Style
-    "strong-background-color"                  : { value: "{color.grey.70.value}", attributes: { category: "color" } },
-    "strong-background-color-hover"            : { value: "{color.grey.90.value}", attributes: { category: "color" } },
-    "strong-background-color-pressed"          : { value: "{color.grey.100.value}", attributes: { category: "color" } },
-    "strong-text-color"                        : { value: "{color.grey.0.value}", attributes: { category: "color" } },
-    "strong-icon-color"                        : { value: "{color.grey.0.value}", attributes: { category: "color" } },
+    "strong-background-color"                  : { value: "{box.neutral-strong-color.value}", attributes: { category: "color" } },
+    "strong-background-color-hover"            : { value: "{box.neutral-strong-color-hover.value}", attributes: { category: "color" } },
+    "strong-background-color-pressed"          : { value: "{box.neutral-strong-color-pressed.value}", attributes: { category: "color" } },
+    "strong-text-color"                        : { value: "{box.neutral-strong-inverse-color.value}", attributes: { category: "color" } },
+    "strong-icon-color"                        : { value: "{box.neutral-strong-inverse-color.value}", attributes: { category: "color" } },
     "strong-border-color"                      : { value: "{line.color-weak.value}", attributes: { category: "color" } },
 
     "strong-negative-background-color"         : { value: "{button.strong-background-color.value}", attributes: { category: "color" } },
