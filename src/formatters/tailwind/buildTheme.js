@@ -41,8 +41,8 @@ const getFontSize = ({ tokens }) => {
 
     return {
       [slug]: [
-        `--var(${dictionary[key][key].name})`,
-        `--var(${dictionary[key][`${key}-line-height`].name})`,
+        `var(--${dictionary[key][key].name})`,
+        `var(--${dictionary[key][`${key}-line-height`].name})`,
       ],
     };
   });
