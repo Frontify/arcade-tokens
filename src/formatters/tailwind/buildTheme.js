@@ -150,6 +150,13 @@ const getTheme = (dictionary) => {
 
       ringColor: `var(--${dictionary.tokens.focus["ring-color"].name})`,
       outline: getOutline({ dictionary }),
+      spacing: getObject({
+        remove: "space",
+        tokens,
+        filter: (token) =>
+          token.attributes.category === "size" &&
+          token.attributes.type === "spacing",
+      }),
     },
   };
 };
