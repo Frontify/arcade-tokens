@@ -14,15 +14,15 @@ module.exports = {
     "space-grotesk-regular-weight-name"     : { value: "Regular", attributes: { type: "name" } },
     // MEDIUM FONT
     "space-grotesk-medium"                  : { value: "Space Grotesk Frontify Medium" },
-    "space-grotesk-medium-weight-number"    : { value: 400, attributes: { type: "weight" } },
+    "space-grotesk-medium-weight-number"    : { value: 500, attributes: { type: "weight" } },
     "space-grotesk-medium-weight-name"      : { value: "Medium", attributes: { type: "name" } },
     // SEMIBOLD FONT
     "space-grotesk-semi-bold"               : { value: "Space Grotesk Frontify Semi Bold" },
-    "space-grotesk-semi-bold-weight-number" : { value: 400, attributes: { type: "weight" } },
+    "space-grotesk-semi-bold-weight-number" : { value: 600, attributes: { type: "weight" } },
     "space-grotesk-semi-bold-weight-name"   : { value: "Semi Bold", attributes: { type: "name" } },
     // BOLD FONT
     "space-grotesk-bold"                    : { value: "Space Grotesk Frontify Bold" },
-    "space-grotesk-bold-weight-number"      : { value: 400, attributes: { type: "weight" } },
+    "space-grotesk-bold-weight-number"      : { value: 700, attributes: { type: "weight" } },
     "space-grotesk-bold-weight-name"        : { value: "Bold", attributes: { type: "name" } },
 
     // MENLO FAMILY
