@@ -25,6 +25,7 @@ jobs:
         with:
           node-version: "16"
           registry-url: "https://registry.npmjs.org"
+          scope: "@frontify"
 
       - name: Cache dependencies
         id: npm_cache
@@ -44,4 +45,5 @@ jobs:
         run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPMTOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

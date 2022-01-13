@@ -1,5 +1,7 @@
 # Style-dictionary build directory
 output
+dist
+temp
 
 # Logs
 logs

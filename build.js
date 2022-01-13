@@ -2,66 +2,192 @@
  * MODULES
  */
 const StyleDictionary = require("style-dictionary");
-const { fileHeader } = StyleDictionary.formatHelpers;
 const fs = require("fs");
-const getTailwindTree = require("./scripts/getTailwindConfig");
+const transformColor = require("./src/utils/transformColor");
+const formatTailwind = require("./src/formatters/tailwind");
+const formatFigma = require("./src/formatters/figma/index.js");
+const mergeFigmaFiles = require("./src/utils/mergeFigmaFiles.js");
+const trimHyphens = require("./src/utils/trimHyphens");
 
 /**
  * FILE SYSTEM
  */
-const inputDirectory = "input/";
-const inputExtension = "js";
-const outputDirectory = "output/";
-const tokenFiles = fs.readdirSync(inputDirectory);
+const inputDirectory = "tokens/";
+const tempDirectory = "temp/";
+const outputDirectory = "dist/";
+const colorThemes = ["dark"];
+
+const mainTokenGlob = [
+  inputDirectory + `brand.!(*.${colorThemes.join(`|*.`)}).js`,
+  inputDirectory + `alias.!(*.${colorThemes.join(`|*.`)}).js`,
+  inputDirectory + `component.!(*.${colorThemes.join(`|*.`)}).js`,
+];
 
 /**
  * THEMES
  * - Gets the names of the color themes from the filesystem
  */
-const colorThemeFiles = tokenFiles.filter(
-  (file) =>
-    file.indexOf(".theme.") > -1 &&
-    file.indexOf(`.theme.${inputExtension}`) === -1
+
+/**
+ * TRANSORMS
+ */
+
+StyleDictionary.registerTransform({
+  name: "color/apply-modify",
+  type: "value",
+  transitive: true,
+  matcher: (token) => token.attributes.category === "color" && token.modify,
+  transformer: (token) => {
+    return transformColor(token);
+  },
+});
+
+StyleDictionary.registerTransform(
+  Object.assign({}, StyleDictionary.transform[`color/css`], {
+    name: "color/css",
+    transitive: true,
+  })
 );
-const colorThemes = colorThemeFiles.map((file) => {
-  return file.replace("ui.theme.", "").replace(`.${inputExtension}`, "");
+
+StyleDictionary.registerTransform({
+  name: "attribute/tailwind",
+  type: "attribute",
+  transitive: true,
+  matched: (token) => token.attributes.category === "color",
+  transformer: (token) => {
+    return {
+      "tailwind-name": trimHyphens(token.name.replace("color", "")).replace(
+        "--",
+        "-"
+      ),
+    };
+  },
+});
+
+StyleDictionary.registerTransformGroup({
+  name: "tailwind",
+  transforms: [
+    "attribute/cti",
+    "name/cti/kebab",
+    "size/rem",
+    "color/apply-modify",
+    "color/css",
+  ],
+});
+
+StyleDictionary.registerTransformGroup({
+  name: "js",
+  transforms: [
+    "size/rem",
+    "name/cti/kebab",
+    "attribute/cti",
+    "attribute/tailwind",
+    "color/apply-modify",
+    "color/css",
+  ],
+});
+
+StyleDictionary.registerTransformGroup({
+  name: "figma",
+  transforms: [
+    "attribute/cti",
+    "name/cti/kebab",
+    "size/remToPx",
+    "color/apply-modify",
+    "color/css",
+  ],
 });
 
 /**
- * FILTERS
- * - These are used in each file's configuration options to determine which tokens should
- * - be included in that file.
- */
-const isToken = (token) => {
-  return token.filePath.indexOf("brand.") === -1;
-};
-const isColor = (token) => {
-  return isToken(token) && token.attributes.category === "color";
-};
-const isTypography = (token) => {
-  return isToken(token) && token.filePath.indexOf(".typography.") > -1;
-};
-const isSize = (token) => {
-  return isToken(token) && token.filePath.indexOf(".sizing.") > -1;
-};
-const isElement = (token) => {
-  return isToken(token) && token.filePath.indexOf(".elements.") > -1;
-};
-const isThickness = (token) => {
-  return isToken(token) && token.attributes.type === "thickness";
-};
-
-/**
  * FORMATS
- * - These are used in each file's configuration options to determine which tokens should
- * - be included in that file.
  */
 
 StyleDictionary.registerFormat({
   name: "tailwind",
-  formatter: ({ dictionary, file }) => {
-    const tree = getTailwindTree(dictionary.tokens);
-    return fileHeader({ file }) + "module.exports = " + tree + ";";
+  formatter: ({ dictionary, options, file }) =>
+    formatTailwind({ dictionary, options, file }),
+});
+
+StyleDictionary.registerFormat({
+  name: "figma",
+  formatter: ({ dictionary, options }) => {
+    return formatFigma({ dictionary, options });
+  },
+});
+
+/**
+ * FILTERS
+ */
+
+StyleDictionary.registerFilter({
+  name: "isBrand",
+  matcher: (token) => {
+    return token.filePath.indexOf("brand.") > -1;
+  },
+});
+
+StyleDictionary.registerFilter({
+  name: "isColor",
+  matcher: (token) => {
+    return token.attributes.category === "color";
+  },
+});
+
+StyleDictionary.registerFilter({
+  name: "isAlias",
+  matcher: (token) => {
+    return token.filePath.indexOf("alias.") > -1;
+  },
+});
+
+StyleDictionary.registerFilter({
+  name: "isAliasNonColor",
+  matcher: (token) =>
+    token.filePath.indexOf("alias.") > 1 &&
+    token.attributes.category !== "color",
+});
+
+StyleDictionary.registerFilter({
+  name: "isAliasTypography",
+  matcher: (token) => {
+    if (token.filePath.indexOf("alias.") === -1) return false;
+
+    const fontCategory = token.attributes.category === "font";
+    const sizeCategory = token.attributes.category === "size";
+    const fontType = token.attributes.type === "font";
+    const lineHeightType = token.attributes.type === "lineHeight";
+
+    return (
+      fontCategory ||
+      (sizeCategory && fontType) ||
+      (sizeCategory && lineHeightType)
+    );
+  },
+});
+
+StyleDictionary.registerFilter({
+  name: "isAliasSpace",
+  matcher: (token) => {
+    if (token.filePath.indexOf("alias.") === -1) return false;
+    return (
+      token.attributes.category === "size" &&
+      token.attributes.type === "spacing"
+    );
+  },
+});
+
+StyleDictionary.registerFilter({
+  name: "isAliasColor",
+  matcher: (token) => {
+    if (token.filePath.indexOf("alias.") === -1) return false;
+    return token.attributes.category === "color";
+  },
+});
+
+StyleDictionary.registerFilter({
+  name: "isComponent",
+  matcher: (token) => {
+    return token.filePath.indexOf("component.") > -1;
   },
 });
 
@@ -73,21 +199,60 @@ StyleDictionary.registerFormat({
  * - Each file applies a 'filter' to select which of those tokens it wants to include.
  * - This ensures that each file only contains the final, consumable tokens.
  */
+
 StyleDictionary.extend({
-  source: [
-    `${inputDirectory}**/!(*.${colorThemes.join(`|*.`)}).${inputExtension}`,
-  ],
+  source: mainTokenGlob,
   platforms: {
-    tailwind: {
+    colors: {
       transformGroup: "js",
+      buildPath: outputDirectory + "js/",
+      files: [
+        {
+          destination: "colors.js",
+          format: "javascript/module",
+          filter: "isColor",
+        },
+      ],
+    },
+    tokens: {
+      transformGroup: "js",
+      buildPath: outputDirectory + "js/",
+      files: [
+        {
+          destination: "tokens.js",
+          format: "javascript/module",
+          filter: "isAliasNonColor",
+        },
+      ],
+    },
+    figma: {
+      transformGroup: "figma",
+      buildPath: tempDirectory + "figma/",
+      files: [
+        {
+          destination: "brand.json",
+          format: "figma",
+          filter: "isBrand",
+        },
+        {
+          destination: "aliases.json",
+          format: "figma",
+          filter: "isAlias",
+        },
+        {
+          destination: "components.json",
+          format: "figma",
+          filter: "isComponent",
+        },
+      ],
+    },
+    tailwind: {
+      transformGroup: "tailwind",
       buildPath: outputDirectory + "tailwind/",
       files: [
         {
           destination: "tailwind.config.js",
           format: "tailwind",
-          filter: (token) => {
-            return isToken(token);
-          },
         },
       ],
     },
@@ -96,35 +261,24 @@ StyleDictionary.extend({
       buildPath: outputDirectory + "css/",
       files: [
         {
+          destination: "all.css",
+          format: "css/variables",
+          filter: "isAlias",
+        },
+        {
           destination: "colors.css",
           format: "css/variables",
-          filter: (token) => {
-            return isColor(token);
-          },
+          filter: "isAliasColor",
         },
         {
           destination: "typography.css",
           format: "css/variables",
-          filter: (token) => {
-            return isTypography(token);
-          },
+          filter: "isAliasTypography",
         },
         {
-          destination: "sizes.css",
+          destination: "spacing.css",
           format: "css/variables",
-          filter: (token) => {
-            return isSize(token);
-          },
-        },
-        {
-          destination: "elements.css",
-          format: "css/variables",
-          filter: (token) => {
-            return isElement(token);
-          },
-          // options: {
-          //   outputReferences: true,
-          // }
+          filter: "isAliasSpace",
         },
       ],
     },
@@ -143,12 +297,38 @@ StyleDictionary.extend({
 colorThemes.forEach((theme) => {
   StyleDictionary.extend({
     // Include references from all files
-    include: [
-      `${inputDirectory}**/!(*.${colorThemes.join(`|*.`)}).${inputExtension}`,
-    ],
+    include: mainTokenGlob,
     // Only output from the appropriate color theme file
-    source: [`${inputDirectory}ui.theme.${theme}.${inputExtension}`],
+    source: [inputDirectory + "*." + theme + ".js"],
     platforms: {
+      figma: {
+        transformGroup: "figma",
+        buildPath: tempDirectory + "figma/",
+        files: [
+          {
+            destination: `aliases.${theme}.json`,
+            format: "figma",
+            options: { theme: theme },
+            filter: (token) => {
+              return (
+                token.filePath.indexOf(theme) > -1 &&
+                token.filePath.indexOf("alias.") > -1
+              );
+            },
+          },
+          {
+            destination: `components.${theme}.json`,
+            format: "figma",
+            options: { theme: theme },
+            filter: (token) => {
+              return (
+                token.filePath.indexOf(theme) > -1 &&
+                token.filePath.indexOf("component.") > -1
+              );
+            },
+          },
+        ],
+      },
       css: {
         transformGroup: "css",
         buildPath: outputDirectory + "css/",
@@ -156,9 +336,12 @@ colorThemes.forEach((theme) => {
           {
             destination: `theme.${theme}.css`,
             format: "css/variables",
+            options: { theme: theme },
             filter: (token) => {
-              const isCurrentTheme = token.filePath.indexOf(theme) > -1;
-              return isCurrentTheme;
+              return (
+                token.filePath.indexOf(theme) > -1 &&
+                token.attributes.category === "color"
+              );
             },
           },
         ],
@@ -166,3 +349,5 @@ colorThemes.forEach((theme) => {
     },
   }).buildAllPlatforms();
 });
+
+mergeFigmaFiles();

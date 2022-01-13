@@ -1,17 +1,26 @@
 {
-  "name": "arcade-tokens",
+  "name": "@frontify/arcade-tokens",
   "version": "0.1.0",
   "description": "Single source of truth for Arcade Design Tokens",
-  "private": true,
   "main": "index.js",
   "files": [
-    "output"
+    "dist",
+    "index.js"
   ],
+  "exports": {
+    ".": "./dist/js/colors.js",
+    "./tokens": "./dist/js/tokens.js",
+    "./tailwind": "./dist/tailwind/tailwind.config.js",
+    "./styles/": "./dist/css/"
+  },
   "scripts": {
     "build": "node build.js"
   },
   "repository": {
     "url": "https://github.com/frontify/arcade-tokens"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [
     "arcade",
@@ -25,7 +34,11 @@
     "url": "https://github.com/Frontify/arcade-tokens/issues"
   },
   "homepage": "https://github.com/Frontify/arcade-tokens#readme",
+  "dependencies": {
+    "tailwindcss": "^2.2.19"
+  },
   "devDependencies": {
+    "chroma-js": "^2.1.2",
     "prettier": "^2.4.1",
     "semantic-release": "^18.0.0",
     "style-dictionary": "^3.0.3"
