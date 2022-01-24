@@ -2,7 +2,6 @@ module.exports = ({ theme, plugin }) => {
   return `const plugin = require('tailwindcss/plugin')
 
   module.exports = {
-      mode: "jit",
       darkMode: "class",
       prefix: "tw-",
       variants: {
