@@ -148,7 +148,9 @@ const getTheme = (dictionary) => {
           token.attributes.type === "borderRadius",
       }),
 
-      ringColor: `var(--${dictionary.tokens.focus["ring-color"].name})`,
+      ringColor: {
+        DEFAULT: `var(--${dictionary.tokens.focus["ring-color"].name})`,
+      },
       outline: getOutline({ dictionary }),
       spacing: getObject({
         remove: "space",
