@@ -36,7 +36,8 @@ module.exports = {
       },
       attributes: {
         category: 'font',
-        type: 'style'
+        type: 'style',
+        target: 'figma'
       }
     },
     "small-strong": {
@@ -48,7 +49,8 @@ module.exports = {
       },
       attributes: {
         category: 'font',
-        type: 'style'
+        type: 'style',
+        target: 'figma'
       }
     },
     "medium": {
@@ -60,7 +62,8 @@ module.exports = {
       },
       attributes: {
         category: 'font',
-        type: 'style'
+        type: 'style',
+        target: 'figma'
       }
     },
     "medium-strong": {
@@ -72,7 +75,8 @@ module.exports = {
       },
       attributes: {
         category: 'font',
-        type: 'style'
+        type: 'style',
+        target: 'figma'
       }
     },
     "large": {
@@ -84,7 +88,8 @@ module.exports = {
       },
       attributes: {
         category: 'font',
-        type: 'style'
+        type: 'style',
+        target: 'figma'
       }
     },
     "large-strong": {
@@ -96,7 +101,8 @@ module.exports = {
       },
       attributes: {
         category: 'font',
-        type: 'style'
+        type: 'style',
+        target: 'figma'
       }
     },
   },
