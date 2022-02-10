@@ -239,7 +239,7 @@ StyleDictionary.extend({
               return true;
             }
 
-            const validTypes = ["spacing", "lineHeight"];
+            const validTypes = ["spacing", "lineHeight", "font"];
 
             if (
               category === "size" &&

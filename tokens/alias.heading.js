@@ -8,7 +8,7 @@ module.exports = {
   heading: {
     // Family
     "family"                   : { value: "{body.family.value}", attributes: { category: "font", type: 'family' } },
-    "family-stack"             : { value: "{body.family-stack.value}" },
+    "family-stack"             : { value: "{body.family-stack.value}", attributes: { category: "font", type: 'family' }  },
     // Weights
     "weight-name"              : { value: "{font.space-grotesk-medium-weight-name.value}", attributes: { category: 'font', type: 'name' } },
     "weight-number"            : { value: "{font.space-grotesk-medium-weight-number.value}", attributes: { category: 'font', type: 'weight' } },

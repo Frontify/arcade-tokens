@@ -7,7 +7,7 @@ module.exports = {
   code: {
     // Family
     "family"                       : { value: "{font.menlo.value}", attributes: { category: "font", type: 'family' } },
-    "family-stack"                 : { value: ["{code.family.value}", "Courier", "monospace"] },
+    "family-stack"                 : { value: ["{code.family.value}", "Courier", "monospace"], attributes: { category: "font", type: 'family' } },
     // Weights
     "weight-name"                  : { value: "{font.menlo-regular-weight-name.value}", attributes: { category: 'font', type: 'name' } },
     "weight-number"                : { value: "{font.menlo-regular-weight-name.value}", attributes: { category: 'font', type: 'weight' } },

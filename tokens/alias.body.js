@@ -7,7 +7,7 @@ module.exports = {
   body: {
     // Family
     "family"                       : { value: "{font.space-grotesk.value}", attributes: { category: "font", type: 'family' } },
-    "family-stack"                 : { value: [ "{body.family.value}", "Arial", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" ] },
+    "family-stack"                 : { value: [ "{body.family.value}", "Arial", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" ], attributes: { category: "font", type: 'family' } },
     // Weights
     "weight-name"                  : { value: "{font.space-grotesk-regular-weight-name.value}", attributes: { category: 'font', type: 'name' } },
     "weight-number"                : { value: "{font.space-grotesk-regular-weight-number.value}", attributes: { category: 'font', type: 'weight' } },
