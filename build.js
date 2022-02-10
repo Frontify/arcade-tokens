@@ -231,25 +231,9 @@ StyleDictionary.extend({
               return false;
             }
 
-            const { category, type, target = "" } = token.attributes;
+            const { target = "" } = token.attributes;
 
-            const validCategories = ["color", "font"];
-
-            if (validCategories.includes(category) && target !== "figma") {
-              return true;
-            }
-
-            const validTypes = ["spacing", "lineHeight", "font"];
-
-            if (
-              category === "size" &&
-              validTypes.includes(type) &&
-              target !== "figma"
-            ) {
-              return true;
-            }
-
-            return false;
+            return target !== "figma";
           },
         },
       ],
