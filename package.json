@@ -11,7 +11,7 @@
     ".": "./dist/js/colors.js",
     "./tokens": "./dist/js/tokens.js",
     "./tailwind": "./dist/tailwind/tailwind.config.js",
-    "./styles/": "./dist/css/"
+    "./styles": "./dist/css/all.css"
   },
   "scripts": {
     "build": "node build.js"
@@ -40,7 +40,7 @@
   "devDependencies": {
     "chroma-js": "^2.1.2",
     "prettier": "^2.4.1",
-    "semantic-release": "^18.0.0",
+    "semantic-release": "^19.0.0",
     "style-dictionary": "^3.0.3"
   }
 }
