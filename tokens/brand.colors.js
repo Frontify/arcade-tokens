@@ -13,7 +13,7 @@ module.exports = {
     "grey": {
       "0"         : { value: "#FFFFFF" },
       "5"         : { value: "{color.off-white.value}"},
-      "10"        : { value: "#F7F7F7"},
+      "10"        : { value: "#f1f1f1"},
       "20"        : { value: "#EAEBEB"},
       "30"        : { value: "#D5D6D6"},
       "40"        : { value: "#ABADAD"},
