@@ -52,8 +52,8 @@ module.exports = {
       "50"        : { value: "#ff615f" },
       "60"        : { value: "{color.red.bright.value}" },
       "70"        : { value: "#ed3956" },
-      "80"        : { value: "#d83b52" },
-      "90"        : { value: "#a33945" },
+      "80"        : { value: "#CC2C48" },
+      "90"        : { value: "#992136" },
       "100"       : { value: "#57282b" },
     },
     
