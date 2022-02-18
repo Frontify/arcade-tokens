@@ -21,8 +21,11 @@ module.exports = {
     "size-large"               : { value: "{body.size-large.value}", attributes: { category: "size", type: "font" } },
     "size-large-line-height"   : { value: "{body.size-large-line-height.value}", attributes: { category: "size", type: "lineHeight" } },
     // X-Large Size
-    "size-x-large"             : { value: 1.5, attributes: { category: "size", type: "font" } },
-    "size-x-large-line-height" : { value: 1.75, attributes: { category: "size", type: "lineHeight" } },
+    "size-x-large"             : { value: 1.25, attributes: { category: "size", type: "font" } },
+    "size-x-large-line-height" : { value: 1.5, attributes: { category: "size", type: "lineHeight" } },
+    // XX-Large Size
+    "size-xx-large"             : { value: 1.5, attributes: { category: "size", type: "font" } },
+    "size-xx-large-line-height" : { value: 1.75, attributes: { category: "size", type: "lineHeight" } },
     
     /**
     * STYLES
@@ -93,6 +96,30 @@ module.exports = {
         fontFamily: "{heading.family.value}",
         fontSize: "{heading.size-x-large.value}",
         lineHeight: "{heading.size-x-large-line-height.value}",
+        fontWeight: "{heading.weight-strong-name.value}",
+      },
+      attributes: {
+        category: 'font',
+        type: 'style'
+      }
+    },
+    "xx-large": {
+      value: {
+        fontFamily: "{heading.family.value}",
+        fontSize: "{heading.size-xx-large.value}",
+        lineHeight: "{heading.size-xx-large-line-height.value}",
+        fontWeight: "{heading.weight-name.value}",
+      },
+      attributes: {
+        category: 'font',
+        type: 'style'
+      }
+    },
+    "xx-large-strong": {
+      value: {
+        fontFamily: "{heading.family.value}",
+        fontSize: "{heading.size-xx-large.value}",
+        lineHeight: "{heading.size-xx-large-line-height.value}",
         fontWeight: "{heading.weight-strong-name.value}",
       },
       attributes: {
