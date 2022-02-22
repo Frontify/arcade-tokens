@@ -8,7 +8,7 @@ module.exports = {
   heading: {
     // Family
     "family"                   : { value: "{body.family.value}", attributes: { category: "font", type: 'family' } },
-    "family-stack"             : { value: "{body.family-stack.value}" },
+    "family-stack"             : { value: "{body.family-stack.value}", attributes: { category: "font", type: 'family' }  },
     // Weights
     "weight-name"              : { value: "{font.space-grotesk-medium-weight-name.value}", attributes: { category: 'font', type: 'name' } },
     "weight-number"            : { value: "{font.space-grotesk-medium-weight-number.value}", attributes: { category: 'font', type: 'weight' } },
@@ -40,7 +40,8 @@ module.exports = {
       },
       attributes: {
         category: 'font',
-        type: 'style'
+        type: 'style',
+        target: 'figma'
       }
     },
     "medium-strong": {
@@ -52,7 +53,8 @@ module.exports = {
       },
       attributes: {
         category: 'font',
-        type: 'style'
+        type: 'style',
+        target: 'figma'
       }
     },
     "large": {
@@ -64,7 +66,8 @@ module.exports = {
       },
       attributes: {
         category: 'font',
-        type: 'style'
+        type: 'style',
+        target: 'figma'
       }
     },
     "large-strong": {
@@ -76,7 +79,8 @@ module.exports = {
       },
       attributes: {
         category: 'font',
-        type: 'style'
+        type: 'style',
+        target: 'figma'
       }
     },
     "x-large": {
@@ -88,7 +92,8 @@ module.exports = {
       },
       attributes: {
         category: 'font',
-        type: 'style'
+        type: 'style',
+        target: 'figma'
       }
     },
     "x-large-strong": {
@@ -100,7 +105,8 @@ module.exports = {
       },
       attributes: {
         category: 'font',
-        type: 'style'
+        type: 'style',
+        target: 'figma'
       }
     },
     "xx-large": {
@@ -112,7 +118,8 @@ module.exports = {
       },
       attributes: {
         category: 'font',
-        type: 'style'
+        type: 'style',
+        target:'figma',
       }
     },
     "xx-large-strong": {
@@ -124,7 +131,8 @@ module.exports = {
       },
       attributes: {
         category: 'font',
-        type: 'style'
+        type: 'style',
+        target:'figma',
       }
     },
   },
