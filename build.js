@@ -148,43 +148,6 @@ StyleDictionary.registerFilter({
 });
 
 StyleDictionary.registerFilter({
-  name: "isAliasTypography",
-  matcher: (token) => {
-    if (token.filePath.indexOf("alias.") === -1) return false;
-
-    const fontCategory = token.attributes.category === "font";
-    const sizeCategory = token.attributes.category === "size";
-    const fontType = token.attributes.type === "font";
-    const lineHeightType = token.attributes.type === "lineHeight";
-
-    return (
-      fontCategory ||
-      (sizeCategory && fontType) ||
-      (sizeCategory && lineHeightType)
-    );
-  },
-});
-
-StyleDictionary.registerFilter({
-  name: "isAliasSpace",
-  matcher: (token) => {
-    if (token.filePath.indexOf("alias.") === -1) return false;
-    return (
-      token.attributes.category === "size" &&
-      token.attributes.type === "spacing"
-    );
-  },
-});
-
-StyleDictionary.registerFilter({
-  name: "isAliasColor",
-  matcher: (token) => {
-    if (token.filePath.indexOf("alias.") === -1) return false;
-    return token.attributes.category === "color";
-  },
-});
-
-StyleDictionary.registerFilter({
   name: "isComponent",
   matcher: (token) => {
     return token.filePath.indexOf("component.") > -1;
@@ -263,22 +226,15 @@ StyleDictionary.extend({
         {
           destination: "all.css",
           format: "css/variables",
-          filter: "isAlias",
-        },
-        {
-          destination: "colors.css",
-          format: "css/variables",
-          filter: "isAliasColor",
-        },
-        {
-          destination: "typography.css",
-          format: "css/variables",
-          filter: "isAliasTypography",
-        },
-        {
-          destination: "spacing.css",
-          format: "css/variables",
-          filter: "isAliasSpace",
+          filter: (token) => {
+            if (!token.filePath.includes("alias.")) {
+              return false;
+            }
+
+            const { target = "" } = token.attributes;
+
+            return target !== "figma";
+          },
         },
       ],
     },

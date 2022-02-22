@@ -7,7 +7,7 @@ module.exports = {
   body: {
     // Family
     "family"                       : { value: "{font.space-grotesk.value}", attributes: { category: "font", type: 'family' } },
-    "family-stack"                 : { value: [ "{body.family.value}", "Arial", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" ] },
+    "family-stack"                 : { value: [ "{body.family.value}", "Arial", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" ], attributes: { category: "font", type: 'family' } },
     // Weights
     "weight-name"                  : { value: "{font.space-grotesk-regular-weight-name.value}", attributes: { category: 'font', type: 'name' } },
     "weight-number"                : { value: "{font.space-grotesk-regular-weight-number.value}", attributes: { category: 'font', type: 'weight' } },
@@ -41,7 +41,8 @@ module.exports = {
       },
       attributes: {
         category: 'font',
-        type: 'style'
+        type: 'style',
+        target: 'figma'
       }
     },
     "x-small-strong": {
@@ -53,7 +54,8 @@ module.exports = {
       },
       attributes: {
         category: 'font',
-        type: 'style'
+        type: 'style',
+        target: 'figma'
       }
     },
     "x-small-x-strong": {
@@ -63,7 +65,7 @@ module.exports = {
         lineHeight: "{body.size-x-small-line-height.value}",
         fontWeight: "{body.weight-x-strong-name.value}",
       },
-      attributes: { category: 'font', type: 'style' }
+      attributes: { category: 'font', type: 'style', target: 'figma' }
     },
     "small": {
       value: {
@@ -74,7 +76,8 @@ module.exports = {
       },
       attributes: {
         category: 'font',
-        type: 'style'
+        type: 'style',
+        target: 'figma'
       }
     },
     "small-strong": {
@@ -86,7 +89,8 @@ module.exports = {
       },
       attributes: {
         category: 'font',
-        type: 'style'
+        type: 'style',
+        target: 'figma'
       }
     },
     "small-x-strong": {
@@ -96,7 +100,7 @@ module.exports = {
         lineHeight: "{body.size-small-line-height.value}",
         fontWeight: "{body.weight-x-strong-name.value}",
       },
-      attributes: { category: 'font', type: 'style' }
+      attributes: { category: 'font', type: 'style', target: 'figma' }
     },
     "medium": {
       value: {
@@ -107,7 +111,8 @@ module.exports = {
       },
       attributes: {
         category: 'font',
-        type: 'style'
+        type: 'style',
+        target: 'figma'
       }
     },
     "medium-strong": {
@@ -119,7 +124,8 @@ module.exports = {
       },
       attributes: {
         category: 'font',
-        type: 'style'
+        type: 'style',
+        target: 'figma'
       }
     },
     "medium-x-strong": {
@@ -129,7 +135,7 @@ module.exports = {
         lineHeight: "{body.size-medium-line-height.value}",
         fontWeight: "{body.weight-x-strong-name.value}",
       },
-      attributes: { category: 'font', type: 'style' }
+      attributes: { category: 'font', type: 'style', target: 'figma' }
     },
     "large": {
       value: {
@@ -140,7 +146,8 @@ module.exports = {
       },
       attributes: {
         category: 'font',
-        type: 'style'
+        type: 'style',
+        target: 'figma'
       }
     },
     "large-strong": {
@@ -152,7 +159,8 @@ module.exports = {
       },
       attributes: {
         category: 'font',
-        type: 'style'
+        type: 'style',
+        target: 'figma'
       }
     },
     "large-x-strong": {
@@ -162,7 +170,7 @@ module.exports = {
         lineHeight: "{body.size-large-line-height.value}",
         fontWeight: "{body.weight-x-strong-name.value}",
       },
-      attributes: { category: 'font', type: 'style' }
+      attributes: { category: 'font', type: 'style', target: 'figma' }
     },
   }
 };
