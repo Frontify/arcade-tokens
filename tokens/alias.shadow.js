@@ -40,7 +40,8 @@ module.exports = {
       },
       attributes: {
         category: 'shadow',
-        type: 'style'
+        type: 'style',
+        target:'figma',
       }
     },
     "top": {
@@ -53,7 +54,8 @@ module.exports = {
       },
       attributes: {
         category: 'shadow',
-        type: 'style'
+        type: 'style', 
+        target:'figma',
       }
     },
     "bottom": {
@@ -66,7 +68,8 @@ module.exports = {
       },
       attributes: {
         category: 'shadow',
-        type: 'style'
+        type: 'style',
+        target:'figma',
       }
     },
     "big": {
@@ -79,7 +82,8 @@ module.exports = {
       },
       attributes: {
         category: 'shadow',
-        type: 'style'
+        type: 'style',
+        target:'figma',
       }
     },
   },

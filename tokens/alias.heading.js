@@ -118,7 +118,8 @@ module.exports = {
       },
       attributes: {
         category: 'font',
-        type: 'style'
+        type: 'style',
+        target:'figma',
       }
     },
     "xx-large-strong": {
@@ -130,7 +131,8 @@ module.exports = {
       },
       attributes: {
         category: 'font',
-        type: 'style'
+        type: 'style',
+        target:'figma',
       }
     },
   },
