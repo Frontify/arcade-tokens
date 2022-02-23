@@ -98,6 +98,17 @@ StyleDictionary.registerTransformGroup({
   ],
 });
 
+StyleDictionary.registerTransformGroup({
+  name: "css",
+  transforms: [
+    "size/rem",
+    "name/cti/kebab",
+    "attribute/cti",
+    "color/apply-modify",
+    "color/css",
+  ],
+});
+
 /**
  * FORMATS
  */
