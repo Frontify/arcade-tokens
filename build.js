@@ -64,6 +64,30 @@ StyleDictionary.registerTransform({
   },
 });
 
+StyleDictionary.registerTransform({
+  name: "size/remTo14",
+  type: "value",
+  transitive: true,
+  matcher: (token) => token.attributes.category === "size",
+  transformer: (token) => {
+    const val = parseFloat(token.value);
+    if (isNaN(val)) console.log(token);
+    console.log(val);
+    return ((val / 14) * 16).toFixed(2) + "rem";
+  },
+});
+
+// 'size/remToPx': {
+//   type: 'value',
+//   matcher: isSize,
+//   transformer: function(token, options) {
+//     const val = parseFloat(token.value);
+//     const baseFont = getBasePxFontSize(options);
+//     if (isNaN(val)) throwSizeError(token.name, token.value, 'px');
+//     return (val * baseFont).toFixed(0) + 'px';
+//   }
+// },
+
 StyleDictionary.registerTransformGroup({
   name: "tailwind",
   transforms: [
@@ -102,6 +126,17 @@ StyleDictionary.registerTransformGroup({
   name: "css",
   transforms: [
     "size/rem",
+    "name/cti/kebab",
+    "attribute/cti",
+    "color/apply-modify",
+    "color/css",
+  ],
+});
+
+StyleDictionary.registerTransformGroup({
+  name: "css14",
+  transforms: [
+    "size/remTo14",
     "name/cti/kebab",
     "attribute/cti",
     "color/apply-modify",
@@ -252,6 +287,25 @@ StyleDictionary.extend({
           format: "css/variables",
           filter: (token) => {
             return token.filePath.includes("component.");
+          },
+        },
+      ],
+    },
+    css14: {
+      transformGroup: "css14",
+      buildPath: outputDirectory + "css/",
+      files: [
+        {
+          destination: "all14.css",
+          format: "css/variables",
+          filter: (token) => {
+            if (!token.filePath.includes("alias.")) {
+              return false;
+            }
+
+            const { target = "" } = token.attributes;
+
+            return target !== "figma";
           },
         },
       ],
