@@ -243,13 +243,6 @@ StyleDictionary.extend({
             return target !== "figma";
           },
         },
-        {
-          destination: "components.css",
-          format: "css/variables",
-          filter: (token) => {
-            return token.filePath.includes("component.");
-          },
-        },
       ],
     },
   },
