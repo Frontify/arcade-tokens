@@ -238,10 +238,6 @@ StyleDictionary.extend({
           destination: "all.css",
           format: "css/variables",
           filter: (token) => {
-            if (!token.filePath.includes("alias.")) {
-              return false;
-            }
-
             const { target = "" } = token.attributes;
 
             return target !== "figma";
