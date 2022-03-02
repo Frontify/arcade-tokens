@@ -11,8 +11,7 @@
     ".": "./dist/js/colors.js",
     "./tokens": "./dist/js/tokens.js",
     "./tailwind": "./dist/tailwind/tailwind.config.js",
-    "./styles": "./dist/css/all.css",
-    "./component-styles": "./dist/css/components.css"
+    "./styles": "./dist/css/all.css"
   },
   "scripts": {
     "build": "node build.js"

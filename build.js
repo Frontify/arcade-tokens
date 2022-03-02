@@ -238,20 +238,13 @@ StyleDictionary.extend({
           destination: "all.css",
           format: "css/variables",
           filter: (token) => {
-            if (!token.filePath.includes("alias.")) {
-              return false;
+            if (!token.filePath.includes("brand")) {
+              const { target = "" } = token.attributes;
+
+              return target !== "figma";
             }
 
-            const { target = "" } = token.attributes;
-
-            return target !== "figma";
-          },
-        },
-        {
-          destination: "components.css",
-          format: "css/variables",
-          filter: (token) => {
-            return token.filePath.includes("component.");
+            return false;
           },
         },
       ],
