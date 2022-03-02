@@ -238,9 +238,13 @@ StyleDictionary.extend({
           destination: "all.css",
           format: "css/variables",
           filter: (token) => {
-            const { target = "" } = token.attributes;
+            if (!token.filePath.includes("brand")) {
+              const { target = "" } = token.attributes;
 
-            return target !== "figma";
+              return target !== "figma";
+            }
+
+            return false;
           },
         },
       ],
