@@ -54,6 +54,31 @@ const getFontSize = ({ tokens }) => {
   return fonts;
 };
 
+const getFontWeight = ({ tokens }) => {
+  const matchingWeightTokens = tokens.filter(
+    (token) =>
+      token.attributes.category === "font" &&
+      token.attributes.type === "weight" &&
+      token.filePath.includes("alias")
+  );
+
+  const matchingWeightNameTokens = tokens.filter(
+    (token) =>
+      token.attributes.category === "font" &&
+      token.attributes.type === "name" &&
+      token.filePath.includes("alias")
+  );
+
+  return matchingWeightNameTokens.reduce((acc, cur) => {
+    const key = cur.name.replace("-weight", "").replace("-name", "");
+    const { value } = matchingWeightTokens.find(
+      (token) => token.name === cur.name.replace("-name", "-number")
+    );
+
+    return { ...acc, [key]: `${value}` };
+  }, {});
+};
+
 const getColors = ({ tokens }) => {
   const matchingTokens = tokens.filter(
     (token) =>
@@ -93,6 +118,7 @@ const getTheme = (dictionary) => {
           token.attributes.category === "font" &&
           token.attributes.type === "family",
       }),
+      fontWeight: getFontWeight({ tokens }),
       boxShadow: getObject({
         remove: "shadow",
         tokens,
