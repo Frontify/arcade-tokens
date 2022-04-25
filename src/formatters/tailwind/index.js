@@ -1,10 +1,11 @@
 const template = require("./template");
+const templateDebug = require("./template_debug");
 const StyleDictionary = require("style-dictionary");
 const { fileHeader } = StyleDictionary.formatHelpers;
 const buildPlugin = require("./buildPlugin");
 const buildTheme = require("./buildTheme");
 
-module.exports = ({ dictionary, file, options }) => {
+module.exports = ({ dictionary, file, options, debug = false }) => {
   const { outputReferences } = options;
 
   const plugin = buildPlugin({
@@ -17,5 +18,7 @@ module.exports = ({ dictionary, file, options }) => {
     dictionary,
   });
 
-  return fileHeader({ file }) + template({ theme, plugin });
+  const tailwindConfigTemplate = debug === true ? templateDebug : template;
+
+  return fileHeader({ file }) + tailwindConfigTemplate({ theme, plugin });
 };
