@@ -14,7 +14,10 @@
     "./styles": "./dist/css/all.css"
   },
   "scripts": {
-    "build": "node build.js"
+    "clean": "rimraf dist",
+    "build": "npm run clean && node build.js",
+    "build:debug": "npm run clean && node build.js --debug && npm run build:tailwind:debug",
+    "build:tailwind:debug": "npx tailwind -c ./dist/tailwind/tailwind.config.js -o ./dist/css/tailwind_unpurged.css"
   },
   "repository": {
     "url": "https://github.com/frontify/arcade-tokens"
