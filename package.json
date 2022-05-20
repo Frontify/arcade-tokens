@@ -1,7 +1,7 @@
 {
-  "name": "@frontify/arcade-tokens",
+  "name": "@frontify/fondue-tokens",
   "version": "0.1.0",
-  "description": "Single source of truth for Arcade Design Tokens",
+  "description": "Single source of truth for Fondue Design Tokens",
   "main": "index.js",
   "files": [
     "dist",
@@ -20,13 +20,13 @@
     "build:tailwind:debug": "npx tailwind -c ./dist/tailwind/tailwind.config.js -o ./dist/css/tailwind_unpurged.css"
   },
   "repository": {
-    "url": "https://github.com/frontify/arcade-tokens"
+    "url": "https://github.com/frontify/fondue-tokens"
   },
   "publishConfig": {
     "access": "public"
   },
   "keywords": [
-    "arcade",
+    "fondue",
     "design",
     "tokens",
     "variables"
@@ -34,9 +34,9 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Frontify/arcade-tokens/issues"
+    "url": "https://github.com/Frontify/fondue-tokens/issues"
   },
-  "homepage": "https://github.com/Frontify/arcade-tokens#readme",
+  "homepage": "https://github.com/Frontify/fondue-tokens#readme",
   "dependencies": {
     "tailwindcss": "^3.0.15"
   },
