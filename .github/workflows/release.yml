@@ -38,7 +38,7 @@ jobs:
         if: steps.npm_cache.outputs.cache-hit != 'true'
         run: npm ci
 
-      - name: Build Arcade
+      - name: Build fondue-tokens
         run: npm run build
 
       - name: Release
