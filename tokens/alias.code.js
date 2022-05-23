@@ -10,7 +10,7 @@ module.exports = {
     "family-stack"                 : { value: ["{code.family.value}", "Courier", "monospace"], attributes: { category: "font", type: 'family' } },
     // Weights
     "weight-name"                  : { value: "{font.menlo-regular-weight-name.value}", attributes: { category: 'font', type: 'name' } },
-    "weight-number"                : { value: "{font.menlo-regular-weight-name.value}", attributes: { category: 'font', type: 'weight' } },
+    "weight-number"                : { value: "{font.menlo-regular-weight-number.value}", attributes: { category: 'font', type: 'weight' } },
     "weight-strong-name"           : { value: "{font.menlo-bold-weight-name.value}", attributes: { category: 'font', type: 'name' } },
     "weight-strong-number"         : { value: "{font.menlo-bold-weight-number.value}", attributes: { category: 'font', type: 'weight' } },
     // Small Size
