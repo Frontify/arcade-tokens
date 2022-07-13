@@ -1,4 +1,8 @@
 const trimHyphens = require("../../utils/trimHyphens");
+const boxshadow = require("./legacyValues/boxshadow");
+const legacyValues = require("./legacyValues/colors");
+const fontFamilyAddition = require("./legacyValues/fontFamilyAddition");
+const fontSize = require("./legacyValues/fontSize");
 
 const getOutline = ({ dictionary }) => {
   return {
@@ -79,27 +83,39 @@ const getTheme = (dictionary) => {
   const tokens = dictionary.allTokens;
 
   return {
-    colors: getColors({
-      tokens,
-    }),
     extend: {
-      fontSize: getFontSize({
-        tokens,
-      }),
-      fontFamily: getObject({
-        remove: "family",
-        tokens,
-        filter: (token) =>
-          token.attributes.category === "font" &&
-          token.attributes.type === "family",
-      }),
-      boxShadow: getObject({
-        remove: "shadow",
-        tokens,
-        filter: (token) =>
-          token.attributes.category === "shadow" &&
-          token.attributes.type === "matrix",
-      }),
+      colors: {
+        ...legacyValues,
+        ...getColors({
+          tokens,
+        }),
+      },
+      fontSize: {
+        ...getFontSize({
+          tokens,
+        }),
+        ...fontSize,
+      },
+      fontFamily: {
+        ...getObject({
+          remove: "family",
+          tokens,
+          filter: (token) =>
+            token.attributes.category === "font" &&
+            token.attributes.type === "family",
+        }),
+        ...fontFamilyAddition,
+      },
+      boxShadow: {
+        ...getObject({
+          remove: "shadow",
+          tokens,
+          filter: (token) =>
+            token.attributes.category === "shadow" &&
+            token.attributes.type === "matrix",
+        }),
+        ...boxshadow,
+      },
       borderWidth: getObject({
         remove: "line-width",
         tokens,
@@ -114,9 +130,9 @@ const getTheme = (dictionary) => {
           token.attributes.category === "size" &&
           token.attributes.type === "borderRadius",
       }),
-
       ringColor: {
         DEFAULT: `var(--${dictionary.tokens.focus["ring-color"].name})`,
+        blue: `var(--${dictionary.tokens.focus["ring-color"].name})`,
       },
       outline: getOutline({ dictionary }),
       spacing: getObject({
