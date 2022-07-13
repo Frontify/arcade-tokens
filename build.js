@@ -8,7 +8,7 @@ const formatTailwind = require("./src/formatters/tailwind");
 const formatFigma = require("./src/formatters/figma/index.js");
 const mergeFigmaFiles = require("./src/utils/mergeFigmaFiles.js");
 const trimHyphens = require("./src/utils/trimHyphens");
-const debug = process.argv[2] === '--debug';
+const debug = process.argv[2] === "--debug";
 
 /**
  * FILE SYSTEM
@@ -239,13 +239,9 @@ StyleDictionary.extend({
           destination: "all.css",
           format: "css/variables",
           filter: (token) => {
-            if (!token.filePath.includes("brand")) {
-              const { target = "" } = token.attributes;
+            const { target = "" } = token.attributes;
 
-              return target !== "figma";
-            }
-
-            return false;
+            return target !== "figma";
           },
         },
       ],
