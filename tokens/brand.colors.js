@@ -89,5 +89,26 @@ module.exports = {
       "90"        : { value: "#7b5e29" },
       "100"       : { value: "#594624" },
    },
+
+   // LEGACY BLACK
+    "black": {
+      "DEFAULT": { value: "#2d3232" },
+      "superdark": { value: "#1a1d1d" },
+      "100": { value: "#2d3232" },
+      "95": { value: "#424747" },
+      "90": { value: "#575b5b" },
+      "85": { value: "#5f6363" },
+      "80": { value: "#6c7070" },
+      "70": { value: "#818484" },
+      "60": { value: "#969898" },
+      "50": { value: "#abadad" },
+      "40": { value: "#b3b5b5" },
+      "30": { value: "#c0c2c2" },
+      "20": { value: "#d5d6d6" },
+      "10": { value: "#eaebeb" },
+      "5": { value: "#f7f7f7" },
+      "0": { value: "#fafafa" },
+      "warm": { value: "#e6dcdc" },
+    }
   },
 };
