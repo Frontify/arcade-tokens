@@ -300,7 +300,7 @@ colorThemes.forEach((theme) => {
           {
             destination: `theme.${theme}.css`,
             format: "css/variables",
-            options: { theme: theme },
+            options: { theme: theme, selector: `.tw-${theme}` },
             filter: (token) => {
               return (
                 token.filePath.indexOf(theme) > -1 &&
