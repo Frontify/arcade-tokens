@@ -9,6 +9,5 @@ module.exports = {
     "color-alt" : { value: "{color.grey.90.value}", attributes: { category: "color" } },
     "color-transparent" : { value: "transparent", attributes: { category: "color" } },
     "color-current" : { value: "currentColor", attributes: { category: "color" } },
-    "color-white" : { value: "#ffffff", attributes: { category: "color" } }
   }
 };
