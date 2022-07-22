@@ -22,7 +22,7 @@ module.exports = {
     "positive-background-color"                : { value: "{button.background-color.value}", attributes: { category: "color" } },
     "positive-background-color-hover"          : { value: "{button.background-color-hover.value}", attributes: { category: "color" } },
     "positive-background-color-pressed"        : { value: "{button.background-color-pressed.value}", attributes: { category: "color" } },
-    "positive-text-color"                      : { value: "{color.grey.100.value}", attributes: { category: "color" } },
+    "positive-text-color"                      : { value: "{button.text-color.value}", attributes: { category: "color" } },
     "positive-icon-color"                      : { value: "{text.color-positive.value}", attributes: { category: "color" } },
     "positive-border-color"                    : { value: "{line.color-weak.value}", attributes: { category: "color" } },
       
