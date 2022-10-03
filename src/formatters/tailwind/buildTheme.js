@@ -74,8 +74,10 @@ const getBoxShadow = ({ tokens, dictionary }) => {
     boxShadowObject[key || "DEFAULT"] = `var(--${token.name})`;
   });
   Object.assign(boxShadowObject, {
-    "inner-line": `inset 0 0 0 var(--${dictionary.tokens.line["width"].name}) var(--${dictionary.tokens.line["color"].name}))`,
-    "inner-line-strong": `inset 0 0 0 var(--${dictionary.tokens.line["width"].name}) var(--${dictionary.tokens.line["color-strong"].name}))`,
+    "inner-line": `inset 0 0 0 var(--${dictionary.tokens.line["width"].name}) var(--${dictionary.tokens.line["color"].name})`,
+    "inner-line-strong": `inset 0 0 0 var(--${dictionary.tokens.line["width"].name}) var(--${dictionary.tokens.line["color-strong"].name})`,
+    "inner-line-x-strong": `inset 0 0 0 var(--${dictionary.tokens.line["width"].name}) var(--${dictionary.tokens.line["color-x-strong"].name})`,
+    "inner-line-xx-strong": `inset 0 0 0 var(--${dictionary.tokens.line["width"].name}) var(--${dictionary.tokens.line["color-xx-strong"].name})`,
   });
   return boxShadowObject;
 };
