@@ -62,6 +62,25 @@ const getColors = ({ tokens }) => {
     };
   }, {});
 };
+const getBoxShadow = ({ tokens, dictionary }) => {
+  const matchingTokens = tokens.filter(
+    (token) =>
+      token.attributes.category === "shadow" &&
+      token.attributes.type === "matrix"
+  );
+  let boxShadowObject = {};
+  matchingTokens.forEach((token) => {
+    const key = trimHyphens(token.name.replace("shadow", ""));
+    boxShadowObject[key || "DEFAULT"] = `var(--${token.name})`;
+  });
+  Object.assign(boxShadowObject, {
+    "inner-line": `inset 0 0 0 var(--${dictionary.tokens.line["width"].name}) var(--${dictionary.tokens.line["color"].name})`,
+    "inner-line-strong": `inset 0 0 0 var(--${dictionary.tokens.line["width"].name}) var(--${dictionary.tokens.line["color-strong"].name})`,
+    "inner-line-x-strong": `inset 0 0 0 var(--${dictionary.tokens.line["width"].name}) var(--${dictionary.tokens.line["color-x-strong"].name})`,
+    "inner-line-xx-strong": `inset 0 0 0 var(--${dictionary.tokens.line["width"].name}) var(--${dictionary.tokens.line["color-xx-strong"].name})`,
+  });
+  return boxShadowObject;
+};
 const getTheme = (dictionary) => {
   const tokens = dictionary.allTokens;
 
@@ -80,12 +99,9 @@ const getTheme = (dictionary) => {
           token.attributes.category === "font" &&
           token.attributes.type === "family",
       }),
-      boxShadow: getObject({
-        remove: "shadow",
+      boxShadow: getBoxShadow({
         tokens,
-        filter: (token) =>
-          token.attributes.category === "shadow" &&
-          token.attributes.type === "matrix",
+        dictionary,
       }),
       borderWidth: getObject({
         remove: "line-width",
