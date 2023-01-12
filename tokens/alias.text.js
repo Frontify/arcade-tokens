@@ -11,7 +11,7 @@ module.exports = {
     "color-disabled"    : { value: "{color.grey.40.value}", attributes: { category: "color" } },
     "color-negative"    : { value: "{color.red.70.value}", attributes: { category: "color" } },
     "color-positive"    : { value: "{color.green.70.value}", attributes: { category: "color" } },
-    "color-warning"     : { value: "{color.yellow.70.value}", attributes: { category: "color" } },
+    "color-warning"     : { value: "{color.yellow.80.value}", attributes: { category: "color" } },
     "color-interactive" : { value: "{color.violet.70.value}", attributes: { category: "color" } },
   }
 };
