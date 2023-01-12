@@ -85,7 +85,7 @@ module.exports = {
       "50"        : { value: "#f8bb40" },
       "60"        : { value: "{color.yellow.bright.value}" },
       "70"        : { value: "#e6a518" },
-      "80"        : { value: "#c28d25" },
+      "80"        : { value: "#c58a0c" }, // Overridden (adjusted for accessibility)
       "90"        : { value: "#7b5e29" },
       "100"       : { value: "#594624" },
    },
