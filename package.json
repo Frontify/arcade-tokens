@@ -1,7 +1,7 @@
 {
-  "name": "@frontify/arcade-tokens",
+  "name": "@frontify/fondue-tokens",
   "version": "0.1.0",
-  "description": "Single source of truth for Arcade Design Tokens",
+  "description": "Single source of truth for Fondue Design Tokens",
   "main": "index.js",
   "files": [
     "dist",
@@ -11,22 +11,24 @@
     ".": "./dist/js/colors.js",
     "./tokens": "./dist/js/tokens.js",
     "./tailwind": "./dist/tailwind/tailwind.config.js",
-    "./styles": "./dist/css/all.css"
+    "./styles": "./dist/css/all.css",
+    "./themes/*": "./dist/css/*"
   },
   "scripts": {
     "clean": "rimraf dist",
     "build": "npm run clean && node build.js",
+    "watch": "npm run clean && nodemon --ignore dist/ --ignore temp/ build.js",
     "build:debug": "npm run clean && node build.js --debug && npm run build:tailwind:debug",
     "build:tailwind:debug": "npx tailwind -c ./dist/tailwind/tailwind.config.js -o ./dist/css/tailwind_unpurged.css"
   },
   "repository": {
-    "url": "https://github.com/frontify/arcade-tokens"
+    "url": "https://github.com/frontify/fondue-tokens"
   },
   "publishConfig": {
     "access": "public"
   },
   "keywords": [
-    "arcade",
+    "fondue",
     "design",
     "tokens",
     "variables"
@@ -34,14 +36,16 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Frontify/arcade-tokens/issues"
+    "url": "https://github.com/Frontify/fondue-tokens/issues"
   },
-  "homepage": "https://github.com/Frontify/arcade-tokens#readme",
+  "homepage": "https://github.com/Frontify/fondue-tokens#readme",
   "dependencies": {
     "tailwindcss": "^3.0.15"
   },
   "devDependencies": {
+    "chalk": "^5.0.1",
     "chroma-js": "^2.1.2",
+    "nodemon": "^2.0.19",
     "prettier": "^2.4.1",
     "rimraf": "^3.0.2",
     "semantic-release": "^19.0.0",

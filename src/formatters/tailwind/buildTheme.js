@@ -5,10 +5,8 @@ const getOutline = ({ dictionary }) => {
     violet: `1px solid var(--${dictionary.tokens.focus["ring-color"].name})`,
   };
 };
-
 const getObject = ({ tokens, filter, remove }) => {
   const matchingTokens = tokens.filter(filter);
-
   let object = {};
   matchingTokens.forEach((token) => {
     const key = trimHyphens(token.name.replace(remove, ""));
@@ -16,17 +14,14 @@ const getObject = ({ tokens, filter, remove }) => {
   });
   return object;
 };
-
 const getFontSize = ({ tokens }) => {
   const matchingTokens = tokens.filter(
     (token) =>
       token.attributes.category === "size" &&
       ["font", "lineHeight"].includes(token.attributes.type)
   );
-
   const dictionary = matchingTokens.reduce((acc, cur) => {
     const slug = cur.name.replace("-line-height", "");
-
     return {
       ...acc,
       [slug]: {
@@ -35,10 +30,8 @@ const getFontSize = ({ tokens }) => {
       },
     };
   }, {});
-
   const list = Object.keys(dictionary).map((key) => {
     const slug = key.replace("size-", "");
-
     return {
       [slug]: [
         `var(--${dictionary[key][key].name})`,
@@ -46,23 +39,18 @@ const getFontSize = ({ tokens }) => {
       ],
     };
   });
-
   const fonts = list.reduce((acc, cur) => {
     return { ...acc, ...cur };
   }, {});
-
   return fonts;
 };
-
 const getColors = ({ tokens }) => {
   const matchingTokens = tokens.filter(
     (token) =>
       token.attributes.category === "color" && !token.filePath.includes("brand")
   );
-
   return matchingTokens.reduce((acc, token) => {
     const { type, item } = token.attributes;
-
     const key =
       trimHyphens(type.replace("color", "").replace("--", "-")) || "DEFAULT";
     return {
@@ -74,7 +62,25 @@ const getColors = ({ tokens }) => {
     };
   }, {});
 };
-
+const getBoxShadow = ({ tokens, dictionary }) => {
+  const matchingTokens = tokens.filter(
+    (token) =>
+      token.attributes.category === "shadow" &&
+      token.attributes.type === "matrix"
+  );
+  let boxShadowObject = {};
+  matchingTokens.forEach((token) => {
+    const key = trimHyphens(token.name.replace("shadow", ""));
+    boxShadowObject[key || "DEFAULT"] = `var(--${token.name})`;
+  });
+  Object.assign(boxShadowObject, {
+    "inner-line": `inset 0 0 0 var(--${dictionary.tokens.line["width"].name}) var(--${dictionary.tokens.line["color"].name})`,
+    "inner-line-strong": `inset 0 0 0 var(--${dictionary.tokens.line["width"].name}) var(--${dictionary.tokens.line["color-strong"].name})`,
+    "inner-line-x-strong": `inset 0 0 0 var(--${dictionary.tokens.line["width"].name}) var(--${dictionary.tokens.line["color-x-strong"].name})`,
+    "inner-line-xx-strong": `inset 0 0 0 var(--${dictionary.tokens.line["width"].name}) var(--${dictionary.tokens.line["color-xx-strong"].name})`,
+  });
+  return boxShadowObject;
+};
 const getTheme = (dictionary) => {
   const tokens = dictionary.allTokens;
 
@@ -93,12 +99,9 @@ const getTheme = (dictionary) => {
           token.attributes.category === "font" &&
           token.attributes.type === "family",
       }),
-      boxShadow: getObject({
-        remove: "shadow",
+      boxShadow: getBoxShadow({
         tokens,
-        filter: (token) =>
-          token.attributes.category === "shadow" &&
-          token.attributes.type === "matrix",
+        dictionary,
       }),
       borderWidth: getObject({
         remove: "line-width",
