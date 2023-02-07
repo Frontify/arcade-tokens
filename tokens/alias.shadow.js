@@ -11,7 +11,7 @@ module.exports = {
     "offset-y"        : { value: 0.1875, attributes: { category: "size", type: "shadowOffset", item: "y" } },
     "spread"          : { value: 0, attributes: { category: "size", type: "shadowSpread" } },
     "blur"            : { value: 0.625, attributes: { category: "size", type: "shadowBlur" } },
-    "color"           : { value: "{color.grey.100.value}", attributes: { category: "color", type: "shadow" }, modify: [{ type: "alpha", amount: 0.15 }] },
+    "color"           : { value: "{color.grey.90.value}", attributes: { category: "color", type: "shadow" }, modify: [{ type: "alpha", amount: 0.15 }] },
     // Top shadow
     "top-matrix"      : { value: "{shadow.top-offset-y.value} {shadow.top-offset-x.value} {shadow.blur.value} {shadow.top-spread.value} {shadow.color.value}", attributes: { type: "matrix" } },
     "top-offset-x"    : { value: "{shadow.offset-x.value}", attributes: { category: "size", type: "shadowOffset", item: "x", } },
@@ -28,7 +28,7 @@ module.exports = {
     "large-offset-y"  : { value: 1.5625, attributes: { category: "size", type: "shadowOffset", item: "y" } },
     "large-spread"    : { value: 0, attributes: { category: "size", type: "shadowSpread" } },
     "large-blur"      : { value: 5, attributes: { category: "size", type: "shadowBlur" } },
-    "large-color"     : { value: "{color.grey.100.value}", attributes: { category: "color", type: "shadow" }, modify: [{ type: "alpha", amount: 0.2 }] },
+    "large-color"     : { value: "{color.grey.90.value}", attributes: { category: "color", type: "shadow" }, modify: [{ type: "alpha", amount: 0.2 }] },
     
     "_": {
       value: {
