@@ -7,7 +7,7 @@ module.exports = {
   box: {
     // Neutral
     "neutral-color"                            : { value: "{color.grey.70.value}", attributes: { category: "color" } },
-    "neutral-color-hover"                      : { value: "{color.grey.90.value}", attributes: { category: "color" } },
+    "neutral-color-hover"                      : { value: "{color.grey.60.value}", attributes: { category: "color" } },
     "neutral-color-pressed"                    : { value: "{color.grey.100.value}", attributes: { category: "color" } },
     "neutral-inverse-color"                    : { value: "{color.grey.0.value}", attributes: { category: "color" } },
     "neutral-inverse-color-hover"              : { value: "{color.grey.20.value}", attributes: { category: "color" } },
