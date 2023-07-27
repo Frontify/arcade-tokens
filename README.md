@@ -190,5 +190,5 @@ Now go forth and create! Take a look at all the built-in [transforms](https://am
 
 **How to use Alias tokens**
 
-Check our explainer video [here](https://weare.frontify.com/document/1269#/alias-tokens/how-to-use-alias-tokens) on Fondue Docs.
+Please, check our explainer video [here](https://weare.frontify.com/document/1269#/alias-tokens/how-to-use-alias-tokens) on Fondue Docs.
 
