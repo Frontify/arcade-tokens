@@ -6,7 +6,7 @@
 module.exports = {
   text: {
     "color"             : { value: "{color.grey.0.value}", attributes: { category: "color" } },
-    "color-weak"        : { value: "{color.grey.60.value}", attributes: { category: "color" } },
+    "color-weak"        : { value: "{color.grey.40.value}", attributes: { category: "color" } },
     "color-x-weak"      : { value: "{color.grey.50.value}", attributes: { category: "color" } },
     "color-negative"    : { value: "{color.red.40.value}", attributes: { category: "color" } },
     "color-positive"    : { value: "{color.green.40.value}", attributes: { category: "color" } },
