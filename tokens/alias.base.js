@@ -1,6 +1,6 @@
 /**
 * BASE
-* All containers (e.g. flyout, panel) and the main background of the application.
+* All containers (e.g. dialogs, panel) and the main background of the application.
 * ======================================================================== */
 
 module.exports = {
