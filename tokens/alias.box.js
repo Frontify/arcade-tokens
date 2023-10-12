@@ -20,6 +20,13 @@ module.exports = {
     "neutral-strong-inverse-color-hover"    : { value: "{color.grey.10.value}", attributes: { category: "color" } },
     "neutral-strong-inverse-color-pressed"  : { value: "{color.grey.20.value}", attributes: { category: "color" } },
 
+    "neutral-mighty-color"                  : { value: "{color.grey.80.value}", attributes: { category: "color" } },
+    "neutral-mighty-color-hover"            : { value: "{color.grey.70.value}", attributes: { category: "color" } },
+    "neutral-mighty-color-pressed"          : { value: "{color.grey.100.value}", attributes: { category: "color" } },
+    "neutral-mighty-inverse-color"          : { value: "{color.grey.0.value}", attributes: { category: "color" } },
+    "neutral-mighty-inverse-color-hover"    : { value: "{color.grey.0.value}", attributes: { category: "color" } },
+    "neutral-mighty-inverse-color-pressed"  : { value: "{color.grey.20.value}", attributes: { category: "color" } },
+
     // Selected
     "selected-color"                        : { value: "{color.violet.10.value}", attributes: { category: "color" } },
     "selected-color-hover"                  : { value: "{color.violet.20.value}", attributes: { category: "color" } },
