@@ -9,6 +9,7 @@ module.exports = {
     "off-white" : { value: "#FAFAFA" },
     "charcoal"  : { value: "#2D3232" },
     "warm-grey" : { value: "#E6DCDC" },
+    "disabled-dark" : { value: "#A5A8A8" },
 
     "grey": {
       "0"         : { value: "#FFFFFF" },
