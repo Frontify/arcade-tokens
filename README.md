@@ -1,3 +1,6 @@
+### [ Deprecation warning ]
+> This repository is no longer in use. The `fonude-tokens` package is maintained inside the [Fondue monorepo](https://github.com/Frontify/fondue/tree/main/packages/tokens)
+
 # Fondue Tokens
 
 This example code is bare-bones to show you what this framework can do. If you have the style-dictionary module installed globally, you can `cd` into this directory and run:
